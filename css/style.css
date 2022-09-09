@@ -58,7 +58,7 @@
     
     /* background-color: white; */
     
-    z-index: 8; 
+    z-index: 11; 
     right: 1px;
     bottom: 1px;
     display: flex;
@@ -1035,7 +1035,18 @@ th {
     position: fixed;
     right: 50px ; 
     top: 50px;
+    width: 80px;
     z-index: 200;
     cursor: pointer;
     display: flex;
+    justify-content: center;
+
+    background-color: #FFFF;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    outline: none;
+}
+
+.container_time_time:hover {
+    border: 1px solid #ee4d2d; 
 }

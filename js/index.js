@@ -330,6 +330,20 @@ window.onload = function () {
             e6.classList.toggle("none")
             e7.classList.toggle("none")
 
+            Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
+
+                console.log(Object.keys(e.attributes).length);
+                if (Object.keys(e.attributes).length === 2) {
+                    console.log(e);
+                    console.log(e.children[0].children[0].children[0]);
+                    console.log(e.children[0].children[0].children[0].children.length);
+                    if (e.children[0].children[0].children[0].children.length === 3) {
+                        e.children[0].children[0].children[0].children[2].classList.toggle("none")
+                    }
+                }
+
+            });
+
         }
         //=======================================================================
 
