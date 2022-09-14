@@ -289,9 +289,7 @@ window.onload = function () {
         'S_work: ', S_work,
         'S_Tool_Recovery: ', S_Tool_Recovery
     )
-
-
-
+    
 
 
     //word
@@ -384,7 +382,7 @@ window.onload = function () {
         // }
 
         dragElement(document.querySelector('.container_time_time'))
-        
+
 
         //RIÊNG SEARCH ======================================================================
 
@@ -2829,7 +2827,7 @@ window.onload = function () {
             setInterval(() => {
                 let el_hours = document.querySelector('.clock_hours')
                 let el_minutes = document.querySelector('.clock_minutes')
-                let el_seconds = document.querySelector('.clock_seconds')                
+                let el_seconds = document.querySelector('.clock_seconds')
                 let el_time_hours = document.querySelector('.time_hour')
                 let el_time_minutes = document.querySelector('.time_minutes')
                 let el_time_second = document.querySelector('.time_second')
@@ -3130,9 +3128,9 @@ window.onload = function () {
                     if (id === 'case-detail') {
                         console.log('thông tin');
                         var list_item_case_detail = e.children[0].children[0].children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[1].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_case_detail, '*Lý do phiếu L1').children[1].children[0].children[0].children[0]
-                        Item_L2 = Find_Item(list_item_case_detail, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        Item_L3 = Find_Item(list_item_case_detail, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
+                        Item_L1 = Find_Item(list_item_case_detail, '*Lý do phiếu').children[1].children[0].children[0].children[0]
+                        //Item_L2 = Find_Item(list_item_case_detail, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
+                        //Item_L3 = Find_Item(list_item_case_detail, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
                         Item_Trang_thai_case = Find_Item(list_item_case_detail, '*Trạng thái Case').children[1].children[0].children[0].children[0]
                         console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
                     }
@@ -3140,9 +3138,9 @@ window.onload = function () {
                     if (id === 'agentchat?s') {
                         console.log('chat');
                         var list_item_chat = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu L1').children[1].children[0].children[0].children[0]
-                        Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
+                        Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu').children[1].children[0].children[0].children[0]
+                        //Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
+                        // Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
                         Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0]
                         console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
                     }
@@ -3150,9 +3148,9 @@ window.onload = function () {
                     if (id === 'case/create') {
                         console.log('tạo case')
                         var list_item_case_create = e.children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_case_create, '*Lý do phiếu L1').children[1].children[0].children[0].children[0]
-                        Item_L2 = Find_Item(list_item_case_create, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        Item_L3 = Find_Item(list_item_case_create, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
+                        Item_L1 = Find_Item(list_item_case_create, '*Lý do phiếu').children[1].children[0].children[0].children[0]
+                        //Item_L2 = Find_Item(list_item_case_create, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
+                        //Item_L3 = Find_Item(list_item_case_create, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
                         //Item_Trang_thai_case = Find_Item(list_item_case_create,'*Trạng thái Case').children[1].children[0].children[0].children[0]
                         console.log(Item_L1, Item_L2, Item_L3);
                     }
@@ -3165,18 +3163,17 @@ window.onload = function () {
             //console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
             switch (Item_Trang_thai_case) {
                 case undefined:
-                    elementReading(Item_L1, Request_L1)
+                    elementReading(Item_L1, Request_L1, 1)
                         .then((e) => {
-                            //console.log(e);
-                            e.click()
-                            return elementReading(Item_L2, Request_L2)
+                            console.log(e);
+                            return elementReading(e, Request_L2, 2)
                         })
                         .then((e) => {
-                            //console.log(e);
-                            e.click()
-                            return elementReading(Item_L3, Request_L3)
+                            console.log(e);
+                            return elementReading(e, Request_L3, 3)
                         })
                         .then((e) => {
+                            console.log(e);
                             e.click()
                         })
                     break;
@@ -3184,20 +3181,20 @@ window.onload = function () {
                 default:
                     elementReading(Item_Trang_thai_case, Trang_thai_case)
                         .then((e) => {
+                            console.log(e);
                             if (e !== undefined) {
                                 e.click()
                             }
-                            return elementReading(Item_L1, Request_L1)
+                            return elementReading(Item_L1, Request_L1, 1)
+                        })
+                        .then((e) => {
+                            //console.log(e);
+                            return elementReading(e, Request_L2, 2)
                         })
                         .then((e) => {
                             //console.log(e);
                             e.click()
-                            return elementReading(Item_L2, Request_L2)
-                        })
-                        .then((e) => {
-                            //console.log(e);
-                            e.click()
-                            return elementReading(Item_L3, Request_L3)
+                            return elementReading(e, Request_L3, 3)
                         })
                         .then((e) => {
                             e.click()
@@ -3206,67 +3203,182 @@ window.onload = function () {
             }
         }
 
-        function elementReading(params, Request) {
+        function elementReading(params, Request, time) {
             return new Promise(function (resolve, reject) {
-                //console.log(params);
+                console.log(params, Request, time);
+
                 params ? params.click() : reject('Không tìm thấy params: ' + params)
-
-                switch (params.parentElement.children.length) {
-                    case 2:
-                        console.log('Trường hợp đã load dữ liệu => click nhanh hơn')
-                        var ele_result = params.nextSibling.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children
-                        Array.from(ele_result).forEach(element => {
-                            if (element.textContent === Request) {
-                                console.log('element.textContent: ', element.textContent);
-                                resolve(element)
-                            }
-                        });
-                        resolve()
-                        break;
-
+                switch (time) {
                     case 1:
-                        console.log('Trường hợp chưa load dữ liệu => chạy event MutationObserver')
+                        console.log('lần 1');
+                        console.log(Request);
 
-                        const observerOptions = {
+                        var observerOptions = {
                             childList: true,
+                            attributes: true,
+                            characterData: true,
+                            subtree: true,
+                            attributeOldValue: true,
+                            characterDataOldValue: true
                         }
 
-                        const observer = new MutationObserver(callback)
-
-                        const targetNodes = params.parentElement
+                        var observer = new MutationObserver(callback)
+                        var targetNodes = body
                         observer.observe(targetNodes, observerOptions)
-
                         function callback(mutations) {
 
                             console.log('mutations: ', mutations);
-                            console.log('mutations: ', mutations[0].target);
+                            console.log('mutations: ', mutations[2].target);
 
-                            var ele_result = mutations[0].target.children[1].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children
-                            //console.log('nè 1', ele_result);
-
+                            var ele_result = mutations[2].target.children[0].children[1].children[0].children[0].children[0].children
+                            console.log(ele_result);
+                            console.log(observer);
                             observer.disconnect()
+                            console.log(observer);
+
+                            console.log(Request);
                             Array.from(ele_result).forEach(element => {
                                 if (element.textContent === Request) {
-                                    //console.log('element.textContent: ', element.textContent);
-                                    //console.log('element: ', element.parentElement.children);
+                                    console.log('element.textContent: ', element.textContent);
+                                    console.log(element);
                                     resolve(element)
                                 }
                             });
                         }
                         break;
 
+                    case 2:
+                        console.log('lần 2');
+                        console.log(Request);
+
+                        console.log(params.parentElement.nextSibling);
+
+                        Array.from(params.parentElement.nextSibling.children).forEach(element => {
+                            if (element.textContent === Request) {
+                                console.log('element.textContent: ', element.textContent);
+                                console.log(element);
+                                resolve(element)
+                            }
+                        });
+                        break;
+                        
+                    case 3:
+                        console.log('lần 3');
+                        console.log(Request);
+                        console.log(params.parentElement.parentElement);
+                        console.log(params.parentElement.parentElement.children.length);
+                        if (params.parentElement.parentElement.children.length === 2) {
+                            var observerOptions3 = {
+                                childList: true,
+                                attributes: true,
+                                characterData: true,
+                                subtree: true,
+                                attributeOldValue: true,
+                                characterDataOldValue: true
+
+                            }
+
+                            var observer3 = new MutationObserver(callback3)
+                            var targetNodes3 = params.parentElement.parentElement
+                            observer3.observe(targetNodes3, observerOptions3)
+                            function callback3(mutations) {
+
+                                console.log('mutations: ', mutations);
+                                console.log('mutations: ', mutations[0].addedNodes[0]);
+
+                                observer3.disconnect()
+                                // var ele_result = mutations[2].target.children[0].children[1].children[0].children[0].children[0].children
+                                // console.log(ele_result);
+
+
+                                // console.log(Request);
+                                // Array.from(ele_result).forEach(element => {
+                                //     if (element.textContent === Request) {
+                                //         console.log('element.textContent: ', element.textContent);
+                                //         console.log(element);
+                                //         resolve(element)
+                                //     }
+                                // });
+                            }
+                        }
+
+                        if (params.parentElement.parentElement.children.length === 3) {
+
+                            Array.from(params.parentElement.nextSibling.children).forEach(element => {
+                                if (element.textContent === Request) {
+                                    console.log('element.textContent: ', element.textContent);
+                                    console.log(element);
+                                    resolve(element)
+                                }
+                            });
+                        }
+
                     default:
+                        console.log(Request);
+                        console.log(params.parentElement.children);
+                        console.log(params.parentElement.children.length);
+
+                        switch (params.parentElement.children.length) {
+
+                            case 2:
+                                console.log('Trường hợp đã load dữ liệu => click nhanh hơn')
+                                var ele_result = params.nextSibling.children[0].children[0].children[0].children[1].children[0].children[0].children[0].children
+                                Array.from(ele_result).forEach(element => {
+                                    if (element.textContent === Request) {
+                                        console.log('element.textContent: ', element.textContent);
+                                        resolve(element)
+                                    }
+                                });
+                                resolve()
+                                break;
+
+                            case 1:
+                                console.log('Trường hợp chưa load dữ liệu => chạy event MutationObserver')
+
+                                const observerOptions = {
+                                    childList: true,
+                                }
+
+                                const observer = new MutationObserver(callback)
+
+                                const targetNodes = params.parentElement
+                                observer.observe(targetNodes, observerOptions)
+
+                                function callback(mutations) {
+
+                                    console.log('mutations: ', mutations);
+                                    console.log('mutations: ', mutations[0].target);
+
+                                    var ele_result = mutations[0].target.children[1].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children
+                                    //console.log('nè 1', ele_result);
+
+                                    observer.disconnect()
+                                    Array.from(ele_result).forEach(element => {
+                                        if (element.textContent === Request) {
+                                            //console.log('element.textContent: ', element.textContent);
+                                            //console.log('element: ', element.parentElement.children);
+                                            resolve(element)
+                                        }
+                                    });
+                                }
+                                break;
+
+
+
+                            default:
+                                break;
+                        }
                         break;
                 }
-
-
             })
         }
 
         function Find_Item(params, item) {
             var result
+            console.log(params, item);
             Array.from(params).forEach((e) => {
                 if (e.children.length === 2) {
+                    console.log(e.children[0].textContent);
                     if (e.children[0].textContent === item) {
                         result = e
                     }
@@ -5353,6 +5465,13 @@ const data_LDP = [
         L2: 'Khiếu nại',
         L3: 'Yêu cầu thêm bằng chứng',
         Explain: 'Dispute yêu cầu cung cấp thêm bằng chứng',
+    },
+
+    {
+        L1: 'Trả hàng & Hoàn tiền',
+        L2: 'Khiếu nại',
+        L3: 'Tiếp nhận bằng chứng',
+        Explain: 'KH cung cấp bằng chứng khiếu nại',
     },
     //==============================
     {
