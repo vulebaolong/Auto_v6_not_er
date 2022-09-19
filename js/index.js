@@ -289,7 +289,7 @@ window.onload = function () {
         'S_work: ', S_work,
         'S_Tool_Recovery: ', S_Tool_Recovery
     )
-    
+
 
 
     //word
@@ -571,153 +571,49 @@ window.onload = function () {
 
         var el_item_test = document.querySelector('.item_test')
         el_item_test.onclick = (ev) => {
+            var Item_L1
+            var Item_L2
+            var Item_L3
+            var Item_Trang_thai_case
+            var id
+            Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
+                console.log(Object.keys(e.attributes).length);
+                if (Object.keys(e.attributes).length === 2) {
 
-            // Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
+                    id = e.attributes.id.value.substr(44, 11)
+                    if (id === 'agentchat?s') {
+                        console.log('chat');
+                        var list_item_chat = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
+                        Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu').children[1].children[0].children[0].children[0]
+                        //Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
+                        // Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
+                        Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0].children[0]
+                        console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
+                    }
+                }
 
-            //     //console.log(Object.keys(e.attributes).length);
-            //     if (Object.keys(e.attributes).length === 2) {
-            //         console.log(e);
-            //         var id = e.attributes.id.value.substr(44, 11)
-            //         var id_case = e.attributes.id.value.slice(-19)
-            //         console.log(id_case)
+            });
+            Item_Trang_thai_case.click()
+            eventFire(Item_Trang_thai_case, 'click')
+            console.log(Item_Trang_thai_case);
 
-            //         let html_mes_chat = `
-            //             <div class="container_mes_chat" id="${id_case}">
-            //                 <div class="mes_chat">
-            //                     <div class="mes_chat_buttons_menu">
-            //                         <div class="mes_chat_buttons1">
-            //                             <i class="fa-solid fa-paper-plane-top"></i>       
-            //                         </div>
-            //                         <div class="mes_chat_buttons2">
-            //                             <i class="fa-solid fa-paper-plane-top"></i>          
-            //                         </div>
-            //                         <div class="mes_chat_buttons3">
-            //                             <i class="fa-solid fa-paper-plane-top"></i>          
-            //                         </div>
-            //                     </div>            
-            //                     <textarea name="" id="" cols="30" rows="10" class="mes_chat_textarea"></textarea>
-            //                 </div>
-            //             </div>
-            //         `
-            //         var chat = e.querySelector('.cs_inhouse_chat___1w4Y4')
-            //         var chat_box = chat.querySelector('.chat_box___3_Qef')
-            //         var chat_textarea = chat_box.querySelector('textarea')
-            //         var chat_bottom_menu = chat_box.querySelector('.bottom_menu___1Y9jH')
-            //         var chat_top_menu = chat_box.querySelector('.top_menu___wEUk3')
+            Item_Trang_thai_case.children[0].click()
+            eventFire(Item_Trang_thai_case.children[0], 'click')
+            console.log(Item_Trang_thai_case.children[0]);
 
+            Item_Trang_thai_case.children[1].click()
+            eventFire(Item_Trang_thai_case.children[1], 'click')
+            console.log(Item_Trang_thai_case.children[1]);
 
+            Item_L1.children[1].click()
+            console.log(Item_L1.children[1]);
 
-            //         if (id === 'agentchat?s') {
-            //             console.log('chat');
-            //             if (chat.children.length === 1) {
-            //                 chat.children[0].insertAdjacentHTML("afterend", html_mes_chat);
-            //                 var mes_chat = chat.querySelector(`[id="${id_case}"]`)
-            //                 console.log(mes_chat);
-            //                 var el_mes_chat_textarea = mes_chat.querySelector('.mes_chat_textarea')
-            //                 var el_mes_chat_buttons1 = mes_chat.querySelector('.mes_chat_buttons1')
-            //                 var el_mes_chat_buttons2 = mes_chat.querySelector('.mes_chat_buttons2')
-            //                 var el_mes_chat_buttons3 = mes_chat.querySelector('.mes_chat_buttons3')
-
-
-
-            //                 el_mes_chat_buttons1.onclick = (e) => {
-            //                     // console.log('chat_box',chat_box)
-            //                     // console.log('chat_textarea',chat_textarea)
-            //                     // console.log('chat_bottom_menu',chat_bottom_menu)
-            //                     // console.log('chat_top_menu',chat_top_menu)
-
-            //                     // console.log('el_mes_chat_textarea',el_mes_chat_textarea)
-            //                     // console.log('el_mes_chat_buttons1',el_mes_chat_buttons1)
-            //                     // console.log('el_mes_chat_buttons2',el_mes_chat_buttons2)
-            //                     e.stopPropagation()
-            //                     if (chat_box.children.length === 4) {
-            //                         if (el_mes_chat_textarea.value.trim() !== '') {
-            //                             fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee hi vọng bạn hài lòng với sự hỗ trợ của Shopee và sẽ cố gắng cải thiện chất lượng dịch vụ tốt nhất. Bạn giúp Shopee dành chút thời gian đánh giá hài lòng cho cuộc trò chuyện giúp mình nhé!')
-
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], `${el_mes_chat_textarea.value}`)
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.')
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.')
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.')
-            //                                 })
-
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(1, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.', chat_top_menu.children[1])
-            //                                 })
-            //                         }
-            //                     }
-            //                 }
-
-            //                 el_mes_chat_buttons2.onclick = (e) => {
-            //                     e.stopPropagation()
-            //                     if (chat_box.children.length === 4) {
-            //                         if (el_mes_chat_textarea.value.trim() !== '') {
-            //                             fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Vì chưa nhận được phản hồi từ bạn nên mình xin phép kết thúc cuộc trò chuyện tại đây và sẽ hỗ trợ bạn trong các lần liên hệ tới.')
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], `${el_mes_chat_textarea.value}`)
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee hi vọng bạn hài lòng với sự hỗ trợ của Shopee và sẽ cố gắng cải thiện chất lượng dịch vụ tốt nhất. Bạn giúp Shopee dành chút thời gian đánh giá hài lòng cho cuộc trò chuyện giúp mình nhé!')
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.')
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.')
-            //                                 })
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.')
-            //                                 })
-
-            //                                 .then(() => {
-            //                                     return fun_mes_chat(1, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.', chat_top_menu.children[1])
-            //                                 })
-
-            //                         }
-            //                     }
-            //                 }
-
-            //                 el_mes_chat_buttons3.onclick = (e) => {
-            //                     e.stopPropagation()
-            //                     fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Vì chưa nhận được phản hồi từ bạn nên mình xin phép kết thúc cuộc trò chuyện tại đây và sẽ hỗ trợ bạn trong các lần liên hệ tới. ')
-            //                         .then(() => {
-            //                             return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], `Để được xử lý nhanh chóng, vui lòng mô tả chi tiết tại shopee.vn/tro-giup, Shopee sẽ phản hồi qua email và thông báo trên ứng dụng cho bạn nhé. Cảm ơn bạn đã liên hệ.`)
-            //                         })
-            //                         .then(() => {
-            //                             return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Một vài câu hỏi thường gặp, bạn có thể tham khảo thông tin tại: https://help.shopee.vn/s/')
-            //                         })
-            //                         .then(() => {
-            //                             return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.')
-            //                         })
-            //                         .then(() => {
-            //                             return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.')
-            //                         })
-            //                         .then(() => {
-            //                             return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.')
-            //                         })
-
-            //                         .then(() => {
-            //                             return fun_mes_chat(1, chat_textarea, chat_bottom_menu.children[1], 'Chúc bạn thật nhiều sức khỏe và thành công.', chat_top_menu.children[1])
-            //                         })
-            //                 }
-            //             }
-
-            //         }
-            //     }
+            // console.log(123);
+            // interval_time_chat.forEach((e) => {
+            //     clearInterval(e)
+            //     console.log('ClearInterval: ', e)
+            //     interval_time_chat.pop()
             // })
-
-            console.log(123);
-            interval_time_chat.forEach((e) => {
-                clearInterval(e)
-                console.log('ClearInterval: ', e)
-                interval_time_chat.pop()
-            })
 
 
 
@@ -1941,6 +1837,7 @@ window.onload = function () {
                             <label>${fun_MVD(request.Tab_Order_MVD)}</Label>
                             <label>${fun_EDT(request.Tab_Order_EDT)}</Label>
                             ${fun_DVVC(request.Tab_Order_DVVC)}
+                            ${fun_KDVVC(request.Tab_Order_KDVVC)}
                             ${fun_status_EDT(request.Tab_Order_EDT, request.Tab_Order_APT)}
                             ${fun_button_HLHG(request.Tab_Order_EDT, request.Tab_Order_DVVC)}
                         </div>
@@ -1953,7 +1850,6 @@ window.onload = function () {
                 var HTML_String_Payment = fun_payment(request.Tab_Order_PM)
 
                 //==============================================================================
-
                 var HTML_String_LT = `
                 <div class="timeline-container">                    
                         ${request.Tab_Order_LT}
@@ -2194,6 +2090,7 @@ window.onload = function () {
                 console.log('Tab_Order_MVD: ', request.Tab_Order_MVD)
                 console.log('Tab_Order_EDT: ', request.Tab_Order_EDT)
                 console.log('Tab_Order_DVVC: ', request.Tab_Order_DVVC)
+                console.log('Tab_Order_KDVVC: ', request.Tab_Order_KDVVC)
                 //console.log('Tab_Order_status_EDT: ', request.Tab_Order_status_EDT)
                 console.log('Tab_Order_APT: ', request.Tab_Order_APT)
                 console.log('Tab_Order_LT: ', request.Tab_Order_LT)
@@ -2361,8 +2258,6 @@ window.onload = function () {
                 }
             });
         }
-
-
 
         function find_value_order_details(value_order_sn, value_more_order_sn, order_sn_current) {
 
@@ -3030,6 +2925,12 @@ window.onload = function () {
             return HTML_String_DVVC
         }
 
+        function fun_KDVVC(Tab_Order_KDVVC) {
+            var HTML_String_DVVC
+            HTML_String_DVVC = `<label>Kênh: ${Tab_Order_KDVVC.slice(0,Tab_Order_KDVVC.search("Integrated"))}</Label>`
+            return HTML_String_DVVC
+        }
+
         function fun_EDT(Tab_Order_EDT) {
             console.log('đây nè: ', Tab_Order_EDT);
             if (Tab_Order_EDT === undefined) {
@@ -3051,6 +2952,7 @@ window.onload = function () {
             `
             return APT
         }
+
         function fun_Calculator_EDT(Delivery_Time) {
             if (Delivery_Time) {
                 var time_time = Delivery_Time.substr(10, 17)
@@ -3141,7 +3043,7 @@ window.onload = function () {
                         Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu').children[1].children[0].children[0].children[0]
                         //Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
                         // Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
-                        Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0]
+                        Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0].children[0]
                         console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
                     }
 
@@ -3261,7 +3163,7 @@ window.onload = function () {
                             }
                         });
                         break;
-                        
+
                     case 3:
                         console.log('lần 3');
                         console.log(Request);
@@ -3974,6 +3876,9 @@ window.onload = function () {
             //Lấy DVVC 
             var DVVC = Get_DVVC(card_with_headerss)
 
+            //lấy kênh vận chuyển
+            var KDVVC = Get_KDVVC(card_with_headerss)
+
             //lấy APT (arange pickup time)
             var APT = Get_APT(card_with_headerss)
 
@@ -3987,6 +3892,9 @@ window.onload = function () {
             document.querySelector('.Input_word_id').value = Word_ID
             console.log(Word_ID);
 
+            var LT = Get_LT(card_with_headerss)
+            console.log(LT);
+
 
             //==============================
             //gửi tin nhắn đến extention
@@ -3995,34 +3903,50 @@ window.onload = function () {
                 Tab_Order_EDT: Delivery_Time,
                 Tab_Order_SN: SN_DH,
                 Tab_Order_DVVC: DVVC,
+                Tab_Order_KDVVC: KDVVC,
                 //Tab_Order_status_EDT: status_EDT,
                 Tab_Order_Word_ID: Word_ID,
                 Tab_Order_APT: APT,
                 Tab_Order_PM: PM,
                 Tab_Order_UID: UID,
+                Tab_Order_LT: LT
             }
             //console.log(Messenger);
 
 
-            var LT = Get_LT(card_with_headerss)
-            LT
-                .then(function (data) {
-                    Messenger = {
-                        ...Messenger,
-                        Tab_Order_LT: data
-                    }
 
-                    chrome.runtime.sendMessage(Messenger, (e) => {
-                        console.group('Nhận phản hồi từ tin nhắn gửi đi: ', Messenger)
-                        console.log('Kết quả: ', e.result);
-                        console.log('Nhận Phản hồi từ extention: ', e.Tab_Order_MVD)
-                        console.log('Word_ID:', e.Work_ID);
-                        console.groupEnd()
-                    })
-                    console.group('Gửi đi')
-                    console.log('gửi đi: ', Messenger)
-                    console.groupEnd()
-                })
+            // Messenger = {
+            //     ...Messenger,
+            //     Tab_Order_LT: LT
+            // }
+
+            chrome.runtime.sendMessage(Messenger, (e) => {
+                console.group('Nhận phản hồi từ tin nhắn gửi đi: ', Messenger)
+                console.log('Kết quả: ', e.result);
+                console.log('Nhận Phản hồi từ extention: ', e.Tab_Order_MVD)
+                console.log('Word_ID:', e.Work_ID);
+                console.groupEnd()
+            })
+            console.group('Gửi đi')
+            console.log('gửi đi: ', Messenger)
+            console.groupEnd()
+            // .then(function (data) {
+            //     Messenger = {
+            //         ...Messenger,
+            //         Tab_Order_LT: data
+            //     }
+
+            //     chrome.runtime.sendMessage(Messenger, (e) => {
+            //         console.group('Nhận phản hồi từ tin nhắn gửi đi: ', Messenger)
+            //         console.log('Kết quả: ', e.result);
+            //         console.log('Nhận Phản hồi từ extention: ', e.Tab_Order_MVD)
+            //         console.log('Word_ID:', e.Work_ID);
+            //         console.groupEnd()
+            //     })
+            //     console.group('Gửi đi')
+            //     console.log('gửi đi: ', Messenger)
+            //     console.groupEnd()
+            // })
 
         }
 
@@ -4208,14 +4132,18 @@ window.onload = function () {
             card_with_headerss.forEach((e) => {
                 if (e.attributes.id.value === 'logistic-info') {
                     var content_logistic_info = e.children[1].children[0].children[0].children[1].children[0].children
-                    Array.from(content_logistic_info).forEach(e => {
-                        Array.from(e.children).forEach(e => {
-                            if (e.innerText === 'Shipping Tracking Number:') {
-                                MVD = e.nextElementSibling.innerText
-                                //console.log(MVD)
-                            }
-                        })
-                    });
+                    // Array.from(content_logistic_info).forEach(e => {
+                    //     Array.from(e.children).forEach(e => {
+                    //         if (e.innerText === 'Shipping Tracking Number:') {
+                    //             MVD = e.nextElementSibling.innerText
+                    //             //console.log(MVD)
+                    //         }
+                    //     })
+                    // });
+                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[4].innerText);
+
+                    MVD = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[4].innerText
+                    console.log(MVD);
                 }
             })
             return MVD
@@ -4266,11 +4194,27 @@ window.onload = function () {
             var DVVC
             card_with_headerss.forEach((e) => {
                 if (e.attributes.id.value === 'logistic-info') {
-                    var content_logistic_info = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[4].children[0]
-                    DVVC = getDirectInnerText(content_logistic_info).trim();
+                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[3].innerText);
+
+                    DVVC = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[3].innerText
+
+                    console.log(DVVC);
                 }
             })
             return DVVC
+        }
+        function Get_KDVVC(card_with_headerss) {
+            var KDVVC
+            card_with_headerss.forEach((e) => {
+                if (e.attributes.id.value === 'logistic-info') {
+                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[2].innerText);
+
+                    KDVVC = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[2].innerText
+
+                    console.log(KDVVC);
+                }
+            })
+            return KDVVC
         }
         function Get_APT(card_with_headerss) {
             var APT
@@ -4303,76 +4247,87 @@ window.onload = function () {
             return Get_PM
         }
         function Get_LT(card_with_headerss) {
-            return new Promise((resolve, reject) => {
-                var Word_ID = document.querySelector('.Input_word_id').value
-                card_with_headerss.forEach((e) => {
-                    if (e.attributes.id.value === 'logistic-info') {
+            var result
+            card_with_headerss.forEach((e) => {
+                if (e.attributes.id.value === 'logistic-info') {
+                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0]);
+                    //console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML);
+                    result = e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML
 
-                        // var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].
-                        //     children[0].children[0].children[1].children[0].children[1].children[0].children[3].children[0].children[0].children[0].children[1]
-                        //Logistics_Tracking_XCT.click()
-                        var Logistics_Tracking = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[1]
-                        var flag = Logistics_Tracking.children.length
-                        var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].
-                            children[0].children[0].children[2].children[0].children[0].children[0].children[1].
-                            children[0].children[1].children[0].children[0].children[0].children[0].children[0]
+                }
 
-                        console.log(flag);
+            });
+            // return new Promise((resolve, reject) => {
+            //     var Word_ID = document.querySelector('.Input_word_id').value
+            //     card_with_headerss.forEach((e) => {
+            //         if (e.attributes.id.value === 'logistic-info') {
 
-                        if (flag > 0) {
-                            console.log(e.querySelector('.tracking-table').children[1]);
-                            // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
-                            var els = e.querySelector('.tracking-table').children[1].outerHTML
-                            resolve(els)
-                        }
+            //             // var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].
+            //             //     children[0].children[0].children[1].children[0].children[1].children[0].children[3].children[0].children[0].children[0].children[1]
+            //             //Logistics_Tracking_XCT.click()
+            //             var Logistics_Tracking = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[1]
+            //             var flag = Logistics_Tracking.children.length
+            //             var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].
+            //                 children[0].children[0].children[2].children[0].children[0].children[0].children[1].
+            //                 children[0].children[1].children[0].children[0].children[0].children[0].children[0]
 
-                        if (flag === 0) {
-                            Logistics_Tracking_XCT.click()
-                            const observerOptions = {
-                                childList: true,
-                            }
+            //             console.log(flag);
 
-                            const observer = new MutationObserver(callback)
+            //             if (flag > 0) {
+            //                 console.log(e.querySelector('.tracking-table').children[1]);
+            //                 // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
+            //                 var els = e.querySelector('.tracking-table').children[1].outerHTML
+            //                 resolve(els)
+            //             }
 
-                            const targetNodes = Logistics_Tracking
-                            observer.observe(targetNodes, observerOptions)
+            //             if (flag === 0) {
+            //                 Logistics_Tracking_XCT.click()
+            //                 const observerOptions = {
+            //                     childList: true,
+            //                 }
 
-                            function callback(mutations) {
+            //                 const observer = new MutationObserver(callback)
 
-                                console.log('mutations: ', mutations);
-                                console.log('mutations: ', mutations[0].target);
-                                console.log('mutations: ', mutations[0].target.children[0].children[0].children[1]);
-                                observer.disconnect()
-                                var els = mutations[0].target.children[0].children[0].children[1].outerHTML
-                                resolve(els)
+            //                 const targetNodes = Logistics_Tracking
+            //                 observer.observe(targetNodes, observerOptions)
 
-                            }
-                        }
+            //                 function callback(mutations) {
+
+            //                     console.log('mutations: ', mutations);
+            //                     console.log('mutations: ', mutations[0].target);
+            //                     console.log('mutations: ', mutations[0].target.children[0].children[0].children[1]);
+            //                     observer.disconnect()
+            //                     var els = mutations[0].target.children[0].children[0].children[1].outerHTML
+            //                     resolve(els)
+
+            //                 }
+            //             }
 
 
 
 
 
-                        // setTimeout(() => {
-                        //     console.log(e.querySelector('.tracking-table').children[1]);
-                        //     // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
-                        //     var els = e.querySelector('.tracking-table').children[1].outerHTML
-                        //     resolve(els)
-                        //     // els.forEach((e) => {
-                        //     //     if (e.getAttribute('style') !== 'display: none;') {
-                        //     //         var list_traking = e.children[1].children[0].children[0].children[0].children[1].children[0].outerHTML
-                        //     //         console.log('1: ', e.children[1].children[0].children[0].children[0].children[1].children[0])
-                        //     //         resolve(list_traking)
-                        //     //     }
+            //             // setTimeout(() => {
+            //             //     console.log(e.querySelector('.tracking-table').children[1]);
+            //             //     // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
+            //             //     var els = e.querySelector('.tracking-table').children[1].outerHTML
+            //             //     resolve(els)
+            //             //     // els.forEach((e) => {
+            //             //     //     if (e.getAttribute('style') !== 'display: none;') {
+            //             //     //         var list_traking = e.children[1].children[0].children[0].children[0].children[1].children[0].outerHTML
+            //             //     //         console.log('1: ', e.children[1].children[0].children[0].children[0].children[1].children[0])
+            //             //     //         resolve(list_traking)
+            //             //     //     }
 
-                        //     // });
-                        // }, 500)
+            //             //     // });
+            //             // }, 500)
 
-                    }
+            //         }
 
-                });
-            })
-
+            //     });
+            // })
+            console.log(result);
+            return result
         }
         function Get_UID(card_with_headerss) {
             console.log(card_with_headerss)

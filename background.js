@@ -26,6 +26,7 @@ chrome.runtime.onMessage.addListener(
       console.log('SN_ĐH: ', request.Tab_Order_SN)
       console.log('EDT: ', request.Tab_Order_EDT)
       console.log('DVVC: ', request.Tab_Order_DVVC)
+      console.log('DVVC: ', request.Tab_Order_KDVVC)
       console.log('status_EDT: ', request.Tab_Order_status_EDT)
       console.log('Word_ID: ', request.Tab_Order_Word_ID)
       console.log('Order_ID: ', sender.tab.id)
@@ -54,6 +55,7 @@ chrome.runtime.onMessage.addListener(
         Tab_Order_EDT: request.Tab_Order_EDT,
         Tab_Order_SN: request.Tab_Order_SN,
         Tab_Order_DVVC: request.Tab_Order_DVVC,
+        Tab_Order_KDVVC: request.Tab_Order_KDVVC,
         Tab_Order_status_EDT: request.Tab_Order_status_EDT,
         Tab_Order_APT: request.Tab_Order_APT,
         Tab_Order_PM: request.Tab_Order_PM,
