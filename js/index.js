@@ -1833,9 +1833,9 @@ window.onload = function () {
                 var HTML_Info = `
                     <div class="Info">
                         <div class="Info_left">
-                            <label>${request.Tab_Order_SN}</Label>
-                            <label>${fun_MVD(request.Tab_Order_MVD)}</Label>
-                            <label>${fun_EDT(request.Tab_Order_EDT)}</Label>
+                            <div><label>${request.Tab_Order_SN}</Label></div>
+                            <div><label>${fun_MVD(request.Tab_Order_MVD)}</Label></div>
+                            <div><label>${fun_EDT(request.Tab_Order_EDT)}</Label></div>
                             ${fun_DVVC(request.Tab_Order_DVVC)}
                             ${fun_KDVVC(request.Tab_Order_KDVVC)}
                             ${fun_status_EDT(request.Tab_Order_EDT, request.Tab_Order_APT)}
@@ -2775,7 +2775,7 @@ window.onload = function () {
             switch (Tab_Order_PM[0]) {
                 case 'Trả góp Cybersource':
                     HTML_String_Payment_Method = `
-                            <label class="Payment_method" style="background-color:red; color:white;">
+                            <label class="Payment_method color__red">
                                 Payment Method: 
                                 <label class="Payment_method_value">${Tab_Order_PM[0]}</label>
                             </label>
@@ -2817,11 +2817,19 @@ window.onload = function () {
                 `
             }
             if (Price >= 1000000) {
+                // HTML_String_Payment_Price = `
+                // <label class="Payment_Price color__red" style="background-color:red; color:white; border-radius: 5px;>
+                //     Grand Total: 
+                //     <label class="Payment_channel_value">${Tab_Order_PM[3]}</label>
+                // </label>
+                // `
                 HTML_String_Payment_Price = `
-                <label class="Payment_Price" style="background-color:red; color:white; border-radius: 5px;>
-                    Grand Total: 
-                    <label class="Payment_channel_value">${Tab_Order_PM[3]}</label>
-                </label>
+                <div>
+                    <label class="Payment_Price color__red">
+                        Grand Total: 
+                        <label class="Payment_channel_value">${Tab_Order_PM[3]}</label>
+                    </label>
+                </div>
                 `
             }
             //console.log(HTML_String_Payment_Price)
@@ -2853,22 +2861,30 @@ window.onload = function () {
 
             if (Tab_Order_status_EDT === 1) {
                 HTML_String_status_EDT = `
-                <label style="background-color:blue;color:white;border-radius: 5px;">Theo dõi hành trình</Label>
+                <div>
+                    <label class="color__blue">Theo dõi hành trình</Label>
+                </div>
                 `
             }
             if (Tab_Order_status_EDT === 2) {
                 HTML_String_status_EDT = `
-                <label style="background-color:green;color:white;border-radius: 5px;">Hối giao > KHÔNG Chuyển</Label>
+                <div>
+                    <label class="color__green">Hối giao > KHÔNG Chuyển</Label>
+                </div>
                 `
             }
             if (Tab_Order_status_EDT === 3) {
                 HTML_String_status_EDT = `
-                <label style="background-color:red; color:white;border-radius: 5px;">Chuyển Hối giao/quá EDT+3</Label> 
+                <div>
+                    <label class="color__red">Chuyển Hối giao/quá EDT+3</Label> 
+                </div>
                 `
             }
             if (Tab_Order_status_EDT === 4) {
                 HTML_String_status_EDT = `
-                <label style="background-color:yellow; color:black;border-radius: 5px;">Trong EDT</Label>                    
+                <div>
+                    <label class="color__yelow"">Trong EDT</Label>
+                </div>                  
                 `
             }
 
@@ -2914,21 +2930,34 @@ window.onload = function () {
             var HTML_String_DVVC
             switch (Tab_Order_DVVC) {
                 case '':
-                    HTML_String_DVVC = `<label style="background-color:red; color:white;">${Tab_Order_DVVC}</Label>`
+                    HTML_String_DVVC = `<div><label style="background-color:red; color:white;">${Tab_Order_DVVC}</Label></div>`
 
                     break;
 
                 default:
-                    HTML_String_DVVC = `<label>${Tab_Order_DVVC}</Label>`
+                    HTML_String_DVVC = `<div><label>${Tab_Order_DVVC}</Label></div>`
                     break;
             }
             return HTML_String_DVVC
         }
 
         function fun_KDVVC(Tab_Order_KDVVC) {
-            var HTML_String_DVVC
-            HTML_String_DVVC = `<label>Kênh: ${Tab_Order_KDVVC.slice(0,Tab_Order_KDVVC.search("Integrated"))}</Label>`
-            return HTML_String_DVVC
+            var HTML_String_KDVVC
+            var String_DVVC = Tab_Order_KDVVC.slice(0,Tab_Order_KDVVC.search("Integrated")).trim()
+            console.log(typeof String_DVVC, String_DVVC);
+            if (String_DVVC === 'Standard Express') {
+                HTML_String_KDVVC = `<div><label style="color: rgb(240 0 0);background: rgb(253 224 224);border: 1px solid rgb(250 173 173);border-radius: 5px;">${String_DVVC}</Label></div>`     
+            console.log(HTML_String_KDVVC);
+
+            }else {
+                HTML_String_KDVVC = `<div><label>Kênh: ${String_DVVC}</Label></div>`
+            console.log(HTML_String_KDVVC);
+
+
+            }
+            console.log(HTML_String_KDVVC);
+
+            return HTML_String_KDVVC
         }
 
         function fun_EDT(Tab_Order_EDT) {
@@ -2943,7 +2972,7 @@ window.onload = function () {
 
         function fun_APT(Tab_Order_APT) {
             var APT = `
-            <label>${Tab_Order_APT}</Label>      
+            <div><label>${Tab_Order_APT}</Label></div>
             <div style="display: flex; display: flex; text-align: center;">
                 <button class="APT1" style="flex-basis: 33%;" >Bưu cục</button>
                 <button class="APT2" style="flex-basis: 33%;" >< 20h</button>
@@ -4220,8 +4249,8 @@ window.onload = function () {
             var APT
             card_with_headerss.forEach((e) => {
                 if (e.attributes.id.value === 'logistic-info') {
-                    var content_APT_info1 = e.children[1].children[0].children[0].children[1].children[0].children[2].children[0]
-                    var content_APT_info2 = e.children[1].children[0].children[0].children[1].children[0].children[2].children[1]
+                    var content_APT_info1 = e.children[1].children[0].children[0].children[1].children[0].children[0].children[0]
+                    var content_APT_info2 = e.children[1].children[0].children[0].children[1].children[0].children[0].children[1]
 
                     APT = getDirectInnerText(content_APT_info1)
                     APT += getDirectInnerText(content_APT_info2)
