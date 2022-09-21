@@ -9,7 +9,7 @@
 .color__green {
     color: rgb(29, 171, 180);
     background: rgb(227, 245, 246);
-    border-color: rgb(182, 228, 231);
+    border: 1px solid rgb(182, 228, 231);
     border-radius: 5px;
 }
 
@@ -80,8 +80,11 @@
     align-items: center;
 }
 
+
+
 .Auto_saleforce_Order_Info {
     z-index: 11;
+    font-family: Helvetica;
     right: 1px;
     bottom: 1px;
     display: flex;
@@ -104,7 +107,6 @@
     background-color: white;
     padding: 10px;
     border-style: solid;
-
 }
 
 .Auto_saleforce_Order_Info>div>.Order_Info {
@@ -122,6 +124,7 @@
     border: 1px solid #e5e5e5;
     border-radius: 4px;
     outline: none;
+    transition: all .4s;
 }
 
 .Auto_saleforce_Order_Info>div>.control_box {
@@ -137,6 +140,7 @@
     cursor: pointer;
     border: 1px solid #e5e5e5;
     border-radius: 4px;
+    transition: all .4s;
 }
 
 .Auto_saleforce_Order_Info>div>.on_of_Order_Info:hover,
