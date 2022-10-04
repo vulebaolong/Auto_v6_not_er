@@ -1,4 +1,4 @@
-﻿{
+{
     let htmlTeamplate_order = `
     <div class="Auto_saleforce_order">
         <input type="text"  class="Input_word_id" value="ID">

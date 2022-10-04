@@ -42,96 +42,111 @@
 
 
 let html_Nav_left = `
-    <div class="nav_left">
-        <div class="item_ldp button_long">
-            <label>LDP</label>
-            <div class="menu_ldp">
-                <div class="item_edit button_long"><label>Edit</label></div>
-                <div class="item_tdht button_long"><label>TDHT</label></div>
-                <div class="item_hg button_long"><label>HG</label></div>
-                <div class="item_hl button_long"><label>HL</label></div>                                                                          
-                <div class="item_ccht button_long"><label>CCHT</label></div>                                                                          
-            </div>
-        </div>
-        <div class="item_macro button_long">
-            <label>macro</label>
-            <div class="menu_macro">
-                <div class="item_dvvc button_long">
-                    <label>DVVC</label>
-                    <div class="menu_dvvc">
-                        <div class="item_spx button_long"><label>SPX</label></div>
-                        <div class="item_njv button_long"><label>NJV</label></div>
-                        <div class="item_best button_long"><label>BEST</label></div>
-                        <div class="item_j&t button_long"><label>J&T</label></div>
-                        <div class="item_ghtk button_long"><label>GHTK</label></div>
-                        <div class="item_ghn button_long"><label>GHN</label></div>
-                        <div class="item_vnp button_long"><label>VNP</label></div>
-                        <div class="item_vtp button_long"><label>VTP</label></div>
-                        <div class="item_bedeli button_long"><label>beDeli</label></div>
-                        <div class="item_grab button_long"><label>Grab</label></div>
-                        <div class="item_SPXI button_long"><label>SPXI</label></div>
-                        <div class="item_cb button_long"><label>CB</label></div>                                                                                                
-                    </div>      
-                </div>   
-                <div class="item_refund button_long">
-                    <label>Hoàn tiền</label>
-                    <div class="menu_refund">
-                        <div class="item_tkshopee button_long">
-                            <label>TK-S</label>
-                            <div class="menu_tkshopee">
-                                <div class="item_tkshopee_huy button_long"><label>hủy</label></div>
-                                <div class="item_tkshopee_hoan button_long"><label>hoàn</label></div>
-                                <div class="item_tkshopee_thht button_long"><label>THHT</label></div>                            
-                            </div>                            
-                        </div>
-                        <div class="item_cc button_long">
-                            <label>CC</label>
-                            <div class="menu_cc">
-                                <div class="item_cc_huy button_long"><label>hủy</label></div>
-                                <div class="item_cc_hoan button_long"><label>hoàn</label></div>
-                                <div class="item_cc_thht button_long"><label>THHT</label></div>                            
-                            </div> 
-                        </div>
-                        <div class="item_shopeepay button_long">
-                            <label>S-Pay</label>
-                            <div class="menu_shopeepay">
-                                <div class="item_shopeepay_huy button_long"><label>hủy</label></div>
-                                <div class="item_shopeepay_hoan button_long"><label>hoàn</label></div>
-                                <div class="item_shopeepay_thht button_long"><label>THHT</label></div>                            
-                            </div> 
-                        </div>                                                                                
-                    </div>      
-                </div>    
-                <div class="item_cnlog button_long">
-                    <label>CNLog</label>
-                    <div class="menu_cnlog">
-                        <div class="item_hg_macro button_long">
-                            <label>hối giao</label>
-                            <div class="menu_hg">
-                                <div class="item_dht3n button_long"><label>>=3</label></div>
-                                <div class="item_dqh button_long"><label>Đến QH</label></div>
-                            </div> 
-                        </div>
-                        <div class="item_stt button_long">
-                            <label>stt</label>
-                            <div class="menu_stt">
-                                <div class="item_danggiao button_long"><label style="width: 90px; text-align: center;">Đang giao</label></div>
-                                <div class="item_hoan button_long"><label>hoàn</label></div>
-                            </div> 
-                        </div>                           
-                    </div> 
-                </div>                                                                  
-            </div>
-        </div>
-        <div class="item_system button_long">
-            <label>system</label>
-            <div class="menu_system">
-                <div class="item_idtab button_long"><label>ID: ?</label></div>
-                <div class="item_chat_count button_long"><label>Chat: ?</label></div>
-            </div>
-        </div>
-        <div class="item_test button_long"><label>TEST</label></div>
+<div class="nav_left">
+<div class="btn_ldp button_long_hover">
+    LDP
+    <div class="menu_ldp button_long_menu lv_first">
+        <div class="btn_ldp_edit button_long_hover">Edit</div>
+        <div class="btn_ldp_dtht button_long_hover">TDHT</div>
+        <div class="btn_ldp_hg button_long_hover">HG</div>
+        <div class="btn_ldp_hl button_long_hover">HL</div>
+        <div class="btn_ldp_ccht button_long_hover">CCHT</div>
     </div>
+</div>
+<div class="btn_macro button_long ">
+    Macro
+    <div class="menu_macro button_long_menu lv_first">
+        <div class="item_dvvc button_long">DVVC
+            <div class="menu_dvvc button_long_menu lv_next">
+                <div class="item_spx button_long button_action">SPX</div>
+                <div class="item_njv button_long button_action">NJV</div>
+                <div class="item_bet button_long button_action">BEST</div>
+                <div class="item_jt button_long button_action">J&T</div>
+                <div class="item_ghtk button_long button_action">GHTK</div>
+                <div class="item_ghn button_long button_action">GHN</div>
+                <div class="item_vnp button_long button_action">VNP</div>
+                <div class="item_vtp button_long button_action">VTP</div>
+                <div class="item_bedeli button_long button_action">beDeli</div>
+                <div class="item_brab button_long button_action">Grab</div>
+                <div class="item_spxi button_long button_action">SPXI</div>
+                <div class="item_cb button_long button_action">CB</div>
+            </div>
+        </div>
+        <div class="item_ht button_long">Hoàn tiền
+            <div class="menu_ht button_long_menu lv_next">
+                <div class="item_tks button_long">TK-S
+                    <div class="menu_tks button_long_menu lv_next">
+                        <div class="item_tks_huy button_long button_action">Hủy</div>
+                        <div class="item_tks_hoan button_long button_action">Hoàn</div>
+                        <div class="item_tks_thht button_long button_action">THHT</div>
+                    </div>
+                </div>
+                <div class="item_cc button_long">CC
+                    <div class="menu_cc button_long_menu lv_next">
+                        <div class="item_cc_huy button_long button_action">Hủy</div>
+                        <div class="item_cc_hoan button_long button_action">Hoàn</div>
+                        <div class="item_cc_thht button_long button_action">THHT</div>
+                    </div>
+                </div>
+                <div class="item_spay button_long">S-Pay
+                    <div class="menu_spay button_long_menu lv_next">
+                        <div class="item_spay_huy button_long button_action">Hủy</div>
+                        <div class="item_spay_hoan button_long button_action">Hoàn</div>
+                        <div class="item_spay_thht button_long button_action">THHT</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="item_cnl button_long">CNLog
+            <div class="menu_cnl button_long_menu lv_next">
+                <div class="item_cnl_hg button_long">Hối Giao
+                    <div class="menu_cnl_hg button_long_menu lv_next">
+                        <div class="item_cnl_hg_3 button_long button_action">>=3</div>
+                        <div class="item_cnl_hg_qh button_long button_action">Đến QH</div>
+                    </div>
+                </div>
+                <div class="item__cnl_stt button_long">STT
+                    <div class="menu_cnl_stt button_long_menu lv_next">
+                        <div class="item_cnl_stt_dg button_long button_action">Đang giao</div>
+                        <div class="item_cnl_stt_hoan button_long button_action">Hoàn</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="btn_kb button_long">
+    KB
+    <div class="menu_kb button_long_menu lv_first">
+        <div class="btn_kb_item button_long">Hối lấy
+            <div class="menu_hl button_long_menu lv_next">
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+            </div>
+
+        </div>
+        <div class="btn_kb_item button_long">Hối Giao
+            <div class="menu_hl button_long_menu lv_next">
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+                <div class="btn_kb_item button_long">Hối Giao</div>
+            </div>
+        </div>
+        <div class="btn_kb_item button_long">Theo dõi</div>
+    </div>
+</div>
+<div class="btn_system button_long">
+    System
+    <div class="menu_system button_long_menu lv_first">
+        <div class="item_system_id button_long button_action">ID</div>
+        <div class="item_system_chat button_long button_action">Chat</div>
+    </div>
+</div>
+<div class="btn_test button_long">TEST</div>
+</div>
 `
 
 let html_toggle_switch = `
@@ -172,50 +187,9 @@ let htmlTeamplate_order = `
 `
 
 //HTML tool gắn trong word
-let htmlTeamplate_work_tool = `
-    <div class="Auto_saleforce_work_tool">
-        <input type="text"  class="Input_tool_id" value="ID">
-        <button type="button" class="btn_Get_wordtotool">GET</button>
-        <button type="button" class="btn_NV">
-            Nghiệp Vụ
-            <div class="btn_NV_wrap none">
-                <div type="button" class="btn_NV_1">Service Re</div>                         
-            </div>
-        </button>
-        <div type="button" class="btn_macro_dvvc_all">
-             <div type="button" class="btn_macro_dvvc ">
-                DVVC
-                <div class="btn_macro_dvvc_wrap none">
-                    <button class="btn_macro_dvvc_SPX">SPX</button>
-                    <button class="btn_macro_dvvc_NJV">NJV</button>
-                    <button class="btn_macro_dvvc_BEST">BEST</button>
-                    <button class="btn_macro_dvvc_J&T">J&T</button>            
-                    <button class="btn_macro_dvvc_GHTK">GHTK</button>            
-                    <button class="btn_macro_dvvc_GHN">GHN</button>            
-                    <button class="btn_macro_dvvc_VNP">VNP</button>            
-                    <button class="btn_macro_dvvc_VTP">VTP</button>            
-                    <button class="btn_macro_dvvc_beDeli">beDeli</button>            
-                    <button class="btn_macro_dvvc_GRAB">Grab</button>            
-                    <button class="btn_macro_dvvc_SPXI">SPXI</button>            
-                    <button class="btn_macro_dvvc_CB">CB</button>          
-                </div>
-            </div>
-         </div>
-         <div type="button" class="Pro_all">
-            <div class="btn_Pro">
-                Pro
-                <div class="btn_Pro_wrap none">
-                    <div class="btn_Pro_coppy_wrap" onclick="event.stopPropagation()">
-                            <button class="btn_Pro_coppy">Coppy</button>
-                    </div>
-                    <div class="btn_Pro_data_wrap" onclick="event.stopPropagation()">
-                        <div class="btn_Pro_data" onclick="event.stopPropagation()">
-                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-         </div>
+let html_Nav_right = `
+    <div class="nav_right">
+       
     </div>
 `
 // - Đơn quá EDT+3(ngoại trừ đơn CB)<br>
@@ -274,6 +248,10 @@ let html_time_time = `
 //document.addEventListener("keydown", function (event) {console.log(event)}, false)
 
 window.onload = function () {
+    // console.log(test2.testham);
+    // test2.testham()
+    // testham()
+    // testham2()
 
 
     var S_order = document.URL.toString().search('cs.shopee.vn/portal/info/')
@@ -301,7 +279,7 @@ window.onload = function () {
         const HTML = document.querySelector('HTML')
 
         if (body !== null) {
-            body.insertAdjacentHTML("afterend", htmlTeamplate_work += htmlTeamplate_work_tool += html_Nav_left += htmlONOFF += html_time_time);
+            body.insertAdjacentHTML("afterend", htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time);
             //var htmlTeamplate_work_dom = new DOMParser().parseFromString(htmlTeamplate_work, "text/xml");
             //console.log(htmlTeamplate_work_dom);
             //wrapper_HTML.insertBefore(htmlTeamplate_work_dom.documentElement,wrapper);
@@ -314,14 +292,14 @@ window.onload = function () {
         var ONOFF = document.querySelector('.btn_ONOFF')
         ONOFF.onclick = () => {
             //var e1 = document.querySelector('.Auto_saleforce')
-            //var e2 = document.querySelector('.Auto_saleforce_Order_Info')
-            var e3 = document.querySelector('.Auto_saleforce_work_tool')
+            var e2 = document.querySelector('.Auto_saleforce_Order_Info')
+            var e3 = document.querySelector('.nav_right')
             var e4 = document.querySelector('.nav_left')
             var e5 = document.querySelector('.search_container')
             var e6 = document.querySelector('.container_time')
             var e7 = document.querySelector('.toggle_switch')
             //e1.classList.toggle("none")
-            //e2.classList.toggle("none")
+            e2 !== null ? e2.classList.toggle("none") :
             e3.classList.toggle("none")
             e4.classList.toggle("none")
             e5.classList.toggle("none")
@@ -375,11 +353,7 @@ window.onload = function () {
             })
 
 
-        // var time_time = document.querySelector('.container_time_time')
-        // console.log(time_time);
-        // time_time.ondragover = (e) => {
-        //     console.log(e);
-        // }
+
 
         dragElement(document.querySelector('.container_time_time'))
 
@@ -391,114 +365,11 @@ window.onload = function () {
         //=======================================================================
 
         var wrapperLDP = null
-        const element_work = document.querySelector('.Auto_saleforce')
-        const element_btn_LDP = Array.from(element_work.querySelectorAll('button[class="btn_LDP"]')[0].children[0].children)
-        const element_btn_Macro = Array.from(element_work.querySelectorAll('button[class="btn_Macro"]')[0].children[0].children)
-        const element_btn_Erorr = Array.from(element_work.querySelectorAll('button[class="btn_Erorr"]')[0].children[0].children)
-        const Item_word = Array.from(element_work.children)
 
-
-
-
-
-
-
-
-        if (element_btn_Erorr !== null) {
-            element_btn_Erorr.forEach((e) => {
-                switch (e.classList[0]) {
-                    case 'btn_Erorr_1':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_btn_Erorr, e)
-                            Erorr(1)
-                        }
-                        keyalt(e, 'KeyL')
-                        break;
-
-                    case 'btn_Erorr_2':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_btn_Erorr, e)
-                            Erorr(2)
-                        }
-                        //keyalt(e, 'KeyL')
-                        break;
-
-                    case 'btn_Erorr_3':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_btn_Erorr, e)
-                            Erorr(3)
-                        }
-                        //keyalt(e, 'KeyL')
-                        break;
-
-                    default:
-                        console.log('không được element_btn_Erorr');
-                        break;
-                }
-            })
-        } else {
-            console.log('Không tìm thấy element_btn_Erorr')
-        }
-
-        //riêng order info===========================================================================================
-        // const element_Auto_saleforce_Order_Info = document.querySelector('.Auto_saleforce_Order_Info')
-        const element_DVVC = document.querySelector('.btn_macro_dvvc')
-
-        const element_Pro = document.querySelector('.btn_Pro')
-        const element_btn_Pro_wrap = document.querySelector('.btn_Pro_wrap')
-        const element_btn_Pro_coppy_wrap = document.querySelector('.btn_Pro_coppy_wrap')
-        const element_btn_Pro_data_wrap = document.querySelector('.btn_Pro_data_wrap')
-        const element_btn_Pro_data = document.querySelector('.btn_Pro_data')
-        const element_btn_Pro_data_coppy = document.querySelector('.btn_Pro_coppy')
-        const element_btn_macro_dvvc = Array.from(element_DVVC.children[0].children)
-
-
-        element_DVVC.onclick = (e) => {
-            e.stopPropagation()
-            element_DVVC.children[0].classList.toggle("none")
-        }
-
-        element_Pro.onclick = (e) => {
-            e.stopPropagation()
-            element_btn_Pro_wrap.classList.toggle("none")
-
-            console.log(element_btn_Pro_wrap.classList.length);
-            if (element_btn_Pro_wrap.classList.length === 1) {
-                Get_Pro('A')
-                    .then((datas) => {
-                        console.log(datas);
-                        //console.log(element_btn_Pro_data_wrap);
-                        var element_Pro_data
-
-
-                        // datas.forEach ((data) => {
-                        //     console.log(data);
-                        //     element_Pro_data += `<label class="element_Pro_data">${element_Pro_data}</label>`
-                        // })
-                        copy_Pro = undefined
-                        for (var prop of datas) {
-                            element_Pro_data += `<label class="element_Pro_data">${prop}</label><br>`
-                            if (datas[0] !== prop) {
-                                copy_Pro += `${prop}\n`
-                            }
-                        }
-                        element_btn_Pro_data.innerHTML = element_Pro_data.slice(9)
-                        //console.log('nè: ', element_Pro_data.slice(9));                        
-                    })
-            }
-        }
-
-        element_btn_Pro_data_coppy.onclick = (e) => {
-            e.stopPropagation()
-            coppy_macro(17)
-        }
 
         //UPDATE===========================================================================
         //menu cấp 1
-        var el_item_ldp = document.querySelector('.item_ldp')
+        var el_item_ldp = document.querySelector('.btn_ldp')
         var el_menu_ldp = Array.from(document.querySelector('.menu_ldp').children)
         if (el_menu_ldp !== null) {
             el_menu_ldp.forEach((e) => {
@@ -559,61 +430,18 @@ window.onload = function () {
         }
 
         function test(params) {
-            return new Promise((resolve, reject) => {
-                console.log(params);
-
-                setTimeout(() => {
-                    resolve()
-                }, 2000);
-
-            })
+           
         }
 
-        var el_item_test = document.querySelector('.item_test')
+        var el_item_test = document.querySelector('.btn_test')
         el_item_test.onclick = (ev) => {
-            var Item_L1
-            var Item_L2
-            var Item_L3
-            var Item_Trang_thai_case
-            var id
-            Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
-                console.log(Object.keys(e.attributes).length);
-                if (Object.keys(e.attributes).length === 2) {
-
-                    id = e.attributes.id.value.substr(44, 11)
-                    if (id === 'agentchat?s') {
-                        console.log('chat');
-                        var list_item_chat = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu').children[1].children[0].children[0].children[0]
-                        //Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        // Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
-                        Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0].children[0]
-                        console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
-                    }
-                }
-
-            });
-            Item_Trang_thai_case.click()
-            eventFire(Item_Trang_thai_case, 'click')
-            console.log(Item_Trang_thai_case);
-
-            Item_Trang_thai_case.children[0].click()
-            eventFire(Item_Trang_thai_case.children[0], 'click')
-            console.log(Item_Trang_thai_case.children[0]);
-
-            Item_Trang_thai_case.children[1].click()
-            eventFire(Item_Trang_thai_case.children[1], 'click')
-            console.log(Item_Trang_thai_case.children[1]);
-
-            Item_L1.children[1].click()
-            console.log(Item_L1.children[1]);
-
-            // console.log(123);
-            // interval_time_chat.forEach((e) => {
-            //     clearInterval(e)
-            //     console.log('ClearInterval: ', e)
-            //     interval_time_chat.pop()
-            // })
+            fetch('https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=3631')
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    console.log(JSON.parse(data.content))
+                    console.log(JSON.parse(data.content)[0].sectionContent)
+                });
 
 
 
@@ -999,417 +827,193 @@ window.onload = function () {
         }
 
         //======================================================
+        button_long()
+        function button_long(params) {
+            let buttons = document.querySelectorAll(".button_long")
+            buttons.forEach((button) => {
 
-        var el_item_macro = document.querySelector('.item_macro')
-        var el_menu_macro = document.querySelector('.menu_macro')
-        el_item_macro.onclick = (e) => {
-            //console.log(e);
-            e.stopPropagation()
-            el_menu_macro.classList.toggle('select')
-            select(el_item_macro)
+                button.onclick = (e) => {
+                    if (Array.from(button.classList).includes('button_action')) {
+                        let button_parrent = button.parentElement
+                        let i = 0
+                        while (i < 10) {
+                            button_parrent = button_parrent.parentElement
+                            if (Array.from(button_parrent.classList).includes('lv_first')) {
+                                button_parrent.classList.remove('button_show')
+                                break
+                            }
+                            i++
+                        }
+                    }
+                    e.stopPropagation()
+                    coppy_button(e.target)
+                    let button_menu = e.target.children[0]
+                    let button_menu_parent = e.target.parentElement
+                    let button_menu_show = button_menu_parent.querySelectorAll('.button_long > .button_long_menu.button_show')
+                    if (button_menu !== undefined) {
+                        button_menu.classList.toggle('button_show')
+                    }
+                    if (button_menu_show !== null) {
+                        button_menu_show.forEach(element => {
+                            element.classList.remove('button_show')
+                        });
+                    }
+                }
+            })
+
+
         }
-
-        //======================================================
-
-        var el_item_system = document.querySelector('.item_system')
-        var el_menu_system = document.querySelector('.menu_system')
-        el_item_system.onclick = (e) => {
-            e.stopPropagation()
-            el_menu_system.classList.toggle('select')
-            select(el_item_system)
-        }
-        el_menu_system.onclick = (e) => {
-            e.stopPropagation()
-        }
-        var el_item_idtab = document.querySelector('.item_idtab')
-        el_item_idtab.onclick = (e) => {
-            e.stopPropagation()
-            Get_Word_ID(el_item_idtab)
-        }
-
-        var el_item_chat_count = document.querySelector('.item_chat_count')
-        el_item_chat_count.onclick = (e) => {
-            e.stopPropagation()
-            if (e.altKey) {
-                localStorage.removeItem('case_chat_new');
-                document.querySelector('.item_chat_count').children[0].innerHTML = `Chat: ?`
-
-            }
-        }
-
-        //======================================================
-        //menu cấp 2        
-
-        click_2(document.querySelector('.item_dvvc'), document.querySelector('.menu_dvvc'))
-        click_2(document.querySelector('.item_refund'), document.querySelector('.menu_refund'))
-
-        Array.from(document.querySelector('.menu_dvvc').children).forEach((e) => {
-            switch (e.classList[0]) {
+        function coppy_button(params) {
+            let classlist = Array.from(params.classList)
+            switch (classlist[0]) {
                 case 'item_spx':
-                    e.onclick = (event) => {
-                        coppy_macro(5)
-                    }
+                    navigator.clipboard.writeText(
+                        'Shopee Xpress:' + '\n'
+                        + 'Website: https://spx.vn/' + '\n'
+                        + 'Liên hệ email: https://help.shopee.vn/portal/webform/4d8d2e07487345cf9a9881fde841079c?' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (9h-18h)'
+                    )
                     break;
-
                 case 'item_njv':
-                    e.onclick = (event) => {
-                        coppy_macro(6)
-                    }
+                    navigator.clipboard.writeText(
+                        'Ninja Van:' + '\n'
+                        + 'Website: https://www.ninjavan.co/vi-vn/tracking' + '\n'
+                        + 'Email: support_vn@ninjavan.co' + '\n'
+                        + 'Hotline: 1900 886 877' + '\n'
+                        + 'Thời gian làm việc: T2 - T7 (8h - 20h), CN (8h - 17h)'
+                    )
                     break;
+                case 'item_bet':
+                    navigator.clipboard.writeText(
+                        'Best Express:' + '\n'
+                        + 'Website: https://best-inc.vn/ ' + '\n'
+                        + 'Email: cskh@best-inc.com' + '\n'
+                        + 'Hotline: 1900 1031' + '\n'
+                        + 'Thời gian làm việc: T2 - T6 (7h30 - 19h), T7 - CN (8h - 17h)'
 
-                case 'item_best':
-                    e.onclick = (event) => {
-                        coppy_macro(7)
-                    }
+                    )
                     break;
-
-                case 'item_j&t':
-                    e.onclick = (event) => {
-                        coppy_macro(8)
-                    }
+                case 'item_jt':
+                    navigator.clipboard.writeText(
+                        'J&T Express:' + '\n'
+                        + 'Website: https://jtexpress.vn/' + '\n'
+                        + 'Email: cskh@jtexpress.vn' + '\n'
+                        + 'Hotline: 1900 1088' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (8h - 21h)'
+                    )
                     break;
-
                 case 'item_ghtk':
-                    e.onclick = (event) => {
-                        coppy_macro(9)
-                    }
+                    navigator.clipboard.writeText(
+                        'Giao Hàng Tiết Kiệm :' + '\n'
+                        + 'Website: https://giaohangtietkiem.vn/' + '\n'
+                        + 'Email: cskh@ghtk.vn ' + '\n'
+                        + 'Chat: sos.ghtk.vn' + '\n'
+                        + 'Thời gian làm việc: T2 - T7 (8h - 20h), CN (8h - 18h)'
+                    )
                     break;
-
                 case 'item_ghn':
-                    e.onclick = (event) => {
-                        coppy_macro(10)
-                    }
+                    navigator.clipboard.writeText(
+                        'Giao Hàng Nhanh:' + '\n'
+                        + 'Website: https://ghn.vn/' + '\n'
+                        + 'Email: cskh@ghn.vn' + '\n'
+                        + 'Hotline: 1900 636677' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (8h30 - 21h)'
+                    )
                     break;
-
                 case 'item_vnp':
-                    e.onclick = (event) => {
-                        coppy_macro(11)
-                    }
+                    navigator.clipboard.writeText(
+                        'VNPost Nhanh/VNPost Tiết Kiệm:' + '\n'
+                        + 'Website: www.vnpost.vn' + '\n'
+                        + 'Email: vanphong@vnpost.vn' + '\n'
+                        + 'Hotline: 1900 54 54 81' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (7h - 21h)'
+                    )
                     break;
-
                 case 'item_vtp':
-                    e.onclick = (event) => {
-                        coppy_macro(12)
-                    }
+                    navigator.clipboard.writeText(
+                        'Viettel Post:' + '\n'
+                        + 'Website: https://viettelpost.com.vn/' + '\n'
+                        + 'Email: support@viettelpost.com.vn' + '\n'
+                        + 'Hotline: 1900 8095 ' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (7h - 20h)'
+                    )
                     break;
-
                 case 'item_bedeli':
-                    e.onclick = (event) => {
-                        coppy_macro(13)
-                    }
+                    navigator.clipboard.writeText(
+                        'beDelivery:' + '\n'
+                        + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
+                        + 'Website: https://be.com.vn/' + '\n'
+                        + 'Hotline: 1900232345' + '\n'
+                        + 'Thời gian làm việc: 24/7)'
+                    )
                     break;
-
-                case 'item_grab':
-                    e.onclick = (event) => {
-                        coppy_macro(14)
-                    }
+                case 'item_brab':
+                    navigator.clipboard.writeText(
+                        'GrabExpress:' + '\n'
+                        + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
+                        + 'Website: https://www.grab.com/vn/express/' + '\n'
+                        + 'Hotline: 0902349633' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (6h - 22h)'
+                    )
                     break;
-
                 case 'item_spxi':
-                    e.onclick = (event) => {
-                        coppy_macro(15)
-                    }
+                    navigator.clipboard.writeText(
+                        'Shopee Xpress Instant:' + '\n'
+                        + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
+                        + 'Hotline:19002042' + '\n'
+                        + 'Thời gian làm việc: T2 - CN (8h - 20h)'
+                    )
                     break;
-
                 case 'item_cb':
-                    e.onclick = (event) => {
-                        coppy_macro(16)
-                    }
+                    navigator.clipboard.writeText(
+                        'Standard Express:' + '\n'
+                        + 'Xem chi tiết cách Liên Hệ Đơn Vị Vận Chuyển Standard Express: https://help.shopee.vn/s/article/lien-he-don-vi-van-chuyen-standard-express'
+                    )
                     break;
-
-                default:
-                    //console.log('không được element_btn_LDP');
+                case 'item_tks_huy':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng cập nhật hủy trên hệ thống và không có khiếu nại gì thêm.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
                     break;
-            }
-        })
-
-
-
-        // lắng nghe phím bấm
-        document.addEventListener("keydown", function (event) {
-            //xem đang nhấn phím gì
-            // console.log(event);
-
-
-            if (event.altKey && event.code === 'KeyQ') {
-                add_mes_chat_end()
-            }
-            if (event.altKey && event.code === 'KeyW') {
-                add_count_chat()
-            }
-            if (event.altKey && event.code === 'KeyP') {
-                chat_wrap()
-            }
-        }, false)
-
-        click_2(document.querySelector('.item_cnlog'), document.querySelector('.menu_cnlog'))
-
-        //======================================================
-        //menu cấp 3         
-        click_3(document.querySelector('.item_tkshopee'), document.querySelector('.menu_tkshopee'))
-        click_3(document.querySelector('.item_cc'), document.querySelector('.menu_cc'))
-        click_3(document.querySelector('.item_shopeepay'), document.querySelector('.menu_shopeepay'))
-
-        Array.from(document.querySelector('.menu_tkshopee').children).forEach((e) => {
-            switch (e.classList[0]) {
-                case 'item_tkshopee_huy':
-                    e.onclick = () => {
-                        coppy_macro(18)
-                    }
+                case 'item_tks_hoan':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng hoàn thành công trên hệ thống và đơn hàng cập nhật huỷ.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
                     break;
-
-                case 'item_tkshopee_hoan':
-                    e.onclick = () => {
-                        coppy_macro(19)
-                    }
+                case 'item_tks_thht':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng trả hàng hoàn tiền thành công về người bán và không có khiếu nại gì thêm.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
                     break;
-
-                case 'item_tkshopee_thht':
-                    e.onclick = () => {
-                        coppy_macro(20)
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        })
-        Array.from(document.querySelector('.menu_cc').children).forEach((e) => {
-            switch (e.classList[0]) {
                 case 'item_cc_huy':
-                    e.onclick = () => {
-                        coppy_macro(21)
-                    }
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hủy thành công trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
                     break;
-
                 case 'item_cc_hoan':
-                    e.onclick = () => {
-                        coppy_macro(22)
-                    }
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hoàn thành công về cho người bán và đơn hàng cập nhật huỷ. Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
                     break;
-
                 case 'item_cc_thht':
-                    e.onclick = () => {
-                        coppy_macro(23)
-                    }
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hoàn thành công về cho người bán và không có khiếu nại gì thêm Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
+                    break;
+                case 'item_spay_huy':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng hủy thành công trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h (Không tính thứ 7, chủ nhật và ngày lễ).')
+                    break;
+                case 'item_spay_hoan':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng hoàn thành công về người bán và cập nhật hủy trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
+                    break;
+                case 'item_spay_thht':
+                    navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng trả hàng hoàn tiền thành công trên hệ thống và không có khiếu nại gì thêm, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
+                    break;
+                case 'item_cnl_hg_3':
+                    navigator.clipboard.writeText('Đơn hàng hiện tại đang trong quá trình vận chuyển, tuy nhiên Shopee kiểm tra thấy đơn đang ở khu vực XXXXX từ lúc XXXXX và chưa thấy có cập nhật hành trình mới.\nBạn cho phép Shopee kiểm tra với đơn vị vận chuyển để đốc thúc giao hàng cho người mua và thúc đẩy giao hàng đến người mua trong 1-2 ngày làm việc tiếp theo nhé.\nTrường hợp người mua cần liên hệ với đơn vị vận chuyển, có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã dừng hành trình >=3 ngày. MVĐ: ')
+                    break;
+                case 'item_cnl_hg_qh':
+                    navigator.clipboard.writeText('Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
+                    break;
+                case 'item_cnl_stt_dg':
+                    navigator.clipboard.writeText('Shopee kiểm tra thấy đơn vị vận chuyển cập nhật thông tin giao không thành công vào lúc XXXXX\nĐơn hàng này vẫn còn ca giao theo quy trình, bạn thông cảm theo dõi đơn hàng và chờ shipper liên hệ giao trong ca tiếp theo.\nNếu shipper cập nhật sai trạng thái lần nữa, bạn vui lòng liên hệ lại ngay với Shopee để được hỗ trợ')
+                    break;
+                case 'item_cnl_stt_hoan':
+                    navigator.clipboard.writeText('Shopee sẽ chuyển thông tin kiểm tra với phía đơn vị vận chuyển, thời gian xử lý là 3-5 ngày làm việc.\nĐơn hàng này đã được chuyển hoàn cho người bán nên rất tiếc hàng sẽ không thể tiếp tục giao.\nTrường hợp người mua bị tính tỉ lệ giao hàng không thành công dẫn đến không chọn hình thức thanh toán khi nhận hàng được, người mua vui lòng liên hệ lại Shopee để được hỗ trợ ạ.\n\n\nDear team,\n\nKhách khiếu nại shipper chưa liên hệ giao đủ 3 ca nhưng cập nhật chuyển hoàn\nMVĐ: \nNhờ team hỗ trợ xác minh')
                     break;
 
                 default:
                     break;
             }
-        })
-        Array.from(document.querySelector('.menu_shopeepay').children).forEach((e) => {
-            switch (e.classList[0]) {
-                case 'item_shopeepay_huy':
-                    e.onclick = () => {
-                        coppy_macro(24)
-                    }
-                    break;
-
-                case 'item_shopeepay_hoan':
-                    e.onclick = () => {
-                        coppy_macro(25)
-                    }
-                    break;
-
-                case 'item_shopeepay_thht':
-                    e.onclick = () => {
-                        coppy_macro(26)
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        })
-
-        click_3(document.querySelector('.item_hg_macro'), document.querySelector('.menu_hg'))
-        Array.from(document.querySelector('.menu_hg').children).forEach((e) => {
-            switch (e.classList[0]) {
-                case 'item_dht3n':
-                    e.onclick = () => {
-                        coppy_macro(27)
-                    }
-                    break;
-
-                case 'item_dqh':
-                    e.onclick = () => {
-                        coppy_macro(28)
-                    }
-                    break;
-
-                default:
-                    break;
-            }
-        })
-
-        click_3(document.querySelector('.item_stt'), document.querySelector('.menu_stt'))
-        Array.from(document.querySelector('.menu_stt').children).forEach((e) => {
-            switch (e.classList[0]) {
-
-                case 'item_hoan':
-                    e.onclick = () => {
-                        coppy_macro(29)
-                    }
-                    break;
-
-                case 'item_danggiao':
-                    e.onclick = () => {
-                        console.log(123);
-                        coppy_macro(30)
-                    }
-                    break;
-                default:
-                    break;
-            }
-        })
-
-        function click_2(param1, param2) {
-            console.log(param1, param2);
-            param1.onclick = (e) => {
-                e.stopPropagation()
-                param2.classList.toggle('select')
-                select(param1)
-            }
-            param2.onclick = (e) => {
-                e.stopPropagation()
-                param1.parentElement.classList.toggle('select')
-            }
         }
-        function click_3(param1, param2, param3) {
-            param1.onclick = (e) => {
-                e.stopPropagation()
-                param2.classList.toggle('select')
-                select(param1)
-            }
-            param2.onclick = (e) => {
-                e.stopPropagation()
-                param1.parentElement.parentElement.parentElement.classList.toggle('select')
-            }
-        }
-        //UPDATE===========================================================================
-
-        document.onclick = (e) => {
-            if (element_btn_Pro_wrap.classList.length === 1) {
-                element_btn_Pro_wrap.classList.toggle("none")
-            }
-
-            if (element_DVVC.children[0].classList.length === 1) {
-                element_DVVC.children[0].classList.toggle("none")
-            }
-
-
-        }
-
-
-
-
-
-        function log(params) {
-            console.log(params);
-            if (params[0].addedNodes.length > 0) {
-                var open = params[0].addedNodes[0]
-                console.log(open.attributes.id.value.substr(44, 11));
-                if (open.attributes.id.value.substr(44, 11) === 'agentchat?s') {
-                    console.log('bật chát', open);
-                    console.log('bật chát', open.children[0].children[1].children[0].children[0].children[2].children);
-                    var chat_box = open.children[0].children[1].children[0].children[0].children[2].children
-                    console.log(chat_box.length);
-                    setTimeout(() => {
-                        var class_aray = []
-                        Array.from(chat_box).forEach((e) => {
-                            class_aray.push(e.classList[0])
-                        })
-                        console.log(class_aray);
-                        console.log(class_aray.some(e => { e === 'chat_box_mask___19AhY' }));
-                        // Array.from(chat_box).some((e) => {
-                        //     Array.from(e.classList).includes('chat_box_mask___19AhY')
-
-                        // })
-                    }, 200);
-
-                }
-            }
-
-            if (params[0].removedNodes.length > 0) {
-                var close = params[0].removedNodes[0]
-                console.log(close.attributes.id.value.substr(44, 11));
-                if (close.attributes.id.value.substr(44, 11) === 'agentchat?s') {
-                    console.log('Tắt chat:', close);
-                }
-            }
-
-
-
-
-        }
-
-
-        //===========================================================================================
-
-
-        //riêng tool===========================================================================================
-
-
-        const element_work_tool = Array.from(document.querySelector('.Auto_saleforce_work_tool').children)
-        if (element_work_tool !== null) {
-            element_work_tool.forEach((e) => {
-                switch (e.classList[0]) {
-                    case 'Input_tool_id':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_work_tool, e)
-                            e.select()
-                        }
-                        //keyalt(e, 'Digit1')
-                        break;
-
-                    case 'btn_Get_wordtotool':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_work_tool, e)
-                            Get_Orderof_tool()
-                        }
-                        //keyalt(e, 'Digit1')
-                        break;
-
-                    case 'btn_NV':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_work_tool, e)
-                            console.log(e.children[0]);
-                            e.children[0].classList.toggle("none")
-                        }
-                        //keyalt(e, 'Digit1')
-                        break;
-
-                    default:
-                        console.log('không được element_btn_LDP');
-                        break;
-                }
-            })
-        }
-
-        const element_work_tool_btn_NV = Array.from(document.querySelector('.btn_NV').children[0].children)
-
-        if (element_work_tool_btn_NV !== null) {
-            element_work_tool_btn_NV.forEach((e) => {
-                switch (e.classList[0]) {
-                    case 'btn_NV_1':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            active(element_work_tool_btn_NV, e)
-                            console.log('ne');
-                        }
-                        //keyalt(e, 'Digit1')
-                        break;
-
-                    default:
-                        break;
-                }
-            })
-        }
-
         //Hàm search============================
         function START_Search(params) {
             var el_search_button = document.querySelector('.search_button')
@@ -1583,34 +1187,6 @@ window.onload = function () {
         //=======================================================================
 
         function edit(b) {
-            // var promise = new Promise((resolve, reject) => {
-            //     wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            //     const element_Edit = wrapperLDP.childNodes[1].childNodes[1].childNodes[0].childNodes[1].childNodes[1].querySelector('section').childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[2]
-            //     const edit_Enabled = wrapperLDP.parentElement
-            //     resolve([element_Edit, edit_Enabled])
-            // })
-
-            // promise
-            //     .then((element) => {
-
-            //         if (element[1].classList[1] === 'inlineEditEnabled') {
-            //             console.log('đang bật Edit')
-            //         } else {
-            //             if (element[0] !== null) {
-            //                 element[0].click()
-
-            //             } else {
-            //                 console.log('không tìm thấy element[0]')
-            //             }
-            //         }
-            //     })
-            //     .catch(() => {
-            //         console.log('lỗi');
-            //     })
-
-
-
-
             Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
                 console.log(Object.keys(e.attributes).length);
                 if (Object.keys(e.attributes).length === 2) {
@@ -1635,118 +1211,22 @@ window.onload = function () {
 
                 }
             })
-
         }
 
         function TDHTGH() {
             selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Trước EDT] Theo dõi hành trình giao hàng')
-            // wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            // var edit_Enabled
-            // var edit_Enabled2
-            // if (wrapperLDP) {
-            //     edit_Enabled = wrapperLDP.parentElement
-            //     edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
-            // } else {
-            //     return console.log('Không tìm thấy wrapperLDP')
-            // }
-
-
-            // if (edit_Enabled2.classList[1] === 'hideEl') {
-            //     selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Trước EDT] Theo dõi hành trình giao hàng')
-            // } else {
-            //     console.log('Chưa bật edit');
-            // }
-
-            // console.log('wrapperLDP: ', wrapperLDP)
-            // console.log('edit_Enabled: ', edit_Enabled);
-            // console.log('Class[01]: ', edit_Enabled.classList[1]);
-            // console.log('Class: ', edit_Enabled.classList);
-            // console.log('tìm: ', edit_Enabled2.classList[1]);
-
         }
 
         function HoiGiao() {
             selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Sau EDT] Hối giao')
-            // wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            // //console.log(wrapperLDP);
-            // var edit_Enabled
-            // var edit_Enabled2
-            // if (wrapperLDP) {
-            //     edit_Enabled = wrapperLDP.parentElement
-            //     edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
-            // } else {
-            //     return console.log('Không tìm thấy wrapperLDP')
-            // }
-
-
-            // if (edit_Enabled2.classList[1] === 'hideEl') {
-            //     selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Sau EDT] Hối giao')
-            // } else {
-            //     console.log('Chưa bật edit');
-            // }
-
-            // console.log('wrapperLDP: ', wrapperLDP)
-            // console.log('edit_Enabled: ', edit_Enabled);
-            // console.log('Class[01]: ', edit_Enabled.classList[1]);
-            // console.log('Class: ', edit_Enabled.classList);
-            // console.log('tìm: ', edit_Enabled2.classList[1]);
         }
 
         function HoiLay() {
             selectLDP('Open', 'Vận chuyển', 'Lấy hàng/ Gửi hàng', 'Hối lấy hàng')
-            // wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            // //console.log(wrapperLDP);
-            // var edit_Enabled
-            // var edit_Enabled2
-            // if (wrapperLDP) {
-            //     edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
-            //     edit_Enabled = wrapperLDP.parentElement
-            // } else {
-            //     return console.log('Không tìm thấy wrapperLDP')
-            // }
-
-
-            // if (edit_Enabled2.classList[1] === 'hideEl') {
-            //     selectLDP('Open', 'Vận chuyển', 'Lấy hàng/ Gửi hàng', 'Hối lấy hàng')
-            // } else {
-            //     console.log('Chưa bật edit');
-            // }
-
-            // console.log('wrapperLDP: ', wrapperLDP)
-            // console.log('edit_Enabled: ', edit_Enabled);
-            // console.log('Class[01]: ', edit_Enabled.classList[1]);
-            // console.log('Class: ', edit_Enabled.classList);
-            // console.log('tìm: ', edit_Enabled2.classList[1]);
         }
 
         function CCHT() {
             selectLDP('Solved', 'Câu hỏi khác', 'Câu hỏi khác', 'Chat chưa hoàn tất')
-            //wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[2].childNodes[0].childNodes[0].children[0].children[0].children[0]
-
-            // wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            // var edit_Enabled
-            // var edit_Enabled2
-            // if (wrapperLDP) {
-            //     edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
-            //     edit_Enabled = wrapperLDP.parentElement
-            // } else {
-            //     return console.log('Không tìm thấy wrapperLDP')
-            // }
-
-
-
-            // //tam
-            // if (edit_Enabled2.classList[1] === 'hideEl') {
-            //     selectLDP('Solved', 'Câu hỏi khác', 'Câu hỏi khác', 'Chat chưa hoàn tất')
-            // } else {
-            //     console.log('Chưa bật edit');
-            // }
-
-            // console.log('wrapperLDP: ', wrapperLDP)
-            // console.log('edit_Enabled: ', edit_Enabled);
-            // console.log('Class[01]: ', edit_Enabled.classList[1]);
-            // console.log('Class: ', edit_Enabled.classList);
-            // console.log('tìm: ', edit_Enabled2.classList[1]);
         }
 
         function Dearteam(params) {
@@ -2276,7 +1756,7 @@ window.onload = function () {
 
         function Get_Word_ID(params) {
             if (params === undefined) {
-                params = document.querySelector('.item_idtab')
+                params = document.querySelector('.item_system_id ')
             }
             var objValue = { value: "Gửi đi tin nhắn để lấy TabID_work" }
 
@@ -2465,258 +1945,7 @@ window.onload = function () {
             }
         }
 
-        function coppy_macro(stt) {
-            if (stt === 1) {
-                navigator.clipboard.writeText(
-                    'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến bạn. ' + '\n\n'
-                    + 'Shopee kiểm tra thấy đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp. ' + '\n\n'
-                    + 'Tuy nhiên do đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn chú ý điện thoại để nhận hàng nhé.' + '\n\n'
-                    + 'Trong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX'
 
-                )
-                console.log('đã coppy 1');
-            }
-
-            if (stt === 2) {
-                navigator.clipboard.writeText(
-                    'Shopee nhận thấy đơn hàng đã được hối XXXXX lần trước đó nhưng vẫn chưa giao thành công. ' + '\n\n'
-                    + 'Mong bạn thông cảm do đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp. ' + '\n\n'
-                    + 'Shopee sẽ kiểm tra lại với đơn vị vận chuyển xem đơn hàng có gặp vấn đề gì không và sẽ cố gắng đốc thúc giao nhanh hơn đến bạn nhé.' + '\n\n'
-                    + 'Trong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX'
-
-                )
-                console.log('đã coppy 2');
-            }
-
-            if (stt === 3) {
-                navigator.clipboard.writeText(
-                    'Shopee hiểu việc bạn đang nóng lòng chờ nhận hàng và rất tiếc khi để bạn phải liên hệ vì đã quá thời gian dự kiến mà vẫn chưa nhận được hàng. ' + '\n\n'
-                    + 'Mình sẽ chuyển ngay thông tin đến ĐVVC để hối thúc giao gấp đơn hàng này cho bạn, thời gian xử lý 1-2 ngày làm việc' + '\n\n'
-                    + 'Trường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX'
-
-                )
-                console.log('đã coppy 3');
-            }
-
-            if (stt === 4) {
-                navigator.clipboard.writeText(
-                    'Shopee nhận thấy đơn hàng đã được hối XXXXX lần trước đó nhưng vẫn chưa giao thành công. ' + '\n\n'
-                    + 'Shopee sẽ kiểm tra lại với ĐVVC xem đơn hàng có gặp vấn đề gì không và sẽ cố gắng đốc thúc giao nhanh hơn đến bạn nhé, thời gian xử lý 1-2 ngày làm việc.' + '\n\n'
-                    + ' Trường hợp bạn cần liên hệ với ĐVVC, bạn có thể liên hệ theo thông tin XXXXX'
-
-                )
-                console.log('đã coppy 4');
-            }
-
-            if (stt === 5) {
-                navigator.clipboard.writeText(
-                    'Shopee Xpress:' + '\n'
-                    + 'Website: https://spx.vn/' + '\n'
-                    + 'Liên hệ email: https://help.shopee.vn/portal/webform/4d8d2e07487345cf9a9881fde841079c?' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (9h-18h)'
-
-                )
-                console.log('đã coppy 5');
-            }
-
-            if (stt === 6) {
-                navigator.clipboard.writeText(
-                    'Ninja Van:' + '\n'
-                    + 'Website: https://www.ninjavan.co/vi-vn/tracking' + '\n'
-                    + 'Email: support_vn@ninjavan.co' + '\n'
-                    + 'Hotline: 1900 886 877' + '\n'
-                    + 'Thời gian làm việc: T2 - T7 (8h - 20h), CN (8h - 17h)'
-
-                )
-                console.log('đã coppy 6');
-            }
-
-            if (stt === 7) {
-                navigator.clipboard.writeText(
-                    'BEST Express:' + '\n'
-                    + 'Website: https://best-inc.vn/ ' + '\n'
-                    + 'Email: cskh@best-inc.com' + '\n'
-                    + 'Hotline: 1900 1031' + '\n'
-                    + 'Thời gian làm việc: T2 - T6 (7h30 - 19h), T7 - CN (8h - 17h)'
-
-                )
-                console.log('đã coppy 7');
-            }
-
-            if (stt === 8) {
-                navigator.clipboard.writeText(
-                    'J&T Express:' + '\n'
-                    + 'Website: https://jtexpress.vn/' + '\n'
-                    + 'Email: cskh@jtexpress.vn' + '\n'
-                    + 'Hotline: 1900 1088' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (8h - 21h)'
-                )
-                console.log('đã coppy 8');
-            }
-
-            if (stt === 9) {
-                navigator.clipboard.writeText(
-                    'Giao Hàng Tiết Kiệm :' + '\n'
-                    + 'Website: https://giaohangtietkiem.vn/' + '\n'
-                    + 'Email: cskh@ghtk.vn ' + '\n'
-                    + 'Chat: sos.ghtk.vn' + '\n'
-                    + 'Thời gian làm việc: T2 - T7 (8h - 20h), CN (8h - 18h)'
-
-                )
-                console.log('đã coppy 9');
-            }
-
-            if (stt === 10) {
-                navigator.clipboard.writeText(
-                    'Giao Hàng Nhanh:' + '\n'
-                    + 'Website: https://ghn.vn/' + '\n'
-                    + 'Email: cskh@ghn.vn' + '\n'
-                    + 'Hotline: 1900 636677' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (8h30 - 21h)'
-
-                )
-                console.log('đã coppy 10');
-            }
-
-            if (stt === 11) {
-                navigator.clipboard.writeText(
-                    'VNPost Nhanh/VNPost Tiết Kiệm:' + '\n'
-                    + 'Website: www.vnpost.vn' + '\n'
-                    + 'Email: vanphong@vnpost.vn' + '\n'
-                    + 'Hotline: 1900 54 54 81' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (7h - 21h)'
-
-                )
-                console.log('đã coppy 11');
-            }
-
-            if (stt === 12) {
-                navigator.clipboard.writeText(
-                    'Viettel Post:' + '\n'
-                    + 'Website: https://viettelpost.com.vn/' + '\n'
-                    + 'Email: support@viettelpost.com.vn' + '\n'
-                    + 'Hotline: 1900 8095 ' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (7h - 20h)'
-
-                )
-                console.log('đã coppy 12');
-            }
-
-            if (stt === 13) {
-                navigator.clipboard.writeText(
-                    'beDelivery:' + '\n'
-                    + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
-                    + 'Website: https://be.com.vn/' + '\n'
-                    + 'Hotline: 1900232345' + '\n'
-                    + 'Thời gian làm việc: 24/7)'
-
-                )
-                console.log('đã coppy 13');
-            }
-
-            if (stt === 14) {
-                navigator.clipboard.writeText(
-                    'GrabExpress:' + '\n'
-                    + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
-                    + 'Website: https://www.grab.com/vn/express/' + '\n'
-                    + 'Hotline: 0902349633' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (6h - 22h)'
-
-                )
-                console.log('đã coppy 14');
-            }
-
-            if (stt === 15) {
-                navigator.clipboard.writeText(
-                    'Shopee Xpress Instant:' + '\n'
-                    + 'Vui lòng tra cứu thông tin vận chuyển ngay trên Ứng dụng Shopee' + '\n'
-                    + 'Hotline:19002042' + '\n'
-                    + 'Thời gian làm việc: T2 - CN (8h - 20h)'
-
-                )
-                console.log('đã coppy 15');
-            }
-
-            if (stt === 16) {
-                navigator.clipboard.writeText(
-                    'Standard Express:' + '\n'
-                    + 'Xem chi tiết cách Liên Hệ Đơn Vị Vận Chuyển Standard Express: https://help.shopee.vn/s/article/lien-he-don-vi-van-chuyen-standard-express'
-                )
-                console.log('đã coppy 16');
-            }
-
-            if (stt === 17) {
-                navigator.clipboard.writeText(copy_Pro.slice(9))
-                console.log('đã coppy 17');
-            }
-
-            if (stt === 18) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng cập nhật hủy trên hệ thống và không có khiếu nại gì thêm.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 18');
-            }
-
-            if (stt === 19) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng hoàn thành công trên hệ thống và đơn hàng cập nhật huỷ.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 19');
-            }
-
-            if (stt === 20) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán khi nhận hàng, ngay khi đơn hàng trả hàng hoàn tiền thành công về người bán và không có khiếu nại gì thêm.\nShopee sẽ làm lệnh hoàn tiền về số dư TK Shopee cho bạn. Thời gian bạn nhận được thanh toán về số dư TK Shopee trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 19');
-            }
-
-            if (stt === 21) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hủy thành công trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
-                console.log('đã coppy 21');
-            }
-
-            if (stt === 22) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hoàn thành công về cho người bán và đơn hàng cập nhật huỷ. Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
-                console.log('đã coppy 22');
-            }
-
-            if (stt === 23) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng thẻ tín dụng, ngay khi đơn hàng hoàn thành công về cho người bán và không có khiếu nại gì thêm Shopee sẽ làm lệnh hoàn tiền về thẻ tín dụng.\nThời gian bạn nhận được thanh toán về thẻ dự kiến trong vòng 7 - 14 ngày làm việc (Không tính thứ 7, chủ nhật và ngày lễ) tiếp theo, tùy theo tốc độ xử lý của Ngân hàng phát hành.')
-                console.log('đã coppy 23');
-            }
-
-            if (stt === 24) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng hủy thành công trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 24');
-            }
-
-            if (stt === 25) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng hoàn thành công về người bán và cập nhật hủy trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 25');
-            }
-
-            if (stt === 26) {
-                navigator.clipboard.writeText('Theo như quy định của Shopee, đối với các đơn hàng thanh toán trước bằng ví Shopee Pay, ngay khi đơn hàng trả hàng hoàn tiền thành công trên hệ thống, Shopee sẽ làm lệnh hoàn tiền về ví Shopee Pay.\nThời gian bạn nhận được thanh toán về ví Shopee Pay trong vòng 24h làm việc (Không tính thứ 7, chủ nhật và ngày lễ).')
-                console.log('đã coppy 26');
-            }
-
-            if (stt === 27) {
-                navigator.clipboard.writeText('Đơn hàng hiện tại đang trong quá trình vận chuyển, tuy nhiên Shopee kiểm tra thấy đơn đang ở khu vực XXXXX từ lúc XXXXX và chưa thấy có cập nhật hành trình mới.\nBạn cho phép Shopee kiểm tra với đơn vị vận chuyển để đốc thúc giao hàng cho người mua và thúc đẩy giao hàng đến người mua trong 1-2 ngày làm việc tiếp theo nhé.\nTrường hợp người mua cần liên hệ với đơn vị vận chuyển, có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã dừng hành trình >=3 ngày. MVĐ: ')
-                console.log('đã coppy 27');
-            }
-
-            if (stt === 28) {
-                navigator.clipboard.writeText('Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
-                console.log('đã coppy 28');
-            }
-
-            if (stt === 29) {
-                navigator.clipboard.writeText('Shopee sẽ chuyển thông tin kiểm tra với phía đơn vị vận chuyển, thời gian xử lý là 3-5 ngày làm việc.\nĐơn hàng này đã được chuyển hoàn cho người bán nên rất tiếc hàng sẽ không thể tiếp tục giao.\nTrường hợp người mua bị tính tỉ lệ giao hàng không thành công dẫn đến không chọn hình thức thanh toán khi nhận hàng được, người mua vui lòng liên hệ lại Shopee để được hỗ trợ ạ.\n\n\nDear team,\n\nKhách khiếu nại shipper chưa liên hệ giao đủ 3 ca nhưng cập nhật chuyển hoàn\nMVĐ: \nNhờ team hỗ trợ xác minh')
-                console.log('đã coppy 29');
-            }
-
-            if (stt === 30) {
-                navigator.clipboard.writeText('Shopee kiểm tra thấy đơn vị vận chuyển cập nhật thông tin giao không thành công vào lúc XXXXX\nĐơn hàng này vẫn còn ca giao theo quy trình, bạn thông cảm theo dõi đơn hàng và chờ shipper liên hệ giao trong ca tiếp theo.\nNếu shipper cập nhật sai trạng thái lần nữa, bạn vui lòng liên hệ lại ngay với Shopee để được hỗ trợ')
-                console.log('đã coppy 23');
-            }
-
-
-        }
 
         function time_clock(params) {
             setInterval(() => {
@@ -2943,15 +2172,15 @@ window.onload = function () {
 
         function fun_KDVVC(Tab_Order_KDVVC) {
             var HTML_String_KDVVC
-            var String_DVVC = Tab_Order_KDVVC.slice(0,Tab_Order_KDVVC.search("Integrated")).trim()
+            var String_DVVC = Tab_Order_KDVVC.slice(0, Tab_Order_KDVVC.search("Integrated")).trim()
             console.log(typeof String_DVVC, String_DVVC);
             if (String_DVVC === 'Standard Express') {
-                HTML_String_KDVVC = `<div><label style="color: rgb(240 0 0);background: rgb(253 224 224);border: 1px solid rgb(250 173 173);border-radius: 5px;">${String_DVVC}</Label></div>`     
-            console.log(HTML_String_KDVVC);
+                HTML_String_KDVVC = `<div><label style="color: rgb(240 0 0);background: rgb(253 224 224);border: 1px solid rgb(250 173 173);border-radius: 5px;">${String_DVVC}</Label></div>`
+                console.log(HTML_String_KDVVC);
 
-            }else {
+            } else {
                 HTML_String_KDVVC = `<div><label>Kênh: ${String_DVVC}</Label></div>`
-            console.log(HTML_String_KDVVC);
+                console.log(HTML_String_KDVVC);
 
 
             }
@@ -3765,631 +2994,7 @@ window.onload = function () {
 
     }
 
-    //order
-    if (S_order != -1 && S_work == -1) {
 
-        setInterval(() => {
-            //var myDate2 = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-            var date = new Date();
-            var dateStr =
-                ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
-                ("00" + date.getDate()).slice(-2) + "/" +
-                date.getFullYear() + " " +
-                ("00" + date.getHours()).slice(-2) + ":" +
-                ("00" + date.getMinutes()).slice(-2) + ":" +
-                ("00" + date.getSeconds()).slice(-2);
-            //console.log(dateStr);
-            document.querySelector('.Time').innerHTML = dateStr
-        }, 1000)
-
-        const wrapper = document.querySelector('body')
-        if (wrapper !== null) {
-            wrapper.insertAdjacentHTML("afterend", htmlTeamplate_order);
-
-        } else {
-            console.log('Không tìm thấy wrapper');
-        }
-
-        const element_Order = Array.from(document.querySelector('.Auto_saleforce_order').children)
-        if (element_Order !== null) {
-            element_Order.forEach((e) => {
-
-                switch (e.classList[0]) {
-                    case 'btn_Order_GET':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            Get_Order()
-                        }
-                        key_one(e, 'F2')
-                        break;
-
-                    case 'Input_word_id':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            e.select()
-                        }
-                        break;
-
-                    case 'btn_Order_Test':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            Order_Test()
-                        }
-                    default:
-                        console.log('Không được: ', e)
-                        break;
-                }
-            })
-        }
-
-
-
-
-
-
-
-
-        var timers = []
-        const element_Btn_Start_color = document.querySelector('.Start_color')
-        element_Btn_Start_color.onclick = () => {
-            fade1(element_Btn_Start_color, [255, 255, 255], [255, 0, 0], 10, 'backgroundcolor');
-            fade1(element_Btn_Start_color, [0, 0, 0], [255, 255, 255], 10, 'color');
-        }
-
-
-        function fade1(element, startcolor, endcolor, time_elapsed, style) {
-            var steps = 50
-            var red_change = (startcolor[0] - endcolor[0]) / steps
-            var green_change = (startcolor[1] - endcolor[1]) / steps
-            var blue_change = (startcolor[2] - endcolor[2]) / steps
-            var currentcolor = startcolor;
-            var stepcount = 0;
-            var timer = setInterval(function () {
-                currentcolor[0] = parseInt(currentcolor[0] - red_change)
-                currentcolor[1] = parseInt(currentcolor[1] - green_change)
-                currentcolor[2] = parseInt(currentcolor[2] - blue_change)
-
-                if (style === 'backgroundcolor') {
-                    element.style.backgroundColor = 'rgb(' + currentcolor.toString() + ')'
-                }
-                if (style === 'color') {
-                    element.style.color = 'rgb(' + currentcolor.toString() + ')'
-                }
-                stepcount += 1;
-                if (stepcount >= steps) {
-                    stepcount = 0
-                    if (style === 'backgroundcolor') {
-                        currentcolor = [255, 255, 255]
-                    }
-                    if (style === 'color') {
-                        currentcolor = [0, 0, 0]
-                    }
-
-                }
-            }, time_elapsed);
-            timers.push(timer)
-            console.log(timers)
-        }
-
-
-
-
-        const element_Btn_Stop_color = document.querySelector('.Stop_color')
-        element_Btn_Stop_color.onclick = () => {
-            var currentSelection = window.getSelection()
-
-            console.log(currentSelection)
-            // timers.forEach((e) => {
-            //     clearInterval(e)
-            //     console.log('Clear: ', e);
-            // })
-            // timers = []
-        }
-        //=======================================================================
-
-        function Get_Order(params) {
-            var order = Array.from(document.querySelector('main').children[0].children)
-            var card_with_headerss = get_card_with_headers(order)
-
-
-
-            //Lấy MVĐ
-            var MVD = Get_MVD(card_with_headerss)
-
-            //lấy EDT
-            var Delivery_Time = Get_EDT(card_with_headerss)
-
-            //Lấy SN ĐH
-            var SN_DH = Get_SN_DH(card_with_headerss)
-
-            //Lấy DVVC 
-            var DVVC = Get_DVVC(card_with_headerss)
-
-            //lấy kênh vận chuyển
-            var KDVVC = Get_KDVVC(card_with_headerss)
-
-            //lấy APT (arange pickup time)
-            var APT = Get_APT(card_with_headerss)
-
-            //láy peyment
-            var PM = Get_PM(card_with_headerss)
-
-            //lấy user id buyer/seller
-            var UID = Get_UID(card_with_headerss)
-
-            var Word_ID = localStorage.getItem('tabID')
-            document.querySelector('.Input_word_id').value = Word_ID
-            console.log(Word_ID);
-
-            var LT = Get_LT(card_with_headerss)
-            console.log(LT);
-
-
-            //==============================
-            //gửi tin nhắn đến extention
-            var Messenger = {
-                Tab_Order_MVD: MVD,
-                Tab_Order_EDT: Delivery_Time,
-                Tab_Order_SN: SN_DH,
-                Tab_Order_DVVC: DVVC,
-                Tab_Order_KDVVC: KDVVC,
-                //Tab_Order_status_EDT: status_EDT,
-                Tab_Order_Word_ID: Word_ID,
-                Tab_Order_APT: APT,
-                Tab_Order_PM: PM,
-                Tab_Order_UID: UID,
-                Tab_Order_LT: LT
-            }
-            //console.log(Messenger);
-
-
-
-            // Messenger = {
-            //     ...Messenger,
-            //     Tab_Order_LT: LT
-            // }
-
-            chrome.runtime.sendMessage(Messenger, (e) => {
-                console.group('Nhận phản hồi từ tin nhắn gửi đi: ', Messenger)
-                console.log('Kết quả: ', e.result);
-                console.log('Nhận Phản hồi từ extention: ', e.Tab_Order_MVD)
-                console.log('Word_ID:', e.Work_ID);
-                console.groupEnd()
-            })
-            console.group('Gửi đi')
-            console.log('gửi đi: ', Messenger)
-            console.groupEnd()
-            // .then(function (data) {
-            //     Messenger = {
-            //         ...Messenger,
-            //         Tab_Order_LT: data
-            //     }
-
-            //     chrome.runtime.sendMessage(Messenger, (e) => {
-            //         console.group('Nhận phản hồi từ tin nhắn gửi đi: ', Messenger)
-            //         console.log('Kết quả: ', e.result);
-            //         console.log('Nhận Phản hồi từ extention: ', e.Tab_Order_MVD)
-            //         console.log('Word_ID:', e.Work_ID);
-            //         console.groupEnd()
-            //     })
-            //     console.group('Gửi đi')
-            //     console.log('gửi đi: ', Messenger)
-            //     console.groupEnd()
-            // })
-
-        }
-
-        function get_card_with_headers(order) {
-            var result = []
-            order.forEach((e) => {
-                if (e.classList.value === '') {
-                    if (e.attributes[0] === undefined || e.attributes[0].value === '') {
-                        if (e.children[0].classList.value === 'order-detail-container') {
-                            var card_with_headers = Array.from(e.children[0].children[1].children)
-                            card_with_headers.forEach((e) => {
-                                result.push(e)
-                            })
-                        } else {
-                            console.log('chưa chọn tab ORDER');
-                        }
-                    }
-                }
-            })
-            return result
-            console.log(result);
-        }
-
-        function Calculator_EDT(Delivery_Time) {
-            if (Delivery_Time) {
-                var time_time = Delivery_Time.substr(10, 17)
-                document.querySelector('.MVD').innerHTML = time_time
-                var hours = time_time.substr(0, 6)
-                var days = time_time.substr(7, 2)
-                var monts = time_time.substr(10, 2)
-                var years = time_time.substr(13, 4)
-                console.log('Giờ: ', hours)
-                console.log('Tháng: ', monts)
-                console.log('Ngày: ', days)
-                console.log('Năm: ', years)
-
-                var nows = new Date()
-                var Time_EDT = Date.parse(monts + '-' + days + '-' + years)
-                //var Time_EDT = Date.parse('02-26-2022')
-                var Time_nows = Date.parse((nows.getMonth() + 1) + '-' + nows.getDate() + '-' + nows.getFullYear())
-
-                console.log('Time_EDT: ', Time_EDT)
-                console.log('Time_nows: ', Time_nows)
-
-
-                if (Time_nows > Time_EDT) {
-                    var remaining = Time_nows - Time_EDT
-
-                    console.log('Hối giao: ', remaining)
-                    //status_EDT = 2
-                    var days = remaining / 86400000
-                    console.log('days', Math.floor(days))
-                    console.log('hours', Math.floor((remaining % 86400000) / 3600000))
-                    console.log('minutes', Math.floor(((remaining % 86400000) % 3600000) / 60000))
-                    console.log('seconds', Math.floor((((remaining % 86400000) % 3600000) % 60000) / 1000))
-                    if (remaining > 259200000) {
-                        console.log('log hối giao')
-                        //status_EDT = 3
-                        return 3
-                    }
-                    return 2
-                }
-                if (Time_nows < Time_EDT) {
-                    console.log('Theo dõi hành trình giao hàng')
-                    //status_EDT = 1
-                    return 1
-                }
-
-                if (Time_nows === Time_EDT) {
-                    console.log('Trong EDT')
-                    //status_EDT = 4
-                    return 4
-                }
-            }
-        }
-
-        function key_one(e, key) {
-            document.addEventListener("keypress", function (event) {
-
-                if (event.code === key) {
-                    e.click()
-                }
-
-            }, false)
-        }
-
-        function Order_Test(params) {
-            //var Word_ID = document.querySelector('.Input_word_id').value
-
-            var order = Array.from(document.querySelector('main').children[0].children)
-            var card_with_headerss = get_card_with_headers(order)
-            var PM = Get_PM(card_with_headerss)
-            console.log('nè: ', PM);
-
-
-
-
-
-
-        }
-
-        function elementReading(params, item) {
-            return new Promise(function (resolve, reject) {
-                //console.log(params);
-                params ? params.click() : reject('Không tìm thấy params: ' + params)
-                const targetNodes = document.body.childNodes
-                const observerOptions = {
-                    attributes: true,
-                    attributeOldValue: true,
-                }
-                const observer = new MutationObserver(callback)
-                targetNodes.forEach(e => {
-                    observer.observe(e, observerOptions);
-                })
-                function callback(mutations) {
-                    mutations.forEach(function (mutation) {
-                        if (mutation.attributeName === 'class' && mutation.oldValue === 'select-options popupTargetContainer uiPopupTarget uiMenuList uiMenuList--default uiMenuList--left uiMenuList--short visible') {
-                            observer.disconnect()
-                            //console.log(mutation)
-                            var TrangThai = mutation.target.children[0].children[0].children
-                            //console.log('tìm thấy', TrangThai);
-                            Array.from(TrangThai).forEach(e => {
-                                if (e.children[0].title === item) {
-                                    //console.log(e.children[0]);
-                                    resolve(e.children[0])
-                                }
-                            })
-                        }
-                    });
-                }
-            })
-        }
-        function mapDOM(element, json) {
-            var treeObject = {};
-
-            // If string convert to document Node
-            if (typeof element === "string") {
-                if (window.DOMParser) {
-                    parser = new DOMParser();
-                    docNode = parser.parseFromString(element, "text/xml");
-                } else // Microsoft strikes again
-                {
-                    docNode = new ActiveXObject("Microsoft.XMLDOM");
-                    docNode.async = false;
-                    docNode.loadXML(element);
-                }
-                element = docNode.firstChild;
-            }
-
-            //Recursively loop through DOM elements and assign properties to object
-            function treeHTML(element, object) {
-                object["type"] = element.nodeName;
-                var nodeList = element.childNodes;
-                if (nodeList != null) {
-                    if (nodeList.length) {
-                        object["content"] = [];
-                        for (var i = 0; i < nodeList.length; i++) {
-                            if (nodeList[i].nodeType == 3) {
-                                object["content"].push(nodeList[i].nodeValue);
-                            } else {
-                                object["content"].push({});
-                                treeHTML(nodeList[i], object["content"][object["content"].length - 1]);
-                            }
-                        }
-                    }
-                }
-                if (element.attributes != null) {
-                    if (element.attributes.length) {
-                        object["attributes"] = {};
-                        for (var i = 0; i < element.attributes.length; i++) {
-                            object["attributes"][element.attributes[i].nodeName] = element.attributes[i].nodeValue;
-                        }
-                    }
-                }
-            }
-            treeHTML(element, treeObject);
-
-            return (json) ? JSON.stringify(treeObject) : treeObject;
-        }
-        //==============================
-        function Get_MVD(card_with_headerss) {
-            var MVD
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'logistic-info') {
-                    var content_logistic_info = e.children[1].children[0].children[0].children[1].children[0].children
-                    // Array.from(content_logistic_info).forEach(e => {
-                    //     Array.from(e.children).forEach(e => {
-                    //         if (e.innerText === 'Shipping Tracking Number:') {
-                    //             MVD = e.nextElementSibling.innerText
-                    //             //console.log(MVD)
-                    //         }
-                    //     })
-                    // });
-                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[4].innerText);
-
-                    MVD = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[4].innerText
-                    console.log(MVD);
-                }
-            })
-            return MVD
-        }
-        function Get_EDT(card_with_headerss) {
-            var Delivery_Time
-
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'timeline') {
-
-                    var content_timeline = Array.from(e.children[0].children[1].children[0].children[0].children[0].children)
-                    console.log('content_timeline', content_timeline);
-                    content_timeline.forEach((e) => {
-
-                        var status_order = e.children[2].children[0].children[0].children[0].children[0].innerText
-                        console.log('status_order', status_order)
-                        if (status_order === 'Estimated Delivery Time') {
-                            Delivery_Time = e.children[2].children[2].innerText
-                            //console.log(typeof Delivery_Time, Delivery_Time);
-                        }
-
-                    })
-                }
-            })
-            console.log('Delivery_Time: ', Delivery_Time);
-            return Delivery_Time
-        }
-        function Get_SN_DH(card_with_headerss) {
-            var SN_DH
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'general-info') {
-                    content_general_info = e.children[1].children[0].children[0].children[0].children[0].children[0].children
-                    //console.log(content_general_info)
-                    Array.from(content_general_info).forEach(e => {
-                        Array.from(e.children).forEach(e => {
-                            if (e.innerText === 'SN đơn hàng:') {
-                                SN_DH = getDirectInnerText(e.nextElementSibling).trim()
-                                //console.log(SN_DH.trim())
-                            }
-                        })
-                    })
-
-                }
-            })
-            return SN_DH
-        }
-        function Get_DVVC(card_with_headerss) {
-            var DVVC
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'logistic-info') {
-                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[3].innerText);
-
-                    DVVC = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[3].innerText
-
-                    console.log(DVVC);
-                }
-            })
-            return DVVC
-        }
-        function Get_KDVVC(card_with_headerss) {
-            var KDVVC
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'logistic-info') {
-                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[2].innerText);
-
-                    KDVVC = e.children[1].children[0].children[1].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[0].children[2].innerText
-
-                    console.log(KDVVC);
-                }
-            })
-            return KDVVC
-        }
-        function Get_APT(card_with_headerss) {
-            var APT
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'logistic-info') {
-                    var content_APT_info1 = e.children[1].children[0].children[0].children[1].children[0].children[0].children[0]
-                    var content_APT_info2 = e.children[1].children[0].children[0].children[1].children[0].children[0].children[1]
-
-                    APT = getDirectInnerText(content_APT_info1)
-                    APT += getDirectInnerText(content_APT_info2)
-
-                }
-            })
-            return APT
-        }
-        function Get_PM(card_with_headerss) {
-            var Get_PM = []
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'payment-info') {
-                    //console.log('nè: ',e.children[0].children[1].children[0].children[0].children[1].children[13].children[1].children[0].innerHTML.trim());
-                    Get_PM[0] = e.children[0].children[1].children[0].children[0].children[1].children[13].children[0].children[0].innerHTML.trim()
-                    Get_PM[1] = e.children[0].children[1].children[0].children[0].children[1].children[13].children[1].children[0].innerHTML.trim()
-                    Get_PM[2] = e.children[0].children[1].children[0].children[0].children[1].children[11].children[0].innerHTML.trim()
-                    Get_PM[3] = e.children[0].children[1].children[0].children[0].children[1].children[11].children[1].innerText.trim()
-
-                }
-            });
-
-            console.log('Get_PM', Get_PM)
-            return Get_PM
-        }
-        function Get_LT(card_with_headerss) {
-            var result
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'logistic-info') {
-                    console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0]);
-                    //console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML);
-                    result = e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML
-
-                }
-
-            });
-            // return new Promise((resolve, reject) => {
-            //     var Word_ID = document.querySelector('.Input_word_id').value
-            //     card_with_headerss.forEach((e) => {
-            //         if (e.attributes.id.value === 'logistic-info') {
-
-            //             // var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].
-            //             //     children[0].children[0].children[1].children[0].children[1].children[0].children[3].children[0].children[0].children[0].children[1]
-            //             //Logistics_Tracking_XCT.click()
-            //             var Logistics_Tracking = e.children[1].children[0].children[1].children[0].children[0].children[0].children[2].children[0].children[0].children[0].children[1].children[0].children[1].children[1]
-            //             var flag = Logistics_Tracking.children.length
-            //             var Logistics_Tracking_XCT = e.children[1].children[0].children[1].children[0].
-            //                 children[0].children[0].children[2].children[0].children[0].children[0].children[1].
-            //                 children[0].children[1].children[0].children[0].children[0].children[0].children[0]
-
-            //             console.log(flag);
-
-            //             if (flag > 0) {
-            //                 console.log(e.querySelector('.tracking-table').children[1]);
-            //                 // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
-            //                 var els = e.querySelector('.tracking-table').children[1].outerHTML
-            //                 resolve(els)
-            //             }
-
-            //             if (flag === 0) {
-            //                 Logistics_Tracking_XCT.click()
-            //                 const observerOptions = {
-            //                     childList: true,
-            //                 }
-
-            //                 const observer = new MutationObserver(callback)
-
-            //                 const targetNodes = Logistics_Tracking
-            //                 observer.observe(targetNodes, observerOptions)
-
-            //                 function callback(mutations) {
-
-            //                     console.log('mutations: ', mutations);
-            //                     console.log('mutations: ', mutations[0].target);
-            //                     console.log('mutations: ', mutations[0].target.children[0].children[0].children[1]);
-            //                     observer.disconnect()
-            //                     var els = mutations[0].target.children[0].children[0].children[1].outerHTML
-            //                     resolve(els)
-
-            //                 }
-            //             }
-
-
-
-
-
-            //             // setTimeout(() => {
-            //             //     console.log(e.querySelector('.tracking-table').children[1]);
-            //             //     // var els = document.querySelectorAll('body > div[class="pcs-popper-wrap"]')
-            //             //     var els = e.querySelector('.tracking-table').children[1].outerHTML
-            //             //     resolve(els)
-            //             //     // els.forEach((e) => {
-            //             //     //     if (e.getAttribute('style') !== 'display: none;') {
-            //             //     //         var list_traking = e.children[1].children[0].children[0].children[0].children[1].children[0].outerHTML
-            //             //     //         console.log('1: ', e.children[1].children[0].children[0].children[0].children[1].children[0])
-            //             //     //         resolve(list_traking)
-            //             //     //     }
-
-            //             //     // });
-            //             // }, 500)
-
-            //         }
-
-            //     });
-            // })
-            console.log(result);
-            return result
-        }
-        function Get_UID(card_with_headerss) {
-            console.log(card_with_headerss)
-            var Get_UID = []
-            card_with_headerss.forEach((e) => {
-                if (e.attributes.id.value === 'buyer-seller-info') {
-                    console.log();
-                    //buyer
-                    Get_UID[0] = e.children[1].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[2].children[1].innerText
-                    Get_UID[1] = e.children[1].children[0].children[0].children[1].children[0].children[0].children[1].children[0].children[0].children[1].innerText.trim()
-                    //seller
-                    Get_UID[2] = e.children[1].children[0].children[0].children[1].children[1].children[0].children[1].children[0].children[1].children[1].innerText
-
-                }
-            });
-            return Get_UID
-        }
-
-        function getDirectInnerText(element) {
-            var childNodes = element.childNodes;
-            result = '';
-
-            for (var i = 0; i < childNodes.length; i++) {
-                if (childNodes[i].nodeType == 3) {
-                    result += childNodes[i].data;
-                }
-            }
-
-            return result;
-        }
-
-        //==============================
-    }
 
     //Tool_Recovery
     if (S_Tool_Recovery != -1) {
@@ -4448,6 +3053,8 @@ window.onload = function () {
 
     }
 }
+
+
 
 const data_LDP = [
     {
@@ -6969,3 +5576,6 @@ const data_LDP = [
 
 
 ]
+
+
+

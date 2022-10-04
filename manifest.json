@@ -15,9 +15,13 @@
     "web_accessible_resources": ["fontawesome/webfonts/*", "fontawesome/css/*","audio/request.mp3"],
     "content_scripts": [
         {
-          "matches": ["https://*.force.com/*", "https://cs.shopee.vn/portal/*","https://cs.uat.shopee.vn/portal/inhouse/*", "https://docs.google.com/spreadsheets/*"],
-          "css": ["css/style.css","fontawesome/css/all.css"],
-          "js": ["js/index.js"],
+          "matches": ["https://cs.shopee.vn/portal/inhouse/workstation/*","https://cs.shopee.vn/portal/info/*", "https://docs.google.com/spreadsheets/*"],
+          "css": [
+            "css/style.css",
+            "css/button.css",
+            "fontawesome/css/all.css"
+          ],
+          "js": ["js/index_inhouse.js","js/index_order.js"],
           "all_frames": true
         }
     ]

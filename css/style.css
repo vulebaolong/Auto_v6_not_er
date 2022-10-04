@@ -295,7 +295,7 @@
 
 /* ========================================================================= */
 
-.Auto_saleforce_work_tool {
+.nav_right {
     border: 1px;
     border-color: black;
     border-style: dotted;
@@ -310,7 +310,7 @@
     flex-wrap: wrap;
 }
 
-.Auto_saleforce_work_tool>* {
+.nav_right>* {
     text-align: center;
     border: none;
     border-radius: 5px;
@@ -318,7 +318,7 @@
     background-color: rgb(241, 241, 241);
 }
 
-/* .Auto_saleforce_work_tool button.active{
+/* .nav_right button.active{
     background-color: rgb(139, 139, 139);
 } */
 
@@ -677,7 +677,7 @@ th {
 
 
 /* ============================================================= */
-.button_long {
+/* .button_long {
     max-width: 100px;
     height: 40px;
     background-color: #FFFF;
@@ -702,7 +702,7 @@ th {
 .button_long:hover {
     background-color: rgb(209, 209, 209);
     border: 1px solid #ee4d2d;
-}
+} */
 
 /* ============================================================== */
 
@@ -716,7 +716,7 @@ th {
 
 /* ============================================================== */
 /* hover */
-.item_ldp {
+/* .item_ldp {
     position: relative;
 }
 
@@ -729,14 +729,14 @@ th {
 
 .item_ldp:hover>.menu_ldp {
     transform: scale(1);
-}
+} */
 
 /* ============================================================== */
 /* select */
 .select {
     transform: scale(1) !important;
 }
-
+/* 
 .item_macro,
 .item_dvvc,
 .item_system,
@@ -758,10 +758,10 @@ th {
     top: 100%;
 
     transform: scale(0);
-    transition: all 0.2s ease;
-}
+    transition: all 0.2s;
+} */
 
-.item_dvvc>.menu_dvvc,
+/* 
 .item_refund>.menu_refund,
 .item_tkshopee>.menu_tkshopee,
 .item_cc>.menu_cc,
@@ -776,7 +776,7 @@ th {
 
     transform: scale(0);
     transition: all 0.2s ease;
-}
+} */
 
 /* ============================================================== */
 /* time_clock */

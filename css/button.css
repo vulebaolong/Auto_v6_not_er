@@ -1,0 +1,66 @@
+.nav_left {
+    display: flex;
+}
+
+.button_long,
+.button_long_hover {
+    height: 40px;
+    background-color: #FFFF;
+    color: black;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    min-width: 72px;
+    width: 100%;
+    max-width: 120px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    transition: all 0.2s;
+    position: relative;
+
+    z-index: 5;
+}
+
+.button_long:hover,
+.button_long_hover:hover {
+    color: #ee4d2d;
+    border: 1px solid #ee4d2d;
+}
+
+.button_long_hover:hover > .button_long_menu{
+    /* opacity: 1;
+    visibility: visible;
+    z-index: 6; */
+    transform: scale(1);
+    opacity: 1;
+}
+
+.button_long_menu {
+    position: absolute;
+    
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.2s;
+}
+
+.lv_first {
+    /* transform: translateX(-50%); */
+    left: -16%;
+    top: 100%;
+}
+
+.lv_next{
+    /* transform: translateX(-50%); */
+    left: 100%;
+    top: 0%;
+}
+
+.button_show {
+    /* opacity: 1;
+    visibility: visible;
+    z-index: 6; */
+    opacity: 1;
+    transform: scale(1);
+}
