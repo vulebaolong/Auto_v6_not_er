@@ -19,6 +19,7 @@
           "css": [
             "css/style.css",
             "css/button.css",
+            "css/changecolor.css",
             "fontawesome/css/all.css"
           ],
           "js": ["js/index_inhouse.js","js/index_order.js"],

@@ -1,0 +1,17 @@
+.change_start {
+    animation: change_color 0.3s  infinite
+}
+
+
+@keyframes change_color {
+    0% {
+        border-color: white;
+    }
+    50% {
+        border-color: red;
+    }
+
+    100% {
+        border-color: white;
+    }
+}

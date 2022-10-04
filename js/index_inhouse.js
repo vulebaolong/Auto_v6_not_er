@@ -151,7 +151,7 @@ let html_Nav_left = `
 
 let html_toggle_switch = `
     <label class="toggle_switch">
-        <input class="on_off_audio" type="checkbox">
+        <input class="on_off_audio" type="checkbox" checked="true">
         <span></span>
     </label>
 `
@@ -248,16 +248,11 @@ let html_time_time = `
 //document.addEventListener("keydown", function (event) {console.log(event)}, false)
 
 window.onload = function () {
-    // console.log(test2.testham);
-    // test2.testham()
-    // testham()
-    // testham2()
 
 
     var S_order = document.URL.toString().search('cs.shopee.vn/portal/info/')
     var S_work = document.URL.toString().search('shopeecs.lightning.force.com/')
     var S_inhouse = document.URL.toString().search('cs.shopee.vn/portal/inhouse/')
-    //var S_inhouse = document.URL.toString().search('https://cs.uat.shopee.vn/portal/inhouse/')
 
 
 
@@ -277,16 +272,8 @@ window.onload = function () {
 
         const body = document.querySelector('body')
         const HTML = document.querySelector('HTML')
+        body.insertAdjacentHTML("afterend", htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time);
 
-        if (body !== null) {
-            body.insertAdjacentHTML("afterend", htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time);
-            //var htmlTeamplate_work_dom = new DOMParser().parseFromString(htmlTeamplate_work, "text/xml");
-            //console.log(htmlTeamplate_work_dom);
-            //wrapper_HTML.insertBefore(htmlTeamplate_work_dom.documentElement,wrapper);
-            //wrapper_HTML.appendChild(htmlTeamplate_work_dom.documentElement)
-        } else {
-            console.log('Không tìm thấy wrapper');
-        }
         Get_Word_ID()
         //ONOFF=======================================================================
         var ONOFF = document.querySelector('.btn_ONOFF')
@@ -300,7 +287,7 @@ window.onload = function () {
             var e7 = document.querySelector('.toggle_switch')
             //e1.classList.toggle("none")
             e2 !== null ? e2.classList.toggle("none") :
-            e3.classList.toggle("none")
+                e3.classList.toggle("none")
             e4.classList.toggle("none")
             e5.classList.toggle("none")
             e6.classList.toggle("none")
@@ -354,7 +341,7 @@ window.onload = function () {
 
 
 
-
+        //Đồng hồ
         dragElement(document.querySelector('.container_time_time'))
 
 
@@ -375,7 +362,7 @@ window.onload = function () {
             el_menu_ldp.forEach((e) => {
                 console.log(e);
                 switch (e.classList[0]) {
-                    case 'item_edit':
+                    case 'btn_ldp_edit':
                         e.onclick = (event) => {
                             event.stopPropagation()
                             edit(e)
@@ -426,12 +413,10 @@ window.onload = function () {
         }
         el_item_ldp.onclick = (e) => {
             e.stopPropagation()
-            select(el_item_ldp)
+            // select(el_item_ldp)
         }
 
-        function test(params) {
-           
-        }
+
 
         var el_item_test = document.querySelector('.btn_test')
         el_item_test.onclick = (ev) => {
@@ -446,6 +431,32 @@ window.onload = function () {
 
 
         }
+        //================================================================
+        //FAQ
+        // lắng nghe phím bấm
+        document.addEventListener("keydown", function (event) {
+            //xem đang nhấn phím gì
+            // console.log(event);
+
+
+            if (event.altKey && event.code === 'KeyQ') {
+                add_mes_chat_end()
+            }
+            if (event.altKey && event.code === 'KeyW') {
+                add_count_chat()
+            }
+            if (event.altKey && event.code === 'KeyP') {
+                chat_wrap()
+            }
+            if (event.altKey && event.code === 'KeyT') {
+                if (document.querySelector('.on_off_audio').checked) {
+                    var audio_request = new Audio(chrome.runtime.getURL("audio/request.mp3"));
+                    audio_request.play();
+                    console.log('chơi nhạc');
+                }
+            }
+        }, false)
+
         function add_mes_chat_end(params) {
             Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
 
@@ -609,7 +620,6 @@ window.onload = function () {
                 }
             })
         }
-
         interval_time_chat = []
         function add_count_chat(params) {
             Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
@@ -1180,90 +1190,13 @@ window.onload = function () {
                 }, delay);
             };
         }
+
+
         //===========================================================================================
 
 
 
         //=======================================================================
-
-        function edit(b) {
-            Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
-                console.log(Object.keys(e.attributes).length);
-                if (Object.keys(e.attributes).length === 2) {
-
-
-                    var id = e.attributes.id.value.substr(44, 11)
-                    console.log('id: ', id)
-
-                    if (id === 'case-detail') {
-                        console.log('thông tin');
-                        var status = e.children[0].children[0].children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[0].children[2].children[0]
-                        console.log(status);
-                        eventFire(status, 'click')
-                    }
-
-                    if (id === 'agentchat?s') {
-                        console.log('chat');
-                        var status = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[2]
-                        console.log(status);
-                        eventFire(status, 'click')
-                    }
-
-                }
-            })
-        }
-
-        function TDHTGH() {
-            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Trước EDT] Theo dõi hành trình giao hàng')
-        }
-
-        function HoiGiao() {
-            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Sau EDT] Hối giao')
-        }
-
-        function HoiLay() {
-            selectLDP('Open', 'Vận chuyển', 'Lấy hàng/ Gửi hàng', 'Hối lấy hàng')
-        }
-
-        function CCHT() {
-            selectLDP('Solved', 'Câu hỏi khác', 'Câu hỏi khác', 'Chat chưa hoàn tất')
-        }
-
-        function Dearteam(params) {
-            wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
-            var edit_Enabled
-            var edit_Enabled2
-
-            if (wrapperLDP) {
-                edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
-                edit_Enabled = wrapperLDP.parentElement
-            } else {
-                return console.log('Không tìm thấy wrapperLDP')
-            }
-
-            if (edit_Enabled2.classList[1] === 'hideEl') {
-                var User_id = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[7].children[1].children[0].children[0].querySelector('div').children[1].value
-                var Order_SN = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[8].children[1].children[0].children[0].querySelector('div').children[1].value.split(/(?:,| )+/)
-                var MVD_id = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[9].children[1].children[0].children[0].querySelector('div').children[1].value.split(/(?:,| )+/)
-
-                console.log('User_id: ', User_id);
-                console.log('Order_SN: ', Order_SN.length);
-                console.log('MVD_id: ', MVD_id);
-            } else {
-                console.log('Chưa bật edit');
-            }
-            if (User_id === undefined) { User_id = '' }
-            if (Order_SN === undefined) { Order_SN = '' }
-            if (Order_SN.length > 1) { Order_SN = '' }
-            if (MVD_id === undefined) { MVD_id = '' }
-            if (MVD_id.length > 1) { MVD_id = '' }
-
-
-            navigator.clipboard.writeText(
-                `Dear Team\n\nUserID: ${User_id} \nĐH/MVĐ: ${Order_SN} / ${MVD_id} \n\nTKS Team`
-            )
-        }
-
         chrome.runtime.onMessage.addListener(
             function (request, sender, sendResponse) {
 
@@ -1343,7 +1276,7 @@ window.onload = function () {
                 //==============================================================================
                 var HTML_orderinfo = `
                     <div class="Auto_saleforce_Order_Info" id_case="${id_case}">      
-                        <div id="${request.Tab_Order_SN}">
+                        <div id="${request.Tab_Order_SN}" class="change_start">
                             
                             <div class="Order_Info">
                                 ${HTML_Info}
@@ -1364,7 +1297,7 @@ window.onload = function () {
                 `
 
                 var HTML_orderinfo_item = `
-                    <div id="${request.Tab_Order_SN}">                        
+                    <div id="${request.Tab_Order_SN}" class="change_start">                        
                         <div class="Order_Info none">
                             ${HTML_Info}
                             ${HTML_String_Payment}
@@ -1561,7 +1494,8 @@ window.onload = function () {
 
                 //=================================================================================================
                 var Order_Info_DH = workstation.querySelector(`[id="${request.Tab_Order_SN}"]`)
-                fade2(Order_Info_DH)
+                // fade2(Order_Info_DH)
+                changeColor(Order_Info_DH)
                 //=================================================================================================
 
 
@@ -1584,6 +1518,85 @@ window.onload = function () {
 
             }
         )
+        function edit(b) {
+            Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
+                console.log(Object.keys(e.attributes).length);
+                if (Object.keys(e.attributes).length === 2) {
+
+
+                    var id = e.attributes.id.value.substr(44, 11)
+                    console.log('id: ', id)
+
+                    if (id === 'case-detail') {
+                        console.log('thông tin');
+                        var status = e.children[0].children[0].children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[0].children[2].children[0]
+                        console.log(status);
+                        eventFire(status, 'click')
+                    }
+
+                    if (id === 'agentchat?s') {
+                        console.log('chat');
+                        var status = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[2]
+                        console.log(status);
+                        eventFire(status, 'click')
+                    }
+
+                }
+            })
+        }
+
+        function TDHTGH() {
+            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Trước EDT] Theo dõi hành trình giao hàng')
+        }
+
+        function HoiGiao() {
+            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Sau EDT] Hối giao')
+        }
+
+        function HoiLay() {
+            selectLDP('Open', 'Vận chuyển', 'Lấy hàng/ Gửi hàng', 'Hối lấy hàng')
+        }
+
+        function CCHT() {
+            selectLDP('Solved', 'Câu hỏi khác', 'Câu hỏi khác', 'Chat chưa hoàn tất')
+        }
+
+        function Dearteam(params) {
+            wrapperLDP = document.querySelector('div[class="split-right"] > section[class="tabContent active oneConsoleTab"] > * > * > section[class="tabContent active oneConsoleTab"] > * > div[class="windowViewMode-maximized active lafPageHost"] > div > * > * > *').children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[2].children[0].children[0].children[0].children[0].children[0]
+            var edit_Enabled
+            var edit_Enabled2
+
+            if (wrapperLDP) {
+                edit_Enabled2 = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[0]
+                edit_Enabled = wrapperLDP.parentElement
+            } else {
+                return console.log('Không tìm thấy wrapperLDP')
+            }
+
+            if (edit_Enabled2.classList[1] === 'hideEl') {
+                var User_id = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[7].children[1].children[0].children[0].querySelector('div').children[1].value
+                var Order_SN = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[8].children[1].children[0].children[0].querySelector('div').children[1].value.split(/(?:,| )+/)
+                var MVD_id = wrapperLDP.children[1].children[0].children[0].children[1].children[0].querySelector('section').children[1].children[0].children[0].children[0].children[0].children[0].children[0].children[9].children[1].children[0].children[0].querySelector('div').children[1].value.split(/(?:,| )+/)
+
+                console.log('User_id: ', User_id);
+                console.log('Order_SN: ', Order_SN.length);
+                console.log('MVD_id: ', MVD_id);
+            } else {
+                console.log('Chưa bật edit');
+            }
+            if (User_id === undefined) { User_id = '' }
+            if (Order_SN === undefined) { Order_SN = '' }
+            if (Order_SN.length > 1) { Order_SN = '' }
+            if (MVD_id === undefined) { MVD_id = '' }
+            if (MVD_id.length > 1) { MVD_id = '' }
+
+
+            navigator.clipboard.writeText(
+                `Dear Team\n\nUserID: ${User_id} \nĐH/MVĐ: ${Order_SN} / ${MVD_id} \n\nTKS Team`
+            )
+        }
+
+
 
         function note_case(SN, MVD, DVVC) {
             var Item_L1
@@ -2708,13 +2721,6 @@ window.onload = function () {
             })
         }
 
-        function active(params, elementAdd) {
-            params.forEach((e) => {
-                e.classList.remove('active')
-                elementAdd.classList.add('active')
-            })
-        }
-
         function select(params, elementAdd) {
             var menu = params.children[1].classList[0]
             //console.log(menu);
@@ -2839,6 +2845,16 @@ window.onload = function () {
             var bgColor = "rgb(" + x + "," + y + "," + z + ")";
             e.style.background = bgColor;
             //e.style.backgroundColor = bgColor;
+        }
+
+        function changeColor(element) {
+            
+            if (!Array.from(element.classList).includes('change_start')) {
+                element.classList.add('change_start')                               
+            }
+            setTimeout(() => {
+                element.classList.remove('change_start')
+            }, 2000); 
         }
 
         var timers_fade = []
@@ -2996,62 +3012,7 @@ window.onload = function () {
 
 
 
-    //Tool_Recovery
-    if (S_Tool_Recovery != -1) {
-        const wrapper = document.querySelector('body')
-        console.log(wrapper);
-        if (wrapper !== null) {
-            wrapper.insertAdjacentHTML("afterend", htmlTeamplate_tool += htmlTeamplate_order_info)
 
-        } else {
-            console.log('Không tìm thấy wrapper');
-        }
-
-
-
-        const element_tool = Array.from(document.querySelector('.Auto_saleforce_tool').children)
-        if (element_tool !== null) {
-            element_tool.forEach((e) => {
-
-                switch (e.classList[0]) {
-                    case 'btn_tool_ID':
-                        e.onclick = (event) => {
-                            event.stopPropagation()
-                            console.log(e);
-                            Get_tool_ID()
-                        }
-                        //key_one(e, 'F2')
-                        break;
-
-
-                    default:
-                        console.log('Không được: ', e)
-                        break;
-                }
-            })
-        }
-
-
-        //================================
-        function Get_tool_ID(params) {
-            var objValue = { value: "Gửi đi tin nhắn để lấy TabID_tool" }
-
-            chrome.runtime.sendMessage(objValue, (e) => {
-                console.group('Nhận phản hồi từ tin nhắn gửi đi: ', objValue)
-                console.log('Kết quả: ', e.result);
-                console.log('Work_ID: ', e.tool_ID)
-                console.groupEnd()
-                document.querySelector('.btn_tool_ID').innerHTML = `ID: ${e.tool_ID}`
-                navigator.clipboard.writeText(e.tool_ID)
-            })
-
-            console.group('Gửi đi')
-            console.log('gửi đi: ', objValue)
-            console.groupEnd()
-        }
-
-
-    }
 }
 
 
