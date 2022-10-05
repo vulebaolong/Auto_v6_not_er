@@ -189,12 +189,17 @@ function coppy_button(params) {
 
 inhouse_kb()
 function inhouse_kb() {
+    let el_inhouse_kb_nav_chil = document.querySelector('.inhouse_kb_nav_chil')
+
+
     let el_inhouse_btn = document.querySelector('.inhouse_btn')
     let el_inhouse_kb = document.querySelector('.inhouse_kb')
     let el_inhouse_kb_container = document.querySelector('.inhouse_kb_container')
 
     let el_inhouse_kb_nav_btn = document.querySelectorAll('.inhouse_kb_nav > ul li')
-    click_active(el_inhouse_kb_nav_btn,'inhouse_kb_active')
+    click_active(el_inhouse_kb_nav_btn,'inhouse_kb_active',el_inhouse_kb_nav_chil)
+    
+    click_btn(Array.from(el_inhouse_kb_nav_chil.children))
     
     el_inhouse_btn.onclick = (e) => {
         e.stopPropagation()
@@ -210,7 +215,7 @@ function inhouse_kb() {
   
 }
 
-function click_active(element_ar, element_active = 'active') {
+function click_active(element_ar, element_active = 'active',el_inhouse_kb_nav_chil) {
     element_ar.forEach( (element) => {
         console.log(element);
         element.onclick = (e) => {
@@ -225,27 +230,62 @@ function click_active(element_ar, element_active = 'active') {
             let element_current_id =  e.target.attributes.inhouse_id.value
             console.log(e.target.attributes.inhouse_id.value);
 
-            click_link(element_current_id, 'show_in_block')
+            click_link(element_current_id, 'show_in_block',el_inhouse_kb_nav_chil)
         }
 
     })
 }
 
-function click_link(nav_item_id, element_active= 'show_in_block') {
-    let el_inhouse_kb_nav_chil = document.querySelector('.inhouse_kb_nav_chil')
+function click_link(nav_item_id, element_active= 'show_in_block',el_inhouse_kb_nav_chil) {
     let el_inhouse_kb_nav_chil_content = Array.from(el_inhouse_kb_nav_chil.children)
     let navChil_item_prev = el_inhouse_kb_nav_chil.querySelector('.'+element_active)
 
     if (navChil_item_prev !== null) {
-        navChil_item_prev.classList.remove(element_active)
-        
+        navChil_item_prev.classList.remove(element_active)        
     }
 
     el_inhouse_kb_nav_chil_content.forEach(navChil_item => {
+        // console.log(navChil_item);
         let navChil_item_id = navChil_item.attributes.inhouse_id.value
         if (navChil_item_id === nav_item_id) {
             navChil_item.classList.add(element_active)
         }
-        
     });
+
+    console.log(el_inhouse_kb_nav_chil);
+}
+
+function click_btn(el_inhouse_kb_nav_chil) {
+    
+    
+    el_inhouse_kb_nav_chil.forEach(element => {
+        Array.from(element.children).forEach(el_navChil_item => {
+            Array.from(el_navChil_item.children[0].children).forEach( (navChil_btn ) => {
+                click_fetch(navChil_btn)
+                
+            })
+        });
+    });
+}
+
+function click_fetch(navChil_btn) {
+    navChil_btn.onclick = (e) => {
+        let kb_id = e.target.attributes.kb_id
+        if (kb_id !== undefined) {
+            let kb_id_value = e.target.attributes.kb_id.value
+            console.log(kb_id_value);
+            // https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=6121
+            // fetch(`https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=${kb_id_value}`)
+            //     .then((response) => response.json())
+            //     .then((data) => {
+            //         console.log(data)
+            //         let content = JSON.parse(data.content)
+            //         console.log(content)
+            //         for (const content_item of content) {
+            //             console.log(content_item);
+            //         }
+
+            //     });       
+        }
+    }
 }

@@ -33,14 +33,15 @@
 }
 
 .inhouse_kb_left {
-    width: 50%;
+    width: 40%;
     height: 100%;
     border-radius: 10px;
     background-color: rgba(47, 53, 60, 0.62);
     display: flex;
 }
+
 .inhouse_kb_right {
-    width: 50%;
+    width: 60%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -61,6 +62,7 @@
     border-radius: 100px;
     width: 10px;
 }
+
 /* Track */
 .inhouse_article_detail::-webkit-scrollbar-track,
 .inhouse_kb_nav_chil::-webkit-scrollbar-track,
@@ -68,16 +70,16 @@
     background-color: #e4e4e4;
     border-radius: 100px;
 }
-   
-  /* Handle */
-  .inhouse_article_detail::-webkit-scrollbar-thumb,
-  .inhouse_kb_nav_chil::-webkit-scrollbar-thumb,
-  .inhouse_kb_nav::-webkit-scrollbar-thumb {
+
+/* Handle */
+.inhouse_article_detail::-webkit-scrollbar-thumb,
+.inhouse_kb_nav_chil::-webkit-scrollbar-thumb,
+.inhouse_kb_nav::-webkit-scrollbar-thumb {
     border-radius: 100px;
     background-image: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
     box-shadow: inset 2px 2px 5px 0 rgb(255 255 255 / 50%);
-    
-  }
+
+}
 
 .inhouse_kb_nav {
     width: 35%;
@@ -99,6 +101,7 @@
     padding: 10px 10px;
     text-align: center;
 }
+
 .inhouse_kb_nav li {
     color: #fff;
     padding: 15px;
@@ -129,10 +132,12 @@
 .inhouse_kb_nav_chil form {
     margin-bottom: 20px;
 }
+
 .inhouse_kb_nav_chil fieldset {
     border-radius: 10px;
     border-color: #fff;
     padding: 15px;
+    border-style: solid;
 }
 
 .inhouse_kb_nav_chil .navChil_btn {
@@ -160,6 +165,50 @@
 
 }
 
-.inhouse_kb_nav_chil .navChil_btn:hover::after{
+.inhouse_kb_nav_chil .navChil_btn:hover::after {
     width: 100%;
+}
+
+/* table */
+.inhouse_article_detail .section_list {
+    margin-top: 24px;
+}
+
+.inhouse_article_detail .section_item {
+    padding: 24px;
+    margin-top: 16px;
+    border: 1px solid #e1e1e1;
+    border-radius: 4px;
+    position: relative;
+}
+
+.inhouse_article_detail .section_title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
+    color: rgba(0, 0, 0, .87);
+    word-break: break-word;
+    cursor: pointer;
+}
+
+.inhouse_article_detail .section_content {
+    width: 596px;
+    padding: 0;
+    margin: 24px 0 0 24px;
+    overflow-x: auto;
+    word-break: break-word;
+    font-family: Roboto;
+    font-size: 13px;
+    line-height: 1.42;
+    color: #333;
+}
+
+.inhouse_article_detail .section_content table td {
+    height: 48px;
+    padding: 5px 12px;
+    border: 1px solid #eee;
+    border-top: none;
+    border-left: none;
 }

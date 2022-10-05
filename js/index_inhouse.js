@@ -242,7 +242,7 @@ let html_inhouse_kb = `
                         <form>
                             <fieldset>
                                 <legend>Sắp xếp chuyển hàng:</legend>
-                                <div class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
+                                <div kb_id="1244" class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
@@ -350,240 +350,6 @@ let html_inhouse_kb = `
             </div>
             <div class="inhouse_kb_right">
                 <div class="inhouse_article_detail">
-                    <div class="quill-cs-table-wrapper">
-                        <table class="quill-cs-table" cellspacing="0" cellpadding="0">
-                            <colgroup>
-                                <col width="45px" data-col="col-ymya">
-                                <col width="100px" data-col="col-u2jk">
-                                <col width="204px" data-col="col-iugr">
-                                <col width="203px" data-col="col-esct">
-                            </colgroup>
-                            <tbody>
-                                <tr data-row="1">
-                                    <td data-row="1" rowspan="1" colspan="1" data-cell-bg="#cce0f5"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="1" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="#cce0f5"><br></p>
-                                    </td>
-                                    <td data-row="1" rowspan="1" colspan="1" data-cell-bg="#cce0f5"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="1" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="#cce0f5"><br></p>
-                                    </td>
-                                    <td data-row="1" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="1" data-cell="3" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 10pt;">Buyer liên hệ</span></p>
-                                    </td>
-                                    <td data-row="1" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="1" data-cell="4" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 10pt;">Seller liên hệ</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="2">
-                                    <td data-row="2" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="2" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">1</span></p>
-                                    </td>
-                                    <td data-row="2" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="2" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Vấn đề/ Dấu hiệu nhận
-                                                biết</span></p>
-                                    </td>
-                                    <td data-row="2" rowspan="1" colspan="2">
-                                        <p class="cs-cell-line" data-row="2" data-cell="3" data-rowspan="1"
-                                            data-colspan="2"><span style="font-size: 10pt;">Buyer nhấn hủy đơn nhưng
-                                                Seller không phản hồi yêu cầu hủy đơn được (hệ thống báo lỗi).
-                                                - ĐH có trạng thái </span><strong style="font-size: 10pt;">Cancel
-                                                Pending</strong><span style="font-size: 10pt;">
-                                                - Seller có cung cấp hình ảnh báo lỗi</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="3">
-                                    <td data-row="3" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="3" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">2</span></p>
-                                    </td>
-                                    <td data-row="3" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="3" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Đối tượng bị ảnh
-                                                hưởng</span></p>
-                                    </td>
-                                    <td data-row="3" rowspan="1" colspan="2">
-                                        <p class="cs-cell-line" data-row="3" data-cell="3" data-rowspan="1"
-                                            data-colspan="2"><span style="font-size: 10pt;">Buyer/ Seller.</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="4">
-                                    <td data-row="4" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="4" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">3</span></p>
-                                    </td>
-                                    <td data-row="4" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="4" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Trường hợp 1: Đối với
-                                                DVVC là Ninjavan.
-                                            </span></p>
-                                    </td>
-                                    <td data-row="4" rowspan="1" colspan="2">
-                                        <p class="cs-cell-line" data-row="4" data-cell="3" data-rowspan="1"
-                                            data-colspan="2"><span style="font-size: 10pt;">- Báo khách đơn sẽ được hủy
-                                                trong 24h làm việc tiếp theo và solve phiếu.
-                                                - Note đơn vào </span><a
-                                                href="https://docs.google.com/spreadsheets/d/1Q4tL0cLIxYWoARerPUQjLQCNlKzPYzW0B3jCag9BN0Q/edit#gid=1360992651"
-                                                rel="noopener noreferrer" target="_blank"
-                                                style="font-size: 10pt; color: rgb(17, 85, 204);"><u>Gdoc</u></a><span
-                                                style="font-size: 10pt;"> đơn hủy.</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="5">
-                                    <td data-row="5" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="5" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">4</span></p>
-                                    </td>
-                                    <td data-row="5" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="5" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Trường hợp 2: Đối với
-                                                DVVC là Grab.</span></p>
-                                    </td>
-                                    <td data-row="5" rowspan="1" colspan="1">
-                                        <p class="cs-cell-line" data-row="5" data-cell="3" data-rowspan="1"
-                                            data-colspan="1"><span style="font-size: 10pt; color: rgb(34, 34, 34);">CS
-                                                thao tác như sau và solve phiếu </span></p>
-                                        <p class="cs-cell-line" data-row="5" data-cell="3" data-rowspan="1"
-                                            data-colspan="1"><span style="font-size: 10pt; color: rgb(34, 34, 34);">+
-                                                Bước 1: Nhờ buyer cung cấp đoạn chat trên app seller đồng ý hủy
-                                                đơn.</span></p>
-                                        <p class="cs-cell-line" data-row="5" data-cell="3" data-rowspan="1"
-                                            data-colspan="1"><span style="font-size: 10pt; color: rgb(34, 34, 34);">+
-                                                Bước 2: Note đơn vào </span><a
-                                                href="https://docs.google.com/spreadsheets/d/1e_4J34VbLwpgxkbm3Xav1Ewk1BIsAJAUCHKzAv7RKRs/edit#gid=0"
-                                                rel="noopener noreferrer" target="_blank"
-                                                style="font-size: 10pt; color: rgb(17, 85, 204);"><u>Gdoc</u></a><span
-                                                style="font-size: 10pt; color: rgb(34, 34, 34);"> + Báo khách đơn sẽ
-                                                được hủy trong 24h làm việc tiếp theo và solve phiếu.</span></p>
-                                    </td>
-                                    <td data-row="5" rowspan="1" colspan="1">
-                                        <p class="cs-cell-line" data-row="5" data-cell="4" data-rowspan="1"
-                                            data-colspan="1"><span
-                                                style="font-size: 10pt; color: rgb(34, 34, 34);">CS&nbsp;note đơn vào
-                                            </span><a
-                                                href="https://docs.google.com/spreadsheets/d/1e_4J34VbLwpgxkbm3Xav1Ewk1BIsAJAUCHKzAv7RKRs/edit#gid=0"
-                                                rel="noopener noreferrer" target="_blank"
-                                                style="font-size: 10pt; color: rgb(17, 85, 204);"><u>Gdoc</u></a><span
-                                                style="font-size: 10pt; color: rgb(34, 34, 34);"> + báo khách đơn sẽ
-                                                được hủy trong 24h làm việc tiếp theo và solve phiếu.</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="6">
-                                    <td data-row="6" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="6" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">5</span></p>
-                                    </td>
-                                    <td data-row="6" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="6" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Trường hợp 3: Đối với
-                                                các DVVC còn lại.</span></p>
-                                    </td>
-                                    <td data-row="6" rowspan="1" colspan="2">
-                                        <p class="cs-cell-line" data-row="6" data-cell="3" data-rowspan="1"
-                                            data-colspan="2"><span style="font-size: 10pt;">- Báo khách Shopee ghi nhận
-                                                thông tin và chuyển bộ phận liên quan kiểm tra trong vòng 1 - 2 ngày làm
-                                                việc, nhờ khách vui lòng chờ xử lý, nếu đơn quá hạn bị hủy nhờ seller
-                                                liên hệ lại để được xem xét loại tạ.
-                                                - Chuyển phiếu VN - Logistics kiểm tra</span></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="7">
-                                    <td data-row="7" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="7" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">6</span></p>
-                                    </td>
-                                    <td data-row="7" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="7" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 10pt;">FAQ</span></p>
-                                    </td>
-                                    <td data-row="7" rowspan="1" colspan="1">
-                                        <p class="cs-cell-line" data-row="7" data-cell="3" data-rowspan="1"
-                                            data-colspan="1"><a
-                                                href="https://help.shopee.vn/portal/article/79182-[%C4%90%C6%A1n-h%C3%A0ng]-T%C3%B4i-c%C3%B3-th%E1%BB%83-h%E1%BB%A7y-%C4%91%C6%A1n-h%C3%A0ng-kh%C3%B4ng?previousPage=search%20recommendation%20bar"
-                                                rel="noopener noreferrer" target="_blank"
-                                                style="color: rgb(17, 85, 204); font-size: 10pt;"><u>[Đơn hàng] Tôi có
-                                                    thể hủy đơn hàng không?</u></a></p>
-                                    </td>
-                                    <td data-row="7" rowspan="1" colspan="1">
-                                        <p class="cs-cell-line" data-row="7" data-cell="4" data-rowspan="1"
-                                            data-colspan="1"><a href="https://banhang.shopee.vn/edu/article/3579"
-                                                rel="noopener noreferrer" target="_blank"
-                                                style="color: rgb(17, 85, 204); font-size: 10pt;"><u>Các câu hỏi thường
-                                                    gặp về Xử lý đơn hàng trên Shopee</u></a></p>
-                                    </td>
-                                </tr>
-                                <tr data-row="8">
-                                    <td data-row="8" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="8" data-cell="1" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                            style="text-align: center;"><span style="font-size: 10pt;">7</span></p>
-                                    </td>
-                                    <td data-row="8" rowspan="1" colspan="1" data-cell-bg="rgb(204, 224, 245)"
-                                        style="background-color: rgb(204, 224, 245);">
-                                        <p class="cs-cell-line" data-row="8" data-cell="2" data-rowspan="1"
-                                            data-colspan="1" data-cell-bg="rgb(204, 224, 245)"><span
-                                                style="font-size: 11pt; color: rgb(51, 51, 51);">Lý do phiếu</span></p>
-                                    </td>
-                                    <td data-row="8" rowspan="1" colspan="2">
-                                        <p class="cs-cell-line" data-row="8" data-cell="3" data-rowspan="1"
-                                            data-colspan="2"><span style="font-size: 10pt;">Vận chuyển&gt;&gt; Hủy đơn
-                                                hàng&gt;&gt; Seller không thể chấp nhận yêu cầu hủy đơn</span></p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <p>
-                        <span style="font-size: 10pt;">Ngày cập nhật:&nbsp;11/06/2022.
-                            Trong trường hợp cần phản hồi về KB, CS input tại </span><a
-                            href="https://docs.google.com/spreadsheets/d/1I4bvZ9AqGAvP2SgqmLZlBfaDvgjAf1t2vvi4zsM7RHM/edit#gid=0"
-                            rel="noopener noreferrer" target="_blank"
-                            style="font-size: 10pt; color: rgb(17, 85, 204);"><u>CS - Feedback về quy trình</u></a>
-
-
-
-                    </p>
                 </div>
             </div>
         </div>
@@ -981,12 +747,17 @@ window.onload = function () {
 
         inhouse_kb()
         function inhouse_kb() {
+            let el_inhouse_kb_nav_chil = document.querySelector('.inhouse_kb_nav_chil')
+
+
             let el_inhouse_btn = document.querySelector('.inhouse_btn')
             let el_inhouse_kb = document.querySelector('.inhouse_kb')
             let el_inhouse_kb_container = document.querySelector('.inhouse_kb_container')
 
             let el_inhouse_kb_nav_btn = document.querySelectorAll('.inhouse_kb_nav > ul li')
-            click_active(el_inhouse_kb_nav_btn, 'inhouse_kb_active')
+            click_active(el_inhouse_kb_nav_btn, 'inhouse_kb_active', el_inhouse_kb_nav_chil)
+
+            click_btn(Array.from(el_inhouse_kb_nav_chil.children))
 
             el_inhouse_btn.onclick = (e) => {
                 e.stopPropagation()
@@ -1002,7 +773,7 @@ window.onload = function () {
 
         }
 
-        function click_active(element_ar, element_active = 'active') {
+        function click_active(element_ar, element_active = 'active', el_inhouse_kb_nav_chil) {
             element_ar.forEach((element) => {
                 console.log(element);
                 element.onclick = (e) => {
@@ -1017,29 +788,88 @@ window.onload = function () {
                     let element_current_id = e.target.attributes.inhouse_id.value
                     console.log(e.target.attributes.inhouse_id.value);
 
-                    click_link(element_current_id, 'show_in_block')
+                    click_link(element_current_id, 'show_in_block', el_inhouse_kb_nav_chil)
                 }
 
             })
         }
 
-        function click_link(nav_item_id, element_active = 'show_in_block') {
-            let el_inhouse_kb_nav_chil = document.querySelector('.inhouse_kb_nav_chil')
+        function click_link(nav_item_id, element_active = 'show_in_block', el_inhouse_kb_nav_chil) {
             let el_inhouse_kb_nav_chil_content = Array.from(el_inhouse_kb_nav_chil.children)
             let navChil_item_prev = el_inhouse_kb_nav_chil.querySelector('.' + element_active)
 
             if (navChil_item_prev !== null) {
                 navChil_item_prev.classList.remove(element_active)
-
             }
 
             el_inhouse_kb_nav_chil_content.forEach(navChil_item => {
+                // console.log(navChil_item);
                 let navChil_item_id = navChil_item.attributes.inhouse_id.value
                 if (navChil_item_id === nav_item_id) {
                     navChil_item.classList.add(element_active)
                 }
-
             });
+
+            // console.log(el_inhouse_kb_nav_chil);
+        }
+
+        function click_btn(el_inhouse_kb_nav_chil) {
+            let el_inhouse_article_detail = document.querySelector('.inhouse_article_detail')
+            el_inhouse_kb_nav_chil.forEach(element => {
+                Array.from(element.children).forEach(el_navChil_item => {
+                    Array.from(el_navChil_item.children[0].children).forEach((navChil_btn) => {
+                        click_fetch(navChil_btn,el_inhouse_article_detail)
+
+                    })
+                });
+            });
+        }
+
+        function click_fetch(navChil_btn,el_inhouse_article_detail) {
+            navChil_btn.onclick = (e) => {
+                console.log(el_inhouse_article_detail);
+                let kb_id = e.target.attributes.kb_id
+                if (kb_id !== undefined) {
+                    let kb_id_value = e.target.attributes.kb_id.value
+                    // https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=6121
+                    fetch(`https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=${kb_id_value}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            console.log(data)
+                            let content = JSON.parse(data.content)
+                            console.log(content)
+                            for (const content_item of content) {
+                                console.log(content_item);
+                            }
+
+                            
+                            let html_kb = `
+                            <h2 class="title">${data.article_title}</h2>
+                            <div class="section_list">
+                                ${content.map( (section_item) => {
+                                    return (`
+                                    <div class="section_item">
+                                        <div class="section_title">
+                                            ${section_item.sectionTitle}
+                                        </div>
+                                        <div class="section_content none">
+                                            ${section_item.sectionContent}
+                                        </div>
+                                    </div>
+                                    `)
+                                    // ${section_item.sectionContent}
+                                }).join('')}
+                                
+                            </div>
+                            `
+                            el_inhouse_article_detail.innerHTML = ''
+                            el_inhouse_article_detail.insertAdjacentHTML('afterbegin', html_kb)
+                            let el_section_item = el_inhouse_article_detail.querySelectorAll('.section_item')
+                            console.log(el_section_item);
+
+                        });
+                }
+            }
         }
         //================================================================
         //FAQ
