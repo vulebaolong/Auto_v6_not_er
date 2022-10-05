@@ -359,6 +359,10 @@
     display: none !important;
 }
 
+.show_in_block {
+    display: inline-block !important;
+}
+
 
 
 /* ================================================================ */
