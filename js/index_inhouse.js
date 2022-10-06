@@ -241,22 +241,35 @@ let html_inhouse_kb = `
                     <div inhouse_id="1" class="navChil_item show_in_block">
                         <form>
                             <fieldset>
-                                <legend>Sắp xếp chuyển hàng:</legend>
-                                <div kb_id="1244" class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
+                                <legend> Đơn hàng <span class="strong">chưa</span> xác nhận </legend>
+                                <div kb_id="2222" class="navChil_btn">Đợi phẩn bổ</div>
+                                <div kb_id="2327" class="navChil_btn">CXN by Seller</div>
+                                <div kb_id="2333" class="navChil_btn">CXN by Shoppe/tag SBS</div>
                             </fieldset>
                         </form>
                         <form>
                             <fieldset>
-                                <legend>Sắp xếp chuyển hàng:</legend>
-                                <div class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
+                                <legend> Đơn hàng <span class="strong">đã</span> xác nhận </legend>
+                                <div kb_id="3240" class="navChil_btn">Gửi bưu cục</div>
+                                <div kb_id="3244" class="navChil_btn"><=20h Arrange Pickup Time</div>
+                                <div kb_id="3258" class="navChil_btn">>20h Arrange Pickup Time</div>
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend>Đơn hàng <span class="strong">đang giao</span></legend>
+                                <div kb_id="3408" class="navChil_btn"><span class="strong">1</span> Hối trả góp</div>
+                                <div kb_id="3409" class="navChil_btn"><span class="strong">2</span> dừng hành trình >=3 ngày</div>
+                                <div kb_id="3411" class="navChil_btn"><span class="strong">3</span> đến quận huyện</div>
+                                <div kb_id="3413" class="navChil_btn"><span class="strong">4</span> < EDT, buyer liên hệ > 3 lần </div>
+                                <div kb_id="3823" class="navChil_btn"><span class="strong">4</span> < EDT, Buyer liên hệ <= 3 lần </div>
+                                <div kb_id="3603" class="navChil_btn"><span class="strong">4</span> EDT - EDT+3 
+                                    <div class="tool_tip" style="width: 110px;">
+                                        <div>Dự kiến</div>
+                                         <div>Quá dự kiến</div>
+                                    </div>
+                                </div>
+                                <div kb_id="3621" class="navChil_btn"><span class="strong">4</span> > EDT+3 </div>
                             </fieldset>
                         </form>
                     </div>
@@ -264,7 +277,7 @@ let html_inhouse_kb = `
                         <form>
                             <fieldset>
                                 <legend>Sắp xếp chuyển hàng:</legend>
-                                <div class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
+                                <div kb_id="1244" class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
                                 <div class="navChil_btn">Đã phẩn bổ</div>
@@ -728,15 +741,15 @@ window.onload = function () {
         var el_item_test = document.querySelector('.btn_test')
         el_item_test.onclick = (ev) => {
             console.log(123);
-            fetch('https://cs.shopee.vn/api/inhouse/cms/kb/mobile/v1/article?id=6121')
+            fetch('https://csp.shopee.com/portal/api/v1/orders/113664084206837/logistics?SPC_CDS=c526db3f-458c-42c0-a498-764821996f84&SPC_CDS_VER=2')
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data)
-                    let content = JSON.parse(data.content)
-                    console.log(content)
-                    for (const content_item of content) {
-                        console.log(content_item);
-                    }
+                    // let content = JSON.parse(data.content)
+                    // console.log(content)
+                    // for (const content_item of content) {
+                    //     console.log(content_item);
+                    // }
 
 
                 });
@@ -846,13 +859,13 @@ window.onload = function () {
                             let html_kb = `
                             <h2 class="title">${data.article_title}</h2>
                             <div class="section_list">
-                                ${content.map( (section_item) => {
+                                ${content.map( (section_item, i, ar) => {
                                     return (`
                                     <div class="section_item">
                                         <div class="section_title">
                                             ${section_item.sectionTitle}
                                         </div>
-                                        <div class="section_content none">
+                                        <div class="section_content ${ar.length === 1 ? '' : 'none'}">
                                             ${section_item.sectionContent}
                                         </div>
                                     </div>
@@ -866,7 +879,14 @@ window.onload = function () {
                             el_inhouse_article_detail.insertAdjacentHTML('afterbegin', html_kb)
                             let el_section_item = el_inhouse_article_detail.querySelectorAll('.section_item')
                             console.log(el_section_item);
-
+                            el_section_item.forEach(element => {
+                                let el_title = element.children[0]
+                                let el_content= element.children[1]
+                                el_title.onclick = (e) => {
+                                    console.log(el_title);
+                                    el_content.classList.toggle('none')
+                                }
+                            });
                         });
                 }
             }

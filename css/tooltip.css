@@ -1,0 +1,27 @@
+.tool_tip {
+    position: absolute;
+    z-index: 1070;
+    display: block;
+    background-color: rgba(10,31,68,.9);
+    padding: 10px;
+    border-radius: 5px;
+    top: 0;
+    left: 110%;
+    cursor:default;
+    transform: scale(0);
+}
+
+.tool_tip div {
+    margin: 5px 0;
+    cursor: pointer;
+}
+
+.tool_tip::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 100%;
+    /* background-color: black; */
+    top: 0;
+    left: -15px;
+}

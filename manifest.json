@@ -21,6 +21,7 @@
             "css/button.css",
             "css/changecolor.css",
             "css/inhouse_kb.css",
+            "css/tooltip.css",
             "fontawesome/css/all.css"
           ],
           "js": ["js/index_inhouse.js","js/index_order.js"],
