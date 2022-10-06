@@ -289,3 +289,39 @@ function click_fetch(navChil_btn) {
         }
     }
 }
+
+macro_coppy()
+
+function macro_coppy(params) {
+    // Trong EDT
+    let el_b_dukien = document.querySelector('.b_dukien')
+    let el_b_quadukien = document.querySelector('.b_quadukien')
+    let el_s_dukien = document.querySelector('.s_dukien')
+    let el_s_quadukien = document.querySelector('.s_quadukien')
+    click_marp_coppy(el_b_dukien, 'Shopee rất tiếc khi đã đến ngày giao dự kiến mà đơn hàng vẫn chưa được giao đến bạn.\nShopee kiểm tra thấy đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã đến ngày giao hàng dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX')
+    click_marp_coppy(el_b_quadukien, 'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến bạn.\nShopee kiểm tra thấy đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX.')
+    click_marp_coppy(el_s_dukien, 'Shopee rất tiếc khi đã đến ngày giao dự kiến mà đơn hàng vẫn chưa được giao đến cho người mua.\nShopee kiểm tra thấy đơn hàng của bạn và người mua đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã đến ngày giao hàng dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn kêu người mua chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn cũng như người mua có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX')
+    click_marp_coppy(el_s_quadukien,'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến cho người mua.\nShopee kiểm tra thấy đơn hàng của bạn và người mua đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn kêu người mua chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn cũng như người mua có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX.')
+
+    // >=3 ngày
+    let el_ba_ngay = document.querySelector('.ba_ngay')
+    let el_quan_huyen = document.querySelector('.quan_huyen')
+    let el_qua_edt3 = document.querySelector('.qua_edt3')
+    let el_haimuoi_ngay = document.querySelector('.haimuoi_ngay')
+    let el_qua_leadtime = document.querySelector('.qua_leadtime')
+    let el_chua_leadtime = document.querySelector('.chua_leadtime')
+
+    click_marp_coppy(el_ba_ngay, 'Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
+    click_marp_coppy(el_quan_huyen, 'Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
+    click_marp_coppy(el_qua_edt3,'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì đã quá thời gian dự kiến mà vẫn chưa nhận được hàng.\nMình sẽ chuyển ngay thông tin đến đơn vị vận chuyển để hối thúc giao gấp đơn hàng này cho người mua, thời gian xử lý 1-2 ngày làm việc.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển , bạn có thể liên hệ theo thông tin XXXXX')
+    click_marp_coppy(el_haimuoi_ngay, 'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì vẫn chưa nhận được hàng.\nDo đơn chưa có cập nhật trạng thái mới, chưa về đến Việt Nam, mình sẽ chuyển ngay thông tin đến bộ phận liên quan để kiểm tra thông tin đơn hàng này cho người mua, thời gian xử lý 3 đến 5 ngày làm việc (không tính thứ 7, chủ nhật và các ngày lễ).\nMong bạn thông cảm đợi thông tin từ Shopee ạ.\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn CB quá 20 ngày chưa về tới VN\nOrder SN: ')
+    click_marp_coppy(el_qua_leadtime, 'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì chưa nhận được hàng.\nMình sẽ chuyển ngay thông tin đến đơn vị vận chuyển để hối thúc giao gấp đơn hàng này cho người mua, thời gian xử lý 1-2 ngày làm việc tiếp theo.\nTrường hợp người mua cần liên hệ với đơn vị vận chuyển, người mua có thể liên hệ theo thông tin XXXXX và cung cấp mã vận đơn là XXXXX.\nNếu cần mua hàng gấp, lần sau người mua có thể cân nhắc lựa chọn đặt hàng tại các shop nội địa, đặc biệt là những shop có hỗ trợ vận chuyển hỏa tốc để nhận hàng nhanh chóng hơn\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn CB đã quá thời gian giao hàng có MVĐ: ')
+    click_marp_coppy(el_chua_leadtime,'Đơn hàng đã được đơn vị vận chuyển tiếp nhận ở Việt Nam. Thời gian giao hàng dự kiến là XXXXX ngày làm việc.\nĐơn đang trên đường trung chuyển giữa các bưu cục để đến khu vực của người mua nên Shopee khó có thể can thiệp đốc thúc bưu cục giao hàng để giao ngay đơn hàng này.\nNgười mua có thể chủ động theo dõi hành trình đơn hàng bằng cách sử dụng mã vận đơn XXXXX để kiểm tra trên web của đơn vị vận chuyển.\nTrong trường hợp cần hàng gấp, người mua có thể liên hệ trực tiếp với đơn vị vận chuyển theo thông tin XXXXX.\nNếu cần mua hàng gấp, lần sau người mua có thể cân nhắc lựa chọn đặt hàng tại các shop nội địa, đặc biệt là những shop có hỗ trợ vận chuyển hỏa tốc để nhận hàng nhanh chóng hơn nhé.')
+}
+
+function click_marp_coppy(params, info) {
+    console.log(params);
+    params.onclick = () => {
+        navigator.clipboard.writeText(info)
+    }
+}

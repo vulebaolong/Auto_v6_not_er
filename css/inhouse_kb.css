@@ -67,6 +67,10 @@
     padding: 20px 0;
 }
 
+.inhouse_article_detail .title {
+    padding: 0 40px;
+}
+
 .inhouse_article_detail::-webkit-scrollbar,
 .inhouse_kb_nav_chil::-webkit-scrollbar,
 .inhouse_kb_nav::-webkit-scrollbar {
@@ -155,7 +159,7 @@
 
 .strong {
     font-size: 20px;    
-    padding: 0 7px 3px 7px;
+    padding: 2px 7px 2px 7px;
     border-radius: 5px;
     background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
     color: white;

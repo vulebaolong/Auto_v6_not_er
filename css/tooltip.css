@@ -6,7 +6,7 @@
     padding: 10px;
     border-radius: 5px;
     top: 0;
-    left: 110%;
+    left: 100%;
     cursor:default;
     transform: scale(0);
 }

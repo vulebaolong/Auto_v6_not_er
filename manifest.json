@@ -1,31 +1,52 @@
 {
-    "name": "Auto_Salesforce",
-    "description": "Công cụ giúp làm việc nhanh hơn",
-    "version": "1.0",
-    "manifest_version": 2,
-    "background": {
-      "service_worker": "background.js",
-      "type": "module"
-    },
-    "permissions": ["identity", "identity.email", "storage", "activeTab", "scripting", "tabs","http://*/*", "https://*/*"],
-    "page_action": {
-      "default_popup": "popup/popup.html"
-    },
-    "options_page": "option/options.html",
-    "web_accessible_resources": ["fontawesome/webfonts/*", "fontawesome/css/*","audio/request.mp3"],
-    "content_scripts": [
-        {
-          "matches": ["https://cs.shopee.vn/portal/inhouse/workstation/*","https://cs.shopee.vn/portal/info/*", "https://docs.google.com/spreadsheets/*"],
-          "css": [
-            "css/style.css",
-            "css/button.css",
-            "css/changecolor.css",
-            "css/inhouse_kb.css",
-            "css/tooltip.css",
-            "fontawesome/css/all.css"
-          ],
-          "js": ["js/index_inhouse.js","js/index_order.js"],
-          "all_frames": true
-        }
-    ]
+  "name": "Auto_Salesforce",
+  "description": "Công cụ giúp làm việc nhanh hơn",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": [
+    "identity",
+    "identity.email",
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "page_action": {
+    "default_popup": "popup/popup.html"
+  },
+  "options_page": "option/options.html",
+  "web_accessible_resources": [
+    "fontawesome/webfonts/*",
+    "fontawesome/css/*",
+    "audio/request.mp3"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://cs.shopee.vn/portal/inhouse/workstation/*",
+        "https://cs.shopee.vn/portal/info/*",
+        "https://docs.google.com/spreadsheets/*"
+      ],
+      "css": [
+        "css/style.css",
+        "css/button.css",
+        "css/changecolor.css",
+        "css/inhouse_kb.css",
+        "css/tooltip.css",
+        "fontawesome/css/all.css"
+      ],
+      "js": [
+        "js/index_inhouse.js",
+        "js/index_order.js",
+        "js/macro_coppy.js"
+      ],
+      "all_frames": true
+    }
+  ]
 }
