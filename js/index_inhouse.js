@@ -258,44 +258,51 @@ let html_inhouse_kb = `
                         <form>
                             <fieldset>
                                 <legend>Đơn hàng <span class="strong">đang giao</span></legend>
-                                <div kb_id="3408" class="navChil_btn"><span class="strong">1</span> Hối trả góp</div>
-                                <div kb_id="3409" class="navChil_btn"><span class="strong">2</span> Dừng hành trình >=3 ngày
-                                    <div class="tool_tip" style="width: 105px;">                                        
+                                <div kb_id="3408" class="navChil_btn"><span class="strong strong_mini">1</span> Hối trả góp => Auto hối giao
+                                    <div class="tool_tip tool_tip_right" style="width: 105px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong ba_ngay" style="font-size: 12px;">>=3 ngày</div>
+                                            <div class="strong btn-14 hoi_giao_3408" style="font-size: 12px;">Hối giao</div>
                                         </fieldset>   
                                     </div>
                                 </div>
-                                <div kb_id="3411" class="navChil_btn"><span class="strong">3</span> Đến quận huyện
-                                    <div class="tool_tip" style="width: 105px;">                                        
+                                <div kb_id="3409" class="navChil_btn"><span class="strong strong_mini">2</span> Dừng hành trình >=3 ngày
+                                    <div class="tool_tip tool_tip_right" style="width: 105px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong quan_huyen" style="font-size: 12px;">quận huyện</div>
+                                            <div class="strong btn-14 ba_ngay" style="font-size: 12px;">>=3 ngày</div>
                                         </fieldset>   
                                     </div>
                                 </div>
-                                <div kb_id="3823" class="navChil_btn"><span class="strong">4</span> < EDT, Buyer liên hệ <= 3 lần </div>
-                                <div kb_id="3413" class="navChil_btn"><span class="strong">4</span> < EDT, buyer liên hệ > 3 lần </div>
-                                <div kb_id="3603" class="navChil_btn"><span class="strong">4</span> EDT - EDT+3 
-                                    <div class="tool_tip" style="width: 110px;">                                        
+                                <div kb_id="3411" class="navChil_btn"><span class="strong strong_mini">3</span> Đến quận huyện
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 quan_huyen" style="font-size: 12px;">quận huyện</div>
+                                        </fieldset>   
+                                    </div>
+                                </div>
+                                <div kb_id="3823" class="navChil_btn"><span class="strong strong_mini">4</span> < EDT, Buyer liên hệ 3 lần </div>
+                                <div kb_id="3413" class="navChil_btn"><span class="strong strong_mini">4</span> < EDT, buyer liên hệ lớn hơn 3 lần </div>
+                                <div kb_id="3603" class="navChil_btn"><span class="strong strong_mini">4</span> EDT - EDT+3 
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
                                             <fieldset style="padding: 5px;">
                                                 <legend>buyer</legend>
-                                                <div class="strong b_dukien" style="font-size: 12px;">Dự kiến</div>
-                                                <div class="strong b_quadukien" style="font-size: 12px;">Quá dự kiến</div>
+                                                <div class="strong btn-14 b_dukien" style="font-size: 12px;">Dự kiến</div>
+                                                <div class="strong btn-14 b_quadukien" style="font-size: 12px;">Quá dự kiến</div>
                                             </fieldset>   
                                             <fieldset style="padding: 5px;">
                                                 <legend>seller</legend>
-                                                <div class="strong s_dukien" style="font-size: 12px;">Dự kiến</div>
-                                                <div class="strong s_quadukien" style="font-size: 12px;">Quá dự kiến</div>
+                                                <div class="strong btn-14 s_dukien" style="font-size: 12px;">Dự kiến</div>
+                                                <div class="strong btn-14 s_quadukien" style="font-size: 12px;">Quá dự kiến</div>
                                             </fieldset> 
                                     </div>
                                 </div>
-                                <div kb_id="3621" class="navChil_btn"><span class="strong">4</span> Quá EDT+3 
-                                    <div class="tool_tip" style="width: 105px;">                                        
+                                <div kb_id="3621" class="navChil_btn"><span class="strong strong_mini">4</span> Quá EDT+3 
+                                    <div class="tool_tip tool_tip_bottom" style="width: 105px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong qua_edt3" style="font-size: 12px;">> EDT+3</div>
+                                            <div class="strong btn-14 qua_edt3" style="font-size: 12px;">> EDT+3</div>
                                         </fieldset>   
                                     </div>
                                 </div>
@@ -306,10 +313,10 @@ let html_inhouse_kb = `
                                 <legend> Đơn hàng <span class="strong"> CB chưa về Việt Nam </span></legend>
                                 <div kb_id="3592" class="navChil_btn">Đơn CB chưa về VN</div>
                                 <div kb_id="3591" class="navChil_btn">Dừng hành trình >=20 ngày
-                                    <div class="tool_tip" style="width: 110px;">                                        
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong haimuoi_ngay" style="font-size: 12px;">> >=20 ngày</div>
+                                            <div class="strong btn-14 haimuoi_ngay" style="font-size: 12px;">>=20 ngày</div>
                                         </fieldset>   
                                     </div>
                                 </div>
@@ -320,18 +327,18 @@ let html_inhouse_kb = `
                             <fieldset>
                                 <legend> Đơn hàng <span class="strong">CB đã về Việt Nam </span></legend>
                                 <div kb_id="3414" class="navChil_btn">Đã quá leadtime
-                                    <div class="tool_tip" style="width: 120px;">                                        
+                                    <div class="tool_tip tool_tip_right" style="width: 120px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong qua_leadtime" style="font-size: 12px;">Quá leadtime</div>
+                                            <div class="strong btn-14 qua_leadtime" style="font-size: 12px;">Quá leadtime</div>
                                         </fieldset>   
                                     </div>
                                 </div>
                                 <div kb_id="3582" class="navChil_btn">Chưa quá leadtime
-                                    <div class="tool_tip" style="width: 125px;">  
+                                    <div class="tool_tip tool_tip_bottom" style="width: 125px;">  
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong chua_leadtime" style="font-size: 12px;">chưa leadtime</div>
+                                            <div class="strong btn-14 chua_leadtime" style="font-size: 12px;">chưa leadtime</div>
                                         </fieldset> 
                                     </div>
                                 </div>
@@ -341,19 +348,19 @@ let html_inhouse_kb = `
                             <fieldset>
                                 <legend> Hối lấy đơn Reverse <span class="strong">THHT </span></legend>
                                 <div kb_id="3578" class="navChil_btn">Chưa quá 20h Pick Up Date</div>
-                                <div kb_id="3579" class="navChil_btn">Quá 20h & <= 3 Pick Up Date
-                                    <div class="tool_tip" style="width: 110px;">  
+                                <div kb_id="3579" class="navChil_btn"><= 3 Pick Up Date => <span class='strong strong_mini'>Hối lấy</span>
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">  
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong be3_thht" style="font-size: 12px;">THHT <=3</div>
+                                            <div class="strong btn-14 be3_thht" style="font-size: 12px;">THHT <=3</div>
                                         </fieldset> 
                                     </div>
                                 </div>
-                                <div kb_id="3580" class="navChil_btn">> 3 Pick Up Date
-                                    <div class="tool_tip" style="width: 110px;">  
+                                <div kb_id="3580" class="navChil_btn">> 3 Pick Up Date => <span class='strong strong_mini'>mang ra bưu cục</span>
+                                    <div class="tool_tip tool_tip_top" style="width: 110px;">  
                                         <fieldset style="padding: 5px;">
                                             <legend>b/s</legend>
-                                            <div class="strong lon3_thht" style="font-size: 12px;">THHT >3</div>
+                                            <div class="strong btn-14 lon3_thht" style="font-size: 12px;">THHT >3</div>
                                         </fieldset> 
                                     </div>
                                 </div>
@@ -363,12 +370,92 @@ let html_inhouse_kb = `
                     <div inhouse_id="2" class="navChil_item">
                         <form>
                             <fieldset>
-                                <legend>Sắp xếp chuyển hàng:</legend>
-                                <div kb_id="1244" class="navChil_btn inhouse_nav_active">Đợi phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
-                                <div class="navChil_btn">Đã phẩn bổ</div>
+                                <legend><span class="strong">Chưa</span> lấy hàng</legend>
+                                <div kb_id="2970" class="navChil_btn">Seller khiếu nại 3PL
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">  
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 kn_3pl" style="font-size: 12px;">KN 3PL</div>
+                                        </fieldset> 
+                                    </div>                                                                                  
+                                </div>
+                                <div kb_id="2972" class="navChil_btn"><span class="strong strong_mini">Đã lấy</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">chưa</span> cập nhật
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 buucuc" style="font-size: 12px;">bưu cục</div>
+                                            <div class="strong btn-14 shipper" style="font-size: 12px;">shipper</div>
+                                        </fieldset>               
+                                    </div>
+                                </div>
+                                <div kb_id="2971" class="navChil_btn"><span class="strong strong_mini">Đã lấy</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">đã</span> cập nhật => đợi 24h
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 doi_24h_2971" style="font-size: 12px;">Đợi 24h</div>
+                                            <div class="strong btn-14 qua_24h_2971" style="font-size: 12px;">Quá 24h <br> chuyển khiếu nại 3PL</div>
+                                        </fieldset>               
+                                    </div>
+                                </div>                                
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend><span class="strong">Delivering</span></legend>
+                                <div kb_id="2974" class="navChil_btn">< 3 ca (cách nhau 4 tiếng)<br><span class="strong strong_mini">Đang giao</span>
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 dang_giao_2974" style="font-size: 12px;">Đang giao</div>
+                                        </fieldset>               
+                                    </div>
+                                </div>
+                                <div kb_id="2976" class="navChil_btn">- Đủ 3 ca hoặc(cách nhau 4 tiếng)<br>- Khách gay gắt khiếu nại 3PL<br><span class="strong strong_mini">=>Khiếu nại</span>
+                                     <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 khieu_nai_2976" style="font-size: 12px;">Khiếu nại</div>
+                                        </fieldset>               
+                                    </div> 
+                                </div>
+                                <div kb_id="2981" class="navChil_btn"><span class="strong strong_mini">Đã giao</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">chưa</span> cập nhật
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 khieu_nai_2981" style="font-size: 12px;">Khiếu nại</div>
+                                        </fieldset>               
+                                     </div>
+                                </div>
+                                <div kb_id="2976" class="navChil_btn"><span class="strong strong_mini">Đã giao</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">đã</span> cập nhật => đợi 24h
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 doi_24h_2976" style="font-size: 12px;">Đợi 24h</div>
+                                            <div class="strong btn-14 qua_24h_2976" style="font-size: 12px;">Quá 24h <br> chuyển khiếu nại 3PL</div>
+                                        </fieldset>               
+                                    </div>
+                                </div>
+                                <div kb_id="2987" class="navChil_btn"><span class="strong strong_mini">Thất lạc</span> nhưng đang giao <br><span class="strong strong_mini">=>khiếu nại</span>
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 thatlac_2987" style="font-size: 12px;">khiếu nại</div>
+                                        </fieldset>               
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend><span class="strong">Delivered</span></legend>
+                                <div kb_id="3415" class="navChil_btn"><span class="strong strong_mini">Chưa giao</span> nhưng cập nhật giao thành công
+                                    <div class="tool_tip tool_tip_top" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>s</legend>
+                                            <div class="strong btn-14 chuagiao_3415" style="font-size: 12px;">Khiếu nại</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
                             </fieldset>
                         </form>
                     </div>
@@ -827,20 +914,14 @@ window.onload = function () {
 
         var el_item_test = document.querySelector('.btn_test')
         el_item_test.onclick = (ev) => {
-            console.log(123);
-            fetch('https://csp.shopee.com/portal/api/v1/orders/113664084206837/logistics?SPC_CDS=c526db3f-458c-42c0-a498-764821996f84&SPC_CDS_VER=2')
-                .then((response) => response.json())
-                .then((data) => {
-                    console.log(data)
-                    // let content = JSON.parse(data.content)
-                    // console.log(content)
-                    // for (const content_item of content) {
-                    //     console.log(content_item);
-                    // }
+            let el_ldp = document.getElementById('62')
+            console.log(el_ldp);
+            el_ldp.focus()
 
+            document.execCommand('insertText', false, `Khiếu nại điểm phạt LSR`);
 
-                });
-
+            let munu = document.querySelector('.cs-cascader-menus')
+            munu.children[0].children[0].click()
 
 
         }
@@ -979,8 +1060,8 @@ window.onload = function () {
             }
         }
         macro_coppy()
-        //================================================================
-        //FAQ
+       
+        
         // lắng nghe phím bấm
         document.addEventListener("keydown", function (event) {
             //xem đang nhấn phím gì
@@ -1003,6 +1084,11 @@ window.onload = function () {
                     console.log('chơi nhạc');
                 }
             }
+            if (event.altKey && event.code === 'KeyA') {
+                let el_inhouse_kb = document.querySelector('.inhouse_kb')
+                el_inhouse_kb.classList.toggle('none')
+            }
+
         }, false)
 
         function add_mes_chat_end(params) {

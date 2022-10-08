@@ -2,13 +2,27 @@
     position: absolute;
     z-index: 1070;
     display: block;
-    background-color: rgba(10,31,68,.9);
+    background-color: rgba(10, 31, 68, .9);
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 7px;
+    cursor: default;
+    transform: scale(0);
+    text-align: center;
+}
+
+.tool_tip_right {
     top: 0;
     left: 100%;
-    cursor:default;
-    transform: scale(0);
+}
+
+.tool_tip_bottom {
+    left: 0;
+    top: calc(100% + 12px);
+}
+
+.tool_tip_top {
+    bottom: 100%;
+    left: 0;
 }
 
 .tool_tip div {
@@ -16,12 +30,66 @@
     cursor: pointer;
 }
 
+.tool_tip div:active {
+    box-shadow: rgb(255 255 255 / 20%) -4px -4px 5px inset, rgb(0 0 0 / 10%) 4px 5px 10px inset;
+}
+
 .tool_tip::after {
     content: "";
     position: absolute;
     width: 20px;
     height: 100%;
-    /* background-color: black; */
+}
+
+.tool_tip_bottom::after {
+    width: 100%;
+    height: 40px;
+    top: -20px;
+    left: 0;
+}
+
+.tool_tip_top::after {
+    width: 100%;
+    height: 40px;
+    bottom: -20px;
+    left: 0;
+}
+
+
+
+.btn-14 {
+    background: linear-gradient(180deg, rgba(208, 54, 138, 0.5) 0%, rgba(112, 138, 212, 0.5) 99%);
+    color: #fff;
+    z-index: 1;
+    border-radius: 5px;
+    position: relative;
+    border: none;
+}
+
+.btn-14:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
     top: 0;
-    left: -15px;
+    left: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, #d0368a 0%, #708ad4 99%);
+    transition: all 0.3s ease;
+    border-radius: 5px;
+
+}
+
+.btn-14:hover {
+    /*   color: #000; */
+}
+
+.btn-14:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+
+.btn-14:active {
+    top: 2px;
 }
