@@ -675,40 +675,40 @@ window.onload = function () {
                             event.stopPropagation()
                             edit(e)
                         }
-                        keyalt(e, 'Backquote')
+                        keyalt_click(e, 'Backquote')
                         break
 
-                    case 'item_tdht':
+                    case 'btn_ldp_dtht':
                         e.onclick = (event) => {
                             event.stopPropagation()
                             console.log(123);
                             TDHTGH()
                         }
-                        keyalt(e, 'Digit1')
+                        keyalt_click(e, 'Digit1')
                         break
 
-                    case 'item_hg':
+                    case 'btn_ldp_hg':
                         e.onclick = (event) => {
                             event.stopPropagation()
                             HoiGiao()
                         }
-                        keyalt(e, 'Digit2')
+                        keyalt_click(e, 'Digit2')
                         break
 
-                    case 'item_hl':
+                    case 'btn_ldp_hl':
                         e.onclick = (event) => {
                             event.stopPropagation()
                             HoiLay()
                         }
-                        keyalt(e, 'Digit3')
+                        keyalt_click(e, 'Digit3')
                         break;
 
-                    case 'item_ccht':
+                    case 'btn_ldp_ccht':
                         e.onclick = (event) => {
                             event.stopPropagation()
                             CCHT()
                         }
-                        keyalt(e, 'Digit0')
+                        keyalt_click(e, 'Digit0')
                         break;
 
                     default:
@@ -999,14 +999,14 @@ window.onload = function () {
             el_inhouse_kb_nav_chil.forEach(element => {
                 Array.from(element.children).forEach(el_navChil_item => {
                     Array.from(el_navChil_item.children[0].children).forEach((navChil_btn) => {
-                        click_fetch(navChil_btn,el_inhouse_article_detail)
+                        click_fetch(navChil_btn, el_inhouse_article_detail)
 
                     })
                 });
             });
         }
 
-        function click_fetch(navChil_btn,el_inhouse_article_detail) {
+        function click_fetch(navChil_btn, el_inhouse_article_detail) {
             navChil_btn.onclick = (e) => {
                 console.log(el_inhouse_article_detail);
                 let kb_id = e.target.attributes.kb_id
@@ -1023,12 +1023,12 @@ window.onload = function () {
                                 console.log(content_item);
                             }
 
-                            
+
                             let html_kb = `
                             <h2 class="title">${data.article_title}</h2>
                             <div class="section_list">
-                                ${content.map( (section_item, i, ar) => {
-                                    return (`
+                                ${content.map((section_item, i, ar) => {
+                                return (`
                                     <div class="section_item">
                                         <div class="section_title">
                                             ${section_item.sectionTitle}
@@ -1038,8 +1038,8 @@ window.onload = function () {
                                         </div>
                                     </div>
                                     `)
-                                    // ${section_item.sectionContent}
-                                }).join('')}
+                                // ${section_item.sectionContent}
+                            }).join('')}
                                 
                             </div>
                             `
@@ -1049,7 +1049,7 @@ window.onload = function () {
                             console.log(el_section_item);
                             el_section_item.forEach(element => {
                                 let el_title = element.children[0]
-                                let el_content= element.children[1]
+                                let el_content = element.children[1]
                                 el_title.onclick = (e) => {
                                     console.log(el_title);
                                     el_content.classList.toggle('none')
@@ -1060,8 +1060,8 @@ window.onload = function () {
             }
         }
         macro_coppy()
-       
-        
+
+
         // lắng nghe phím bấm
         document.addEventListener("keydown", function (event) {
             //xem đang nhấn phím gì
@@ -1514,7 +1514,7 @@ window.onload = function () {
                             var L1 = e2.children[0].children[0].innerText
                             var L2 = e2.children[1].children[0].innerText
                             var L3 = e2.children[2].children[0].innerText
-                            selectLDP('Open', L1, L2, L3)
+                            selectLDP(L1,L2,L3)
                         }
                     }
                 });
@@ -1994,19 +1994,19 @@ window.onload = function () {
         }
 
         function TDHTGH() {
-            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Trước EDT] Theo dõi hành trình giao hàng')
+            selectLDP('Vận chuyển','Đang chờ giao','[Trước EDT] Theo dõi hành trình giao hàng')
         }
 
         function HoiGiao() {
-            selectLDP('Open', 'Vận chuyển', 'Đang chờ giao', '[Sau EDT] Hối giao')
+            selectLDP('Vận chuyển','Đang chờ giao','[Sau EDT] Hối giao')
         }
 
         function HoiLay() {
-            selectLDP('Open', 'Vận chuyển', 'Lấy hàng/ Gửi hàng', 'Hối lấy hàng')
+            selectLDP('Vận chuyển','Lấy hàng/ Gửi hàng','Hối lấy hàng')
         }
 
         function CCHT() {
-            selectLDP('Solved', 'Câu hỏi khác', 'Câu hỏi khác', 'Chat chưa hoàn tất')
+            selectLDP('Câu hỏi khác','Câu hỏi khác','Chat chưa hoàn tất')
         }
 
         function Dearteam(params) {
@@ -2314,65 +2314,7 @@ window.onload = function () {
         }
 
         var Pro = 0
-        function Test3(params) {
-            var audio1 = document.querySelectorAll('audio')
-            //var audio2 = document.querySelectorAll('audio')[1]
-            var s = document.querySelector('.LB_time_s')
-            var m = document.querySelector('.LB_time_m')
-            //console.log()
 
-            if (localStorage.getItem('local_pro') === null) {
-                localStorage.setItem('local_pro', Pro)
-            } else {
-                Pro = parseInt(localStorage.getItem('local_pro'))
-                console.log('Pro typeof: ', typeof Pro)
-                console.log('Pro: ', Pro)
-            }
-            audio1.forEach((e) => {
-                if (e.children[0].attributes.src.value === '/presence/audio/request.mp3') {
-                    e.onplay = function () {
-                        var myDate1 = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
-                        document.querySelector('.Time_current_chat').innerHTML = myDate1
-
-                        Pro = parseInt(localStorage.getItem('local_pro'))
-                        Pro += 1
-                        document.querySelector('.LB_Pro').innerHTML = 'Pro: ' + Pro
-
-                        //màu
-                        fade(document.querySelector('.LB_Pro'), [255, 255, 255], [255, 0, 0], 10, 'backgroundcolor');
-                        fade(document.querySelector('.LB_Pro'), [0, 0, 0], [255, 255, 255], 10, 'color');
-
-                        localStorage.setItem('local_pro', Pro)
-
-                        countdown(0, 0, 15, [s, m], function () {
-                            console.log('Hết giờ 15s chát đầu');
-
-                            timers_fade.forEach((e) => {
-                                clearInterval(e)
-                                console.log('ClearInterval: ', e)
-                            })
-                            console.log('Trước khi xoá: ', timers_fade)
-                            timers_fade = []
-                            console.log('Sau khi xoá: ', timers_fade)
-                            document.querySelector('.LB_Pro').style.backgroundColor = "rgb(241, 241, 241)"
-                            document.querySelector('.LB_Pro').style.color = "black"
-                            console.log('timers_fade: ', timers_fade);
-                        })
-
-                    }
-                    document.querySelector('.LB_Pro').innerHTML = 'Pro: ' + Pro
-                    console.log(e, 'đã xong');
-                    console.log('S: ', s);
-                    console.log('m: ', m);
-                }
-            })
-
-
-
-
-
-
-        }
 
         function ResetLocal(params) {
             localStorage.setItem('local_pro', 0)
@@ -2734,94 +2676,54 @@ window.onload = function () {
 
         }
 
-        function selectLDP(Trang_thai_case, Request_L1, Request_L2, Request_L3) {
-            var Item_L1
-            var Item_L2
-            var Item_L3
-            var Item_Trang_thai_case
-            var id
+        function selectLDP(Request_L1, Request_L2, Request_L3) {
+            let Request_LDP = `${Request_L1} / ${Request_L2} / ${Request_L3}`
+            console.log(Request_LDP);
+            let workstation_current = fun_workstation_current()
+
+            let el_ldp = workstation_current.querySelector("input[id='62']")
+            el_ldp.focus()
+            document.execCommand('insertText', false, Request_L3);
+
+            let el_menu_ldps = document.querySelectorAll('.cs-cascader-menus')
+            let el_menu_ldp = selectLDP_find_menu(el_menu_ldps)
+
+            var str = el_menu_ldp.parentElement.innerHTML;
+            navigator.clipboard.writeText(str)
+
+
+            console.log(el_menu_ldp.children[0].children);
+            Array.from(el_menu_ldp.children[0].children).forEach(element => {     
+                if (Request_LDP === element.children[0].innerText) {
+                    element.children[0].click()
+                }
+            });
+
+        }
+
+        function selectLDP_find_menu(el_menu_ldps) {
+            let el_menu_ldp
+            el_menu_ldps.forEach(element => {
+                if (!Array.from(element.parentElement.parentElement.classList).includes('cs-select-dropdown-hidden')) {
+                    el_menu_ldp = element
+                }
+            });
+            return el_menu_ldp
+        }
+
+        function fun_workstation_current(params) {
+            let el_workstation_current
             Array.from(document.querySelector('#workstation').children[0].children).forEach(e => {
                 console.log(Object.keys(e.attributes).length);
                 if (Object.keys(e.attributes).length === 2) {
                     console.log(e);
-                    id = e.attributes.id.value.substr(44, 11)
 
-                    if (id === 'case-detail') {
-                        console.log('thông tin');
-                        var list_item_case_detail = e.children[0].children[0].children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[0].children[1].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_case_detail, '*Lý do phiếu').children[1].children[0].children[0].children[0]
-                        //Item_L2 = Find_Item(list_item_case_detail, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        //Item_L3 = Find_Item(list_item_case_detail, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
-                        Item_Trang_thai_case = Find_Item(list_item_case_detail, '*Trạng thái Case').children[1].children[0].children[0].children[0]
-                        console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
-                    }
+                    el_workstation_current = e
 
-                    if (id === 'agentchat?s') {
-                        console.log('chat');
-                        var list_item_chat = e.children[0].children[0].children[0].children[0].children[2].children[0].children[1].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_chat, '*Lý do phiếu').children[1].children[0].children[0].children[0]
-                        //Item_L2 = Find_Item(list_item_chat, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        // Item_L3 = Find_Item(list_item_chat, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
-                        Item_Trang_thai_case = Find_Item(list_item_chat, '*Trạng thái Case').children[1].children[0].children[0].children[0].children[0]
-                        console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
-                    }
-
-                    if (id === 'case/create') {
-                        console.log('tạo case')
-                        var list_item_case_create = e.children[0].children[0].children[0].children[0].children[0].children[1].children[0].children[0].children[0].children[0].children[1].children[0].children
-                        Item_L1 = Find_Item(list_item_case_create, '*Lý do phiếu').children[1].children[0].children[0].children[0]
-                        //Item_L2 = Find_Item(list_item_case_create, '*Lý do phiếu L2').children[1].children[0].children[0].children[0]
-                        //Item_L3 = Find_Item(list_item_case_create, '*Lý do phiếu L3').children[1].children[0].children[0].children[0]
-                        //Item_Trang_thai_case = Find_Item(list_item_case_create,'*Trạng thái Case').children[1].children[0].children[0].children[0]
-                        console.log(Item_L1, Item_L2, Item_L3);
-                    }
-
-                    //console.log('nè: ', Item_Trang_thai_case);
                 }
 
             });
-
-            //console.log(Item_L1, Item_L2, Item_L3, Item_Trang_thai_case);
-            switch (Item_Trang_thai_case) {
-                case undefined:
-                    elementReading(Item_L1, Request_L1, 1)
-                        .then((e) => {
-                            console.log(e);
-                            return elementReading(e, Request_L2, 2)
-                        })
-                        .then((e) => {
-                            console.log(e);
-                            return elementReading(e, Request_L3, 3)
-                        })
-                        .then((e) => {
-                            console.log(e);
-                            e.click()
-                        })
-                    break;
-
-                default:
-                    elementReading(Item_Trang_thai_case, Trang_thai_case)
-                        .then((e) => {
-                            console.log(e);
-                            if (e !== undefined) {
-                                e.click()
-                            }
-                            return elementReading(Item_L1, Request_L1, 1)
-                        })
-                        .then((e) => {
-                            //console.log(e);
-                            return elementReading(e, Request_L2, 2)
-                        })
-                        .then((e) => {
-                            //console.log(e);
-                            e.click()
-                            return elementReading(e, Request_L3, 3)
-                        })
-                        .then((e) => {
-                            e.click()
-                        })
-                    break;
-            }
+            return el_workstation_current
         }
 
         function elementReading(params, Request, time) {
@@ -3194,7 +3096,7 @@ window.onload = function () {
             }, false)
         }
 
-        function keyalt(e, key) {
+        function keyalt_click(e, key) {
 
             document.addEventListener("keydown", function (event) {
                 //xem đang nhấn phím gì
