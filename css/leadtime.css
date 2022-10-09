@@ -1,0 +1,53 @@
+.leadtime {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.leadtime .leadtime_get {
+    color: #fff;
+    background-color: #ee4d2d;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+
+    padding: 0 5px 0 0;
+}
+
+.leadtime .leadtime_get .leadtime_get_btn {
+    padding: 0 10px;
+
+}
+
+.leadtime .leadtime_get .leadtime_result  {
+    background-color: #fff;
+    color: black;
+    border-radius: 5px;
+    border-radius: 10px;
+    padding: 0 5px;
+    cursor: text;
+}
+
+.leadtime .leadtime_request {
+    width: 25px;
+
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(164 164 164);
+    border-image: initial;
+    border-radius: 5px;
+    outline: none;
+}
+
+.leadtime .leadtime_current {
+    width: 120px;
+    
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(164 164 164);
+    border-image: initial;
+    border-radius: 5px;
+    outline: none;
+}

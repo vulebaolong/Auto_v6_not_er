@@ -39,6 +39,7 @@
         "css/changecolor.css",
         "css/inhouse_kb.css",
         "css/tooltip.css",
+        "css/leadtime.css",
         "fontawesome/css/all.css"
       ],
       "js": [
