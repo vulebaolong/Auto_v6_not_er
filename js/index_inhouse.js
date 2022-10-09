@@ -440,12 +440,12 @@ let html_inhouse_kb = /*html*/ `
                                         </fieldset>               
                                      </div>
                                 </div>
-                                <div kb_id="2976" class="navChil_btn"><span class="strong strong_mini">Đã giao</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">đã</span> cập nhật => đợi 24h
+                                <div kb_id="2979" class="navChil_btn"><span class="strong strong_mini">Đã giao</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">đã</span> cập nhật => đợi 24h
                                     <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
                                         <fieldset style="padding: 5px;">
                                             <legend>s</legend>
-                                            <div class="strong btn-14 doi_24h_2976" style="font-size: 12px;">Đợi 24h</div>
-                                            <div class="strong btn-14 qua_24h_2976" style="font-size: 12px;">Quá 24h <br> chuyển khiếu nại 3PL</div>
+                                            <div class="strong btn-14 doi_24h_2979" style="font-size: 12px;">Đợi 24h</div>
+                                            <div class="strong btn-14 qua_24h_2979" style="font-size: 12px;">Quá 24h <br> chuyển khiếu nại 3PL</div>
                                         </fieldset>               
                                     </div>
                                 </div>
@@ -467,6 +467,57 @@ let html_inhouse_kb = /*html*/ `
                                         <fieldset style="padding: 5px;">
                                             <legend>s</legend>
                                             <div class="strong btn-14 chuagiao_3415" style="font-size: 12px;">Khiếu nại</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend><span class="strong">Return Initiated</span></legend>
+                                <div kb_id="3418" class="navChil_btn"><span class="strong strong_mini">Hoàn</span> Shipper không gọi
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 hoan_3418" style="font-size: 12px;">hoàn</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
+                                <div kb_id="3422" class="navChil_btn"><span class="strong strong_mini">Đã hoàn</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">chưa</span> cập nhật
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 dahoan_3422" style="font-size: 12px;">khiếu nại</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
+                                <div kb_id="3421" class="navChil_btn"><span class="strong strong_mini">Đã hoàn</span> nhưng chưa cập nhật<br>3PL <span class="strong strong_mini">đã</span> cập nhật => đợi 24h
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 dahoan_3421" style="font-size: 12px;">Đợi 24h</div>
+                                            <div class="strong btn-14 qua_24h_3421" style="font-size: 12px;">Quá 24h <br> chuyển khiếu nại 3PL</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
+                            </fieldset>
+                        </form>
+                        <form>
+                            <fieldset>
+                                <legend><span class="strong">Returned</span></legend>
+                                <div kb_id="3426" class="navChil_btn">Chưa nhận nhưng Returned<br><span class="strong strong_mini">CÒN hạn 7 ngày</span> => khiếu nại
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 khieunai_3426" style="font-size: 12px;">khiếu nại</div>
+                                        </fieldset>               
+                                    </div>  
+                                </div>
+                                <div kb_id="3427" class="navChil_btn">Chưa nhận nhưng Returned<br><span class="strong strong_mini">QÚA hạn 7 ngày</span> => từ chối
+                                    <div class="tool_tip tool_tip_right" style="width: 110px;">                                        
+                                        <fieldset style="padding: 5px;">
+                                            <legend>b/s</legend>
+                                            <div class="strong btn-14 tuchoi_3427" style="font-size: 12px;">từ chối</div>
                                         </fieldset>               
                                     </div>  
                                 </div>
@@ -677,7 +728,39 @@ window.onload = function () {
             console.log('ngày cuối cung: =>>>>>>' , day_result);
         }
 
+        function leadtime(day_request,current, lam_viec) {
+            let day_result
 
+            let day_current = Date.parse(new Date(current)) || Date.parse(new Date());
+            // console.log(day_current);
+
+            for (let index = 0; index < day_request;) {
+                let day_step = new Date(day_current += 86400000);
+                console.log(day_step.toString());
+                let year = day_step.getFullYear();
+                let month = day_step.getMonth() + 1;
+                let day = day_step.getDate();
+                let dayofweek = day_step.getDay();
+    
+                // const dayname = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];    
+                // console.log(dayname[dayofweek] + ' ngày ' + day + '/' + month + '/' + year);
+                day_result = day + '-' + month + '-' + year
+                // console.log(day_result);
+
+                if (lam_viec) {
+                    if (dayofweek === 0 || dayofweek === 6) {
+                        // console.log('thứ 7 và chủ nhật không chạy dayofweek: ', dayofweek);
+                    }else {
+                        index++
+                    }
+                } else {
+                    index++
+                }
+
+                
+            }
+            return day_result
+        }
 
 
 
@@ -1008,39 +1091,7 @@ window.onload = function () {
            
         };
 
-        function leadtime(day_request,current, lam_viec) {
-            let day_result
-
-            let day_current = Date.parse(new Date(current)) || Date.parse(new Date());
-            console.log(day_current);
-
-            for (let index = 0; index < day_request;) {
-                let day_step = new Date(day_current += 86400000);
-                console.log(day_step.toString());
-                let year = day_step.getFullYear();
-                let month = day_step.getMonth() + 1;
-                let day = day_step.getDate();
-                let dayofweek = day_step.getDay();
-    
-                // const dayname = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];    
-                // console.log(dayname[dayofweek] + ' ngày ' + day + '/' + month + '/' + year);
-                day_result = day + '-' + month + '-' + year
-                console.log(day_result);
-
-                if (lam_viec) {
-                    if (dayofweek === 0 || dayofweek === 6) {
-                        console.log('thứ 7 và chủ nhật không chạy dayofweek: ', dayofweek);
-                    }else {
-                        index++
-                    }
-                } else {
-                    index++
-                }
-
-                
-            }
-            return day_result
-        }
+        
 
         inhouse_kb();
         function inhouse_kb() {
