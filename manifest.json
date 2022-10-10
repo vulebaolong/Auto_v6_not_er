@@ -40,13 +40,16 @@
         "css/inhouse_kb.css",
         "css/tooltip.css",
         "css/drag.css",
+        "css/search_ldp.css",
         "fontawesome/css/all.css"
       ],
       "js": [
+        "js/global.js",
         "js/index_inhouse.js",
         "js/index_order.js",
         "js/inhouse_kb.js",
-        "js/drag.js"
+        "js/drag.js",
+        "js/search_ldp.js"
       ],
       "all_frames": true
     }
