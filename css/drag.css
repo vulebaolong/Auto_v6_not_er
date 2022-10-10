@@ -1,0 +1,209 @@
+
+/* DRAG ONE */
+.drag_one {
+    position: fixed;
+    right: 50px;
+    top: 50px;
+    z-index: 200;
+    cursor: grab;
+
+    background-color: #ffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 5px;
+    outline: none;
+
+    width: max-content;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    transition: border .5s;
+}
+.drag_container {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+
+    background-color: #ffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 7px;
+    outline: none;
+    height: 35px;
+
+    right: calc(100% + 5px);
+    transition: all .5s;
+}
+.drag_one:hover,
+.drag_one:hover .drag_container,
+.leadtime .leadtime_current:hover,
+.leadtime .leadtime_request:hover{
+    border: 1px solid #ee4d2d;
+}
+.drag_one .time_time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    border-radius: 10px;
+    background-color: transparent;
+    color: white;
+    padding: 2px 7px;
+}
+
+/* LEAD TIME */
+.leadtime {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+   
+    width: 0;
+    transition: all .5s;
+    overflow: hidden;
+    cursor: auto;
+}
+.leadtime .leadtime_current {
+    width: 120px;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    outline: none;
+    transition: all .5s;
+}
+.leadtime .leadtime_request {
+    width: 30px;
+    text-align: center;
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    outline: none;
+}
+.leadtime .leadtime_checkbox {
+    display: flex;
+    align-items: center;
+}
+.leadtime .leadtime_nlv {
+    width: 12px;
+}
+.leadtime .leadtime_label {
+    height: 20px;
+    line-height: 19px;
+    width: 70px;
+    text-align: center;
+    transition: all .5s;
+}
+.leadtime .leadtime_get {
+    color: #fff;
+    background-color: #ee4d2d;
+    border-radius: 15px;
+    height: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;  
+    padding: 0 5px 0 0;
+    cursor: auto;
+}
+.leadtime .leadtime_get .leadtime_get_btn {
+    padding: 0 10px;
+    height: 20px;
+    line-height: 16px;
+    cursor: pointer;
+}
+.leadtime .leadtime_get .leadtime_result  {
+    background-color: #fff;
+    color: black;
+    border-radius: 10px;
+    padding: 0 5px;
+    height: 20px;
+    line-height: 20px;
+    width: max-content;
+    text-align: center;
+}
+.show_leadtime {
+    width: 430px
+}
+
+.btn_leadtime {
+    background-color: hsla(10, 85%, 55%, 0.6) !important; 
+    color: #fff !important;
+    z-index: 1;
+    position: relative;
+    border: none;
+    overflow: hidden;
+}
+
+.btn_leadtime:after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 0;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #ee4d2d;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+
+}
+
+.btn_leadtime:hover:after {
+    top: auto;
+    bottom: 0;
+    height: 100%;
+}
+
+.btn-8 {
+   position: relative;
+   z-index: 2;
+   -webkit-perspective: 300px;
+   perspective: 300px;
+   -webkit-transform-style: preserve-3d;
+   transform-style: preserve-3d;
+ }
+ .btn-8:hover{
+   color: black;
+ }
+ .btn-8:after {
+   position: absolute;
+   content: "";
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #ee4d2d;
+   border-radius: 10px;
+   z-index: -1;
+   -webkit-transform-origin: center bottom;
+   transform-origin: center bottom;
+   -webkit-transform: rotateX(0);
+   transform: rotateX(0);
+   transition: all 0.3s ease;
+ }
+ .btn-8:hover:after {
+   -webkit-transform: rotateX(-180deg);
+   transform: rotateX(-180deg);
+ }
+
+ .btn-11 {
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+ .btn-11:before {
+    position: absolute;
+    content: '';
+    display: inline-block;
+    top: -180px;
+    left: 0;
+    width: 30px;
+    height: 100%;
+    background-color: #fff;
+    animation: shiny-btn1 3s ease-in-out infinite;
+}
+
+
+@-webkit-keyframes shiny-btn1 {
+    0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+    80% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+    81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+    100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+}

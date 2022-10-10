@@ -1054,32 +1054,4 @@ th {
 
 /* ============ */
 
-.container_drag {
-    position: fixed;
-    right: 50px;
-    top: 50px;
-    z-index: 200;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    background-color: #ffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 5px;
-    outline: none;
-
-    width: 550px;
-    height: 40px;
-    padding: 0 10px;
-}
-
-.container_drag:hover {
-    border: 1px solid #ee4d2d;
-}
-
-.container_drag .time_time {
-    display: flex;
-    justify-content: center;
-    width: 80px;
-}

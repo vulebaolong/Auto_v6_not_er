@@ -39,13 +39,14 @@
         "css/changecolor.css",
         "css/inhouse_kb.css",
         "css/tooltip.css",
-        "css/leadtime.css",
+        "css/drag.css",
         "fontawesome/css/all.css"
       ],
       "js": [
         "js/index_inhouse.js",
         "js/index_order.js",
-        "js/macro_coppy.js"
+        "js/inhouse_kb.js",
+        "js/drag.js"
       ],
       "all_frames": true
     }

@@ -7,11 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <link rel="stylesheet" href="../css/drag.css">
     <link rel="stylesheet" href="../css/button.css">
     <link rel="stylesheet" href="../css/inhouse_kb.css">
     <link rel="stylesheet" href="../css/tooltip.css">
     <link rel="stylesheet" href="../css/style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -106,71 +107,25 @@
 
 
 
-    <div class="cs-cascader-menus">
-        <ul class="cs-cascader-menu" role="menu">
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18912__RC_CASCADER_SPLIT__18938__RC_CASCADER_SPLIT__Other RTS issues">
-                <div class="cs-cascader-menu-item-content">Vận chuyển / Hoàn hàng / 
-                    <span class="cs-cascader-menu-item-keyword">Các vấn đề khác</span>
+    <div class="drag_one">  
+        <div class="drag_grip"><i class="fa-solid fa-grip-vertical"></i></div>
+        <div class="drag_container">
+            <div class="leadtime">
+                <input class="leadtime_current" type="date"/>
+                <input class="leadtime_request" type="text" value="14"/>       
+                <input class="leadtime_nlv" type="checkbox" checked="true">
+                <label class="leadtime_label">làm việc</label>
+                <div class="leadtime_get">
+                    <div class="leadtime_get_btn">get</div>
+                    <div class="leadtime_result" >10-09-2022</div>
                 </div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18912__RC_CASCADER_SPLIT__18932__RC_CASCADER_SPLIT__Other delivered reasons">
-                <div class="cs-cascader-menu-item-content">Vận chuyển / Đã nhận hàng / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18912__RC_CASCADER_SPLIT__18929__RC_CASCADER_SPLIT__Other shipment reasons">
-                <div class="cs-cascader-menu-item-content">Vận chuyển / Lấy hàng/ Gửi hàng / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18890__RC_CASCADER_SPLIT__18901__RC_CASCADER_SPLIT__18904">
-                <div class="cs-cascader-menu-item-content">Câu hỏi chung / OTP / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18633__RC_CASCADER_SPLIT__18650__RC_CASCADER_SPLIT__18654">
-                <div class="cs-cascader-menu-item-content">BD / FS Xtra / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18740__RC_CASCADER_SPLIT__18773__RC_CASCADER_SPLIT__18779">
-                <div class="cs-cascader-menu-item-content">SPX - non Shopee / Đã nhận hàng / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18740__RC_CASCADER_SPLIT__18755__RC_CASCADER_SPLIT__18762">
-                <div class="cs-cascader-menu-item-content">SPX - non Shopee / Lấy hàng/ Gửi hàng / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18590__RC_CASCADER_SPLIT__18600__RC_CASCADER_SPLIT__18602">
-                <div class="cs-cascader-menu-item-content">Marketing / Games / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18590__RC_CASCADER_SPLIT__18607__RC_CASCADER_SPLIT__18611">
-                <div class="cs-cascader-menu-item-content">Marketing / Voucher/Promo / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="18949__RC_CASCADER_SPLIT__18950__RC_CASCADER_SPLIT__18955">
-                <div class="cs-cascader-menu-item-content">Tài khoản &amp; Gian lận / Câu hỏi chung / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="ShopeePay__RC_CASCADER_SPLIT__Top Up__RC_CASCADER_SPLIT__Other top up ShopeePay issues">
-                <div class="cs-cascader-menu-item-content">ShopeePay / Nạp tiền / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-            <li class="cs-cascader-menu-item" role="menuitemcheckbox" aria-checked="false"
-                data-path-key="MyStock__RC_CASCADER_SPLIT__Other Enquiry__RC_CASCADER_SPLIT__ Other Enquiry">
-                <div class="cs-cascader-menu-item-content">Kênh Quản Lý Shop / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span> / <span
-                        class="cs-cascader-menu-item-keyword">Các vấn đề khác</span></div>
-            </li>
-        </ul>
+            </div>  
+            <div class="time_time">
+                <div class="time_hour">00</div>:
+                <div class="time_minutes">00</div>:
+                <div class="time_second">00</div>        
+            </div>    
+        </div>               
     </div>
 
 
