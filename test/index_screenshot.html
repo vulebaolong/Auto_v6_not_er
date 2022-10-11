@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style_screenshot.css">
+
+</head>
+
+<body>
+    <button onclick="run()">click</button>
+
+    
+
+
+
+
+
+
+
+
+    <script src="./html2canvas.js"></script>
+    <script src="./test2.js"></script>
+    <script>
+        function sreenshot(params) {
+            html2canvas(document.querySelector("#capture"))
+                .then(canvas => {
+                    document.body.appendChild(canvas)
+                    canvas.toBlob(
+                        blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+                    )
+                });
+        }
+
+    </script>
+</body>
+
+</html>
