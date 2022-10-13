@@ -3,6 +3,20 @@
     padding: 0;
 }
 
+body {
+    background-image: url(../img/5.jpg);
+    height: 100vh;
+}
+
+div {
+    position: fixed;
+    top: 200px;
+    left: 220px;
+    width: 500px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.404);
+}
+
 .screenshot_wrapper {
     background-color: rgba(0, 0, 0, 0.3);
     cursor: crosshair;
@@ -23,13 +37,13 @@
 }
 
 .screenshot_top {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     position: absolute;
     top: 0;
     left: 0;
 }
 .screenshot_right {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     /* background-color: rgb(202, 183, 75); */
     position: absolute;
     top: 0;
@@ -37,7 +51,7 @@
 }
 
 .screenshot_bottom {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     /* background-color: rgb(75, 202, 98); */
     position: absolute;
     bottom: 0;
@@ -45,7 +59,7 @@
 }
 
 .screenshot_left {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     /* background-color: rgb(111, 75, 202); */
     position: absolute;
     bottom: 0;
@@ -54,7 +68,9 @@
 
 .screenshot_center {
     /* background-color: black; */
-    background-color: rgb(75, 202, 96);
+    /* background-image: url(../img/5.jpg); */
     position: absolute;
+    cursor: move;
+    outline: 1.5px dashed #d5d5d5;
     
 }

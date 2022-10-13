@@ -2,7 +2,7 @@
 
 
 let html_screen = `
-<div class="screenshot_wrapper none">
+<div id="capture1" class="screenshot_wrapper">
 <div class="screenshot_top"></div>
 <div class="screenshot_right"></div>
 <div class="screenshot_bottom"></div>
@@ -30,6 +30,9 @@ document.addEventListener(
             let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
             el_screenshot_wrapper.remove()
         }
+        if (event.code === 'KeyB') {
+            sreenshot1()
+        }
     },
     false,
 );
@@ -41,7 +44,7 @@ function run(params) {
     let el_screenshot_bottom = document.querySelector('.screenshot_bottom')
     let el_screenshot_left = document.querySelector('.screenshot_left')
 
-    let el_screenshot_center = document.querySelector('.screenshot_center')   
+    let el_screenshot_center = document.querySelector('.screenshot_center')
 
     addEventListener('resize', (event) => {
         // console.log(window.innerHeight, window.innerWidth);
@@ -140,6 +143,37 @@ function run(params) {
         }
     }
 }
+
+function sreenshot1(params) {
+    html2canvas(document.querySelector("body"))
+        .then((canvas) => {
+
+            let cropper = document.createElement('canvas').getContext('2d');
+            let swidth = 500
+            let sheight = 500
+            let sY_top = 200
+            let sX_left = 220
+            cropper.canvas.width = swidth;
+            cropper.canvas.height = sheight;
+
+            cropper.drawImage(canvas, sX_left, sY_top, swidth, sheight, 0, 0, swidth, sheight);
+
+            
+
+            document.body.appendChild(cropper.canvas)
+            cropper.canvas.toBlob(
+                blob => {
+                    navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
+                }
+            )
+
+
+        });
+}
+
+
+
+
 
 
 
