@@ -1,5 +1,8 @@
+
+
+
 let html_screen = `
-<div class="screenshot_wrapper none" style="width: 1300px; height: 836px;">
+<div class="screenshot_wrapper none">
 <div class="screenshot_top"></div>
 <div class="screenshot_right"></div>
 <div class="screenshot_bottom"></div>
@@ -10,54 +13,134 @@ let html_screen = `
 `
 let body = document.querySelector('body')
 
-body.insertAdjacentHTML('afterend',html_screen);
-let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
-let el_screenshot_top = document.querySelector('.screenshot_top')
-let screenshot_right = document.querySelector('.screenshot_right')
-console.log(el_screenshot_wrapper);
 
 
-addEventListener('resize', (event) => {
-    console.log(window.innerHeight,window.innerWidth);
-    el_screenshot_wrapper.style.width = window.innerWidth +"px"
-    el_screenshot_wrapper.style.height = window.innerHeight +"px"
-});
+
+
+// document.addEventListener("keydown", function (event) { console.log(event) }, false)
+document.addEventListener(
+    'keydown',
+    function (event) {
+
+        if (event.ctrlKey && event.shiftKey && event.code === 'KeyQ') {
+            body.insertAdjacentHTML('afterend', html_screen);
+            run()
+        }
+        if (event.code === 'Escape') {
+            let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
+            el_screenshot_wrapper.remove()
+        }
+    },
+    false,
+);
 
 function run(params) {
     let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
-    el_screenshot_wrapper.classList.toggle('show')
+    let el_screenshot_top = document.querySelector('.screenshot_top')
+    let el_screenshot_right = document.querySelector('.screenshot_right')
+    let el_screenshot_bottom = document.querySelector('.screenshot_bottom')
+    let el_screenshot_left = document.querySelector('.screenshot_left')
 
-    
+    let el_screenshot_center = document.querySelector('.screenshot_center')   
+
+    addEventListener('resize', (event) => {
+        // console.log(window.innerHeight, window.innerWidth);
+        el_screenshot_wrapper.style.width = window.innerWidth + "px"
+        el_screenshot_wrapper.style.height = window.innerHeight + "px"
+    });
+
+    el_screenshot_wrapper.style.width = window.innerWidth + "px"
+    el_screenshot_wrapper.style.height = window.innerHeight + "px"
+
+    el_screenshot_wrapper.addEventListener("mousedown", mousedownDelte = (eDown) => {
+        console.log('mousedown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
+        el_screenshot_wrapper.addEventListener("mousemove", mousemoveDelte = (eMove) => {
+            setEmove(eMove, eDown)
+        });
+    })
+
+    el_screenshot_wrapper.addEventListener("mouseup", mouseupDelte = () => {
+        el_screenshot_wrapper.removeEventListener("mousemove", mousemoveDelte);
+        el_screenshot_wrapper.removeEventListener("mouseup", mouseupDelte);
+        el_screenshot_wrapper.removeEventListener("mousedown", mousedownDelte);
+        console.log('up=>>>>>>>>>>>>>>>>');
+    })
+    function setEmove(eMove, eDown) {
+        let eDowny = eDown.y
+        let eDownx = eDown.x
+        let eMovey = eMove.y
+        let eMovex = eMove.x
+        let el_screenshot_wrapper_width = parseInt(el_screenshot_wrapper.style.width, 10)
+        let el_screenshot_wrapper_height = parseInt(el_screenshot_wrapper.style.height, 10)
+
+        let condition_top_left_X = eMovex - eDownx <= 0
+        let condition_top_left_Y = eMovey - eDowny <= 0
+        let conditon_XY = condition_top_left_X + condition_top_left_Y
+        console.log(condition_top_left_X, condition_top_left_Y, conditon_XY);
+
+        switch (true) {
+            case (conditon_XY === 0) || (conditon_XY === 2):
+                console.log('mouseDown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
+                console.log('mouseMove =>>>>>>>', 'eMove.y: ', eMove.y, '         eMove.x: ', eMove.x);
+
+                el_screenshot_top.style.width = eMovex + "px"
+                el_screenshot_top.style.height = eDowny + "px"
+
+                el_screenshot_right.style.width = el_screenshot_wrapper_width - eMovex + "px"
+                el_screenshot_right.style.height = eMovey + "px"
+
+                el_screenshot_bottom.style.width = el_screenshot_wrapper_width - eDownx + "px"
+                el_screenshot_bottom.style.height = el_screenshot_wrapper_height - eMovey + "px"
+
+                el_screenshot_left.style.width = eDownx + "px"
+                el_screenshot_left.style.height = el_screenshot_wrapper_height - eDowny + "px"
+
+                if (!condition_top_left_X && !condition_top_left_Y) {
+                    el_screenshot_center.style.width = el_screenshot_wrapper_width - (eDownx + (el_screenshot_wrapper_width - eMovex)) + "px"
+                    el_screenshot_center.style.height = el_screenshot_wrapper_height - (eDowny + (el_screenshot_wrapper_height - eMovey)) + "px"
+                    el_screenshot_center.style.top = eDowny + "px"
+                    el_screenshot_center.style.left = eDownx + "px"
+                }
+                if (condition_top_left_X && condition_top_left_Y) {
+                    el_screenshot_center.style.width = el_screenshot_wrapper_width - (eMovex + (el_screenshot_wrapper_width - eDownx)) + "px"
+                    el_screenshot_center.style.height = el_screenshot_wrapper_height - (eMovey + (el_screenshot_wrapper_height - eDowny)) + "px"
+                    el_screenshot_center.style.top = eMovey + "px"
+                    el_screenshot_center.style.left = eMovex + "px"
+                }
+                break;
+
+            case conditon_XY === 1:
+                el_screenshot_top.style.width = eMovex + "px"
+                el_screenshot_top.style.height = eMovey + "px"
+
+                el_screenshot_right.style.width = el_screenshot_wrapper_width - eMovex + "px"
+                el_screenshot_right.style.height = eDowny + "px"
+
+                el_screenshot_bottom.style.width = el_screenshot_wrapper_width - eDownx + "px"
+                el_screenshot_bottom.style.height = el_screenshot_wrapper_height - eDowny + "px"
+
+                el_screenshot_left.style.width = eDownx + "px"
+                el_screenshot_left.style.height = el_screenshot_wrapper_height - eMovey + "px"
+                if (condition_top_left_X && !condition_top_left_Y) {
+                    el_screenshot_center.style.width = el_screenshot_wrapper_width - (eMovex + (el_screenshot_wrapper_width - eDownx)) + "px"
+                    el_screenshot_center.style.height = el_screenshot_wrapper_height - (eDowny + (el_screenshot_wrapper_height - eMovey)) + "px"
+                    el_screenshot_center.style.top = eDowny + "px"
+                    el_screenshot_center.style.left = eMovex + "px"
+                }
+                if (!condition_top_left_X && condition_top_left_Y) {
+                    el_screenshot_center.style.width = el_screenshot_wrapper_width - (eDownx + (el_screenshot_wrapper_width - eMovex)) + "px"
+                    el_screenshot_center.style.height = el_screenshot_wrapper_height - (eMovey + (el_screenshot_wrapper_height - eDowny)) + "px"
+                    el_screenshot_center.style.top = eMovey + "px"
+                    el_screenshot_center.style.left = eDownx + "px"
+                }
+                break;
+
+            default:
+                break;
+        }
+    }
 }
 
 
 
-console.log(body);
-let xcurrent
-let ycurrent
 
-let xdown
-let ydown
-
-
-el_screenshot_wrapper.onmousemove = (e1) => {
-    xcurrent = e1.x
-    ycurrent = e1.y
-
-}
-el_screenshot_wrapper.onmousedown = (edown) => {
-     xdown = edown.x
-     ydown = edown.y
-    console.log('Xdown: ', xdown, 'Xdown: ', ydown);
-
-    
-}
-
-el_screenshot_wrapper.onmouseup = () => {
-    console.log('Xcurrent: ', xcurrent, 'Ycurrent: ', ycurrent);
-    el_screenshot_top.style.width = xcurrent +"px"
-    el_screenshot_top.style.height = ydown +"px"
-
-    screenshot_right.style.left = xcurrent +"px"
-    screenshot_right.style.height = ydown +"px"
-}
