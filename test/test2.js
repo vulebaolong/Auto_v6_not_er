@@ -6,9 +6,15 @@ let html_screen = `
 <div class="screenshot_top"></div>
 <div class="screenshot_right"></div>
 <div class="screenshot_bottom"></div>
-<div class="screenshot_left"></div>
+<div class="screenshot_left"></div> 
 <div class="screenshot_center" class="drsElement drsMoveHandle">
 </div>
+</div>
+`
+
+let html_screen_size = `
+<div class="screenshot_size" style="min-width: 70px; display: block;">
+    <span>0 X 0</span>
 </div>
 `
 let body = document.querySelector('body')
@@ -18,6 +24,11 @@ let body = document.querySelector('body')
 
 
 // document.addEventListener("keydown", function (event) { console.log(event) }, false)
+body.onclick = () => {
+    console.log('devicePixelRatio: ', window.devicePixelRatio);
+    console.log('innerWidth: ', window.innerWidth, 'innerHeight: ', window.innerHeight);
+    console.log('innerWidth: ', window.outerWidth, 'innerHeight: ', window.innerHeight);
+}
 document.addEventListener(
     'keydown',
     function (event) {
@@ -31,13 +42,13 @@ document.addEventListener(
             el_screenshot_wrapper.remove()
         }
         if (event.code === 'KeyB') {
-            sreenshot1()
+
         }
     },
     false,
 );
 
-function run(params) {
+function run() {
     let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
     let el_screenshot_top = document.querySelector('.screenshot_top')
     let el_screenshot_right = document.querySelector('.screenshot_right')
@@ -46,7 +57,7 @@ function run(params) {
 
     let el_screenshot_center = document.querySelector('.screenshot_center')
 
-    addEventListener('resize', (event) => {
+    addEventListener('resize', () => {
         // console.log(window.innerHeight, window.innerWidth);
         el_screenshot_wrapper.style.width = window.innerWidth + "px"
         el_screenshot_wrapper.style.height = window.innerHeight + "px"
@@ -56,17 +67,30 @@ function run(params) {
     el_screenshot_wrapper.style.height = window.innerHeight + "px"
 
     el_screenshot_wrapper.addEventListener("mousedown", mousedownDelte = (eDown) => {
-        console.log('mousedown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
+        // console.log('mousedown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
+        el_screenshot_center.insertAdjacentHTML('beforeend', html_screen_size)
+        let el_screenshot_size = document.querySelector('.screenshot_size')
+
+        el_screenshot_wrapper.style.backgroundColor = 'rgba(0, 0, 0, 0  )'
         el_screenshot_wrapper.addEventListener("mousemove", mousemoveDelte = (eMove) => {
             setEmove(eMove, eDown)
+            el_screenshot_size.innerHTML = `
+                <span>${el_screenshot_center.style.width} X ${el_screenshot_center.style.height}</span>
+            `
         });
     })
-
     el_screenshot_wrapper.addEventListener("mouseup", mouseupDelte = () => {
         el_screenshot_wrapper.removeEventListener("mousemove", mousemoveDelte);
         el_screenshot_wrapper.removeEventListener("mouseup", mouseupDelte);
         el_screenshot_wrapper.removeEventListener("mousedown", mousedownDelte);
-        console.log('up=>>>>>>>>>>>>>>>>');
+
+        let sX_left = parseInt(el_screenshot_center.style.left, 10)
+        let sY_top = parseInt(el_screenshot_center.style.top, 10)
+        let swidth = parseInt(el_screenshot_center.style.width, 10)
+        let sheight = parseInt(el_screenshot_center.style.height, 10)
+
+        sreenshot(sX_left, sY_top, swidth, sheight)
+        // console.log(sX_left,sY_top,swidth,sheight);
     })
     function setEmove(eMove, eDown) {
         let eDowny = eDown.y
@@ -79,12 +103,12 @@ function run(params) {
         let condition_top_left_X = eMovex - eDownx <= 0
         let condition_top_left_Y = eMovey - eDowny <= 0
         let conditon_XY = condition_top_left_X + condition_top_left_Y
-        console.log(condition_top_left_X, condition_top_left_Y, conditon_XY);
+        // console.log(condition_top_left_X, condition_top_left_Y, conditon_XY);
 
         switch (true) {
             case (conditon_XY === 0) || (conditon_XY === 2):
-                console.log('mouseDown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
-                console.log('mouseMove =>>>>>>>', 'eMove.y: ', eMove.y, '         eMove.x: ', eMove.x);
+                // console.log('mouseDown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
+                // console.log('mouseMove =>>>>>>>', 'eMove.y: ', eMove.y, '         eMove.x: ', eMove.x);
 
                 el_screenshot_top.style.width = eMovex + "px"
                 el_screenshot_top.style.height = eDowny + "px"
@@ -144,30 +168,16 @@ function run(params) {
     }
 }
 
-function sreenshot1(params) {
-    html2canvas(document.querySelector("body"))
+function sreenshot(sX_left, sY_top, swidth, sheight) {
+    html2canvas(body, { scale: 1 })
         .then((canvas) => {
-
-            let cropper = document.createElement('canvas').getContext('2d');
-            let swidth = 500
-            let sheight = 500
-            let sY_top = 200
-            let sX_left = 220
-            cropper.canvas.width = swidth;
-            cropper.canvas.height = sheight;
-
-            cropper.drawImage(canvas, sX_left, sY_top, swidth, sheight, 0, 0, swidth, sheight);
-
-            
-
-            document.body.appendChild(cropper.canvas)
-            cropper.canvas.toBlob(
-                blob => {
-                    navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-                }
+            let x = document.createElement('canvas').getContext('2d');
+            x.canvas.width = swidth;
+            x.canvas.height = sheight;
+            x.drawImage(canvas, sX_left, sY_top, swidth, sheight, 0, 0, swidth, sheight);
+            // document.body.appendChild(x.canvas)
+            x.canvas.toBlob(blob => { navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]) }
             )
-
-
         });
 }
 

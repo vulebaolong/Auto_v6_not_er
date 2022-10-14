@@ -13,9 +13,7 @@
 
 <body>
 
-    <!-- <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
-        Your browser does not support the HTML5 canvas tag.</canvas> -->
-<div></div>
+    
 
 
 
@@ -25,18 +23,6 @@
 
     <script src="./html2canvas.js"></script>
     <script src="./test2.js"></script>
-    <script>
-        function sreenshot(params) {
-            html2canvas(document.querySelector("#capture"))
-                .then(canvas => {
-                    document.body.appendChild(canvas)
-                    canvas.toBlob(
-                        blob => navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })])
-                    )
-                });
-        }
-
-    </script>
 </body>
 
 </html>
