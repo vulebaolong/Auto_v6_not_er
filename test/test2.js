@@ -17,6 +17,17 @@ let html_screen_size = `
     <span>0 X 0</span>
 </div>
 `
+
+let html_dragsize = `
+        <div class="dragresize dragresize-tl" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-tm" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-tr" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-ml" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-mr" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-bl" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-bm" style="visibility: inherit;"></div>
+        <div class="dragresize dragresize-br" style="visibility: inherit;"></div>
+`
 let body = document.querySelector('body')
 
 
@@ -57,14 +68,30 @@ function run() {
 
     let el_screenshot_center = document.querySelector('.screenshot_center')
 
-    addEventListener('resize', () => {
+    
+    
+
+    addEventListener('resize', resizeDelte = () => {
         // console.log(window.innerHeight, window.innerWidth);
+        let width_view = parseInt(el_screenshot_top.style.width, 10) + parseInt(el_screenshot_right.style.width, 10)
+        let width_view_wrapper = parseInt(el_screenshot_wrapper.style.width, 10)
+        //set lại width khi width window thay đổi
         el_screenshot_wrapper.style.width = window.innerWidth + "px"
         el_screenshot_wrapper.style.height = window.innerHeight + "px"
+        // cộng thêm width còn thiếu
+        if (width_view < width_view_wrapper) {
+            let width_screenshot_right = parseInt(el_screenshot_right.style.width, 10)
+            let width_screenshot_bottom = parseInt(el_screenshot_bottom.style.width, 10)
+            let width_add = (width_view_wrapper - width_view)
+            el_screenshot_right.style.width = width_screenshot_right + width_add + "px"
+            el_screenshot_bottom.style.width = width_screenshot_bottom + width_add + "px"
+        }
     });
 
     el_screenshot_wrapper.style.width = window.innerWidth + "px"
     el_screenshot_wrapper.style.height = window.innerHeight + "px"
+    let el_screenshot_wrapper_width = parseInt(el_screenshot_wrapper.style.width, 10)
+    let el_screenshot_wrapper_height = parseInt(el_screenshot_wrapper.style.height, 10)
 
     el_screenshot_wrapper.addEventListener("mousedown", mousedownDelte = (eDown) => {
         // console.log('mousedown =>>>>>>>', 'eDown.y: ', eDown.y, '         eDown.x: ', eDown.x);
@@ -91,14 +118,16 @@ function run() {
 
         sreenshot(sX_left, sY_top, swidth, sheight)
         // console.log(sX_left,sY_top,swidth,sheight);
+        el_screenshot_center.insertAdjacentHTML('afterbegin', html_dragsize)
+        dragsize()
+
     })
     function setEmove(eMove, eDown) {
         let eDowny = eDown.y
         let eDownx = eDown.x
         let eMovey = eMove.y
         let eMovex = eMove.x
-        let el_screenshot_wrapper_width = parseInt(el_screenshot_wrapper.style.width, 10)
-        let el_screenshot_wrapper_height = parseInt(el_screenshot_wrapper.style.height, 10)
+
 
         let condition_top_left_X = eMovex - eDownx <= 0
         let condition_top_left_Y = eMovey - eDowny <= 0
@@ -115,9 +144,11 @@ function run() {
 
                 el_screenshot_right.style.width = el_screenshot_wrapper_width - eMovex + "px"
                 el_screenshot_right.style.height = eMovey + "px"
+                el_screenshot_right.style.left = eMovex + "px"
 
                 el_screenshot_bottom.style.width = el_screenshot_wrapper_width - eDownx + "px"
                 el_screenshot_bottom.style.height = el_screenshot_wrapper_height - eMovey + "px"
+                el_screenshot_bottom.style.left = eDownx + "px"
 
                 el_screenshot_left.style.width = eDownx + "px"
                 el_screenshot_left.style.height = el_screenshot_wrapper_height - eDowny + "px"
@@ -165,6 +196,45 @@ function run() {
             default:
                 break;
         }
+    }
+
+    function dragsize() {
+        let el_dragresize_tl = document.querySelector('.dragresize-tl')
+        let el_dragresize_tr = document.querySelector('.dragresize-tr')
+        let el_dragresize_br = document.querySelector('.dragresize-br')
+        let el_dragresize_bl = document.querySelector('.dragresize-bl')
+
+        let el_dragresize_tm = document.querySelector('.dragresize-tm')
+        let el_dragresize_mr = document.querySelector('.dragresize-mr')
+        let el_dragresize_bm = document.querySelector('.dragresize-bm')
+        let el_dragresize_ml = document.querySelector('.dragresize-ml')
+
+        dragsize_tm(el_dragresize_tm)
+    }
+    function dragsize_tm(el_dragresize_tm) {
+        el_dragresize_tm.addEventListener("mousedown", mousedownDelte_tm = (eDown_tm) => {
+            // el_screenshot_center.style.top = el_screenshot_center.style.top
+            let el_screenshot_right_height =  parseInt(el_screenshot_right.style.height, 10)
+
+            el_screenshot_wrapper.addEventListener("mousemove", mousemoveDelte_tm = (eMove_tm) => {
+                // console.log(eMove_tm);
+                // console.log(eMove_tm.y, eMove_tm.x);
+                el_screenshot_center.style.top = eMove_tm.y + 'px'
+                el_screenshot_center.style.height = el_screenshot_right_height - eMove_tm.y + 'px'
+
+                el_screenshot_top.style.height = eMove_tm.y + 'px'
+                el_screenshot_left.style.height = el_screenshot_wrapper_height - eMove_tm.y + 'px'
+
+            })
+        })
+
+        el_screenshot_wrapper.addEventListener("mouseup", mouseupDelte_tm = () => {
+            console.log(123);
+            // el_dragresize_tm.removeEventListener('mousedown',mousedownDelte_tm)
+            el_dragresize_tm.removeEventListener('mouseup', mousedownDelte_tm)
+            el_screenshot_wrapper.removeEventListener('mousemove', mousemoveDelte_tm)
+        })
+
     }
 }
 

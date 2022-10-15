@@ -71,3 +71,58 @@ body {
     text-align: center;
     padding: 5px 5px;
 }
+
+.dragresize {
+    display: block !important;
+    position: absolute !important;
+    z-index: 999 !important;
+    width: 9px !important;
+    height: 9px !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAIxJREFUeNqMUDEOgCAMrA58CFZX3uDIU/iBX3D0DawkTCS8xhBYao84aOLgJZdy10sLTMxMgDHGSVmFizAKj5zzPpoIaa037z2nlLjWOio0/DFEDg5Ga42fgL6DbsYKay0ppegJaPjjCpI8seIL8NHHpFhKoS/cfkToCCFQ7/0VgIaP/q/XTX/+6RJgAEc6j4dkIiynAAAAAElFTkSuQmCC);
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    font-size: 0.1px !important;
+}
+
+.dragresize-tl {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+.dragresize-tr {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+.dragresize-br {
+    right: -5px;
+    bottom: -5px;
+    cursor: se-resize;
+}
+.dragresize-bl {
+    left: -5px;
+    bottom: -5px;
+    cursor: sw-resize;
+}
+
+
+.dragresize-tm {
+    cursor: n-resize;
+    top: -5px;
+    width: 100% !important;
+}
+.dragresize-mr {
+    cursor: e-resize;
+    right: -5px;
+    height: 100% !important;
+}
+.dragresize-bm {
+    bottom: -5px;
+    cursor: s-resize;
+    width: 100% !important;
+}
+.dragresize-ml {
+    cursor: w-resize;
+    left: -5px;
+    height: 100% !important;
+}
