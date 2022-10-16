@@ -35,11 +35,11 @@ let body = document.querySelector('body')
 
 
 // document.addEventListener("keydown", function (event) { console.log(event) }, false)
-body.onclick = () => {
-    console.log('devicePixelRatio: ', window.devicePixelRatio);
-    console.log('innerWidth: ', window.innerWidth, 'innerHeight: ', window.innerHeight);
-    console.log('innerWidth: ', window.outerWidth, 'innerHeight: ', window.innerHeight);
-}
+// body.onclick = () => {
+//     console.log('devicePixelRatio: ', window.devicePixelRatio);
+//     console.log('innerWidth: ', window.innerWidth, 'innerHeight: ', window.innerHeight);
+//     console.log('innerWidth: ', window.outerWidth, 'innerHeight: ', window.innerHeight);
+// }
 document.addEventListener(
     'keydown',
     function (event) {
@@ -68,8 +68,8 @@ function run() {
 
     let el_screenshot_center = document.querySelector('.screenshot_center')
 
-    
-    
+
+
 
     addEventListener('resize', resizeDelte = () => {
         // console.log(window.innerHeight, window.innerWidth);
@@ -214,7 +214,7 @@ function run() {
     function dragsize_tm(el_dragresize_tm) {
         el_dragresize_tm.addEventListener("mousedown", mousedownDelte_tm = (eDown_tm) => {
             // el_screenshot_center.style.top = el_screenshot_center.style.top
-            let el_screenshot_right_height =  parseInt(el_screenshot_right.style.height, 10)
+            let el_screenshot_right_height = parseInt(el_screenshot_right.style.height, 10)
 
             el_screenshot_wrapper.addEventListener("mousemove", mousemoveDelte_tm = (eMove_tm) => {
                 // console.log(eMove_tm);
@@ -251,7 +251,116 @@ function sreenshot(sX_left, sY_top, swidth, sheight) {
         });
 }
 
+let lickme = document.querySelector('.click_me')
+lickme.onclick = (e) => {
+    console.log(e);
+    let path = '../file/faq1.txt'
+    fun_click_chat_end(path)
+}
 
+
+
+function fun_click_chat_end(path) {
+    //../file/faq1.txt
+    fetch(path)
+        .then(response => response.text())
+        .then(async (texts_data) => {
+            let texts = texts_data.split("\r\n")
+            console.log(texts)
+            let step = texts.length + 1
+            let texts_length = texts.length
+            for (let index = 0; index < step; index++) {
+                if (index < texts_length) {
+                    await fun_handle_click_chat_end(texts[index])
+                }
+                if (index === texts_length) {
+                    console.log('click kết thúc');
+                    // chat_top_menu.click();
+                }
+            }
+        })
+}
+
+function fun_handle_click_chat_end(mess_chat) {
+    return new Promise((resolve, reject) => {
+        let mess
+        if (mess_chat === '*') {
+            mess = 'FAQ mess = el_mes_chat_textarea.value'
+            // console.log(mess);
+        }else {
+            mess = mess_chat
+        }
+        
+        console.log('gửi =>>>>', mess);
+        setTimeout(() => {
+            resolve()
+        }, 2000);
+    })
+}
+
+
+function fun_mes_chat(flag, chat_textarea, chat_bottom_menu, mes_chat, chat_top_menu) {
+    return new Promise((resolve, reject) => {
+        if (flag === 0) {
+            chat_textarea.focus();
+            document.execCommand('insertText', false, `${mes_chat}`);
+            eventFire(chat_bottom_menu, 'click');
+
+            setTimeout(() => {
+                resolve();
+            }, 70);
+        }
+
+        if (flag === 1) {
+            chat_top_menu.click();
+        }
+    });
+}
+
+//=================================================
+// fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)
+
+// function fun_click_chat_end(path, chat_textarea, chat_bottom_menu, chat_top_menu, el_mes_chat_textarea) {
+//     //../file/faq1.txt
+//     fetch(path)
+//         .then(response => response.text())
+//         .then(async (texts_data) => {
+//             let texts = texts_data.split("\r\n")
+//             console.log(texts)
+//             let step = texts.length + 1
+//             let texts_length = texts.length
+//             for (let index = 0; index < step; index++) {
+//                 if (index < texts_length) {
+//                     await fun_handle_click_chat_end(texts[index], chat_textarea, chat_bottom_menu, el_mes_chat_textarea)
+//                 }
+//                 if (index === texts_length) {
+//                     console.log('click kết thúc');
+//                     chat_top_menu.click();
+//                 }
+//             }
+//         })
+// }
+
+// function fun_handle_click_chat_end(mess_chat, chat_textarea, chat_bottom_menu, el_mes_chat_textarea) {
+//     return new Promise((resolve, reject) => {
+//         let mess
+//         if (mess_chat === '*') {
+//             mess = el_mes_chat_textarea.value
+//             // mess = `${el_mes_chat_textarea.value}`
+//             // console.log(mess);
+//         } else {
+//             mess = mess_chat
+//         }
+//         chat_textarea.focus();
+//         document.execCommand('insertText', false, `${mess}`);
+//         eventFire(chat_bottom_menu, 'click');
+
+//         console.log('gửi =>>>>', mess);
+//         setTimeout(() => {
+//             resolve()
+//         }, 70);
+//     })
+// }
 
 
 

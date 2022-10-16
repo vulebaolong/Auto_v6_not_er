@@ -44,6 +44,7 @@
         "fontawesome/css/all.css"
       ],
       "js": [
+        "file_faq/faq1.txt",
         "js/global.js",
         "js/index_inhouse.js",
         "js/index_order.js",

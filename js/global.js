@@ -369,6 +369,7 @@ function coppy_button(params) {
             break;
 
         default:
+            console.log('ở đây');
             break;
     }
 }
@@ -385,9 +386,6 @@ function selectLDP(Request_L1, Request_L2, Request_L3) {
 
     let el_menu_ldps = document.querySelectorAll('.cs-cascader-menus');
     let el_menu_ldp = selectLDP_find_menu(el_menu_ldps);
-
-    var str = el_menu_ldp.parentElement.innerHTML;
-    navigator.clipboard.writeText(str);
 
     console.log(el_menu_ldp.children[0].children);
     Array.from(el_menu_ldp.children[0].children).forEach((element) => {
@@ -456,63 +454,57 @@ function CCHT() {
 //click button chọn LDP
 function click_btn_ldp() {
     var el_menu_ldp = Array.from(document.querySelector('.menu_ldp').children);
-        if (el_menu_ldp !== null) {
-            el_menu_ldp.forEach((e) => {
-                console.log(e);
-                switch (e.classList[0]) {
-                    case 'btn_ldp_edit':
-                        e.onclick = (event) => {
-                            event.stopPropagation();
-                            edit(e);
-                        };
-                        keyalt_click(e, 'Backquote');
-                        break;
+    if (el_menu_ldp !== null) {
+        el_menu_ldp.forEach((e) => {
+            console.log(e);
+            switch (e.classList[0]) {
+                case 'btn_ldp_edit':
+                    e.onclick = (event) => {
+                        event.stopPropagation();
+                        edit();
+                    };
+                    break;
 
-                    case 'btn_ldp_dtht':
-                        e.onclick = (event) => {
-                            event.stopPropagation();
-                            console.log(123);
-                            TDHTGH();
-                        };
-                        keyalt_click(e, 'Digit1');
-                        break;
+                case 'btn_ldp_dtht':
+                    e.onclick = (event) => {
+                        event.stopPropagation();
+                        TDHTGH();
+                    };                    
+                    break;
 
-                    case 'btn_ldp_hg':
-                        e.onclick = (event) => {
-                            event.stopPropagation();
-                            HoiGiao();
-                        };
-                        keyalt_click(e, 'Digit2');
-                        break;
+                case 'btn_ldp_hg':
+                    e.onclick = (event) => {
+                        event.stopPropagation();
+                        HoiGiao();
+                    };
+                    break;
 
-                    case 'btn_ldp_hl':
-                        e.onclick = (event) => {
-                            event.stopPropagation();
-                            HoiLay();
-                        };
-                        keyalt_click(e, 'Digit3');
-                        break;
+                case 'btn_ldp_hl':
+                    e.onclick = (event) => {
+                        event.stopPropagation();
+                        HoiLay();
+                    };
+                    break;
 
-                    case 'btn_ldp_ccht':
-                        e.onclick = (event) => {
-                            event.stopPropagation();
-                            CCHT();
-                        };
-                        keyalt_click(e, 'Digit0');
-                        break;
+                case 'btn_ldp_ccht':
+                    e.onclick = (event) => {
+                        event.stopPropagation();
+                        CCHT();
+                    };
+                    break;
 
-                    default:
-                        console.log('Item_word: không có ', e);
-                        break;
-                }
-            });
-        } else {
-            console.log('Không tìm thấy el_LDP_box');
-        }
-        document.querySelector('.btn_ldp').onclick = (e) => {
-            e.stopPropagation();
-            // select(el_item_ldp)
-        };
+                default:
+                    console.log('Item_word: không có ', e);
+                    break;
+            }
+        });
+    } else {
+        console.log('Không tìm thấy el_LDP_box');
+    }
+    document.querySelector('.btn_ldp').onclick = (e) => {
+        e.stopPropagation();
+        // select(el_item_ldp)
+    };
 }
 
 //đồng hồ bên tay trái
@@ -623,9 +615,6 @@ function add_mes_chat_end() {
                             chat_bottom_menu.children[1],
                             'Shopee hi vọng bạn hài lòng với sự hỗ trợ của Shopee và sẽ cố gắng cải thiện chất lượng dịch vụ tốt nhất. Bạn giúp Shopee dành chút thời gian đánh giá hài lòng cho cuộc trò chuyện giúp mình nhé!',
                         )
-                            // .then(() => {
-                            //     return fun_mes_chat(0, chat_textarea, chat_bottom_menu.children[1], 'Nếu cần hỗ trợ thêm những vấn đề khác bạn hãy chia sẻ nhé, mình luôn sẵn sàng hỗ trợ bạn ạ.')
-                            // })
                             .then(() => {
                                 return fun_mes_chat(
                                     0,
@@ -1050,21 +1039,6 @@ function changeColor(element) {
     setTimeout(() => {
         element.classList.remove('change_start');
     }, 2000);
-}
-
-//click với phim alt
-function keyalt_click(e, key) {
-    document.addEventListener(
-        'keydown',
-        function (event) {
-            //xem đang nhấn phím gì
-            //console.log(event);
-            if (event.altKey && event.code === key) {
-                e.click();
-            }
-        },
-        false,
-    );
 }
 
 // lưu trữ

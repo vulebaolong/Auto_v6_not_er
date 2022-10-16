@@ -341,6 +341,23 @@ window.onload = function () {
                     let el_inhouse_kb = document.querySelector('.inhouse_kb');
                     el_inhouse_kb.classList.toggle('none');
                 }
+
+                //LDP
+                if (event.altKey && event.code === 'Backquote') {
+                    edit();
+                }
+                if (event.altKey && event.code === 'Digit1') {
+                    TDHTGH();
+                }
+                if (event.altKey && event.code === 'Digit2') {
+                    HoiGiao();
+                }
+                if (event.altKey && event.code === 'Digit3') {
+                    HoiLay();
+                }
+                if (event.altKey && event.code === 'Digit0') {
+                    CCHT();
+                }
             },
             false,
         );
