@@ -24,7 +24,8 @@
   "web_accessible_resources": [
     "fontawesome/webfonts/*",
     "fontawesome/css/*",
-    "audio/request.mp3"
+    "audio/request.mp3",
+    "click_chat_end/*"
   ],
   "content_scripts": [
     {
@@ -44,7 +45,6 @@
         "fontawesome/css/all.css"
       ],
       "js": [
-        "file_faq/faq1.txt",
         "js/global.js",
         "js/index_inhouse.js",
         "js/index_order.js",

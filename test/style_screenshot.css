@@ -58,7 +58,6 @@ body {
     position: absolute;
     cursor: move;
     outline: 1.5px dashed #d5d5d5;
-    
 }
 
 .screenshot_size {
@@ -69,7 +68,8 @@ body {
     border-radius: 99999px;
     color: aliceblue;
     text-align: center;
-    padding: 5px 5px;
+    padding: 5px 10px;
+    display: none;
 }
 
 .dragresize {

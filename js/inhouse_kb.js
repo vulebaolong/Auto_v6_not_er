@@ -397,7 +397,7 @@ function inhouse_kb() {
 
 function click_active(element_ar, element_active = 'active', el_inhouse_kb_nav_chil) {
     element_ar.forEach((element) => {
-        console.log(element);
+        // console.log(element);
         element.onclick = (e) => {
             let element_current = e.target;
             let parent_element = e.target.parentElement;
@@ -570,7 +570,7 @@ function macro_coppy(params) {
 }
 
 function click_marp_coppy(params, info) {
-    console.log(params);
+    // console.log(params);
     params.onclick = () => {
         navigator.clipboard.writeText(info)
     }
