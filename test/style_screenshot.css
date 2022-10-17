@@ -109,20 +109,25 @@ body {
 .dragresize-tm {
     cursor: n-resize;
     top: -5px;
-    width: 100% !important;
+    width: 94% !important;
+    left: 3%;
 }
 .dragresize-mr {
     cursor: e-resize;
     right: -5px;
-    height: 100% !important;
+    height: 94% !important;
+    top: 3%;
 }
 .dragresize-bm {
     bottom: -5px;
     cursor: s-resize;
-    width: 100% !important;
+    width: 94% !important;
 }
 .dragresize-ml {
     cursor: w-resize;
     left: -5px;
-    height: 100% !important;
+    height: 94% !important;
+    top: 3%;
 }
+
+/* background: #484e59; */

@@ -603,54 +603,6 @@ function add_mes_chat_end() {
                     if (el_mes_chat_textarea.value.trim() !== '') {
                         const path = chrome.runtime.getURL('click_chat_end/chat _end_1.txt');
                         fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)
-                        // fun_mes_chat(
-                        //     0,
-                        //     chat_textarea,
-                        //     chat_bottom_menu.children[1],
-                        //     'Shopee hi vọng bạn hài lòng với sự hỗ trợ của Shopee và sẽ cố gắng cải thiện chất lượng dịch vụ tốt nhất. Bạn giúp Shopee dành chút thời gian đánh giá hài lòng cho cuộc trò chuyện giúp mình nhé!',
-                        // )
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             `${el_mes_chat_textarea.value}`,
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.',
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.',
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                        //         );
-                        //     })
-
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             1,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                        //             chat_top_menu.children[1],
-                        //         );
-                        //     });
                     }
                 }
             };
@@ -660,63 +612,7 @@ function add_mes_chat_end() {
                 if (chat_box.children.length === 4) {
                     if (el_mes_chat_textarea.value.trim() !== '') {                        
                         const path = chrome.runtime.getURL('click_chat_end/chat _end_2.txt');
-                        fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)
-                        // fun_mes_chat(
-                        //     0,
-                        //     chat_textarea,
-                        //     chat_bottom_menu.children[1],
-                        //     'Vì chưa nhận được phản hồi từ bạn nên mình xin phép kết thúc cuộc trò chuyện tại đây và sẽ hỗ trợ bạn trong các lần liên hệ tới.',
-                        // )
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             `${el_mes_chat_textarea.value}`,
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Shopee hi vọng bạn hài lòng với sự hỗ trợ của Shopee và sẽ cố gắng cải thiện chất lượng dịch vụ tốt nhất. Bạn giúp Shopee dành chút thời gian đánh giá hài lòng cho cuộc trò chuyện giúp mình nhé!',
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.',
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.',
-                        //         );
-                        //     })
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             0,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                        //         );
-                        //     })
-
-                        //     .then(() => {
-                        //         return fun_mes_chat(
-                        //             1,
-                        //             chat_textarea,
-                        //             chat_bottom_menu.children[1],
-                        //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                        //             chat_top_menu.children[1],
-                        //         );
-                        //     });
+                        fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)                        
                     }
                 }
             };
@@ -724,63 +620,7 @@ function add_mes_chat_end() {
             el_mes_chat_buttons3.onclick = (e) => {
                 e.stopPropagation();
                 const path = chrome.runtime.getURL('click_chat_end/chat _end_3.txt');
-                fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)
-                // fun_mes_chat(
-                //     0,
-                //     chat_textarea,
-                //     chat_bottom_menu.children[1],
-                //     'Vì chưa nhận được phản hồi từ bạn nên mình xin phép kết thúc cuộc trò chuyện tại đây và sẽ hỗ trợ bạn trong các lần liên hệ tới. ',
-                // )
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             0,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             `Để được xử lý nhanh chóng, vui lòng mô tả chi tiết tại shopee.vn/tro-giup, Shopee sẽ phản hồi qua email và thông báo trên ứng dụng cho bạn nhé. Cảm ơn bạn đã liên hệ.`,
-                //         );
-                //     })
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             0,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             'Một vài câu hỏi thường gặp, bạn có thể tham khảo thông tin tại: https://help.shopee.vn/s/',
-                //         );
-                //     })
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             0,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             'Shopee mong rằng phần giải đáp trên phần nào giải đáp được thắc mắc của bạn.',
-                //         );
-                //     })
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             0,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             'Shopee xin phép đươc kết thúc cuộc trò chuyện này ạ.',
-                //         );
-                //     })
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             0,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                //         );
-                //     })
-
-                //     .then(() => {
-                //         return fun_mes_chat(
-                //             1,
-                //             chat_textarea,
-                //             chat_bottom_menu.children[1],
-                //             'Chúc bạn thật nhiều sức khỏe và thành công.',
-                //             chat_top_menu.children[1],
-                //         );
-                //     });
+                fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)                
             };
         } else {
             chat.querySelector(`[id="${id_case}"]`).classList.toggle('none');

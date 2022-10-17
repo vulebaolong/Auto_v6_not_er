@@ -1,0 +1,87 @@
+.toolbar_wraper {
+    font: normal normal normal 12px/1 Helvetica, arial, sans-serif;
+    font-weight: 900;
+    height: 50px;
+    background-color: #484e59;
+    position: fixed;
+    top: 300px;
+    left: 300px;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    color: white;
+}
+
+.toolbar_container_show {
+    width: 140px !important;
+}
+
+.toolbar_wraper .toolbar_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 0;
+    overflow: hidden;
+    transition: all .5s;
+}
+
+.toolbar_wraper .split {
+    width: 1px;
+    height: 20px;
+    background: #ffffff33;
+}
+
+.toolbar_wraper .toolbar_left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: move;
+}
+
+.toolbar_wraper .toolbar_mid {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toolbar_wraper .toolbar_left i {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 20px;
+}
+.toolbar_wraper .toolbar_mid i {
+    font-size: 20px;
+}
+.toolbar_wraper .toolbar_right i {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 15px;
+}
+
+.toolbar_wraper .toolbar_right .toolbar_right_collapse {
+    width: 21px;
+    display: flex;
+    justify-content: center;
+}
+
+.toolbar_wraper .toolbar_left .time_time {
+    display: flex;
+    font-size: 12px;
+}
+
+.toolbar_mid .toolbar_mid_calendar,
+.toolbar_mid .toolbar_mid_camera {
+    width: 35px;
+    height: 35px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s;
+}
+
+.toolbar_mid .toolbar_mid_calendar:hover,
+.toolbar_mid .toolbar_mid_camera:hover {
+    background-color: #00000033;
+}

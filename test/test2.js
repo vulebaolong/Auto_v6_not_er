@@ -226,6 +226,7 @@ function run() {
     function dragresize_tm(el_dragresize_tm) {
         el_dragresize_tm.addEventListener("mousedown", mousedownDelte_tm = (eDown_tm) => {
             eDown_tm.stopPropagation();
+            console.log(eDown_tm.target);
             let el_screenshot_right_height = parseInt(el_screenshot_right.style.height, 10)
             let condition_right_height = el_screenshot_right_height - 10
 
@@ -258,6 +259,7 @@ function run() {
     function dragresize_mr(el_dragresize_mr) {
         el_dragresize_mr.addEventListener("mousedown", mousedownDelte_mr = (eDown_mr) => {
             eDown_mr.stopPropagation();
+            console.log(eDown_mr.target);
             let el_screenshot_left_width = parseInt(el_screenshot_left.style.width, 10)
 
             let condition_right_height = el_screenshot_left_width + 10
@@ -294,6 +296,7 @@ function run() {
     function dragresize_bm(el_dragresize_bm) {
         el_dragresize_bm.addEventListener("mousedown", mousedownDelte_bm = (eDown_bm) => {
             eDown_bm.stopPropagation();
+            console.log(eDown_bm.target);
             let el_screenshot_top_height = parseInt(el_screenshot_top.style.height, 10)
             let condition_top_height = el_screenshot_top_height + 10
 
@@ -325,6 +328,7 @@ function run() {
     function dragresize_ml(el_dragresize_ml) {
         el_dragresize_ml.addEventListener("mousedown", mousedownDelte_ml = (eDown_ml) => {
             eDown_ml.stopPropagation();
+            console.log(eDown_ml.target);
             let el_screenshot_top_width = parseInt(el_screenshot_top.style.width, 10)
             let condition_top_width = el_screenshot_top_width - 10
 
@@ -360,6 +364,7 @@ function run() {
     function dragresize_tl(el_dragresize_tl) {
         el_dragresize_tl.addEventListener("mousedown", mousedownDelte_tl = (eDown_tl) => {
             eDown_tl.stopPropagation();
+            console.log(eDown_tl.target);
             let el_screenshot_right_height = parseInt(el_screenshot_right.style.height, 10)
             let el_screenshot_top_width = parseInt(el_screenshot_top.style.width, 10)
 
@@ -403,6 +408,7 @@ function run() {
     function dragresize_tr(el_dragresize_tr) {
         el_dragresize_tr.addEventListener("mousedown", mousedownDelte_tr = (eDown_tr) => {
             eDown_tr.stopPropagation();
+            console.log(eDown_tr.target);
             let el_screenshot_right_height = parseInt(el_screenshot_right.style.height, 10)
             let el_screenshot_left_width = parseInt(el_screenshot_left.style.width, 10)
 
@@ -446,6 +452,7 @@ function run() {
     function dragresize_br(el_dragresize_br) {
         el_dragresize_br.addEventListener("mousedown", mousedownDelte_br = (eDown_br) => {
             eDown_br.stopPropagation();
+            console.log(eDown_br.target);
             let el_screenshot_top_height = parseInt(el_screenshot_top.style.height, 10)
             let el_screenshot_left_width = parseInt(el_screenshot_left.style.width, 10)
 
@@ -483,6 +490,7 @@ function run() {
     function dragresize_bl(el_dragresize_bl) {
         el_dragresize_bl.addEventListener("mousedown", mousedownDelte_bl = (eDown_bl) => {
             eDown_bl.stopPropagation();
+            console.log(eDown_bl.target);
             let el_screenshot_top_height = parseInt(el_screenshot_top.style.height, 10)
             let el_screenshot_top_width = parseInt(el_screenshot_top.style.width, 10)
 
@@ -580,6 +588,14 @@ function fun_handle_click_chat_end(mess_chat) {
     })
 }
 
+
+
+let el_toolbar_left = document.querySelector('.toolbar_left')
+
+el_toolbar_left.onclick = () => {
+    let el_toolbar_container = document.querySelector('.toolbar_container')
+    el_toolbar_container.classList.toggle('toolbar_container_show')
+}
 
 
 
