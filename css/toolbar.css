@@ -2,30 +2,33 @@
     font: normal normal normal 12px/1 Helvetica, arial, sans-serif;
     font-weight: 900;
     height: 50px;
-    background-color: #484e59;
     position: fixed;
     top: 300px;
     left: 300px;
-    border-radius: 10px;
-
-    display: flex;
-    align-items: center;
-    gap: 20px;
 
     color: white;
 }
 
 .toolbar_container_show {
-    width: 140px !important;
+    width: 160px !important;
 }
 
 .toolbar_wraper .toolbar_container {
     display: flex;
     align-items: center;
+    justify-content: end;
     gap: 10px;
+
     width: 0;
+    height: 50px;
+    left: calc(80px - 20px);
+    background-color: #484e59;
+    border-radius: 10px;
+
     overflow: hidden;
     transition: all .5s;
+    position: absolute;
+    
 }
 
 .toolbar_wraper .split {
@@ -38,7 +41,14 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    cursor: move;
+    z-index: 1;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #484e59;
+
+    height: 50px;
+    width: 80px;
+    justify-content: flex-start;
 }
 
 .toolbar_wraper .toolbar_mid {
@@ -50,6 +60,8 @@
 .toolbar_wraper .toolbar_left i {
     color: rgba(255, 255, 255, 0.5);
     font-size: 20px;
+    cursor: move;
+
 }
 .toolbar_wraper .toolbar_mid i {
     font-size: 20px;
@@ -84,4 +96,10 @@
 .toolbar_mid .toolbar_mid_calendar:hover,
 .toolbar_mid .toolbar_mid_camera:hover {
     background-color: #00000033;
+}
+
+.toolbar_wraper .toolbar_left .time_time {
+    height: 50px;
+    display: flex;
+    align-items: center;
 }
