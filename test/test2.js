@@ -597,7 +597,7 @@ let el_toolbar_right_collapse = document.querySelector('.toolbar_right_collapse'
 let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .time_time')
 console.log(el_time_time);
 
-el_time_time.onclick = (e) => {
+el_toolbar_right_collapse.onclick = (e) => {
     e.stopPropagation()
     // el_time_time.onmousedown = (e1) => { e1.stopPropagation() }
     // el_time_time.onmousemove = (e2) => { e2.stopPropagation() }
@@ -605,11 +605,11 @@ el_time_time.onclick = (e) => {
     let el_toolbar_container_left = el_toolbar_container.offsetLeft
     if (e.altKey) {
         console.log(el_toolbar_container_left);
-        if (el_toolbar_container_left === 60) {
+        if (el_toolbar_container_left === 84) {
             
             el_toolbar_container.style.cssText = `
             left: unset;
-            right: -20px;
+            right: -15px;
             justify-content: start;
             `;
             el_toolbar_left.style.cssText = `
@@ -621,7 +621,7 @@ el_time_time.onclick = (e) => {
             el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
         }else {
             el_toolbar_container.style.cssText = `
-            left: calc(80px - 20px);
+            left: 84px;
             right: unset;
             justify-content: end;
             `;
@@ -637,7 +637,7 @@ el_time_time.onclick = (e) => {
         }
     } else {
         console.log(el_toolbar_container_left);
-
+        el_toolbar_right_collapse.classList.toggle('toolbar_right_collapse_toggle')
         el_toolbar_container.classList.toggle('toolbar_container_show')
     }
 }

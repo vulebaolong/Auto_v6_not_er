@@ -8,27 +8,28 @@
 
     color: white;
 }
+.toolbar_wraper:hover .toolbar_left i {
+    opacity: 1;
+}
 
 .toolbar_container_show {
-    width: 160px !important;
+    width: 134px !important;
 }
 
 .toolbar_wraper .toolbar_container {
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: end;
     gap: 10px;
-
-    width: 0;
+    width: 18px;
     height: 50px;
-    left: calc(80px - 20px);
+    left: 84px;
     background-color: #484e59;
     border-radius: 10px;
-
     overflow: hidden;
     transition: all .5s;
-    position: absolute;
-    
+    position: absolute;    
 }
 
 .toolbar_wraper .split {
@@ -40,15 +41,14 @@
 .toolbar_wraper .toolbar_left {
     display: flex;
     align-items: center;
-    gap: 10px;
     z-index: 1;
     position: absolute;
     border-radius: 10px;
     background-color: #484e59;
-
     height: 50px;
-    width: 80px;
+    width: 100px;
     justify-content: flex-start;
+    gap: 3px;
 }
 
 .toolbar_wraper .toolbar_mid {
@@ -58,34 +58,49 @@
 }
 
 .toolbar_wraper .toolbar_left i {
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 15px;
     cursor: move;
-
+    margin: 0 5px;
+    line-height: 50px;
+    opacity: 0;
+    transition: all .3s;
 }
 .toolbar_wraper .toolbar_mid i {
     font-size: 20px;
 }
 .toolbar_wraper .toolbar_right i {
     color: rgba(255, 255, 255, 0.5);
-    font-size: 15px;
+    line-height: 50px;
+    transition: all .5s;
+    
+}
+.fa-solid {
+    display: unset;
 }
 
 .toolbar_wraper .toolbar_right .toolbar_right_collapse {
     width: 21px;
     display: flex;
     justify-content: center;
+    transition: all .5s;
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+.toolbar_right_collapse_toggle {
+    transform: rotate(0deg) !important;
 }
 
 .toolbar_wraper .toolbar_left .time_time {
     display: flex;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .toolbar_mid .toolbar_mid_calendar,
 .toolbar_mid .toolbar_mid_camera {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     border-radius: 7px;
     display: flex;
     align-items: center;
