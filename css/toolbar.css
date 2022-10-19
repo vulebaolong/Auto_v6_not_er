@@ -16,20 +16,23 @@
     width: 134px !important;
 }
 
-.toolbar_wraper .toolbar_container {
+.toolbar_container_test{
+    position: absolute;    
     z-index: 2;
+    left: 84px;
+}
+
+.toolbar_wraper .toolbar_container {
     display: flex;
     align-items: center;
     justify-content: end;
     gap: 10px;
     width: 18px;
     height: 50px;
-    left: 84px;
     background-color: #484e59;
     border-radius: 10px;
     overflow: hidden;
     transition: all .5s;
-    position: absolute;    
 }
 
 .toolbar_wraper .split {
@@ -71,10 +74,38 @@
 }
 .toolbar_wraper .toolbar_right i {
     color: rgba(255, 255, 255, 0.5);
-    line-height: 50px;
-    transition: all .5s;
-    
+    line-height: 52px;
+    transition: all .5s;  
+    position: relative;  
 }
+.toolbar_wraper .toolbar_container .toolbar_mid_camera:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    bottom: calc(100% + 3px);
+    position: absolute;
+    transform: scale(0) rotate(45deg);
+    transform-origin: bottom;
+    transition: all .2s;
+}
+.toolbar_wraper .toolbar_container .toolbar_mid_camera:after {
+    content: 'Lead time';
+    bottom: calc(100% + 5px);
+    width: 80px;
+    height: 30px;
+    position: absolute;
+    background-color: black;
+    border-radius: 5px;
+    overflow: visible;
+    text-align: center;
+    line-height: 30px;
+    font-weight: 600;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all .2s;
+}
+
 .fa-solid {
     display: unset;
 }
@@ -86,6 +117,7 @@
     transition: all .5s;
     transform: rotate(180deg);
     cursor: pointer;
+    height: 50px;
 }
 .toolbar_right_collapse_toggle {
     transform: rotate(0deg) !important;
@@ -111,6 +143,10 @@
 .toolbar_mid .toolbar_mid_calendar:hover,
 .toolbar_mid .toolbar_mid_camera:hover {
     background-color: #00000033;
+}
+
+.toolbar_mid .toolbar_mid_camera:hover::after{
+    transform: scale(1);
 }
 
 .toolbar_wraper .toolbar_left .time_time {
