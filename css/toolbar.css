@@ -7,6 +7,7 @@
     left: 300px;
 
     color: white;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 16px 0px, rgba(0, 0, 0, 0.06) 0px 8px 16px 0px; */
 }
 .toolbar_wraper:hover .toolbar_left i {
     opacity: 1;
@@ -14,12 +15,16 @@
 
 .toolbar_container_show {
     width: 134px !important;
+    box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 16px 0px, rgba(0, 0, 0, 0.06) 5px 8px 16px 0px;
+
 }
 
-.toolbar_container_test{
+.toolbar_container_content{
     position: absolute;    
     z-index: 2;
-    left: 84px;
+    left: 94px;
+    
+    border-radius: 10px;
 }
 
 .toolbar_wraper .toolbar_container {
@@ -49,9 +54,10 @@
     border-radius: 10px;
     background-color: #484e59;
     height: 50px;
-    width: 100px;
+    width: 110px;
     justify-content: flex-start;
     gap: 3px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 16px 0px, rgba(0, 0, 0, 0.06) 0px 8px 16px 0px;
 }
 
 .toolbar_wraper .toolbar_mid {
@@ -78,32 +84,83 @@
     transition: all .5s;  
     position: relative;  
 }
-.toolbar_wraper .toolbar_container .toolbar_mid_camera:before {
+
+.toolbar_wraper .toolbar_container .toolbar_mid_calendar:before {
     content: "";
-    width: 15px;
-    height: 15px;
-    background-color: black;
-    bottom: calc(100% + 3px);
+    top: 0;
     position: absolute;
-    transform: scale(0) rotate(45deg);
-    transform-origin: bottom;
-    transition: all .2s;
+
+    transform: scale(0) translateY(-100%);
+    transform-origin: 50% calc(0% - 6px);
+    transition: all .2s;    
+
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;    
+    border-top: 6px solid rgb(0, 0, 0,0.8);
 }
-.toolbar_wraper .toolbar_container .toolbar_mid_camera:after {
+.toolbar_wraper .toolbar_container .toolbar_mid_calendar:after {
     content: 'Lead time';
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
     bottom: calc(100% + 5px);
-    width: 80px;
-    height: 30px;
+
     position: absolute;
-    background-color: black;
-    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 9999px;
     overflow: visible;
     text-align: center;
-    line-height: 30px;
-    font-weight: 600;
+    
+    font-weight: 400;
     transform: scale(0);
     transform-origin: bottom;
     transition: all .2s;
+}
+
+.toolbar_wraper .toolbar_container .toolbar_mid_camera:before {
+    content: "";
+    top: 0;
+    position: absolute;
+
+    transform: scale(0) translateY(-100%);
+    transform-origin: 50% calc(0% - 6px);
+    transition: all .2s;    
+
+    width: 0; 
+    height: 0; 
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;    
+    border-top: 6px solid rgb(0, 0, 0,0.8);
+}
+.toolbar_wraper .toolbar_container .toolbar_mid_camera:after {
+    content: 'Sreen shot';
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    bottom: calc(100% + 5px);
+
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 9999px;
+    overflow: visible;
+    text-align: center;
+    
+    font-weight: 400;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all .2s;
+}
+.toolbar_mid .toolbar_mid_calendar:hover::after,
+.toolbar_mid .toolbar_mid_camera:hover::after{
+    transform: scale(1);
+}
+.toolbar_mid .toolbar_mid_calendar:hover::before,
+.toolbar_mid .toolbar_mid_camera:hover::before {
+    transform: scale(1) translateY(-100%);
 }
 
 .fa-solid {
@@ -139,18 +196,31 @@
     justify-content: center;
     transition: all .3s;
 }
+.toolbar_mid .toolbar_mid_calendar i,
+.toolbar_mid .toolbar_mid_camera i {
+    position: relative;
+}
 
 .toolbar_mid .toolbar_mid_calendar:hover,
 .toolbar_mid .toolbar_mid_camera:hover {
-    background-color: #00000033;
+    box-shadow: rgb(0 0 0 / 60%) 0px 0px 12px 0px, rgb(0 0 0 / 25%) 0px 8px 16px 0px;
+}
+.toolbar_mid .toolbar_mid_calendar:active,
+.toolbar_mid .toolbar_mid_camera:active {
+    
+    box-shadow: inset rgb(0 0 0 / 20%) 5px 0px 12px 0px,inset rgb(0 0 0 / 12%) 5px 8px 16px 0px;
+}
+.toolbar_mid .toolbar_mid_calendar:active i,
+.toolbar_mid .toolbar_mid_camera:active i {
+    top: 1px;    
 }
 
-.toolbar_mid .toolbar_mid_camera:hover::after{
-    transform: scale(1);
-}
+
 
 .toolbar_wraper .toolbar_left .time_time {
-    height: 50px;
     display: flex;
     align-items: center;
+    box-shadow: inset rgb(0 0 0 / 35%) 5px 0px 16px 0px, inset rgb(0 0 0 / 25%) 5px 8px 16px 0px;
+    border-radius: 10px;
+    padding: 10px 5px;
 }

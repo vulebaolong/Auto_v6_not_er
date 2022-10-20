@@ -238,7 +238,7 @@ window.onload = function () {
         
         body.insertAdjacentHTML(
             'afterend',
-            (htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb),
+            (htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb += html_drag2)
         );
 
         Get_Word_ID();
@@ -304,6 +304,7 @@ window.onload = function () {
             });
 
         drag()        
+        run_drag2()
         click_btn_ldp()
         button_long();
         inhouse_kb();        

@@ -593,23 +593,26 @@ function fun_handle_click_chat_end(mess_chat) {
 let el_toolbar_wraper = document.querySelector('.toolbar_wraper')
 let el_toolbar_left = document.querySelector('.toolbar_left')
 let el_toolbar_container = document.querySelector('.toolbar_container')
+let el_toolbar_container_content = document.querySelector('.toolbar_container_content')
 let el_toolbar_right_collapse = document.querySelector('.toolbar_right_collapse')
 let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .time_time')
-console.log(el_time_time);
+console.log(el_toolbar_container_content);
 
 el_toolbar_right_collapse.onclick = (e) => {
     e.stopPropagation()
     // el_time_time.onmousedown = (e1) => { e1.stopPropagation() }
     // el_time_time.onmousemove = (e2) => { e2.stopPropagation() }
     // el_time_time.onmouseup = (e3) => { e3.stopPropagation() }
-    let el_toolbar_container_left = el_toolbar_container.offsetLeft
+    let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
     if (e.altKey) {
         console.log(el_toolbar_container_left);
-        if (el_toolbar_container_left === 84) {
-            
-            el_toolbar_container.style.cssText = `
+        if (el_toolbar_container_left === 94) {
+            el_toolbar_container_content.style.cssText = `
             left: unset;
             right: -15px;
+            `
+            el_toolbar_container.style.cssText = `
+            
             justify-content: start;
             `;
             el_toolbar_left.style.cssText = `
@@ -620,9 +623,11 @@ el_toolbar_right_collapse.onclick = (e) => {
             el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
             el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
         }else {
-            el_toolbar_container.style.cssText = `
-            left: 84px;
+            el_toolbar_container_content.style.cssText = `
+            left: 94px;
             right: unset;
+            `
+            el_toolbar_container.style.cssText = `            
             justify-content: end;
             `;
 

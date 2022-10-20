@@ -42,7 +42,8 @@
         "css/tooltip.css",
         "css/drag.css",
         "css/search_ldp.css",
-        "fontawesome/css/all.css"
+        "fontawesome/css/all.css",
+        "css/toolbar.css"
       ],
       "js": [
         "js/global.js",
@@ -50,7 +51,8 @@
         "js/index_order.js",
         "js/inhouse_kb.js",
         "js/drag.js",
-        "js/search_ldp.js"
+        "js/search_ldp.js",
+        "js/drag2.js"
       ],
       "all_frames": true
     }
