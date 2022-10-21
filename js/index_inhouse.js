@@ -238,38 +238,25 @@ window.onload = function () {
         
         body.insertAdjacentHTML(
             'afterend',
-            (htmlTeamplate_work += html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb += html_drag2)
+            (html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb += html_drag2)
         );
 
         Get_Word_ID();
         //ONOFF=======================================================================
         var ONOFF = document.querySelector('.btn_ONOFF');
         ONOFF.onclick = () => {
-            //var e1 = document.querySelector('.Auto_saleforce')
-            var e2 = document.querySelector('.Auto_saleforce_Order_Info');
-            var e3 = document.querySelector('.nav_right');
-            var e4 = document.querySelector('.nav_left');
-            var e5 = document.querySelector('.search_container');
-            var e6 = document.querySelector('.container_time');
-            var e7 = document.querySelector('.toggle_switch');
-            //e1.classList.toggle("none")
-            e2 !== null ? e2.classList.toggle('none') : e3.classList.toggle('none');
-            e4.classList.toggle('none');
-            e5.classList.toggle('none');
-            e6.classList.toggle('none');
-            e7.classList.toggle('none');
-
-            Array.from(document.querySelector('#workstation').children[0].children).forEach((e) => {
-                console.log(Object.keys(e.attributes).length);
-                if (Object.keys(e.attributes).length === 2) {
-                    console.log(e);
-                    console.log(e.children[0].children[0].children[0]);
-                    console.log(e.children[0].children[0].children[0].children.length);
-                    if (e.children[0].children[0].children[0].children.length === 3) {
-                        e.children[0].children[0].children[0].children[2].classList.toggle('none');
-                    }
-                }
-            });
+            let element_name_ar =[
+                'nav_right',
+                'nav_left',
+                'search_container',
+                'container_time',
+                'toggle_switch',
+                'drag_one',
+                'toolbar_wraper',
+                'Auto_saleforce_Order_Info',
+                'container_mes_chat',
+            ]
+            hideAll(element_name_ar)
         };
         //=======================================================================
 
@@ -304,7 +291,7 @@ window.onload = function () {
             });
 
         drag()        
-        run_drag2()
+        run_drag2(body)
         click_btn_ldp()
         button_long();
         inhouse_kb();        
@@ -358,6 +345,16 @@ window.onload = function () {
                 }
                 if (event.altKey && event.code === 'Digit0') {
                     CCHT();
+                }
+
+                //screeshot
+                if (event.ctrlKey && event.shiftKey && event.code === 'KeyQ') {
+                    body.insertAdjacentHTML('afterend', html_screen);
+                    run_screen_shot(body)
+                }
+                if (event.code === 'Escape') {
+                    let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
+                    el_screenshot_wrapper.remove()
                 }
             },
             false,

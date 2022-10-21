@@ -3,11 +3,11 @@
     font-weight: 900;
     height: 50px;
     position: fixed;
-    top: 300px;
-    left: 300px;
+    top: 484px;
+    left: 2px;
 
     color: white;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 16px 0px, rgba(0, 0, 0, 0.06) 0px 8px 16px 0px; */
+    z-index: 99999;
 }
 .toolbar_wraper:hover .toolbar_left i {
     opacity: 1;
@@ -196,8 +196,9 @@
     justify-content: center;
     transition: all .3s;
 }
-.toolbar_mid .toolbar_mid_calendar i,
-.toolbar_mid .toolbar_mid_camera i {
+.toolbar_mid .toolbar_mid_calendar > i,
+.toolbar_mid .toolbar_mid_camera > i {
+    transition: all .5s;
     position: relative;
 }
 
@@ -205,18 +206,15 @@
 .toolbar_mid .toolbar_mid_camera:hover {
     box-shadow: rgb(0 0 0 / 60%) 0px 0px 12px 0px, rgb(0 0 0 / 25%) 0px 8px 16px 0px;
 }
-.toolbar_mid .toolbar_mid_calendar:active,
-.toolbar_mid .toolbar_mid_camera:active {
-    
+.toolbar_mid .toolbar_mid_calendar.active_toolbar,
+.toolbar_mid .toolbar_mid_camera.active_toolbar {    
     box-shadow: inset rgb(0 0 0 / 20%) 5px 0px 12px 0px,inset rgb(0 0 0 / 12%) 5px 8px 16px 0px;
 }
-.toolbar_mid .toolbar_mid_calendar:active i,
-.toolbar_mid .toolbar_mid_camera:active i {
+.toolbar_mid .toolbar_mid_calendar.active_toolbar > i,
+.toolbar_mid .toolbar_mid_camera.active_toolbar > i {
+    color: rgba(255, 255, 255, 0.8);
     top: 1px;    
 }
-
-
-
 .toolbar_wraper .toolbar_left .time_time {
     display: flex;
     align-items: center;
@@ -224,3 +222,107 @@
     border-radius: 10px;
     padding: 10px 5px;
 }
+.toolbar_mid_calendar .toolbar_mid_calendar_container {
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_content {
+    width: 200px;
+    height: 0;
+    background-color: #484e59;
+    
+    border-radius: 10px;
+    transition: all .3s;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_content::before {
+    content: "";
+    height: 0;
+    width: 100%;
+    top: -14px;
+    position: absolute;
+}
+.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content {
+    height: 200px;
+}
+.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content::before {
+    height: 22px;
+}
+
+.toolbar_mid_calendar .toolbar_mid_calendar_date {
+    background-color: #484e59;
+    color: #fff;
+    border-radius: 10px;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 400;
+    font: Helvetica, arial, sans-serif;
+    outline: none;
+} 
+.toolbar_mid_calendar .toolbar_mid_calendar_date::-webkit-datetime-edit { padding: 3px 5px; }
+::-webkit-calendar-picker-indicator { filter: invert(100%);}
+
+.toolbar_mid_calendar .toolbar_mid_calendar_period {
+    display: flex;
+    align-items: center;
+    gap: 5px;    
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_period .toolbar_mid_calendar_checkbox {
+    width: 15px;
+    height: 15px;
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_period label {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.toolbar_mid_calendar .toolbar_mid_calendar_input {
+    width: 30px;
+    font-size: 16px;
+    padding: 5px 0;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.5s ease 0s;
+    background-color: #484e59;
+    box-shadow: inset rgb(0 0 0 / 20%) 5px 0px 12px 0px,inset rgb(0 0 0 / 12%) 5px 8px 16px 0px;
+}
+
+.toolbar_mid_calendar .toolbar_mid_calendar_button {
+    padding: 5px 20px;
+    background-color: #ee7975;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_button div {
+    font-size: 20px;
+    font-weight: normal;
+    height: 30px;
+    line-height: 33px;
+}
+.toolbar_mid_calendar .toolbar_mid_calendar_button:active {
+    box-shadow: inset rgb(0 0 0 / 40%) 5px 0px 12px 0px,inset rgb(0 0 0 / 20%) 5px 8px 16px 0px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.toolbar_mid_calendar .toolbar_mid_calendar_result {
+    font-size: 20px;
+    background-color: #484e59;
+    box-shadow: inset rgb(0 0 0 / 20%) 5px 0px 12px 0px,inset rgb(0 0 0 / 12%) 5px 8px 16px 0px;
+    width: 100%;
+    padding: 5px 10px;
+    text-align: center;
+    color: #fff;
+
+}
+

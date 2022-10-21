@@ -43,7 +43,8 @@
         "css/drag.css",
         "css/search_ldp.css",
         "fontawesome/css/all.css",
-        "css/toolbar.css"
+        "css/toolbar.css",
+        "css/screen_shot.css"
       ],
       "js": [
         "js/global.js",
@@ -52,7 +53,9 @@
         "js/inhouse_kb.js",
         "js/drag.js",
         "js/search_ldp.js",
-        "js/drag2.js"
+        "js/drag2.js",
+        "js/html2canvas.js",
+        "js/screen_shot.js"
       ],
       "all_frames": true
     }

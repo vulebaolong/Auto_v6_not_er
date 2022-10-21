@@ -469,7 +469,7 @@ function click_btn_ldp() {
                     e.onclick = (event) => {
                         event.stopPropagation();
                         TDHTGH();
-                    };                    
+                    };
                     break;
 
                 case 'btn_ldp_hg':
@@ -517,6 +517,10 @@ function time_clock(params) {
         let el_time_minutes = document.querySelector('.time_minutes');
         let el_time_second = document.querySelector('.time_second');
 
+        let el_time_hours2 = document.querySelector('.time_hour2');
+        let el_time_minutes2 = document.querySelector('.time_minutes2');
+        let el_time_second2 = document.querySelector('.time_second2');
+
         // let el_ampm = document.querySelector('.ampm')
 
         let hh = document.querySelector('#hh');
@@ -542,6 +546,9 @@ function time_clock(params) {
         el_time_hours.innerHTML = h;
         el_time_minutes.innerHTML = m;
         el_time_second.innerHTML = s;
+        el_time_hours2.innerHTML = h;
+        el_time_minutes2.innerHTML = m;
+        el_time_second2.innerHTML = s;
         // el_ampm.innerHTML = am
 
         hh.style.strokeDashoffset = 165 - (165 * h) / 24;
@@ -602,7 +609,7 @@ function add_mes_chat_end() {
                 if (chat_box.children.length === 4) {
                     if (el_mes_chat_textarea.value.trim() !== '') {
                         const path = chrome.runtime.getURL('click_chat_end/chat _end_1.txt');
-                        fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)
+                        fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
                     }
                 }
             };
@@ -610,9 +617,9 @@ function add_mes_chat_end() {
             el_mes_chat_buttons2.onclick = (e) => {
                 e.stopPropagation();
                 if (chat_box.children.length === 4) {
-                    if (el_mes_chat_textarea.value.trim() !== '') {                        
+                    if (el_mes_chat_textarea.value.trim() !== '') {
                         const path = chrome.runtime.getURL('click_chat_end/chat _end_2.txt');
-                        fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)                        
+                        fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
                     }
                 }
             };
@@ -620,7 +627,7 @@ function add_mes_chat_end() {
             el_mes_chat_buttons3.onclick = (e) => {
                 e.stopPropagation();
                 const path = chrome.runtime.getURL('click_chat_end/chat _end_3.txt');
-                fun_click_chat_end(path,chat_textarea,chat_bottom_menu.children[1],chat_top_menu.children[1],el_mes_chat_textarea)                
+                fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
             };
         } else {
             chat.querySelector(`[id="${id_case}"]`).classList.toggle('none');
@@ -916,6 +923,32 @@ function changeColor(element) {
     setTimeout(() => {
         element.classList.remove('change_start');
     }, 2000);
+}
+
+//ẩn tất cả
+function hideAll(element_name_ar) {
+    element_name_ar.forEach(element_name => {
+        switch (element_name) {
+            case 'Auto_saleforce_Order_Info':
+                elements_toggle(document.querySelectorAll(`.${element_name}`))                
+                break;
+
+            case 'container_mes_chat':
+                elements_toggle(document.querySelectorAll(`.${element_name}`))
+                break;
+
+            default:
+                let element = document.querySelector(`.${element_name}`);
+                element && element.classList.toggle('none');
+                break;
+        }
+    });
+
+    function elements_toggle(elements) {
+        elements.forEach(element => {
+            element && element.classList.toggle('none');
+        });
+    }
 }
 
 // lưu trữ

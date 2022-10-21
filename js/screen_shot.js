@@ -3,9 +3,6 @@ let html_screen_size = `
     <span>0 X 0</span>
 </div>
 `
-
-
-
 let html_screen = `
 <div id="capture1" class="screenshot_wrapper">
 <div class="screenshot_top"></div>
@@ -17,8 +14,6 @@ ${html_screen_size}
 </div>
 </div>
 `
-
-
 let html_dragsize = `
         <div class="dragresize dragresize-tl" style="visibility: inherit;"></div>
         <div class="dragresize dragresize-tm" style="visibility: inherit;"></div>
@@ -29,44 +24,14 @@ let html_dragsize = `
         <div class="dragresize dragresize-bm" style="visibility: inherit;"></div>
         <div class="dragresize dragresize-br" style="visibility: inherit;"></div>
 `
-
 let html_screenshot_controll = `
         <div class="screenshot_controll">
             <div class="screenshot_controll_coppy">coppy</div>
         </div>
 `
-let body = document.querySelector('body')
 
 
-
-
-
-// document.addEventListener("keydown", function (event) { console.log(event) }, false)
-// body.onclick = () => {
-//     console.log('devicePixelRatio: ', window.devicePixelRatio);
-//     console.log('innerWidth: ', window.innerWidth, 'innerHeight: ', window.innerHeight);
-//     console.log('innerWidth: ', window.outerWidth, 'innerHeight: ', window.innerHeight);
-// }
-document.addEventListener(
-    'keydown',
-    function (event) {
-
-        if (event.ctrlKey && event.shiftKey && event.code === 'KeyQ') {
-            body.insertAdjacentHTML('afterend', html_screen);
-            run(body)
-        }
-        if (event.code === 'Escape') {
-            let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
-            el_screenshot_wrapper.remove()
-        }
-        if (event.code === 'KeyB') {
-
-        }
-    },
-    false,
-);
-
-function run(body) {
+function run_screen_shot(body) {
     let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
     let el_screenshot_top = document.querySelector('.screenshot_top')
     let el_screenshot_right = document.querySelector('.screenshot_right')
@@ -116,25 +81,27 @@ function run(body) {
         });
     })
     el_screenshot_wrapper.addEventListener("mouseup", mouseupDelte = () => {
-        el_screenshot_wrapper.removeEventListener("mousemove", mousemoveDelte);
-        el_screenshot_wrapper.removeEventListener("mouseup", mouseupDelte);
-        el_screenshot_wrapper.removeEventListener("mousedown", mousedownDelte);
-
+        
+        
         let sX_left = parseInt(el_screenshot_center.style.left, 10)
         let sY_top = parseInt(el_screenshot_center.style.top, 10)
         let swidth = parseInt(el_screenshot_center.style.width, 10)
         let sheight = parseInt(el_screenshot_center.style.height, 10)
 
-        
+
         // console.log(sX_left,sY_top,swidth,sheight);
         el_screenshot_center.insertAdjacentHTML('afterbegin', html_screenshot_controll += html_dragsize)
+        dragsize()
+        
         let el_screenshot_controll_coppy = el_screenshot_center.querySelector('.screenshot_controll_coppy')
         el_screenshot_controll_coppy.onclick = () => {
-            sreenshot(sX_left, sY_top, swidth, sheight,body)
-            
+            sreenshot(sX_left, sY_top, swidth, sheight, body)
+
             el_screenshot_wrapper.remove()
         }
-        dragsize()
+        el_screenshot_wrapper.removeEventListener("mousemove", mousemoveDelte);
+        el_screenshot_wrapper.removeEventListener("mouseup", mouseupDelte);
+        el_screenshot_wrapper.removeEventListener("mousedown", mousedownDelte);
 
     })
     function setEmove(eMove, eDown) {
@@ -213,6 +180,7 @@ function run(body) {
                 break;
         }
     }
+
     function dragsize() {
         let el_dragresize_tl = document.querySelector('.dragresize-tl')
         let el_dragresize_tr = document.querySelector('.dragresize-tr')
@@ -538,9 +506,7 @@ function run(body) {
         })
 
     }
-
 }
-
 
 function sreenshot(sX_left, sY_top, swidth, sheight, body) {
     html2canvas(body, { scale: 1 })
@@ -553,205 +519,4 @@ function sreenshot(sX_left, sY_top, swidth, sheight, body) {
             x.canvas.toBlob(blob => { navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]) }
             )
         });
-}
-
-
-// let lickme = document.querySelector('.click_me')
-// lickme.onclick = (e) => {
-//     console.log(e);
-//     let path = '../file/faq1.txt'
-//     fun_click_chat_end(path)
-// }
-function fun_click_chat_end(path) {
-    //../file/faq1.txt
-    fetch(path)
-        .then(response => response.text())
-        .then(async (texts_data) => {
-            let texts = texts_data.split("\r\n")
-            console.log(texts)
-            let step = texts.length + 1
-            let texts_length = texts.length
-            for (let index = 0; index < step; index++) {
-                if (index < texts_length) {
-                    await fun_handle_click_chat_end(texts[index])
-                }
-                if (index === texts_length) {
-                    console.log('click kết thúc');
-                    // chat_top_menu.click();
-                }
-            }
-        })
-}
-function fun_handle_click_chat_end(mess_chat) {
-    return new Promise((resolve, reject) => {
-        let mess
-        if (mess_chat === '*') {
-            mess = 'FAQ mess = el_mes_chat_textarea.value'
-            // console.log(mess);
-        } else {
-            mess = mess_chat
-        }
-
-        console.log('gửi =>>>>', mess);
-        setTimeout(() => {
-            resolve()
-        }, 2000);
-    })
-}
-
-
-
-let el_toolbar_wraper = document.querySelector('.toolbar_wraper')
-let el_toolbar_left = document.querySelector('.toolbar_left')
-let el_toolbar_container = document.querySelector('.toolbar_container')
-let el_toolbar_container_content = document.querySelector('.toolbar_container_content')
-let el_toolbar_right_collapse = document.querySelector('.toolbar_right_collapse')
-let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .time_time')
-let el_toolbar_mid = document.querySelector('.toolbar_mid')
-let el_toolbar_mid_calendar = document.querySelector('.toolbar_mid_calendar')
-let el_toolbar_mid_camera = document.querySelector('.toolbar_mid_camera')
-let el_toolbar_mid_calendar_content= document.querySelector('.toolbar_mid_calendar_content')
-let el_toolbar_mid_calendar_input= document.querySelector('.toolbar_mid_calendar_input')
-let el_toolbar_mid_calendar_container= document.querySelector('.toolbar_mid_calendar_container')
-console.log(el_toolbar_mid_calendar_input);
-
-el_toolbar_right_collapse.onclick = (e) => {
-    e.stopPropagation()
-    // el_time_time.onmousedown = (e1) => { e1.stopPropagation() }
-    // el_time_time.onmousemove = (e2) => { e2.stopPropagation() }
-    // el_time_time.onmouseup = (e3) => { e3.stopPropagation() }
-    let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
-    if (e.altKey) {
-        console.log(el_toolbar_container_left);
-        if (el_toolbar_container_left === 94) {
-            el_toolbar_container_content.style.cssText = `
-            left: unset;
-            right: -15px;
-            `
-            el_toolbar_container.style.cssText = `
-            
-            justify-content: start;
-            `;
-            el_toolbar_left.style.cssText = `
-            justify-content: end;
-            `;
-            el_toolbar_mid_calendar_container.style.cssText = `
-            right: 0;
-            left: unset;
-            `
-            el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
-            el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
-            el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
-        } else {
-            el_toolbar_container_content.style.cssText = `
-            left: 94px;
-            right: unset;
-            `
-            el_toolbar_container.style.cssText = `            
-            justify-content: end;
-            `;
-
-            el_toolbar_left.style.cssText = `
-            justify-content: start;
-            `;
-            el_toolbar_mid_calendar_container.style.cssText = `
-            left: 0;
-            right: unset;
-            `
-
-            el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
-            el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
-
-            el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-left"></i>`
-        }
-    } else {
-        console.log(el_toolbar_container_left);
-        el_toolbar_right_collapse.classList.toggle('toolbar_right_collapse_toggle')
-        el_toolbar_container.classList.toggle('toolbar_container_show')
-
-        let el_active_toolbar = el_toolbar_mid.querySelector(`.active_toolbar`)
-        el_active_toolbar && el_active_toolbar.classList.remove('active_toolbar')
-    }
-}
-
-el_toolbar_mid_calendar.onclick = () => {
-    toolBarActive(el_toolbar_mid_calendar, el_toolbar_mid, 'active_toolbar')
-}
-el_toolbar_mid_camera.onclick = () => {
-    toolBarActive(el_toolbar_mid_camera, el_toolbar_mid, 'active_toolbar')
-}
-el_toolbar_mid_calendar_content.onclick = (e) => {e.stopPropagation()}
-el_toolbar_mid_calendar_input.onclick = (e) => {el_toolbar_mid_calendar_input.select()}
-
-function toolBarActive(element, parent, active_toolbar) {
-    let el_active_toolbar = parent.querySelectorAll(`.${active_toolbar}`)
-    el_active_toolbar.forEach((e) => {
-        if (element.classList !== e.classList) {
-            e.classList.remove(active_toolbar)
-        }
-    })
-    element.classList.toggle(active_toolbar)
-}
-dragElement(el_toolbar_wraper)
-
-let el_ar = [
-    'toolbar_container',
-    'time_time',
-
-]
-
-el_ar.forEach((e) => {
-    let element = document.querySelector(`.${e}`)
-    // element.onclick = (e1) => {e1.stopPropagation()}
-    element.onmousedown = (e1) => { e1.stopPropagation() }
-    element.onmousemove = (e1) => { e1.stopPropagation() }
-    element.onmouseup = (e1) => { e1.stopPropagation() }
-    if (element.getAttribute("type") === 'text') {
-        element.onclick = (e) => {
-            element.select()
-        }
-    }
-})
-function dragElement(elmnt) {
-    var pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
-    if (document.getElementById(elmnt.id + 'header')) {
-        /* if present, the header is where you move the DIV from:*/
-        document.getElementById(elmnt.id + 'header').onmousedown = dragMouseDown;
-    } else {
-        /* otherwise, move the DIV from anywhere inside the DIV:*/
-        elmnt.onmousedown = dragMouseDown;
-    }
-
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // set the element's new position:
-        elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
-        elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
-    }
-
-    function closeDragElement() {
-        /* stop moving when mouse button is released:*/
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
 }
