@@ -951,6 +951,15 @@ function hideAll(element_name_ar) {
     }
 }
 
+//lấy đoạn chữ bôi đen chuyển b/s
+function logSelection(params) {
+    let sel = ''
+    sel = window.getSelection().toString()
+
+    console.log(sel);
+    console.log(sel.replace(/bạn/gi, "NGƯỜI MUA"));
+}
+
 // lưu trữ
 function Get_Pro(col) {
     return new Promise((resolve, reject) => {

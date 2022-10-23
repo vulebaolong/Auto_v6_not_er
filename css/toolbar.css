@@ -14,7 +14,7 @@
 }
 
 .toolbar_container_show {
-    width: 134px !important;
+    width: 180px !important;
     box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 16px 0px, rgba(0, 0, 0, 0.06) 5px 8px 16px 0px;
 
 }
@@ -76,7 +76,7 @@
     transition: all .3s;
 }
 .toolbar_wraper .toolbar_mid i {
-    font-size: 20px;
+    font-size: 18px;
 }
 .toolbar_wraper .toolbar_right i {
     color: rgba(255, 255, 255, 0.5);
@@ -85,7 +85,9 @@
     position: relative;  
 }
 
-.toolbar_wraper .toolbar_container .toolbar_mid_calendar:before {
+
+/* tool tip item */
+.toolbar_container .toolbar_item:before {
     content: "";
     top: 0;
     position: absolute;
@@ -100,68 +102,41 @@
     border-right: 6px solid transparent;    
     border-top: 6px solid rgb(0, 0, 0,0.8);
 }
-.toolbar_wraper .toolbar_container .toolbar_mid_calendar:after {
+.toolbar_container .toolbar_item:after {
+    content: '';
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    bottom: calc(100% + 5px);
+
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 9999px;
+    overflow: visible;
+    text-align: center;
+    
+    font-weight: 400;
+    transform: scale(0);
+    transform-origin: bottom;
+    transition: all .2s;
+}
+.toolbar_container .toolbar_mid_calendar:after {
     content: 'Lead time';
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    padding: 6px 10px;
-    white-space: nowrap;
-    bottom: calc(100% + 5px);
-
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 9999px;
-    overflow: visible;
-    text-align: center;
-    
-    font-weight: 400;
-    transform: scale(0);
-    transform-origin: bottom;
-    transition: all .2s;
 }
-
-.toolbar_wraper .toolbar_container .toolbar_mid_camera:before {
-    content: "";
-    top: 0;
-    position: absolute;
-
-    transform: scale(0) translateY(-100%);
-    transform-origin: 50% calc(0% - 6px);
-    transition: all .2s;    
-
-    width: 0; 
-    height: 0; 
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;    
-    border-top: 6px solid rgb(0, 0, 0,0.8);
-}
-.toolbar_wraper .toolbar_container .toolbar_mid_camera:after {
+.toolbar_container .toolbar_mid_camera:after {
     content: 'Sreen shot';
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
-    padding: 6px 10px;
-    white-space: nowrap;
-    bottom: calc(100% + 5px);
-
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 9999px;
-    overflow: visible;
-    text-align: center;
-    
-    font-weight: 400;
-    transform: scale(0);
-    transform-origin: bottom;
-    transition: all .2s;
 }
-.toolbar_mid .toolbar_mid_calendar:hover::after,
-.toolbar_mid .toolbar_mid_camera:hover::after{
+.toolbar_container .toolbar_mid_change_text:after {
+    content: 'Change Text';
+}
+.toolbar_mid .toolbar_item:hover::after{
     transform: scale(1);
 }
-.toolbar_mid .toolbar_mid_calendar:hover::before,
-.toolbar_mid .toolbar_mid_camera:hover::before {
+.toolbar_mid .toolbar_item:hover::before {
     transform: scale(1) translateY(-100%);
 }
+
 
 .fa-solid {
     display: unset;
@@ -186,8 +161,7 @@
     font-weight: 600;
 }
 
-.toolbar_mid .toolbar_mid_calendar,
-.toolbar_mid .toolbar_mid_camera {
+.toolbar_item {
     width: 30px;
     height: 30px;
     border-radius: 7px;
@@ -196,25 +170,21 @@
     justify-content: center;
     transition: all .3s;
 }
-.toolbar_mid .toolbar_mid_calendar > i,
-.toolbar_mid .toolbar_mid_camera > i {
-    transition: all .5s;
+.toolbar_item > i {
+    transition: all .2s;
     position: relative;
 }
-
-.toolbar_mid .toolbar_mid_calendar:hover,
-.toolbar_mid .toolbar_mid_camera:hover {
+.toolbar_item:hover {
     box-shadow: rgb(0 0 0 / 60%) 0px 0px 12px 0px, rgb(0 0 0 / 25%) 0px 8px 16px 0px;
 }
-.toolbar_mid .toolbar_mid_calendar.active_toolbar,
-.toolbar_mid .toolbar_mid_camera.active_toolbar {    
+.toolbar_mid .toolbar_item.active_toolbar {    
     box-shadow: inset rgb(0 0 0 / 20%) 5px 0px 12px 0px,inset rgb(0 0 0 / 12%) 5px 8px 16px 0px;
 }
-.toolbar_mid .toolbar_mid_calendar.active_toolbar > i,
-.toolbar_mid .toolbar_mid_camera.active_toolbar > i {
+.toolbar_mid .toolbar_item.active_toolbar > i{
     color: rgba(255, 255, 255, 0.8);
     top: 1px;    
 }
+
 .toolbar_wraper .toolbar_left .time_time {
     display: flex;
     align-items: center;
@@ -222,12 +192,15 @@
     border-radius: 10px;
     padding: 10px 5px;
 }
-.toolbar_mid_calendar .toolbar_mid_calendar_container {
+
+/* bảng mở rộng */
+.toolbar_mid .toolbar_mid_calendar_container,
+.toolbar_mid .toolbar_mid_change_text_container {
     position: absolute;
     top: calc(100% + 5px);
     left: 0;
 }
-.toolbar_mid_calendar .toolbar_mid_calendar_content {
+.toolbar_mid .toolbar_mid_calendar_content {
     width: 200px;
     height: 0;
     background-color: #484e59;
@@ -241,20 +214,43 @@
     align-items: center;
     gap: 10px;
 }
-.toolbar_mid_calendar .toolbar_mid_calendar_content::before {
+.toolbar_mid .toolbar_mid_change_text_content {
+    width: 630px;
+    height: 0;
+    background-color: #484e59;
+    
+    border-radius: 10px;
+    transition: all .3s;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Cầu nối */
+.toolbar_mid .toolbar_mid_calendar_content::before,
+.toolbar_mid .toolbar_mid_change_text_content::before {
     content: "";
     height: 0;
     width: 100%;
     top: -14px;
+    left: 0;
     position: absolute;
 }
-.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content {
-    height: 200px;
-}
-.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content::before {
+.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content::before,
+.toolbar_mid_change_text.active_toolbar .toolbar_mid_change_text_content::before {
     height: 22px;
 }
 
+/* Khi active item */
+.toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content {
+    height: 200px;
+}
+.toolbar_mid_change_text.active_toolbar .toolbar_mid_change_text_content {
+    height: 250px;
+}
+
+/* các thành phần bên trong  toolbar_mid_calendar*/
 .toolbar_mid_calendar .toolbar_mid_calendar_date {
     background-color: #484e59;
     color: #fff;
@@ -324,5 +320,63 @@
     text-align: center;
     color: #fff;
 
+}
+
+/* các thành phần bên trong  toolbar_mid_change_text*/
+.toolbar_mid_change_text_content div {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: auto;
+}
+
+.toolbar_mid_change_text_content i  {
+    transition: all .5s;
+    width: 20px;
+    height: 20px;
+    margin-top: 16px;    
+}
+
+.animation {
+    animation: ro .5s 0s 1;
+}
+
+.toolbar_mid_change_text_content input {
+    border-radius: 5px;
+    outline: none;
+    height: 30px;
+
+    background-color: #55575a75;
+    color: white;
+
+    padding: 5px;
+    font-size: 14px;
+    font-family: Roboto,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.toolbar_mid_change_text_content textarea {
+    resize: none;
+    outline: none;
+    border-radius: 5px;
+
+    background-color: #55575a75;
+    color: white;
+
+    padding: 5px;
+    font-family: Roboto,system-ui,-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+}
+.toolbar_mid_change_text_content .toolbar_mid_change_text_result textarea {
+    background-color: #00000075;
+}
+
+@keyframes ro {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 

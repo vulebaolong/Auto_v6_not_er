@@ -15,7 +15,7 @@ let html_drag2 = `
             <div class="toolbar_container">
                 <div class="toolbar_mid">
                     <div class="split"></div>
-                    <div class="toolbar_mid_calendar">
+                    <div class="toolbar_item toolbar_mid_calendar">
                         <i class="fa-regular fa-calendar-days"></i>
                         <div class="toolbar_mid_calendar_container">
                             <div class="toolbar_mid_calendar_content">
@@ -32,9 +32,25 @@ let html_drag2 = `
                                 <input class="toolbar_mid_calendar_result" type="text" value="??-??-???">
                             </div>
                         </div>
+                    </div>
+                    <div class="toolbar_item toolbar_mid_change_text">
+                        <i class="fa-regular fa-arrows-repeat"></i>
+                        <div class="toolbar_mid_change_text_container">
+                            <div class="toolbar_mid_change_text_content">
+                                <div class="toolbar_mid_change_text_request">
+                                    <input type="text" value="bạn">
+                                    <textarea id="request_text" cols="30" rows="10"></textarea>
+                                </div>
+                                <i class="fa-solid fa-arrows-rotate toolbar_mid_change_text_content_icon"></i>
+                                <div class="toolbar_mid_change_text_result">
+                                    <input type="text" value="người mua">
+                                    <textarea id="result_text" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
 
                     </div>
-                    <div class="toolbar_mid_camera">
+                    <div class="toolbar_item toolbar_mid_camera">
                         <i class="fa-solid fa-camera"></i>
                     </div>
                     <div class="split"></div>
@@ -71,12 +87,18 @@ function run_drag2(body) {
     let el_toolbar_mid_calendar_date = document.querySelector('.toolbar_mid_calendar_date')
     let el_toolbar_mid_calendar_checkbox = document.querySelector('.toolbar_mid_calendar_checkbox')
     let el_toolbar_mid_calendar_result = document.querySelector('.toolbar_mid_calendar_result')
+    let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
+    let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_change_text_content')
+
+    let request = document.querySelector('.toolbar_mid_change_text_request > input')
+    let request_text = document.getElementById('request_text')
+    let result = document.querySelector('.toolbar_mid_change_text_result > input')
+    let result_text = document.getElementById('result_text')
+    let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
 
     el_toolbar_right_collapse.onclick = (e) => {
         e.stopPropagation()
-        // el_time_time.onmousedown = (e1) => { e1.stopPropagation() }
-        // el_time_time.onmousemove = (e2) => { e2.stopPropagation() }
-        // el_time_time.onmouseup = (e3) => { e3.stopPropagation() }
+
         let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
         if (e.altKey) {
             console.log(el_toolbar_container_left);
@@ -141,6 +163,8 @@ function run_drag2(body) {
         run_screen_shot(body)
     }
     el_toolbar_mid_calendar_content.onclick = (e) => { e.stopPropagation() }
+    el_toolbar_mid_change_text_content.onclick = (e) => { e.stopPropagation() }
+
     el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
 
 
@@ -154,6 +178,33 @@ function run_drag2(body) {
         let result = leadtime(leadtime_request, str_value, check)
         el_toolbar_mid_calendar_result.value = result
         console.log(result);
+    }
+    el_toolbar_mid_change_text.onclick = () => {
+        toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
+    }
+    request_text.onkeyup = (e) => {
+        changeText(request.value, request_text.value, result.value, result_text)
+    }
+
+    function handle_changeText(request, request_text, result, result_text) {
+        const re = RegExp(`${request}`, 'gi')
+        let text = request_text.replace(re, `${result}`)
+        result_text.value = text
+        toolbar_mid_change_text_content_icon.classList.add('animation')
+        setTimeout(() => {
+            toolbar_mid_change_text_content_icon.classList.remove('animation')
+        }, 400);
+    }
+
+    const changeText = debounce((request, request_text, result, result_text) => handle_changeText(request, request_text, result, result_text));
+    function debounce(func, delay = 300) {
+        let timer;
+        return (request, request_text, result, result_text) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func(request, request_text, result, result_text);
+            }, delay);
+        };
     }
 
     function toolBarActive(element, parent, active_toolbar) {

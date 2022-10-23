@@ -235,6 +235,9 @@ window.onload = function () {
         
 
         const body = document.querySelector('body');
+
+        
+        
         
         body.insertAdjacentHTML(
             'afterend',
@@ -356,9 +359,16 @@ window.onload = function () {
                     let el_screenshot_wrapper = document.querySelector('.screenshot_wrapper')
                     el_screenshot_wrapper.remove()
                 }
+
+                // thay đổi buyer => seller
+                if (event.altKey && event.code === 'KeyC') {
+                    logSelection()
+                }
             },
             false,
         );
+
+        
 
         //===========================================================================================
 

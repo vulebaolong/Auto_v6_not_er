@@ -125,13 +125,13 @@ function run(body) {
         let swidth = parseInt(el_screenshot_center.style.width, 10)
         let sheight = parseInt(el_screenshot_center.style.height, 10)
 
-        
+
         // console.log(sX_left,sY_top,swidth,sheight);
         el_screenshot_center.insertAdjacentHTML('afterbegin', html_screenshot_controll += html_dragsize)
         let el_screenshot_controll_coppy = el_screenshot_center.querySelector('.screenshot_controll_coppy')
         el_screenshot_controll_coppy.onclick = () => {
-            sreenshot(sX_left, sY_top, swidth, sheight,body)
-            
+            sreenshot(sX_left, sY_top, swidth, sheight, body)
+
             el_screenshot_wrapper.remove()
         }
         dragsize()
@@ -514,8 +514,8 @@ function run(body) {
                 let eMove_blx = eMove_bl.x
 
                 if (eMove_bly >= condition_top_height) {
-                    el_screenshot_bottom.style.height = el_screenshot_wrapper_height - eMove_bly + 'px'                    
-                    el_screenshot_right.style.height = eMove_bly + 'px'                    
+                    el_screenshot_bottom.style.height = el_screenshot_wrapper_height - eMove_bly + 'px'
+                    el_screenshot_right.style.height = eMove_bly + 'px'
                     el_screenshot_center.style.height = eMove_bly - el_screenshot_top_height + 'px'
                 }
                 if (eMove_blx <= condition_left_width) {
@@ -610,9 +610,11 @@ let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .ti
 let el_toolbar_mid = document.querySelector('.toolbar_mid')
 let el_toolbar_mid_calendar = document.querySelector('.toolbar_mid_calendar')
 let el_toolbar_mid_camera = document.querySelector('.toolbar_mid_camera')
-let el_toolbar_mid_calendar_content= document.querySelector('.toolbar_mid_calendar_content')
-let el_toolbar_mid_calendar_input= document.querySelector('.toolbar_mid_calendar_input')
-let el_toolbar_mid_calendar_container= document.querySelector('.toolbar_mid_calendar_container')
+let el_toolbar_mid_calendar_content = document.querySelector('.toolbar_mid_calendar_content')
+let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_change_text_content')
+let el_toolbar_mid_calendar_input = document.querySelector('.toolbar_mid_calendar_input')
+let el_toolbar_mid_calendar_container = document.querySelector('.toolbar_mid_calendar_container')
+let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
 console.log(el_toolbar_mid_calendar_input);
 
 el_toolbar_right_collapse.onclick = (e) => {
@@ -680,8 +682,12 @@ el_toolbar_mid_calendar.onclick = () => {
 el_toolbar_mid_camera.onclick = () => {
     toolBarActive(el_toolbar_mid_camera, el_toolbar_mid, 'active_toolbar')
 }
-el_toolbar_mid_calendar_content.onclick = (e) => {e.stopPropagation()}
-el_toolbar_mid_calendar_input.onclick = (e) => {el_toolbar_mid_calendar_input.select()}
+el_toolbar_mid_change_text.onclick = () => {
+    toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
+}
+el_toolbar_mid_calendar_content.onclick = (e) => { e.stopPropagation() }
+el_toolbar_mid_change_text_content.onclick = (e) => { e.stopPropagation() }
+el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
 
 function toolBarActive(element, parent, active_toolbar) {
     let el_active_toolbar = parent.querySelectorAll(`.${active_toolbar}`)
@@ -755,3 +761,46 @@ function dragElement(elmnt) {
         document.onmousemove = null;
     }
 }
+
+body.addEventListener('mouseup', mouseup_logSelection = () => {
+    logSelection()
+})
+function logSelection(params) {
+    let sel = ''
+    sel = window.getSelection()
+    console.log(sel);
+    console.log(sel.toString());
+}
+
+
+let request = document.querySelector('.toolbar_mid_change_text_request > input')
+let request_text = document.getElementById('request_text')
+let result = document.querySelector('.toolbar_mid_change_text_result > input')
+let result_text = document.getElementById('result_text')
+let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
+
+request_text.onkeyup = (e) => {
+    changeText(request.value, request_text.value, result.value, result_text)
+}
+
+function handle_changeText(request, request_text, result, result_text) {
+    const re = RegExp(`${request}`, 'gi')
+    let text = request_text.replace(re, `${result}`)
+    result_text.value = text
+    toolbar_mid_change_text_content_icon.classList.add('animation')
+    setTimeout(() => {
+        toolbar_mid_change_text_content_icon.classList.remove('animation')        
+    }, 400);
+}
+
+const changeText = debounce((request, request_text, result, result_text) => handle_changeText(request, request_text, result, result_text));
+function debounce(func, delay = 300) {
+    let timer;
+    return (request, request_text, result, result_text) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func(request, request_text, result, result_text);
+        }, delay);
+    };
+}
+
