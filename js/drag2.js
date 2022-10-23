@@ -41,7 +41,9 @@ let html_drag2 = `
                                     <input type="text" value="bạn">
                                     <textarea id="request_text" cols="30" rows="10"></textarea>
                                 </div>
-                                <i class="fa-solid fa-arrows-rotate toolbar_mid_change_text_content_icon"></i>
+                                <span class="toolbar_mid_change_text_content_icon" >
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </span>
                                 <div class="toolbar_mid_change_text_result">
                                     <input type="text" value="người mua">
                                     <textarea id="result_text" cols="30" rows="10"></textarea>
@@ -83,6 +85,7 @@ function run_drag2(body) {
     let el_toolbar_mid_calendar_content = document.querySelector('.toolbar_mid_calendar_content')
     let el_toolbar_mid_calendar_input = document.querySelector('.toolbar_mid_calendar_input')
     let el_toolbar_mid_calendar_container = document.querySelector('.toolbar_mid_calendar_container')
+    let el_toolbar_mid_change_text_container = document.querySelector('.toolbar_mid_change_text_container')
     let el_toolbar_mid_calendar_button = document.querySelector('.toolbar_mid_calendar_button')
     let el_toolbar_mid_calendar_date = document.querySelector('.toolbar_mid_calendar_date')
     let el_toolbar_mid_calendar_checkbox = document.querySelector('.toolbar_mid_calendar_checkbox')
@@ -90,11 +93,7 @@ function run_drag2(body) {
     let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
     let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_change_text_content')
 
-    let request = document.querySelector('.toolbar_mid_change_text_request > input')
-    let request_text = document.getElementById('request_text')
-    let result = document.querySelector('.toolbar_mid_change_text_result > input')
-    let result_text = document.getElementById('result_text')
-    let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
+   
 
     el_toolbar_right_collapse.onclick = (e) => {
         e.stopPropagation()
@@ -118,6 +117,10 @@ function run_drag2(body) {
             right: 0;
             left: unset;
             `
+                el_toolbar_mid_change_text_container.style.cssText = `
+            right: 0;
+            left: unset;
+            `
                 el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
                 el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
                 el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
@@ -137,7 +140,10 @@ function run_drag2(body) {
             left: 0;
             right: unset;
             `
-
+                el_toolbar_mid_change_text_container.style.cssText = `
+            right: unset;
+            left: 0;
+            `
                 el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
                 el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
 
@@ -182,14 +188,25 @@ function run_drag2(body) {
     el_toolbar_mid_change_text.onclick = () => {
         toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
     }
-    request_text.onkeyup = (e) => {
-        changeText(request.value, request_text.value, result.value, result_text)
+
+    let request = document.querySelector('.toolbar_mid_change_text_request > input')
+    let request_text = document.getElementById('request_text')
+    let result = document.querySelector('.toolbar_mid_change_text_result > input')
+    let result_text = document.getElementById('result_text')
+    let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
+
+    toolbar_mid_change_text_content_icon.onclick = () => {
+        changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
     }
+    // request_text.onkeyup = (e) => {
+    //     changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
+    // }
 
     function handle_changeText(request, request_text, result, result_text) {
-        const re = RegExp(`${request}`, 'gi')
-        let text = request_text.replace(re, `${result}`)
-        result_text.value = text
+        const change = RegExp(`${request}`, 'gi')
+        let text = request_text.replace(change, `${result}`)
+        result_text.value = handle_textAction(text)
+        //xoay icon  
         toolbar_mid_change_text_content_icon.classList.add('animation')
         setTimeout(() => {
             toolbar_mid_change_text_content_icon.classList.remove('animation')
@@ -215,6 +232,36 @@ function run_drag2(body) {
             }
         })
         element.classList.toggle(active_toolbar)
+    }
+
+    function handle_textAction(text) {
+        let result = ''
+        //tách chuôi có dấu chấm(.) hoặc(|) xuống dòng(\n)
+        let text2_ar = text.split(/[(.|\n)]/gi)
+        console.log(text2_ar);
+        text2_ar.forEach(element => {   
+            //không phải rỗng và không phải Kí tự không phải chữ (phải là chữ)
+            if (element !== '' && /\w/gi.test(element)) {
+                console.log(element);         
+                let element_trim = element.trim()               
+                let result_textFilterDelete_nhay = handle_textFilterDelete_nhay(element_trim)
+                let result_textFilterDelete_gach = handle_textFilterDelete_gach(result_textFilterDelete_nhay)
+                let result_textDownLine = handle_textDownLine(result_textFilterDelete_gach)
+                result += result_textDownLine
+            }
+        })
+        return result
+    }
+
+    function handle_textDownLine(text) {
+        let text_trim = text.trim()
+        return text_trim.charAt(0).toUpperCase() + text_trim.slice(1) + '.\n\n'
+    }
+    function handle_textFilterDelete_nhay(text) {        
+        return text.trim().replace(/^"/gi, '').replace(/"$/gi, '')
+    }
+    function handle_textFilterDelete_gach(text) {        
+        return text.trim().replace(/^-/gi, '')
     }
 
 
