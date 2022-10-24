@@ -203,8 +203,11 @@ function run_drag2(body) {
     // }
 
     function handle_changeText(request, request_text, result, result_text) {
+        let text = request_text
+        if (request.trim()) {            
         const change = RegExp(`${request}`, 'gi')
-        let text = request_text.replace(change, `${result}`)
+        text = request_text.replace(change, `${result}`)       
+        }
         result_text.value = handle_textAction(text)
         //xoay icon  
         toolbar_mid_change_text_content_icon.classList.add('animation')
@@ -234,36 +237,52 @@ function run_drag2(body) {
         element.classList.toggle(active_toolbar)
     }
 
+
     function handle_textAction(text) {
         let result = ''
-        //tách chuôi có dấu chấm(.) hoặc(|) xuống dòng(\n)
-        let text2_ar = text.split(/[(.|\n)]/gi)
+        let text2_ar = text.split(/([.\n])([^. a-z]*)([ "]*)/gi)
         console.log(text2_ar);
-        text2_ar.forEach(element => {   
+        text2_ar.forEach(element => {
             //không phải rỗng và không phải Kí tự không phải chữ (phải là chữ)
             if (element !== '' && /\w/gi.test(element)) {
-                console.log(element);         
-                let element_trim = element.trim()               
-                let result_textFilterDelete_nhay = handle_textFilterDelete_nhay(element_trim)
-                let result_textFilterDelete_gach = handle_textFilterDelete_gach(result_textFilterDelete_nhay)
-                let result_textDownLine = handle_textDownLine(result_textFilterDelete_gach)
+                let element_trim = element.trim()
+                console.log(element_trim);
+                let result_textStar_End = handle_textStar_End(element_trim)
+                let text_acronyms = handle_text_acronyms(result_textStar_End)
+                let result_textDownLine = handle_textDownLine(text_acronyms)
                 result += result_textDownLine
             }
         })
+        console.log(result);
         return result
     }
-
+    function handle_textStar_End(text) {
+        return text.replace(/(^[ "-]+)|([ "-]+$)/gim, '').trim()
+    }
+    function handle_text_acronyms(text) {
+        let result = text.replace(/buyer/gim, 'người mua')
+        .replace(/seller/gim, 'người bán')
+        .replace(/đvvc|dvvc/gim, 'đơn vị vận chuyển')
+        // .replace(/[<>]/gim, '')
+        // .replace(/[<>]/gim, '')
+        .replace(/<ordersn>/gim, 'XXordersnXX')
+        .replace(/<EDT>/gim, 'XXedtXX')
+        .replace(/<bạn\/bạn báo người mua>/gim, 'XXbạnXX XbáongườimuaX')
+        .replace(/<bạn\/người mua>/gim, 'XXbạnXX XngườimuaX')
+        .replace(/(liên hệ theo thông tin)|(theo thông tin)/gim, 'liên hệ theo thông tin XXXXX')
+        
+        return result.trim()
+    }
+    
     function handle_textDownLine(text) {
         let text_trim = text.trim()
-        return text_trim.charAt(0).toUpperCase() + text_trim.slice(1) + '.\n\n'
+        //ghi hoa chữ đầu
+        let upperCase_first = text_trim.charAt(0).toUpperCase() + text_trim.slice(1)
+        //xóa dấu chấm và khoảng cách đầu và cuối
+        let star_end_dot = upperCase_first.replace(/(^[. ]+)|([. ]+$)/gim, '').trim()
+        return star_end_dot + '.\n\n'
     }
-    function handle_textFilterDelete_nhay(text) {        
-        return text.trim().replace(/^"/gi, '').replace(/"$/gi, '')
-    }
-    function handle_textFilterDelete_gach(text) {        
-        return text.trim().replace(/^-/gi, '')
-    }
-
+    
 
     dragElement(el_toolbar_wraper)
 

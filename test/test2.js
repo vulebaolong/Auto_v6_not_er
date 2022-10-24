@@ -615,52 +615,58 @@ let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_ch
 let el_toolbar_mid_calendar_input = document.querySelector('.toolbar_mid_calendar_input')
 let el_toolbar_mid_calendar_container = document.querySelector('.toolbar_mid_calendar_container')
 let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
-console.log(el_toolbar_mid_calendar_input);
+let el_toolbar_mid_calendar_button = document.querySelector('.toolbar_mid_calendar_button')
+
 
 el_toolbar_right_collapse.onclick = (e) => {
     e.stopPropagation()
-    // el_time_time.onmousedown = (e1) => { e1.stopPropagation() }
-    // el_time_time.onmousemove = (e2) => { e2.stopPropagation() }
-    // el_time_time.onmouseup = (e3) => { e3.stopPropagation() }
+
     let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
     if (e.altKey) {
         console.log(el_toolbar_container_left);
         if (el_toolbar_container_left === 94) {
             el_toolbar_container_content.style.cssText = `
-            left: unset;
-            right: -15px;
-            `
+        left: unset;
+        right: -15px;
+        `
             el_toolbar_container.style.cssText = `
-            
-            justify-content: start;
-            `;
+        
+        justify-content: start;
+        `;
             el_toolbar_left.style.cssText = `
-            justify-content: end;
-            `;
+        justify-content: end;
+        `;
             el_toolbar_mid_calendar_container.style.cssText = `
-            right: 0;
-            left: unset;
-            `
+        right: 0;
+        left: unset;
+        `
+            el_toolbar_mid_change_text_container.style.cssText = `
+        right: 0;
+        left: unset;
+        `
             el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
             el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
             el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
         } else {
             el_toolbar_container_content.style.cssText = `
-            left: 94px;
-            right: unset;
-            `
+        left: 94px;
+        right: unset;
+        `
             el_toolbar_container.style.cssText = `            
-            justify-content: end;
-            `;
+        justify-content: end;
+        `;
 
             el_toolbar_left.style.cssText = `
-            justify-content: start;
-            `;
+        justify-content: start;
+        `;
             el_toolbar_mid_calendar_container.style.cssText = `
-            left: 0;
-            right: unset;
-            `
-
+        left: 0;
+        right: unset;
+        `
+            el_toolbar_mid_change_text_container.style.cssText = `
+        right: unset;
+        left: 0;
+        `
             el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
             el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
 
@@ -679,15 +685,116 @@ el_toolbar_right_collapse.onclick = (e) => {
 el_toolbar_mid_calendar.onclick = () => {
     toolBarActive(el_toolbar_mid_calendar, el_toolbar_mid, 'active_toolbar')
 }
+
 el_toolbar_mid_camera.onclick = () => {
     toolBarActive(el_toolbar_mid_camera, el_toolbar_mid, 'active_toolbar')
+    body.insertAdjacentHTML('afterend', html_screen);
+    run_screen_shot(body)
+}
+el_toolbar_mid_calendar_content.onclick = (e) => { e.stopPropagation() }
+el_toolbar_mid_change_text_content.onclick = (e) => { e.stopPropagation() }
+
+el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
+
+
+el_toolbar_mid_calendar_button.onclick = (e) => {
+    let values = el_toolbar_mid_calendar_date.value
+    let ar_value = values.split('-')
+    let str_value = ar_value[1] + '-' + ar_value[2] + '-' + ar_value[0]
+    let leadtime_request = el_toolbar_mid_calendar_input.value
+    let check = el_toolbar_mid_calendar_checkbox.checked
+    console.log('leadtime =>>>>>>', leadtime_request, str_value, check);
+    let result = leadtime(leadtime_request, str_value, check)
+    el_toolbar_mid_calendar_result.value = result
+    console.log(result);
 }
 el_toolbar_mid_change_text.onclick = () => {
     toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
 }
-el_toolbar_mid_calendar_content.onclick = (e) => { e.stopPropagation() }
-el_toolbar_mid_change_text_content.onclick = (e) => { e.stopPropagation() }
-el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
+
+
+let request = document.querySelector('.toolbar_mid_change_text_request > input')
+let request_text = document.getElementById('request_text')
+let result = document.querySelector('.toolbar_mid_change_text_result > input')
+let result_text = document.getElementById('result_text')
+let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
+
+toolbar_mid_change_text_content_icon.onclick = () => {
+    changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
+}
+
+
+function handle_changeText(request, request_text, result, result_text) {
+    const change = RegExp(`${request}`, 'gim')
+    let text = request_text.replace(change, `${result}`)
+    result_text.value = handle_textAction(text)
+    //xoay icon  
+    toolbar_mid_change_text_content_icon.classList.add('animation')
+    setTimeout(() => {
+        toolbar_mid_change_text_content_icon.classList.remove('animation')
+    }, 400);
+}
+
+const changeText = debounce((request, request_text, result, result_text) => handle_changeText(request, request_text, result, result_text));
+function debounce(func, delay = 300) {
+    let timer;
+    return (request, request_text, result, result_text) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            func(request, request_text, result, result_text);
+        }, delay);
+    };
+}
+
+
+function handle_textAction(text) {
+    let result = ''
+    let text2_ar = text.split(/([.\n])([^. a-z]*)([ "]*)/gi)
+    console.log(text2_ar);
+    text2_ar.forEach(element => {
+        //không phải rỗng và không phải Kí tự không phải chữ (phải là chữ)
+        if (element !== '' && /\w/gi.test(element)) {
+            let element_trim = element.trim()
+            console.log(element_trim);
+            let result_textStar_End = handle_textStar_End(element_trim)
+            let text_acronyms = handle_text_acronyms(result_textStar_End)
+            let result_textDownLine = handle_textDownLine(text_acronyms)
+            result += result_textDownLine
+        }
+    })
+    console.log(result);
+    return result
+}
+function handle_textStar_End(text) {
+    return text.replace(/(^[ "-]+)|([ "-]+$)/gim, '').trim()
+}
+function handle_text_acronyms(text) {
+    let result = text.replace(/buyer/gim, 'người mua')
+    .replace(/seller/gim, 'người bán')
+    .replace(/đvvc|dvvc/gim, 'đơn vị vận chuyển')
+    // .replace(/[<>]/gim, '')
+    // .replace(/[<>]/gim, '')
+    .replace(/<ordersn>/gim, 'XXordersnXX')
+    .replace(/<EDT>/gim, 'XXedtXX')
+    .replace(/<bạn\/bạn báo người mua>/gim, 'XXbạnXX XbáongườimuaX')
+    .replace(/<bạn\/người mua>/gim, 'XXbạnXX XngườimuaX')
+    .replace(/(liên hệ theo thông tin)|(theo thông tin)/gim, 'liên hệ theo thông tin XXXXX')
+    
+    return result.trim()
+}
+
+function handle_textDownLine(text) {
+    let text_trim = text.trim()
+    //ghi hoa chữ đầu
+    let upperCase_first = text_trim.charAt(0).toUpperCase() + text_trim.slice(1)
+    //xóa dấu chấm và khoảng cách đầu và cuối
+    let star_end_dot = upperCase_first.replace(/(^[. ]+)|([. ]+$)/gim, '').trim()
+    return star_end_dot + '.\n\n'
+}
+
+
+
+
 
 function toolBarActive(element, parent, active_toolbar) {
     let el_active_toolbar = parent.querySelectorAll(`.${active_toolbar}`)
@@ -772,35 +879,4 @@ function logSelection(params) {
     console.log(sel.toString());
 }
 
-
-let request = document.querySelector('.toolbar_mid_change_text_request > input')
-let request_text = document.getElementById('request_text')
-let result = document.querySelector('.toolbar_mid_change_text_result > input')
-let result_text = document.getElementById('result_text')
-let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
-
-request_text.onkeyup = (e) => {
-    changeText(request.value, request_text.value, result.value, result_text)
-}
-
-function handle_changeText(request, request_text, result, result_text) {
-    const re = RegExp(`${request}`, 'gi')
-    let text = request_text.replace(re, `${result}`)
-    result_text.value = text
-    toolbar_mid_change_text_content_icon.classList.add('animation')
-    setTimeout(() => {
-        toolbar_mid_change_text_content_icon.classList.remove('animation')        
-    }, 400);
-}
-
-const changeText = debounce((request, request_text, result, result_text) => handle_changeText(request, request_text, result, result_text));
-function debounce(func, delay = 300) {
-    let timer;
-    return (request, request_text, result, result_text) => {
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-            func(request, request_text, result, result_text);
-        }, delay);
-    };
-}
 
