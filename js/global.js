@@ -534,7 +534,7 @@ function time_clock(params) {
         let h = new Date().getHours();
         let m = new Date().getMinutes();
         let s = new Date().getSeconds();
-        // let am = h >= 12 ? "PM" : "AM"
+        let am = h >= 12 ? "PM" : "AM"
 
         h = h < 10 ? '0' + h : h;
         m = m < 10 ? '0' + m : m;
@@ -550,6 +550,14 @@ function time_clock(params) {
         el_time_minutes2.innerHTML = m;
         el_time_second2.innerHTML = s;
         // el_ampm.innerHTML = am
+
+        //đúng 6h sáng wrap up
+        if (am === 'AM') {
+            if (h == 06 && m == 00 && s == 00) {
+                chat_wrap2()
+            }
+            // console.log(h+':',m+':',s);
+        }
 
         hh.style.strokeDashoffset = 165 - (165 * h) / 24;
         mm.style.strokeDashoffset = 165 - (165 * m) / 60;
@@ -768,6 +776,80 @@ function chat_wrap_Reading(params, Request) {
         params ? params.click() : reject('Không tìm thấy params: ' + params);
     });
 }
+//Pause chat 2
+function chat_wrap2(params) {
+
+    let el_right_section = document.querySelector('.right-section___2FA6h').children
+    let item_section_status = el_right_section[3].children[0].children[0].children[0].children[1].children[0].innerText
+
+    let item_section = el_right_section[3].children[0].children[0].children[0]
+    if (item_section_status === "Busy") {
+        console.log(item_section_status);
+    }
+    if (item_section_status === "Online") {
+
+        //click lần 1 vào Online ở ngoài
+        chat_wrap_Reading2(item_section, 1)
+            .then((e) => {
+                console.log(e);
+                //click lần 2 vào Busy bên tay trái
+                return chat_wrap_Reading2(e,2)
+            })
+            .then((e) => {
+                console.log(e);
+                //click lần 3 vào wrapup bên tay phải
+                e.click()
+                //click lần 4 ra ngoài (Online ở ngoài)
+                item_section.click()
+            })
+    }
+}
+function chat_wrap_Reading2(item_section, step) {
+    return new Promise((resolve, reject) => {
+        
+        let targetNodes
+        switch (step) {
+            case 1:
+                //bấm lần 1
+                targetNodes = item_section.parentElement.parentElement
+                break;
+            case 2:
+                //bấm lần 2
+                targetNodes = item_section.parentElement.parentElement.children[1]
+                break;
+        }
+        console.log(targetNodes, 'step: ',step);
+        const observerOptions = {
+            childList: true,
+            attributes: true,
+        };
+
+        const observer = new MutationObserver(callback);
+        observer.observe(targetNodes, observerOptions);
+        function callback(mutations) {
+            console.log('mutations: ', mutations, 'step: ',step);
+            console.log('mutations: ', mutations[0].target, 'step: ',step);
+            observer.disconnect();
+
+            
+            switch (step) {
+                case 1:
+                    //bấm lần 1
+                    resolve(mutations[0].target.children[1].children[0].children[1]);
+                    break;
+                case 2:
+                    //bấm lần 2
+                    resolve(mutations[0].target.children[0].children[0].children[2]);
+                    break;
+            }
+
+        }
+
+
+        item_section.click()
+
+    })
+}
 
 // Đếm số giây chat còn lại
 interval_time_chat = [];
@@ -930,7 +1012,7 @@ function hideAll(element_name_ar) {
     element_name_ar.forEach(element_name => {
         switch (element_name) {
             case 'Auto_saleforce_Order_Info':
-                elements_toggle(document.querySelectorAll(`.${element_name}`))                
+                elements_toggle(document.querySelectorAll(`.${element_name}`))
                 break;
 
             case 'container_mes_chat':
