@@ -786,7 +786,7 @@ function chat_wrap2(params) {
     if (item_section_status === "Busy") {
         console.log(item_section_status);
     }
-    if (item_section_status === "Online") {
+    if (item_section_status === "Online" || item_section_status === "Offline") {
 
         //click lần 1 vào Online ở ngoài
         chat_wrap_Reading2(item_section, 1)
