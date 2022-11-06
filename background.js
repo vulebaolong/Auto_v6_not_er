@@ -140,57 +140,122 @@ function get_id(request, sender, sendResponse) {
   })
 }
 
-function open_tab(request, sender, sendResponse) {
+async function open_tab(request, sender, sendResponse) {
   console.group('chạy hàm open_tab')
   console.groupEnd()
-  let createProperties = {
-    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-    pinned: true,
-    active: false,
-    openerTabId: 1
+
+  let links = [
+    {
+      link: 'https://docs.google.com/forms/d/e/1FAIpQLSev5YWTqeZpC2gTX-HAHLv8nKqiWAIGa16uLGKHFpbBE9EPKQ/viewform',
+      pinned: true,
+      group: false
+    },
+    {
+      link: 'https://cs.shopee.vn/portal/inhouse/knowledge-base-client',
+      pinned: true,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1543826266',
+      pinned: true,
+      group: false
+    },
+    {
+      link: 'https://cs.shopee.vn/portal/info/search',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://admin.shopee.vn/return/',
+      pinned: false,
+      group: ['RR', 'green']
+    },
+    {
+      link: 'https://admin.shopee.vn/return/official_shop/',
+      pinned: false,
+      group: ['RR', 'green']
+    },
+    {
+      link: 'https://drive.google.com/file/d/1_RzQJRwGXuo-LCj0aerX9lOe14N7BpOC/view',
+      pinned: false,
+      group: ['RR', 'green']
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1TUmvcqidddJfXIdsIhNmX_J0DgnQg5NM/edit#gid=49164029',
+      pinned: false,
+      group: ['RR', 'green']
+    },
+    {
+      link: 'https://banhang.shopee.vn/edu/article/10626',
+      pinned: false,
+      group: ['RR', 'green']
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
+      pinned: false,
+      group: ['Fraud', 'green']
+    },
+
+  ]
+
+  for (let index = 0; index < links.length; index++) {
+    const element = links[index];
+    // console.log(element);
+    await text(element)
   }
 
-  let id1
-  let id2
-  let id3
 
-  chrome.tabs.create({
-    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-    pinned: true,
-    active: false,
-  }, (e) => {
-    console.log(e.id)
-    id3 = e.id
-  })
 
-  chrome.tabs.create({
-    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-    pinned: true,
-    active: false,
-  }, (e) => {
-    console.log(e.id)
-    id1 = e.id
-  })
 
-  chrome.tabs.create({
-    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-    pinned: true,
-    active: false,
-  }, (e) => {
-    console.log(e.id);
-    id2 = e.id
-    let object = { tabIds: [id1, id2] }
-    console.log(object);
-    chrome.tabs.group(object, (params) => {
-      console.log(params);
 
-      chrome.tabs.group({ tabIds: id3, groupId:params }, (params2) => {
-        console.log(params2);
-        chrome.tabGroups.update(params2, { collapsed: true, title: "title", color: "blue" });
-      })
-    //   chrome.tabGroups.update(params, { collapsed: false, title: "title", color: "/blue" });
-    })
-  })
+  // let createProperties = {
+  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+  //   pinned: true,
+  //   active: false,
+  //   openerTabId: 1
+  // }
+
+  // let id1
+  // let id2
+  // let id3
+
+  // chrome.tabs.create({
+  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+  //   pinned: true,
+  //   active: false,
+  // }, (e) => {
+  //   console.log(e.id)
+  //   id3 = e.id
+  // })
+
+  // chrome.tabs.create({
+  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+  //   pinned: true,
+  //   active: false,
+  // }, (e) => {
+  //   console.log(e.id)
+  //   id1 = e.id
+  // })
+
+  // chrome.tabs.create({
+  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+  //   pinned: true,
+  //   active: false,
+  // }, (e) => {
+  //   console.log(e.id);
+  //   id2 = e.id
+  //   let object = { tabIds: [id1, id2] }
+  //   console.log(object);
+  //   chrome.tabs.group(object, (params) => {
+  //     console.log(params);
+
+  //     chrome.tabs.group({ tabIds: id3, groupId:params }, (params2) => {
+  //       console.log(params2);
+  //       chrome.tabGroups.update(params2, { collapsed: true, title: "title", color: "blue" });
+  //     })
+  //   //   chrome.tabGroups.update(params, { collapsed: false, title: "title", color: "/blue" });
+  //   })
+  // })
 
 
 
@@ -201,9 +266,82 @@ function open_tab(request, sender, sendResponse) {
   })
 
 }
+var groups_names = []
+let groups = [
+  {
+    group_name: 'Fraud',
+    group_id: 9
+  }
+]
+
+function text(tab_info) {
+  let group = tab_info.group
+  let link = tab_info.link
+  let pinned = tab_info.pinned
+
+  let option = {
+    url: link,
+    pinned,
+    active: false,
+  }
+
+
+  return new Promise((resolve, reject) => {
 
 
 
+    if (group) {
+      console.log(groups_names.length);
+      console.log(groups_names);
+      // let isName = groups.find((e) => {
+      //   console.log(e.group_name);
+      //   // return e.group_name == group[0]
+      // })
+
+      let isName = groups_names.includes(group[0])
+      console.log(isName);
+      if (isName) {
+        // chrome.tabs.create(option, (e) => {
+        //   let object = { tabIds: e.id}
+        //     //tạo group
+        //     chrome.tabs.group(object, (params) => {
+        //       chrome.tabGroups.update(params, { collapsed: true, title: group[0], color: group[1]});
+        //     })
+        // })
+      } else {
+        chrome.tabs.create(option, (e) => {
+          let object = { tabIds: e.id }
+          //tạo group
+          chrome.tabs.group(object, (group_id) => {
+            console.log('groupId: ', group_id);
+
+            groups_names.push(group[0])
+
+            console.log(groups_names.length);
+            console.log(groups_names);
+            chrome.tabGroups.update(group_id, { collapsed: true, title: group[0], color: group[1] });
+          })
+        })
+      }
+
+
+
+
+
+
+      resolve()
+    } else {
+      chrome.tabs.create(option, (e) => {
+        resolve()
+      })
+    }
+
+
+
+
+
+  })
+}
 
 
 
