@@ -143,25 +143,34 @@ function get_id(request, sender, sendResponse) {
 async function open_tab(request, sender, sendResponse) {
   console.group('chạy hàm open_tab')
   console.groupEnd()
+  let result = 'open_tab'
+  sendResponse({
+    result,
+  })
 
   let links = [
     {
-      link: 'https://docs.google.com/forms/d/e/1FAIpQLSev5YWTqeZpC2gTX-HAHLv8nKqiWAIGa16uLGKHFpbBE9EPKQ/viewform',
+      link: 'https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946',
       pinned: true,
       group: false
     },
     {
-      link: 'https://cs.shopee.vn/portal/inhouse/knowledge-base-client',
+      link: 'https://cs.shopee.vn/portal/inhouse/knowledge-base-client/',
       pinned: true,
       group: false
     },
     {
-      link: 'https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1543826266',
+      link: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSev5YWTqeZpC2gTX-HAHLv8nKqiWAIGa16uLGKHFpbBE9EPKQ/formResponse',
       pinned: true,
       group: false
     },
     {
       link: 'https://cs.shopee.vn/portal/info/search',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://www.google.com/search?q=d%E1%BB%8Bch',
       pinned: false,
       group: false
     },
@@ -189,19 +198,54 @@ async function open_tab(request, sender, sendResponse) {
       link: 'https://banhang.shopee.vn/edu/article/10626',
       pinned: false,
       group: ['RR', 'green']
-    },
-    {
-      link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
-      pinned: false,
-      group: ['Fraud', 'green']
-    },
+    }
+    // {
+    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
+    //   pinned: false,
+    //   group: ['FRAUD', 'red']
+    // },
+    // {
+    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
+    //   pinned: false,
+    //   group: ['FRAUD', 'red']
+    // },
+    // {
+    //   link: 'https://admin.shopee.vn/return/',
+    //   pinned: false,
+    //   group: ['RR', 'green']
+    // },
+    // {
+    //   link: 'https://admin.shopee.vn/return/',
+    //   pinned: false,
+    //   group: ['RR', 'green']
+    // },
+    // {
+    //   link: 'https://cs.shopee.vn/portal/info/search',
+    //   pinned: false,
+    //   group: false
+    // },
+    // {
+    //   link: 'https://admin.shopee.vn/return/',
+    //   pinned: false,
+    //   group: ['RR', 'green']
+    // },
+    // {
+    //   link: 'https://admin.shopee.vn/return/official_shop/',
+    //   pinned: false,
+    //   group: ['RR', 'green']
+    // },
+    // {
+    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
+    //   pinned: false,
+    //   group: ['Fraud', 'green']
+    // },
 
   ]
 
   for (let index = 0; index < links.length; index++) {
     const element = links[index];
     // console.log(element);
-    await text(element)
+    await text(element, index)
   }
 
 
@@ -260,89 +304,273 @@ async function open_tab(request, sender, sendResponse) {
 
 
 
-  let result = 'open_tab'
-  sendResponse({
-    result
-  })
+
 
 }
-var groups_names = []
-let groups = [
-  {
-    group_name: 'Fraud',
-    group_id: 9
-  }
-]
+let groups = []
 
-function text(tab_info) {
+function text(tab_info, index) {
   let group = tab_info.group
+  let group_name = group[0]
+  let group_color = group[1]
   let link = tab_info.link
   let pinned = tab_info.pinned
 
-  let option = {
-    url: link,
-    pinned,
-    active: false,
-  }
-
-
   return new Promise((resolve, reject) => {
 
+    let isName = groups.find((e) => {
+      return e.group_name == group[0]
+    })
 
 
-    if (group) {
-      console.log(groups_names.length);
-      console.log(groups_names);
-      // let isName = groups.find((e) => {
-      //   console.log(e.group_name);
-      //   // return e.group_name == group[0]
-      // })
 
-      let isName = groups_names.includes(group[0])
-      console.log(isName);
-      if (isName) {
-        // chrome.tabs.create(option, (e) => {
-        //   let object = { tabIds: e.id}
-        //     //tạo group
-        //     chrome.tabs.group(object, (params) => {
-        //       chrome.tabGroups.update(params, { collapsed: true, title: group[0], color: group[1]});
-        //     })
-        // })
-      } else {
-        chrome.tabs.create(option, (e) => {
-          let object = { tabIds: e.id }
-          //tạo group
-          chrome.tabs.group(object, (group_id) => {
-            console.log('groupId: ', group_id);
+    if (isName !== undefined) {
+      let groupId = isName.group_id
+      console.log('isName', isName);
+      // let groupId = isName.group_name
 
-            groups_names.push(group[0])
-
-            console.log(groups_names.length);
-            console.log(groups_names);
-            chrome.tabGroups.update(group_id, { collapsed: true, title: group[0], color: group[1] });
-          })
+      create_tab(link, pinned)
+        .then((tabIds) => {
+          // console.log('tabid', tabIds);
+          return add_group(tabIds, groupId)
         })
+        .then(() => {
+          console.log(groupId);
+          console.group(index, 'có => không thêm')
+          console.log('isName', groups)
+          console.groupEnd()
+          isName = undefined
+          resolve()
+        })
+
+    } else {
+
+      if (group_name !== undefined) {
+
+        create_tab(link, pinned)
+          .then((tabid) => {
+            console.log('tabid', tabid);
+            return create_group(tabid)
+          })
+          .then((groupId) => {
+            console.log('groupId', groupId);
+            groups = [...groups,
+            {
+              group_name,
+              group_id: groupId
+            }
+            ]
+            console.group(index, 'tên không phải là undefine=> thêm')
+            console.log('groups', groups);
+            console.groupEnd()
+            return set_name(groupId, group_name, group_color)
+          })
+          .then((res_groupId) => {
+            console.log('res_groupId', res_groupId);
+            isName = undefined
+            resolve()
+          })
+      } else {
+        console.log(index, 'không có');
+        console.log(group_name);
+        create_tab(link, pinned)
+          .then((tabid) => {
+            console.log('tabid', tabid);
+            isName = undefined
+            resolve()
+          })
+
       }
 
-
-
-
-
-
-      resolve()
-    } else {
-      chrome.tabs.create(option, (e) => {
-        resolve()
-      })
     }
 
 
 
 
+    // setTimeout(() => {
+    //   if (isName !== undefined) {
+    //     let groupId = isName.group_id
+    //     console.log('isName', isName);
+    //     // let groupId = isName.group_name
+
+    //     create_tab(link)
+    //       .then((tabIds) => {
+    //         // console.log('tabid', tabIds);
+    //         return add_group(tabIds, groupId)
+    //       })
+    //       .then(() => {
+    //         console.log(groupId);
+    //         console.group(index, 'có => không thêm')
+    //         console.log('isName', groups)
+    //         console.groupEnd()
+    //         isName = undefined
+    //         resolve()
+    //       })
+
+    //   } else {
+    //     console.log(index, 'không có');
+    //     if (group_name !== undefined) {
+
+    //       create_tab(link)
+    //         .then((tabid) => {
+    //           console.log('tabid', tabid);
+    //           return create_group(tabid)
+    //         })
+    //         .then((groupId) => {
+    //           console.log('groupId', groupId);
+    //           groups = [...groups,
+    //           {
+    //             group_name,
+    //             group_id: groupId
+    //           }
+    //           ]
+    //           console.group(index, 'tên không phải là undefine=> thêm')
+    //           console.log('groups', groups);
+    //           console.groupEnd()
+    //           return set_name(groupId, group_name, group_color)
+    //         })
+    //         .then((res_groupId) => {
+    //           console.log('res_groupId', res_groupId);
+    //           isName = undefined
+    //           resolve()
+    //         })
+    //     } else {
+    //       isName = undefined
+    //       resolve()
+    //     }
+
+    //   }
+    // }, 200);
+    // setTimeout(() => {
+    //   if (isName !== undefined) {
+
+    //     console.group('có => không thêm')
+    //     console.log('isName', groups)
+    //     console.groupEnd()
+    //     resolve()
+    //   } else {
+    //     console.log('không có');
+    //     if (group[0] !== undefined) {
+
+
+    //       let createProperties = {
+    //         url: link,
+    //         active: false,
+    //       }
+
+    //       chrome.tabs.create(createProperties, (e) => {
+    //         let tab_id = e.id
+    //         console.log('tab_id', tab_id);
+    //         let object = { tabIds: tab_id }
+
+    //         chrome.tabs.group(object, (e2) => {
+    //           let groupId = e2
+    //           console.log('groupId: ', groupId);
+
+    //             chrome.tabGroups.update(groupId, { collapsed: true, title: group[0], color: group[1] }, (e) => {
+
+    //               groups.push(
+    //                 {
+    //                   group_name: group[0],
+    //                   group_id: groupId
+    //                 }
+    //               )
+    //               console.group('tên không phải là undefine=> thêm')
+    //               console.log('groups', groups);
+    //               console.groupEnd()
+    //               isName = undefined
+    //               resolve()
+    //             });
+
+    //         })
+
+
+    //       })
+
+
+
+
+    //     }
+    //     resolve()
+    //   }
+    // }, 200);
 
   })
 }
 
+
+function action_tabs(link, group_name, group_color) {
+  return new Promise((resolve, reject) => {
+    create_tab(link, pinned)
+      .then((tabid) => {
+        console.log('tabid', tabid);
+        return create_group(tabid)
+      })
+      .then((groupId) => {
+        console.log('groupId', groupId);
+        groups.push(
+          {
+            group_name,
+            group_id: groupId
+          }
+        )
+        console.group('tên không phải là undefine=> thêm')
+        console.log('groups', groups);
+        console.groupEnd()
+        return set_name(groupId, group_name, group_color)
+      })
+      .then((TabGroup) => {
+        console.log('TabGroup', TabGroup);
+        resolve(TabGroup)
+      })
+  })
+}
+
+function create_tab(link, pinned) {
+  return new Promise((resolve, reject) => {
+    let createProperties = {
+      url: link,
+      active: false,
+      pinned
+    }
+    chrome.tabs.create(createProperties, (e) => {
+      resolve(e.id)
+    })
+  })
+}
+
+function add_group(tabIds, groupId) {
+  return new Promise((resolve, reject) => {
+    let object = {
+      tabIds,
+      groupId
+    }
+
+    chrome.tabs.group(object, (res_groupId) => {
+      resolve(res_groupId)
+    })
+  })
+}
+
+function create_group(tabIds) {
+  return new Promise((resolve, reject) => {
+    let object = { tabIds }
+    chrome.tabs.group(object, (groupId) => {
+      resolve(groupId)
+    })
+  })
+}
+
+function set_name(groupId, group_name, group_color) {
+  let updateProperties = {
+    collapsed: true, title: group_name, color: group_color
+  }
+  return new Promise((resolve, reject) => {
+    chrome.tabGroups.update(groupId, updateProperties, (TabGroup) => {
+      resolve(TabGroup)
+    })
+  })
+}
 
 
 
