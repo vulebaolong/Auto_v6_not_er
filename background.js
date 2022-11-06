@@ -15,7 +15,7 @@ chrome.identity.getProfileUserInfo((info) => {
 
 
 chrome.runtime.onMessage.addListener(
-  async function (request, sender, sendResponse) {
+  function (request, sender, sendResponse) {
 
     //console.log(sender.tab ? "from a content script:" + sender.tab.url : "from the extension")
 
@@ -81,46 +81,18 @@ chrome.runtime.onMessage.addListener(
       // }
     }
 
-    if (sender.tab.url.toString().search('shopeecs.lightning.force.com/') != -1) {
-      var Work_ID = sender.tab.id
-      console.group('Lắng nghe từ Word')
-      console.log('Tin nhắn từ Word', request.value);
-      console.log('Work_ID: ', Work_ID)
-      console.groupEnd()
-
-      var result
-      if (Work_ID) {
-        result = 'Extention đã lấy được Work_ID'
-      } else {
-        result = 'Extention chưa lấy được Work_ID'
-      }
-
-      sendResponse({
-        Work_ID,
-        result
-      })
-
-    }
-
     if (sender.tab.url.toString().search('cs.shopee.vn/portal/inhouse/') != -1) {
-      var Work_ID = sender.tab.id
       console.group('Lắng nghe từ Word')
-      console.log('Tin nhắn từ Word', request.value);
-      console.log('Work_ID: ', Work_ID)
+      console.log('Tin nhắn từ Word');
+      console.log('value: ', request.value);
+      console.log('flag: ', request.flag);
       console.groupEnd()
-
-      var result
-      if (Work_ID) {
-        result = 'Extention đã lấy được Work_ID'
-      } else {
-        result = 'Extention chưa lấy được Work_ID'
+      if (request.flag === 'get_id') {
+        get_id(request, sender, sendResponse)
       }
-
-      sendResponse({
-        Work_ID,
-        result
-      })
-
+      if (request.flag === 'open_tab') {
+        open_tab(request, sender, sendResponse)
+      }
     }
 
     if (sender.tab.url.toString().search('docs.google.com/spreadsheets/') != -1) {
@@ -148,6 +120,89 @@ chrome.runtime.onMessage.addListener(
   }
 
 )
+
+function get_id(request, sender, sendResponse) {
+  let Work_ID = sender.tab.id
+  console.group('chạy hàm get_id')
+  console.log('Work_ID: ', Work_ID)
+  console.groupEnd()
+
+  let result
+  if (Work_ID) {
+    result = 'Extention đã lấy được Work_ID'
+  } else {
+    result = 'Extention chưa lấy được Work_ID'
+  }
+
+  sendResponse({
+    Work_ID,
+    result
+  })
+}
+
+function open_tab(request, sender, sendResponse) {
+  console.group('chạy hàm open_tab')
+  console.groupEnd()
+  let createProperties = {
+    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+    pinned: true,
+    active: false,
+    openerTabId: 1
+  }
+
+  let id1
+  let id2
+  let id3
+
+  chrome.tabs.create({
+    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+    pinned: true,
+    active: false,
+  }, (e) => {
+    console.log(e.id)
+    id3 = e.id
+  })
+
+  chrome.tabs.create({
+    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+    pinned: true,
+    active: false,
+  }, (e) => {
+    console.log(e.id)
+    id1 = e.id
+  })
+
+  chrome.tabs.create({
+    url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
+    pinned: true,
+    active: false,
+  }, (e) => {
+    console.log(e.id);
+    id2 = e.id
+    let object = { tabIds: [id1, id2] }
+    console.log(object);
+    chrome.tabs.group(object, (params) => {
+      console.log(params);
+
+      chrome.tabs.group({ tabIds: id3, groupId:params }, (params2) => {
+        console.log(params2);
+        chrome.tabGroups.update(params2, { collapsed: true, title: "title", color: "blue" });
+      })
+    //   chrome.tabGroups.update(params, { collapsed: false, title: "title", color: "/blue" });
+    })
+  })
+
+
+
+
+  let result = 'open_tab'
+  sendResponse({
+    result
+  })
+
+}
+
+
 
 
 

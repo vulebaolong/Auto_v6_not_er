@@ -232,13 +232,13 @@ window.onload = function () {
 
     //word
     if (S_inhouse != -1 && S_order == -1) {
-        
+
 
         const body = document.querySelector('body');
 
-        
-        
-        
+
+
+
         body.insertAdjacentHTML(
             'afterend',
             (html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb += html_drag2)
@@ -248,7 +248,7 @@ window.onload = function () {
         //ONOFF=======================================================================
         var ONOFF = document.querySelector('.btn_ONOFF');
         ONOFF.onclick = () => {
-            let element_name_ar =[
+            let element_name_ar = [
                 'nav_right',
                 'nav_left',
                 'search_container',
@@ -293,17 +293,20 @@ window.onload = function () {
                 return Get_el_main_container(e2[1], 3);
             });
 
-        drag()        
+        drag()
         run_drag2(body)
         click_btn_ldp()
         button_long();
-        inhouse_kb();        
+        inhouse_kb();
         macro_coppy();
 
         var el_item_test = document.querySelector('.btn_test');
         el_item_test.onclick = (ev) => {
-           
-        };    
+            Open_tab()
+            // chrome.tabs.create({url: "https://google.com/", active: true});
+            // var redirectWindow = window.open('https://cs.shopee.vn/portal/inhouse/workstation/items', '_blank');
+            
+        };
 
         // lắng nghe phím bấm
         document.addEventListener(
@@ -369,7 +372,7 @@ window.onload = function () {
             false,
         );
 
-        
+
 
         //===========================================================================================
 
@@ -1122,7 +1125,7 @@ window.onload = function () {
             }
         }
 
-        
+
         //Cẩm nang log======================================================
         function fun_payment(Tab_Order_PM) {
             var HTML_String_Payment;
@@ -1379,9 +1382,9 @@ window.onload = function () {
                 }
             }
         }
-        
 
-        
+
+
     }
 };
 

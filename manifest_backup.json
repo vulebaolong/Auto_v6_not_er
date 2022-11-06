@@ -2,7 +2,7 @@
   "name": "Auto_Salesforce",
   "description": "Công cụ giúp làm việc nhanh hơn",
   "version": "1.0",
-  "manifest_version": 3,
+  "manifest_version": 2,
   "background": {
     "service_worker": "background.js",
     "type": "module"
@@ -12,13 +12,8 @@
     "identity.email",
     "storage",
     "activeTab",
-    "tabGroups",
     "scripting",
     "tabs",
-    "http://*/*",
-    "https://*/*"
-  ],
-  "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
@@ -27,17 +22,10 @@
   },
   "options_page": "option/options.html",
   "web_accessible_resources": [
-    {
-      "resources": [
-        "fontawesome/webfonts/*",
-        "fontawesome/css/*",
-        "audio/request.mp3",
-        "click_chat_end/*"
-      ],
-      "matches": [
-        "https://cs.shopee.vn/*"
-      ]
-    }
+    "fontawesome/webfonts/*",
+    "fontawesome/css/*",
+    "audio/request.mp3",
+    "click_chat_end/*"
   ],
   "content_scripts": [
     {

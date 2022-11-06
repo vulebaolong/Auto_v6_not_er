@@ -967,10 +967,13 @@ function Get_Word_ID(params) {
     if (params === undefined) {
         params = document.querySelector('.item_system_id ');
     }
-    var objValue = { value: 'Gửi đi tin nhắn để lấy TabID_work' };
+    let objValue = {
+        flag: 'get_id',
+        value: 'Gửi đi tin nhắn để lấy TabID_work'
+ };
 
     chrome.runtime.sendMessage(objValue, (e) => {
-        var tabID = e.Work_ID;
+        let tabID = e.Work_ID;
         console.group('Nhận phản hồi từ tin nhắn gửi đi: ', objValue);
         console.log('Kết quả: ', e.result);
         console.log('Work_ID: ', tabID);
@@ -979,6 +982,24 @@ function Get_Word_ID(params) {
 
         localStorage.setItem('tabID', tabID);
         console.log(tabID);
+    });
+
+    console.group('Gửi đi');
+    console.log('gửi đi: ', objValue);
+    console.groupEnd();
+}
+
+function Open_tab(params) {
+    let objValue = { 
+        flag: 'open_tab',
+        value: 'Gửi đi tin nhắn để open tab' 
+    };
+
+    chrome.runtime.sendMessage(objValue, (e) => {
+
+        console.group('Nhận phản hồi từ tin nhắn gửi đi: ', objValue);
+        console.log('Kết quả: ', e.result);
+        console.groupEnd();
     });
 
     console.group('Gửi đi');
