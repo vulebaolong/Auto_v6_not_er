@@ -170,6 +170,16 @@ async function open_tab(request, sender, sendResponse) {
       group: false
     },
     {
+      link: 'https://cs.shopee.vn/portal/info/search',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://cs.shopee.vn/portal/info/search',
+      pinned: false,
+      group: false
+    },
+    {
       link: 'https://www.google.com/search?q=d%E1%BB%8Bch',
       pinned: false,
       group: false
@@ -198,113 +208,73 @@ async function open_tab(request, sender, sendResponse) {
       link: 'https://banhang.shopee.vn/edu/article/10626',
       pinned: false,
       group: ['RR', 'green']
-    }
-    // {
-    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
-    //   pinned: false,
-    //   group: ['FRAUD', 'red']
-    // },
-    // {
-    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
-    //   pinned: false,
-    //   group: ['FRAUD', 'red']
-    // },
-    // {
-    //   link: 'https://admin.shopee.vn/return/',
-    //   pinned: false,
-    //   group: ['RR', 'green']
-    // },
-    // {
-    //   link: 'https://admin.shopee.vn/return/',
-    //   pinned: false,
-    //   group: ['RR', 'green']
-    // },
-    // {
-    //   link: 'https://cs.shopee.vn/portal/info/search',
-    //   pinned: false,
-    //   group: false
-    // },
-    // {
-    //   link: 'https://admin.shopee.vn/return/',
-    //   pinned: false,
-    //   group: ['RR', 'green']
-    // },
-    // {
-    //   link: 'https://admin.shopee.vn/return/official_shop/',
-    //   pinned: false,
-    //   group: ['RR', 'green']
-    // },
-    // {
-    //   link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
-    //   pinned: false,
-    //   group: ['Fraud', 'green']
-    // },
-
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1uO0rBjjauuL6nnwzK1JJe9AjDb2fuzOJDkwoEtmYrwo/edit#gid=631497519',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1Cq7-67iiYcHw7FvpS70XM6Z3JRXHSBLj1vi2efmXwUY/edit?pli=1#gid=698262846',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1D9P2knuMtiHcS-Rh9SbrN2UxQBM-9gql6KB1f2CO93s/edit#gid=1912665683',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1c9NcTNaUfwOHFTw52cjDKLK3JQ0UVxj4hAS9elBPYM4/edit#gid=0',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1wbMnLZLV6kzf-4l063y0DoHWvU_JKTVb0p_Bik8r4VI/edit#gid=1726291746',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1rFvyU9Rc5GbnsvnkOLD-Kul8t4WK4EYLdTaJssNoxkE/edit#gid=1002091066',
+      pinned: false,
+      group: ['FRAUD', 'red']
+    },
+    {
+      link: 'https://docs.google.com/spreadsheets/d/1Vm3RAq-I1mGKmEWpKc5gMDZMlOUYXctN6YK_jGxgmkE/edit?userstoinvite=tphuongg150@gmail.com#gid=0',
+      pinned: false,
+      group: ['FRAUD', 'red']
+    },
+    {
+      link: 'https://datastudio.google.com/u/0/reporting/7c5b69d1-9f44-4392-8547-aec22d60e07f/page/p_wrmimlyeqc',
+      pinned: false,
+      group: ['FRAUD', 'red']
+    },
+    {
+      link: 'https://datastudio.google.com/u/0/reporting/1abd7120-7f26-4963-8f34-5106f8e120f4/page/ty62C',
+      pinned: false,
+      group: ['FRAUD', 'red']
+    },
+    {
+      link: 'https://datastudio.google.com/u/0/reporting/1abd7120-7f26-4963-8f34-5106f8e120f4/page/ty62C',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://web.telegram.org/k/',
+      pinned: false,
+      group: false
+    },
+    {
+      link: 'https://chat.zalo.me/',
+      pinned: false,
+      group: false
+    },
   ]
 
   for (let index = 0; index < links.length; index++) {
     const element = links[index];
-    // console.log(element);
     await text(element, index)
   }
-
-
-
-
-
-  // let createProperties = {
-  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-  //   pinned: true,
-  //   active: false,
-  //   openerTabId: 1
-  // }
-
-  // let id1
-  // let id2
-  // let id3
-
-  // chrome.tabs.create({
-  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-  //   pinned: true,
-  //   active: false,
-  // }, (e) => {
-  //   console.log(e.id)
-  //   id3 = e.id
-  // })
-
-  // chrome.tabs.create({
-  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-  //   pinned: true,
-  //   active: false,
-  // }, (e) => {
-  //   console.log(e.id)
-  //   id1 = e.id
-  // })
-
-  // chrome.tabs.create({
-  //   url: "https://docs.google.com/spreadsheets/d/1kRPSdw0e8_D04yMZTXrulJzwaKLlLAsn/edit#gid=1896230946",
-  //   pinned: true,
-  //   active: false,
-  // }, (e) => {
-  //   console.log(e.id);
-  //   id2 = e.id
-  //   let object = { tabIds: [id1, id2] }
-  //   console.log(object);
-  //   chrome.tabs.group(object, (params) => {
-  //     console.log(params);
-
-  //     chrome.tabs.group({ tabIds: id3, groupId:params }, (params2) => {
-  //       console.log(params2);
-  //       chrome.tabGroups.update(params2, { collapsed: true, title: "title", color: "blue" });
-  //     })
-  //   //   chrome.tabGroups.update(params, { collapsed: false, title: "title", color: "/blue" });
-  //   })
-  // })
-
-
-
-
-
 
 }
 let groups = []
@@ -321,8 +291,6 @@ function text(tab_info, index) {
     let isName = groups.find((e) => {
       return e.group_name == group[0]
     })
-
-
 
     if (isName !== undefined) {
       let groupId = isName.group_id
@@ -383,121 +351,8 @@ function text(tab_info, index) {
       }
 
     }
-
-
-
-
-    // setTimeout(() => {
-    //   if (isName !== undefined) {
-    //     let groupId = isName.group_id
-    //     console.log('isName', isName);
-    //     // let groupId = isName.group_name
-
-    //     create_tab(link)
-    //       .then((tabIds) => {
-    //         // console.log('tabid', tabIds);
-    //         return add_group(tabIds, groupId)
-    //       })
-    //       .then(() => {
-    //         console.log(groupId);
-    //         console.group(index, 'có => không thêm')
-    //         console.log('isName', groups)
-    //         console.groupEnd()
-    //         isName = undefined
-    //         resolve()
-    //       })
-
-    //   } else {
-    //     console.log(index, 'không có');
-    //     if (group_name !== undefined) {
-
-    //       create_tab(link)
-    //         .then((tabid) => {
-    //           console.log('tabid', tabid);
-    //           return create_group(tabid)
-    //         })
-    //         .then((groupId) => {
-    //           console.log('groupId', groupId);
-    //           groups = [...groups,
-    //           {
-    //             group_name,
-    //             group_id: groupId
-    //           }
-    //           ]
-    //           console.group(index, 'tên không phải là undefine=> thêm')
-    //           console.log('groups', groups);
-    //           console.groupEnd()
-    //           return set_name(groupId, group_name, group_color)
-    //         })
-    //         .then((res_groupId) => {
-    //           console.log('res_groupId', res_groupId);
-    //           isName = undefined
-    //           resolve()
-    //         })
-    //     } else {
-    //       isName = undefined
-    //       resolve()
-    //     }
-
-    //   }
-    // }, 200);
-    // setTimeout(() => {
-    //   if (isName !== undefined) {
-
-    //     console.group('có => không thêm')
-    //     console.log('isName', groups)
-    //     console.groupEnd()
-    //     resolve()
-    //   } else {
-    //     console.log('không có');
-    //     if (group[0] !== undefined) {
-
-
-    //       let createProperties = {
-    //         url: link,
-    //         active: false,
-    //       }
-
-    //       chrome.tabs.create(createProperties, (e) => {
-    //         let tab_id = e.id
-    //         console.log('tab_id', tab_id);
-    //         let object = { tabIds: tab_id }
-
-    //         chrome.tabs.group(object, (e2) => {
-    //           let groupId = e2
-    //           console.log('groupId: ', groupId);
-
-    //             chrome.tabGroups.update(groupId, { collapsed: true, title: group[0], color: group[1] }, (e) => {
-
-    //               groups.push(
-    //                 {
-    //                   group_name: group[0],
-    //                   group_id: groupId
-    //                 }
-    //               )
-    //               console.group('tên không phải là undefine=> thêm')
-    //               console.log('groups', groups);
-    //               console.groupEnd()
-    //               isName = undefined
-    //               resolve()
-    //             });
-
-    //         })
-
-
-    //       })
-
-
-
-
-    //     }
-    //     resolve()
-    //   }
-    // }, 200);
-
   })
 }
-
 
 function action_tabs(link, group_name, group_color) {
   return new Promise((resolve, reject) => {
@@ -571,6 +426,3 @@ function set_name(groupId, group_name, group_color) {
     })
   })
 }
-
-
-
