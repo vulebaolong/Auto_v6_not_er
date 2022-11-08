@@ -554,7 +554,7 @@ function time_clock(params) {
         //đúng 6h sáng wrap up
         if (am === 'AM') {
             if (h == 06 && m == 00 && s == 00) {
-                chat_wrap2()
+                chat_wrap()
             }
             // console.log(h+':',m+':',s);
         }
@@ -616,7 +616,7 @@ function add_mes_chat_end() {
                 e.stopPropagation();
                 if (chat_box.children.length === 4) {
                     if (el_mes_chat_textarea.value.trim() !== '') {
-                        const path = chrome.runtime.getURL('click_chat_end/chat _end_1.txt');
+                        const path = chrome.runtime.getURL('click_chat_end/chat_end_1.txt');
                         fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
                     }
                 }
@@ -626,7 +626,7 @@ function add_mes_chat_end() {
                 e.stopPropagation();
                 if (chat_box.children.length === 4) {
                     if (el_mes_chat_textarea.value.trim() !== '') {
-                        const path = chrome.runtime.getURL('click_chat_end/chat _end_2.txt');
+                        const path = chrome.runtime.getURL('click_chat_end/chat_end_2.txt');
                         fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
                     }
                 }
@@ -634,7 +634,7 @@ function add_mes_chat_end() {
 
             el_mes_chat_buttons3.onclick = (e) => {
                 e.stopPropagation();
-                const path = chrome.runtime.getURL('click_chat_end/chat _end_3.txt');
+                const path = chrome.runtime.getURL('click_chat_end/chat_end_3.txt');
                 fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
             };
         } else {
@@ -699,85 +699,7 @@ function fun_handle_click_chat_end(mess_chat, chat_textarea, chat_bottom_menu, e
     })
 }
 
-// Pause chat
-function chat_wrap() {
-    var inhouse_layout = document.querySelector('#inhouse-layout');
-    var inhouse_layout_item = inhouse_layout.children[0].children[0].children[0].children[2].children[3];
-    var inhouse_layout_item_Offline = inhouse_layout_item.children[0].children[0].children[0];
-
-    chat_wrap_Reading(inhouse_layout_item_Offline, 1)
-        .then((e) => {
-            console.log(e);
-            return chat_wrap_Reading(e, 2);
-        })
-        .then((e) => {
-            console.log(e);
-            e.click();
-            inhouse_layout_item_Offline.click();
-        });
-
-    console.log(inhouse_layout_item);
-}
-function chat_wrap_Reading(params, Request) {
-    return new Promise(function (resolve, reject) {
-        const observerOptions = {
-            childList: true,
-            attributes: true,
-        };
-
-        const observer = new MutationObserver(callback);
-
-        var targetNodes;
-        if (Request === 1) {
-            targetNodes = params.parentElement.parentElement;
-        }
-        if (Request === 2) {
-            var class_name_online = params.parentElement.parentElement.children[1].children[0].className;
-            console.log(class_name_online);
-            if (class_name_online !== '') {
-                console.log('đang chọn online1');
-                targetNodes = params.parentElement.parentElement.children[1];
-                console.log(targetNodes);
-            } else {
-                console.log('không ở online1');
-                targetNodes = params.parentElement.parentElement.children[1].children[0].children[0];
-                console.log(targetNodes);
-            }
-        }
-
-        observer.observe(targetNodes, observerOptions);
-
-        function callback(mutations) {
-            console.log('mutations: ', mutations);
-            console.log('mutations: ', mutations[0].target);
-            var classname = mutations[0].target.children[0].className;
-            console.log(classname);
-            if (Request === 1) {
-                var result = mutations[0].target.children[1].children[0].children[1];
-                observer.disconnect();
-                resolve(result);
-            }
-
-            if (Request === 2) {
-                if (classname !== '') {
-                    var result = mutations[0].target.children[2];
-                    console.log('result', result);
-                } else {
-                    var result = mutations[0].target.children[0].children[0].children[2];
-                    console.log('result', result);
-                }
-                console.log('tìm thấy');
-
-                observer.disconnect();
-                resolve(result);
-            }
-        }
-
-        params ? params.click() : reject('Không tìm thấy params: ' + params);
-    });
-}
-//Pause chat 2
-function chat_wrap2(params) {
+function chat_wrap(params) {
 
     let el_right_section = document.querySelector('.right-section___2FA6h').children
     let item_section_status = el_right_section[3].children[0].children[0].children[0].children[1].children[0].innerText
@@ -786,14 +708,17 @@ function chat_wrap2(params) {
     if (item_section_status === "Busy") {
         console.log(item_section_status);
     }
-    if (item_section_status === "Online" || item_section_status === "Offline") {
+    if (item_section_status === "Online") {
 
         //click lần 1 vào Online ở ngoài
-        chat_wrap_Reading2(item_section, 1)
+        chat_wrap_Reading(item_section, 1)
             .then((e) => {
                 console.log(e);
-                //click lần 2 vào Busy bên tay trái
-                return chat_wrap_Reading2(e,2)
+                // setTimeout(() => {
+                //     e.click() 
+                // }, 10000);
+                // click lần 2 vào Busy bên tay trái
+                return chat_wrap_Reading(e, 2)
             })
             .then((e) => {
                 console.log(e);
@@ -803,10 +728,31 @@ function chat_wrap2(params) {
                 item_section.click()
             })
     }
+    if (item_section_status === "Offline") {
+
+        //click lần 1 vào Online ở ngoài
+        chat_wrap_Reading(item_section, 1)
+            .then((e) => {
+                console.log(e);
+                // setTimeout(() => {
+                //     e.click() 
+                // }, 10000);
+                // click lần 2 vào Busy bên tay trái
+                return chat_wrap_Reading(e, 2, item_section_status)
+            })
+            .then((e) => {
+                console.log(e);
+                //click lần 3 vào wrapup bên tay phải
+                e.click()
+                //click lần 4 ra ngoài (Online ở ngoài)
+                item_section.click()
+                console.log(el_right_section[3].children[0].children[0].children[0].children[1].children[0].innerText);
+            })
+    }
 }
-function chat_wrap_Reading2(item_section, step) {
+function chat_wrap_Reading(item_section, step,item_section_status) {
     return new Promise((resolve, reject) => {
-        
+
         let targetNodes
         switch (step) {
             case 1:
@@ -815,10 +761,10 @@ function chat_wrap_Reading2(item_section, step) {
                 break;
             case 2:
                 //bấm lần 2
-                targetNodes = item_section.parentElement.parentElement.children[1]
+                targetNodes = item_section.parentElement.parentElement.children[1].children[0].children[0]
                 break;
         }
-        console.log(targetNodes, 'step: ',step);
+        console.log(targetNodes, 'step: ', step);
         const observerOptions = {
             childList: true,
             attributes: true,
@@ -827,11 +773,11 @@ function chat_wrap_Reading2(item_section, step) {
         const observer = new MutationObserver(callback);
         observer.observe(targetNodes, observerOptions);
         function callback(mutations) {
-            console.log('mutations: ', mutations, 'step: ',step);
-            console.log('mutations: ', mutations[0].target, 'step: ',step);
+            console.log('mutations: ', mutations, 'step: ', step);
+            console.log('mutations: ', mutations[0].target, 'step: ', step);
             observer.disconnect();
 
-            
+
             switch (step) {
                 case 1:
                     //bấm lần 1
@@ -839,7 +785,16 @@ function chat_wrap_Reading2(item_section, step) {
                     break;
                 case 2:
                     //bấm lần 2
-                    resolve(mutations[0].target.children[0].children[0].children[2]);
+                    switch (item_section_status) {
+                        case 'Offline':
+                            resolve(mutations[0].target.children[2]);
+                            break;
+
+                        default:
+                            resolve(mutations[0].target.children[0].children[0].children[2]);
+
+                            break;
+                    }
                     break;
             }
 

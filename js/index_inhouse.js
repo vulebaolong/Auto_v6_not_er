@@ -322,8 +322,7 @@ window.onload = function () {
                     add_count_chat();
                 }
                 if (event.altKey && event.code === 'KeyP') {
-                    // chat_wrap();
-                    chat_wrap2()
+                    chat_wrap()
                 }
                 if (event.altKey && event.code === 'KeyT') {
                     if (document.querySelector('.on_off_audio').checked) {

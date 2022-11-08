@@ -197,10 +197,10 @@ function inhouse_kb() {
     let el_inhouse_kb_container = document.querySelector('.inhouse_kb_container')
 
     let el_inhouse_kb_nav_btn = document.querySelectorAll('.inhouse_kb_nav > ul li')
-    click_active(el_inhouse_kb_nav_btn,'inhouse_kb_active',el_inhouse_kb_nav_chil)
-    
+    click_active(el_inhouse_kb_nav_btn, 'inhouse_kb_active', el_inhouse_kb_nav_chil)
+
     click_btn(Array.from(el_inhouse_kb_nav_chil.children))
-    
+
     el_inhouse_btn.onclick = (e) => {
         e.stopPropagation()
         el_inhouse_kb.classList.remove('none')
@@ -212,36 +212,36 @@ function inhouse_kb() {
     el_inhouse_kb_container.onclick = (e) => {
         e.stopPropagation()
     }
-  
+
 }
 
-function click_active(element_ar, element_active = 'active',el_inhouse_kb_nav_chil) {
-    element_ar.forEach( (element) => {
+function click_active(element_ar, element_active = 'active', el_inhouse_kb_nav_chil) {
+    element_ar.forEach((element) => {
         console.log(element);
         element.onclick = (e) => {
             let element_current = e.target
             let parent_element = e.target.parentElement
-            let element_active_prev = parent_element.querySelector('.'+element_active)
-            
+            let element_active_prev = parent_element.querySelector('.' + element_active)
+
             element_active_prev.classList.remove(element_active)
             element_current.classList.add(element_active)
 
-            
-            let element_current_id =  e.target.attributes.inhouse_id.value
+
+            let element_current_id = e.target.attributes.inhouse_id.value
             console.log(e.target.attributes.inhouse_id.value);
 
-            click_link(element_current_id, 'show_in_block',el_inhouse_kb_nav_chil)
+            click_link(element_current_id, 'show_in_block', el_inhouse_kb_nav_chil)
         }
 
     })
 }
 
-function click_link(nav_item_id, element_active= 'show_in_block',el_inhouse_kb_nav_chil) {
+function click_link(nav_item_id, element_active = 'show_in_block', el_inhouse_kb_nav_chil) {
     let el_inhouse_kb_nav_chil_content = Array.from(el_inhouse_kb_nav_chil.children)
-    let navChil_item_prev = el_inhouse_kb_nav_chil.querySelector('.'+element_active)
+    let navChil_item_prev = el_inhouse_kb_nav_chil.querySelector('.' + element_active)
 
     if (navChil_item_prev !== null) {
-        navChil_item_prev.classList.remove(element_active)        
+        navChil_item_prev.classList.remove(element_active)
     }
 
     el_inhouse_kb_nav_chil_content.forEach(navChil_item => {
@@ -256,13 +256,13 @@ function click_link(nav_item_id, element_active= 'show_in_block',el_inhouse_kb_n
 }
 
 function click_btn(el_inhouse_kb_nav_chil) {
-    
-    
+
+
     el_inhouse_kb_nav_chil.forEach(element => {
         Array.from(element.children).forEach(el_navChil_item => {
-            Array.from(el_navChil_item.children[0].children).forEach( (navChil_btn ) => {
+            Array.from(el_navChil_item.children[0].children).forEach((navChil_btn) => {
                 click_fetch(navChil_btn)
-                
+
             })
         });
     });
@@ -301,7 +301,7 @@ function macro_coppy(params) {
     click_marp_coppy(el_b_dukien, 'Shopee rất tiếc khi đã đến ngày giao dự kiến mà đơn hàng vẫn chưa được giao đến bạn.\nShopee kiểm tra thấy đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã đến ngày giao hàng dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX')
     click_marp_coppy(el_b_quadukien, 'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến bạn.\nShopee kiểm tra thấy đơn hàng của bạn đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX.')
     click_marp_coppy(el_s_dukien, 'Shopee rất tiếc khi đã đến ngày giao dự kiến mà đơn hàng vẫn chưa được giao đến cho người mua.\nShopee kiểm tra thấy đơn hàng của bạn và người mua đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã đến ngày giao hàng dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn kêu người mua chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn cũng như người mua có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX')
-    click_marp_coppy(el_s_quadukien,'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến cho người mua.\nShopee kiểm tra thấy đơn hàng của bạn và người mua đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn kêu người mua chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn cũng như người mua có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX.')
+    click_marp_coppy(el_s_quadukien, 'Shopee rất tiếc khi đã quá thời gian giao hàng dự kiến mà đơn hàng vẫn chưa được giao đến cho người mua.\nShopee kiểm tra thấy đơn hàng của bạn và người mua đang được vận chuyển giữa các kho trung chuyển. Việc hối giao gấp khi đơn hàng ở các kho này có tỉ lệ thành công rất thấp.\nTuy nhiên do hiện tại đã quá thời gian giao dự kiến, Shopee sẽ chuyển thông tin đốc thúc để đơn vị vận chuyển tăng tốc giao đơn hàng này, bạn kêu người mua chú ý điện thoại để nhận hàng nhé.\nTrong trường hợp cần hàng gấp, bạn cũng như người mua có thể liên hệ trực tiếp với đơn vị vận chuyển XXXXX.')
 
     // >=3 ngày
     let el_ba_ngay = document.querySelector('.ba_ngay')
@@ -313,10 +313,10 @@ function macro_coppy(params) {
 
     click_marp_coppy(el_ba_ngay, 'Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
     click_marp_coppy(el_quan_huyen, 'Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.\nShopee sẽ chuyển đơn vị vận chuyển hối giao để bạn sớm nhận được đơn hàng, thời gian xử lý là 1-2 ngày làm việc tiếp theo.\nThông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển nhé.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn đã đến quận/huyện của Buyer. MVĐ: ')
-    click_marp_coppy(el_qua_edt3,'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì đã quá thời gian dự kiến mà vẫn chưa nhận được hàng.\nMình sẽ chuyển ngay thông tin đến đơn vị vận chuyển để hối thúc giao gấp đơn hàng này cho người mua, thời gian xử lý 1-2 ngày làm việc.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển , bạn có thể liên hệ theo thông tin XXXXX')
+    click_marp_coppy(el_qua_edt3, 'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì đã quá thời gian dự kiến mà vẫn chưa nhận được hàng.\nMình sẽ chuyển ngay thông tin đến đơn vị vận chuyển để hối thúc giao gấp đơn hàng này cho người mua, thời gian xử lý 1-2 ngày làm việc.\nTrường hợp bạn cần liên hệ với đơn vị vận chuyển , bạn có thể liên hệ theo thông tin XXXXX')
     click_marp_coppy(el_haimuoi_ngay, 'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì vẫn chưa nhận được hàng.\nDo đơn chưa có cập nhật trạng thái mới, chưa về đến Việt Nam, mình sẽ chuyển ngay thông tin đến bộ phận liên quan để kiểm tra thông tin đơn hàng này cho người mua, thời gian xử lý 3 đến 5 ngày làm việc (không tính thứ 7, chủ nhật và các ngày lễ).\nMong bạn thông cảm đợi thông tin từ Shopee ạ.\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn CB quá 20 ngày chưa về tới VN\nOrder SN: ')
     click_marp_coppy(el_qua_leadtime, 'Shopee hiểu việc người mua đang nóng lòng chờ nhận hàng và rất tiếc khi để người mua phải liên hệ vì chưa nhận được hàng.\nMình sẽ chuyển ngay thông tin đến đơn vị vận chuyển để hối thúc giao gấp đơn hàng này cho người mua, thời gian xử lý 1-2 ngày làm việc tiếp theo.\nTrường hợp người mua cần liên hệ với đơn vị vận chuyển, người mua có thể liên hệ theo thông tin XXXXX và cung cấp mã vận đơn là XXXXX.\nNếu cần mua hàng gấp, lần sau người mua có thể cân nhắc lựa chọn đặt hàng tại các shop nội địa, đặc biệt là những shop có hỗ trợ vận chuyển hỏa tốc để nhận hàng nhanh chóng hơn\n\n\nDear Team,\n\nNhờ hỗ trợ hối giao đơn CB đã quá thời gian giao hàng có MVĐ: ')
-    click_marp_coppy(el_chua_leadtime,'Đơn hàng đã được đơn vị vận chuyển tiếp nhận ở Việt Nam. Thời gian giao hàng dự kiến là XXXXX ngày làm việc.\nĐơn đang trên đường trung chuyển giữa các bưu cục để đến khu vực của người mua nên Shopee khó có thể can thiệp đốc thúc bưu cục giao hàng để giao ngay đơn hàng này.\nNgười mua có thể chủ động theo dõi hành trình đơn hàng bằng cách sử dụng mã vận đơn XXXXX để kiểm tra trên web của đơn vị vận chuyển.\nTrong trường hợp cần hàng gấp, người mua có thể liên hệ trực tiếp với đơn vị vận chuyển theo thông tin XXXXX.\nNếu cần mua hàng gấp, lần sau người mua có thể cân nhắc lựa chọn đặt hàng tại các shop nội địa, đặc biệt là những shop có hỗ trợ vận chuyển hỏa tốc để nhận hàng nhanh chóng hơn nhé.')
+    click_marp_coppy(el_chua_leadtime, 'Đơn hàng đã được đơn vị vận chuyển tiếp nhận ở Việt Nam. Thời gian giao hàng dự kiến là XXXXX ngày làm việc.\nĐơn đang trên đường trung chuyển giữa các bưu cục để đến khu vực của người mua nên Shopee khó có thể can thiệp đốc thúc bưu cục giao hàng để giao ngay đơn hàng này.\nNgười mua có thể chủ động theo dõi hành trình đơn hàng bằng cách sử dụng mã vận đơn XXXXX để kiểm tra trên web của đơn vị vận chuyển.\nTrong trường hợp cần hàng gấp, người mua có thể liên hệ trực tiếp với đơn vị vận chuyển theo thông tin XXXXX.\nNếu cần mua hàng gấp, lần sau người mua có thể cân nhắc lựa chọn đặt hàng tại các shop nội địa, đặc biệt là những shop có hỗ trợ vận chuyển hỏa tốc để nhận hàng nhanh chóng hơn nhé.')
 }
 
 function click_marp_coppy(params, info) {
@@ -326,139 +326,316 @@ function click_marp_coppy(params, info) {
     }
 }
 
-//Đồng hồ
 
-drag()
 
-function drag(params) {
-    let drag = document.querySelector('.drag_one')
-    let el_leadtime = document.querySelector('.leadtime')
-    
-    dragElement(drag);
-    drag.onclick = (e) => {
+const body = document.querySelector('body');
+run_drag2(body)
+function run_drag2(body) {
+
+
+    let el_toolbar_wraper = document.querySelector('.toolbar_wraper')
+    let el_toolbar_left = document.querySelector('.toolbar_left')
+    let el_toolbar_container = document.querySelector('.toolbar_container')
+    let el_toolbar_container_content = document.querySelector('.toolbar_container_content')
+    let el_toolbar_right_collapse = document.querySelector('.toolbar_right_collapse')
+    let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .time_time')
+    let el_toolbar_mid = document.querySelector('.toolbar_mid')
+    let el_toolbar_mid_calendar = document.querySelector('.toolbar_mid_calendar')
+    let el_toolbar_mid_setting = document.querySelector('.toolbar_mid_setting')
+    let el_toolbar_mid_camera = document.querySelector('.toolbar_mid_camera')
+    let el_toolbar_mid_calendar_content = document.querySelector('.toolbar_mid_calendar_content')
+    let el_toolbar_mid_setting_content = document.querySelector('.toolbar_mid_setting_content')
+    let el_toolbar_mid_calendar_input = document.querySelector('.toolbar_mid_calendar_input')
+    let el_toolbar_mid_calendar_container = document.querySelector('.toolbar_mid_calendar_container')
+    let el_toolbar_mid_change_text_container = document.querySelector('.toolbar_mid_change_text_container')
+    let el_toolbar_mid_calendar_button = document.querySelector('.toolbar_mid_calendar_button')
+    let el_toolbar_mid_calendar_date = document.querySelector('.toolbar_mid_calendar_date')
+    let el_toolbar_mid_calendar_checkbox = document.querySelector('.toolbar_mid_calendar_checkbox')
+    let el_toolbar_mid_calendar_result = document.querySelector('.toolbar_mid_calendar_result')
+    let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
+    let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_change_text_content')
+    let el_toolbar_mid_setting_text = document.querySelectorAll('.toolbar_mid_setting_text')
+    let el_toolbar_mid_setting_btn = document.querySelectorAll('.toolbar_mid_setting_btn')
+
+
+    // collaspe
+    el_toolbar_right_collapse.onclick = (e) => {
+        e.stopPropagation()
+
+        let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
         if (e.altKey) {
-            el_leadtime.classList.toggle('show_leadtime')
+            console.log(el_toolbar_container_left);
+            if (el_toolbar_container_left === 94) {
+                el_toolbar_container_content.style.cssText = `
+            left: unset;
+            right: -15px;
+            `
+                el_toolbar_container.style.cssText = `
+            
+            justify-content: start;
+            `;
+                el_toolbar_left.style.cssText = `
+            justify-content: end;
+            `;
+                el_toolbar_mid_calendar_container.style.cssText = `
+            right: 0;
+            left: unset;
+            `
+                el_toolbar_mid_change_text_container.style.cssText = `
+            right: 0;
+            left: unset;
+            `
+                el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
+                el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
+                el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
+            } else {
+                el_toolbar_container_content.style.cssText = `
+            left: 94px;
+            right: unset;
+            `
+                el_toolbar_container.style.cssText = `            
+            justify-content: end;
+            `;
+
+                el_toolbar_left.style.cssText = `
+            justify-content: start;
+            `;
+                el_toolbar_mid_calendar_container.style.cssText = `
+            left: 0;
+            right: unset;
+            `
+                el_toolbar_mid_change_text_container.style.cssText = `
+            right: unset;
+            left: 0;
+            `
+                el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
+                el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
+
+                el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-left"></i>`
+            }
+        } else {
+            console.log(el_toolbar_container_left);
+            el_toolbar_right_collapse.classList.toggle('toolbar_right_collapse_toggle')
+            el_toolbar_container.classList.toggle('toolbar_container_show')
+
+            let el_active_toolbar = el_toolbar_mid.querySelector(`.active_toolbar`)
+            el_active_toolbar && el_active_toolbar.classList.remove('active_toolbar')
+        }
+    }
+
+    // calender
+    el_toolbar_mid_calendar.onclick = () => {
+        toolBarActive(el_toolbar_mid_calendar, el_toolbar_mid, 'active_toolbar')
+    }
+    el_toolbar_mid_calendar_button.onclick = (e) => {
+        let values = el_toolbar_mid_calendar_date.value
+        let ar_value = values.split('-')
+        let str_value = ar_value[1] + '-' + ar_value[2] + '-' + ar_value[0]
+        let leadtime_request = el_toolbar_mid_calendar_input.value
+        let check = el_toolbar_mid_calendar_checkbox.checked
+        console.log('leadtime =>>>>>>', leadtime_request, str_value, check);
+        let result = leadtime(leadtime_request, str_value, check)
+        el_toolbar_mid_calendar_result.value = result
+        console.log(result);
+    }
+    el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
+
+    // camera
+    el_toolbar_mid_camera.onclick = () => {
+        toolBarActive(el_toolbar_mid_camera, el_toolbar_mid, 'active_toolbar')
+        body.insertAdjacentHTML('afterend', html_screen);
+        run_screen_shot(body)
+    }
+
+    // change_text
+    el_toolbar_mid_change_text.onclick = () => {
+        toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
+    }
+
+    // chat end
+    el_toolbar_mid_setting.onclick = (e) => {
+        toolBarActive(el_toolbar_mid_setting, el_toolbar_mid, 'active_toolbar')
+        for (let index = 0; index < el_toolbar_mid_setting_text.length; index++) {
+            fetch(`../click_chat_end/chat_end_${index+1}.txt`)
+                .then(response => response.text())
+                .then((texts_data) => {
+                    el_toolbar_mid_setting_text[index].innerHTML = texts_data
+                })
         }
     }
     
+
+    array_elements = [
+        el_toolbar_mid_setting_content,
+        el_toolbar_mid_change_text_content,
+        el_toolbar_mid_calendar_content,
+    ]
+    handle_click_stopPropagation(array_elements)
+
+    let request = document.querySelector('.toolbar_mid_change_text_request > input')
+    let request_text = document.getElementById('request_text')
+    let result = document.querySelector('.toolbar_mid_change_text_result > input')
+    let result_text = document.getElementById('result_text')
+    let toolbar_mid_change_text_content_icon = document.querySelector('.toolbar_mid_change_text_content_icon')
+
+    toolbar_mid_change_text_content_icon.onclick = () => {
+        changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
+    }
+    // request_text.onkeyup = (e) => {
+    //     changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
+    // }
+
+    function handle_changeText(request, request_text, result, result_text) {
+        let text = request_text
+        if (request.trim()) {
+            const change = RegExp(`${request}`, 'gi')
+            text = request_text.replace(change, `${result}`)
+        }
+        result_text.value = handle_textAction(text)
+        //xoay icon  
+        toolbar_mid_change_text_content_icon.classList.add('animation')
+        setTimeout(() => {
+            toolbar_mid_change_text_content_icon.classList.remove('animation')
+        }, 400);
+    }
+
+    const changeText = debounce((request, request_text, result, result_text) => handle_changeText(request, request_text, result, result_text));
+    function debounce(func, delay = 300) {
+        let timer;
+        return (request, request_text, result, result_text) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func(request, request_text, result, result_text);
+            }, delay);
+        };
+    }
+
+    function toolBarActive(element, parent, active_toolbar) {
+        let el_active_toolbar = parent.querySelectorAll(`.${active_toolbar}`)
+        el_active_toolbar.forEach((e) => {
+            if (element.classList !== e.classList) {
+                e.classList.remove(active_toolbar)
+            }
+        })
+        element.classList.toggle(active_toolbar)
+    }
+
+
+    function handle_textAction(text) {
+        let result = ''
+        let text2_ar = text.split(/([.\n])([^. a-z]*)([ "]*)/gi)
+        console.log(text2_ar);
+        text2_ar.forEach(element => {
+            //không phải rỗng và không phải Kí tự không phải chữ (phải là chữ)
+            if (element !== '' && /\w/gi.test(element)) {
+                let element_trim = element.trim()
+                console.log(element_trim);
+                let result_textStar_End = handle_textStar_End(element_trim)
+                let text_acronyms = handle_text_acronyms(result_textStar_End)
+                let result_textDownLine = handle_textDownLine(text_acronyms)
+                result += result_textDownLine
+            }
+        })
+        console.log(result);
+        return result
+    }
+    function handle_textStar_End(text) {
+        return text.replace(/(^[ "-]+)|([ "-]+$)/gim, '').trim()
+    }
+    function handle_text_acronyms(text) {
+        let result = text.replace(/buyer/gim, 'người mua')
+            .replace(/seller/gim, 'người bán')
+            .replace(/đvvc|dvvc/gim, 'đơn vị vận chuyển')
+            // .replace(/[<>]/gim, '')
+            // .replace(/[<>]/gim, '')
+            .replace(/<ordersn>/gim, 'XXordersnXX')
+            .replace(/<EDT>/gim, 'XXedtXX')
+            .replace(/<bạn\/bạn báo người mua>/gim, 'XXbạnXX XbáongườimuaX')
+            .replace(/<bạn\/người mua>/gim, 'XXbạnXX XngườimuaX')
+            .replace(/(liên hệ theo thông tin)|(theo thông tin)/gim, 'liên hệ theo thông tin XXXXX')
+
+        return result.trim()
+    }
+    function handle_textDownLine(text) {
+        let text_trim = text.trim()
+        //ghi hoa chữ đầu
+        let upperCase_first = text_trim.charAt(0).toUpperCase() + text_trim.slice(1)
+        //xóa dấu chấm và khoảng cách đầu và cuối
+        let star_end_dot = upperCase_first.replace(/(^[. ]+)|([. ]+$)/gim, '').trim()
+        return star_end_dot + '.\n\n'
+    }
+    function handle_click_stopPropagation(array_elements) {
+        array_elements.forEach(element => {
+            element.onclick = (e) => {
+                e.stopPropagation()
+            }
+        });
+    }
+
+    dragElement(el_toolbar_wraper)
+
     let el_ar = [
-        'leadtime',
-        'leadtime_current',
-        'leadtime_request',
-        'leadtime_nlv',
-        'leadtime_label',
-        'leadtime_get',
-        'leadtime_get_btn',
-        'leadtime_result',
+        'toolbar_container',
+        'time_time',
+
     ]
 
     el_ar.forEach((e) => {
         let element = document.querySelector(`.${e}`)
-        element.onclick = (e1) => {e1.stopPropagation()}
-        element.onmousedown = (e) => { e.stopPropagation() }
-        element.onmousemove = (e) => { e.stopPropagation() }
-        element.onmouseup = (e) => { e.stopPropagation() }
+        // element.onclick = (e1) => {e1.stopPropagation()}
+        element.onmousedown = (e1) => { e1.stopPropagation() }
+        element.onmousemove = (e1) => { e1.stopPropagation() }
+        element.onmouseup = (e1) => { e1.stopPropagation() }
         if (element.getAttribute("type") === 'text') {
             element.onclick = (e) => {
                 element.select()
             }
         }
-    }) 
-
-
-    let el_leadtime_result = document.querySelector('.leadtime_result');
-    let el_leadtime_current = document.querySelector('.leadtime_current');
-    let el_leadtime_nlv = document.querySelector('.leadtime_nlv');
-    let el_leadtime_request = document.querySelector('.leadtime_request');
-    let el_leadtime_get_btn = document.querySelector('.leadtime_get_btn');
-
-    el_leadtime_get_btn.onclick = () => {
-        let values = el_leadtime_current.value
-        let ar_value = values.split('-')
-        let str_value = ar_value[1] + '-' + ar_value[2] + '-' + ar_value[0]
-        console.log('leadtime =>>>>>>', el_leadtime_request.value, str_value, el_leadtime_nlv.checked);
-        let day_result = leadtime(el_leadtime_request.value, str_value, el_leadtime_nlv.checked)
-        el_leadtime_result.innerHTML = day_result
-        console.log('ngày cuối cung: =>>>>>>', day_result);
-    }
-}
-
-function leadtime(day_request, current, lam_viec) {
-    let day_result
-
-    let day_current = Date.parse(new Date(current)) || Date.parse(new Date());
-    // console.log(day_current);
-
-    for (let index = 0; index < day_request;) {
-        let day_step = new Date(day_current += 86400000);
-        console.log(day_step.toString());
-        let year = day_step.getFullYear();
-        let month = day_step.getMonth() + 1;
-        let day = day_step.getDate();
-        let dayofweek = day_step.getDay();
-
-        // const dayname = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];    
-        // console.log(dayname[dayofweek] + ' ngày ' + day + '/' + month + '/' + year);
-        day_result = day + '-' + month + '-' + year
-        // console.log(day_result);
-
-        if (lam_viec) {
-            if (dayofweek === 0 || dayofweek === 6) {
-                // console.log('thứ 7 và chủ nhật không chạy dayofweek: ', dayofweek);
-            } else {
-                index++
-            }
+    })
+    function dragElement(elmnt) {
+        var pos1 = 0,
+            pos2 = 0,
+            pos3 = 0,
+            pos4 = 0;
+        if (document.getElementById(elmnt.id + 'header')) {
+            /* if present, the header is where you move the DIV from:*/
+            document.getElementById(elmnt.id + 'header').onmousedown = dragMouseDown;
         } else {
-            index++
+            /* otherwise, move the DIV from anywhere inside the DIV:*/
+            elmnt.onmousedown = dragMouseDown;
         }
 
+        function dragMouseDown(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // get the mouse cursor position at startup:
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            document.onmouseup = closeDragElement;
+            // call a function whenever the cursor moves:
+            document.onmousemove = elementDrag;
+        }
 
+        function elementDrag(e) {
+            e = e || window.event;
+            e.preventDefault();
+            // calculate the new cursor position:
+            pos1 = pos3 - e.clientX;
+            pos2 = pos4 - e.clientY;
+            pos3 = e.clientX;
+            pos4 = e.clientY;
+            // set the element's new position:
+            elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
+            elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
+        }
+
+        function closeDragElement() {
+            /* stop moving when mouse button is released:*/
+            document.onmouseup = null;
+            document.onmousemove = null;
+        }
     }
-    return day_result
+
+
 }
-
-function dragElement(elmnt) {
-    var pos1 = 0,
-        pos2 = 0,
-        pos3 = 0,
-        pos4 = 0;
-    if (document.getElementById(elmnt.id + 'header')) {
-        /* if present, the header is where you move the DIV from:*/
-        document.getElementById(elmnt.id + 'header').onmousedown = dragMouseDown;
-    } else {
-        /* otherwise, move the DIV from anywhere inside the DIV:*/
-        elmnt.onmousedown = dragMouseDown;
-    }
-
-    function dragMouseDown(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // get the mouse cursor position at startup:
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        document.onmouseup = closeDragElement;
-        // call a function whenever the cursor moves:
-        document.onmousemove = elementDrag;
-    }
-
-    function elementDrag(e) {
-        e = e || window.event;
-        e.preventDefault();
-        // calculate the new cursor position:
-        pos1 = pos3 - e.clientX;
-        pos2 = pos4 - e.clientY;
-        pos3 = e.clientX;
-        pos4 = e.clientY;
-        // set the element's new position:
-        elmnt.style.top = elmnt.offsetTop - pos2 + 'px';
-        elmnt.style.left = elmnt.offsetLeft - pos1 + 'px';
-    }
-
-    function closeDragElement() {
-        /* stop moving when mouse button is released:*/
-        document.onmouseup = null;
-        document.onmousemove = null;
-    }
-}
-
 

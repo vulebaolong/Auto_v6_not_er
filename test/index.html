@@ -7,12 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" href="../css/drag.css">
+
     <link rel="stylesheet" href="../css/button.css">
     <link rel="stylesheet" href="../css/inhouse_kb.css">
     <link rel="stylesheet" href="../css/tooltip.css">
+    <!-- <link rel="stylesheet" href="../css/toolbar.css"> -->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./test.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -107,28 +111,218 @@
 
 
 
-    <div class="drag_one">  
-        <div class="drag_grip"><i class="fa-solid fa-grip-vertical"></i></div>
-        <div class="drag_container">
-            <div class="leadtime">
-                <input class="leadtime_current" type="date"/>
-                <input class="leadtime_request" type="text" value="14"/>       
-                <input class="leadtime_nlv" type="checkbox" checked="true">
-                <label class="leadtime_label">làm việc</label>
-                <div class="leadtime_get">
-                    <div class="leadtime_get_btn">get</div>
-                    <div class="leadtime_result" >10-09-2022</div>
-                </div>
-            </div>  
+    <!-- <div class="toolbar_wraper">
+        <div class="toolbar_left">
+            <div class="toolbar_left_move">
+
+                <i class="fa-solid fa-grip-lines-vertical"></i>
+            </div>
             <div class="time_time">
-                <div class="time_hour">00</div>:
-                <div class="time_minutes">00</div>:
-                <div class="time_second">00</div>        
-            </div>    
-        </div>               
+                <div class="time_hour2">89</div>:
+                <div class="time_minutes2">45</div>:
+                <div class="time_second2">67</div>
+            </div>
+        </div>
+        <div class="toolbar_container_content">
+            <div class="toolbar_container">
+                <div class="toolbar_mid">
+                    <div class="split"></div>
+                    <div class="toolbar_item toolbar_mid_calendar">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div class="toolbar_mid_calendar_container">
+                            <div class="toolbar_mid_calendar_content">
+                                <input class="toolbar_mid_calendar_date" type="date">
+                                <div class="toolbar_mid_calendar_period">
+                                    <input class="input_toobar toolbar_mid_calendar_input" type="text" value="14"
+                                        maxlength="3">
+                                    <input class="toolbar_mid_calendar_checkbox" type="checkbox" checked="true">
+                                    <label>Ngày làm việc</label>
+                                </div>
+                                <div class="toolbar_mid_calendar_button">
+                                    <i class="fa-solid fa-calendar-plus"></i>
+                                    <div>Get</div>
+                                </div>
+                                <input class="toolbar_mid_calendar_result" type="text" value="??-??-???">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar_item toolbar_mid_setting">
+                        <i class="fa-solid fa-paper-plane-top"></i>
+                        <div class="toolbar_mid_setting_container">
+                            <div class="toolbar_mid_setting_content">
+                                <div class="split_c margin_top10"></div>
+                                <div class="toolbar_mid_setting_item1">
+                                    <p>Auto play audio chat new</p>
+                                    <label class="toggle_switch chat_audio">
+                                        <input class="on_off_audio " type="checkbox" checked="true">
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="split_c"></div>
+                                <div class="toolbar_mid_setting_item2">
+                                    <p class="toolbar_mid_setting_title">Pause chat time</p>
+                                    <div class="toolbar_mid_setting_pause1">
+                                        <div class="toolbar_mid_setting_time">
+                                            <input class="pause_h input_toobar input_pause" maxlength="2" value="06">
+                                            <span class="pause_text2">Giờ</span>
+                                            <input class="pause_m input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Phút</span>
+                                            <input class="pause_s input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Giây</span>
+                                        </div>
+                                        <label class="toggle_switch">
+                                            <input class="" type="checkbox" checked="true">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="toolbar_mid_setting_pause1">
+                                        <div class="toolbar_mid_setting_time">
+                                            <input class="pause_h input_toobar input_pause" maxlength="2" value="06">
+                                            <span class="pause_text2">Giờ</span>
+                                            <input class="pause_m input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Phút</span>
+                                            <input class="pause_s input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Giây</span>
+                                        </div>
+                                        <label class="toggle_switch">
+                                            <input class="" type="checkbox" checked="true">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                                <div class="split_c margin_bottom10"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split"></div>
+                </div>
+                <div class="toolbar_right">
+                    <div class="toolbar_right_collapse">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="toolbar_wraper">
+        <div class="toolbar_left">
+            <div class="toolbar_left_move">
+
+                <i class="fa-solid fa-grip-lines-vertical"></i>
+            </div>
+            <div class="time_time">
+                <div class="time_hour2">89</div>:
+                <div class="time_minutes2">45</div>:
+                <div class="time_second2">67</div>
+            </div>
+        </div>
+        <div class="toolbar_container_content">
+            <div class="toolbar_container">
+                <div class="toolbar_mid">
+                    <div class="split"></div>
+                    <div class="toolbar_item toolbar_mid_calendar">
+                        <i class="fa-regular fa-calendar-days"></i>
+                        <div class="toolbar_mid_calendar_container">
+                            <div class="toolbar_mid_calendar_content">
+                                <input class="toolbar_mid_calendar_date" type="date">
+                                <div class="toolbar_mid_calendar_period">
+                                    <input class="input_toobar toolbar_mid_calendar_input" type="text" value="14"
+                                        maxlength="3">
+                                    <input class="toolbar_mid_calendar_checkbox" type="checkbox" checked="true">
+                                    <label>Ngày làm việc</label>
+                                </div>
+                                <div class="toolbar_mid_calendar_button">
+                                    <i class="fa-solid fa-calendar-plus"></i>
+                                    <div>Get</div>
+                                </div>
+                                <input class="toolbar_mid_calendar_result" type="text" value="??-??-???">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar_item toolbar_mid_change_text">
+                        <i class="fa-regular fa-arrows-repeat"></i>
+                        <div class="toolbar_mid_change_text_container">
+                            <div class="toolbar_mid_change_text_content">
+                                <div class="toolbar_mid_change_text_request">
+                                    <input type="text" value="bạn">
+                                    <textarea id="request_text" cols="30" rows="10"></textarea>
+                                </div>
+                                <span class="toolbar_mid_change_text_content_icon">
+                                    <i class="fa-solid fa-arrows-rotate"></i>
+                                </span>
+                                <div class="toolbar_mid_change_text_result">
+                                    <input type="text" value="người mua">
+                                    <textarea id="result_text" cols="30" rows="10"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="toolbar_item toolbar_mid_camera">
+                        <i class="fa-solid fa-camera"></i>
+                    </div>
+                    <div class="toolbar_item toolbar_mid_setting">
+                        <i class="fa-solid fa-paper-plane-top"></i>
+                        <div class="toolbar_mid_setting_container">
+                            <div class="toolbar_mid_setting_content">
+                                <div class="split_c margin_top10"></div>
+                                <div class="toolbar_mid_setting_item1">
+                                    <p>Auto play audio chat new</p>
+                                    <label class="toggle_switch chat_audio">
+                                        <input class="on_off_audio " type="checkbox" checked="true">
+                                        <span></span>
+                                    </label>
+                                </div>
+                                <div class="split_c"></div>
+                                <div class="toolbar_mid_setting_item2">
+                                    <p class="toolbar_mid_setting_title">Pause chat time</p>
+                                    <div class="toolbar_mid_setting_pause1">
+                                        <div class="toolbar_mid_setting_time">
+                                            <input class="pause_h input_toobar input_pause" maxlength="2" value="06">
+                                            <span class="pause_text2">Giờ</span>
+                                            <input class="pause_m input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Phút</span>
+                                            <input class="pause_s input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Giây</span>
+                                        </div>
+                                        <label class="toggle_switch">
+                                            <input class="" type="checkbox" checked="true">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="toolbar_mid_setting_pause1">
+                                        <div class="toolbar_mid_setting_time">
+                                            <input class="pause_h input_toobar input_pause" maxlength="2" value="06">
+                                            <span class="pause_text2">Giờ</span>
+                                            <input class="pause_m input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Phút</span>
+                                            <input class="pause_s input_toobar input_pause" maxlength="2" value="00">
+                                            <span class="pause_text2">Giây</span>
+                                        </div>
+                                        <label class="toggle_switch">
+                                            <input class="" type="checkbox" checked="true">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    
+                                </div>
+                                <div class="split_c margin_bottom10"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split"></div>
+                </div>
+                <div class="toolbar_right">
+                    <div class="toolbar_right_collapse">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 
 
 
