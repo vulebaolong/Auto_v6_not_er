@@ -504,18 +504,18 @@
             return Get_PM
         }
         function Get_LT(card_with_headerss) {
-            var result
+            let result
             card_with_headerss.forEach((e) => {
                 if (e.attributes.id.value === 'logistic-info') {
                     console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0]);
                     //console.log(e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML);
-                    result = e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML
+                    text = e.children[1].children[0].children[1].children[0].children[1].children[0].children[1].children[1].children[0].children[0].outerHTML
 
                 }
 
             });
-
-            console.log(result);
+            result = strong_text_LT(text)
+            console.log(typeof result, result);
             return result
         }
         function Get_UID(card_with_headerss) {
@@ -546,6 +546,22 @@
             }
 
             return result;
+        }
+
+        function strong_text_LT(text) {
+            let stylee = 'padding: 2px;border-radius: 5px;'
+            let result1 = text.replace(/(RETURNED)/gi, `<span style='background-color: #c92a2a;color: #fff;${stylee}'>RETURNED</span>`);
+            let result2 = result1.replace(/(Trả hàng thành công)/g, `<span style='background-color: #c92a2a;color: #fff;${stylee}'>Trả hàng thành công</span>`);
+
+            let result3 = result2.replace(/(RETURN_INITIATED)/g, `<span style='background-color: #e67700;color: #fff;${stylee}'>RETURN_INITIATED</span>`);
+            let result4 = result3.replace(/(Return)/g, `<span style='background-color: #e67700;color:#fff;${stylee}'>Return</span>`);
+
+            let result5 = result4.replace(/(DELIVERED)/g, `<span style='background-color: #2b8a3e;color: #fff;${stylee}'>DELIVERED</span>`);
+            let result6 = result5.replace(/(Giao hàng thành công)/g, `<span style='background-color: #2b8a3e;color: #fff;${stylee}'>Giao hàng thành công</span>`);
+
+
+
+            return result6
         }
     }
 }

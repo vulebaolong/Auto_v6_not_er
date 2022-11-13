@@ -130,13 +130,6 @@ let html_Nav_left = `
 </div>
 `;
 
-let html_toggle_switch = `
-    <label class="toggle_switch">
-        <input class="on_off_audio" type="checkbox" checked="true">
-        <span></span>
-    </label>
-`;
-
 let htmlsearch_LDP = `
         <div class="search_container">
             <div class="search_box">                
@@ -241,7 +234,7 @@ window.onload = function () {
 
         body.insertAdjacentHTML(
             'afterend',
-            (html_Nav_right += html_Nav_left += htmlONOFF += html_time_time += html_inhouse_kb += html_drag2)
+            (html_Nav_right += html_Nav_left += htmlONOFF += html_inhouse_kb += html_tool_bar)
         );
 
         Get_Word_ID();
@@ -254,7 +247,6 @@ window.onload = function () {
                 'search_container',
                 'container_time',
                 'toggle_switch',
-                'drag_one',
                 'toolbar_wraper',
                 'Auto_saleforce_Order_Info',
                 'container_mes_chat',
@@ -276,7 +268,7 @@ window.onload = function () {
                 e2[0].style.overflow = 'inherit';
                 e2[0].lastElementChild.insertAdjacentHTML(
                     'afterend',
-                    htmlsearch_LDP + html_time_lock + html_toggle_switch,
+                    htmlsearch_LDP + html_time_lock,
                 );
                 start_search();
                 time_clock();
@@ -293,16 +285,17 @@ window.onload = function () {
                 return Get_el_main_container(e2[1], 3);
             });
 
-        drag()
-        run_drag2(body)
+        // drag()
+        run_toolBar(body)
         click_btn_ldp()
         button_long();
         inhouse_kb();
         macro_coppy();
+        auto_pause_chat()
 
         var el_item_test = document.querySelector('.btn_test');
         el_item_test.onclick = (ev) => {
-            Open_tab()
+            // Open_tab()
             // chrome.tabs.create({url: "https://google.com/", active: true});
             // var redirectWindow = window.open('https://cs.shopee.vn/portal/inhouse/workstation/items', '_blank');
             

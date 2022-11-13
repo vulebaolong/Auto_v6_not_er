@@ -65,7 +65,7 @@
         "js/inhouse_kb.js",
         "js/drag.js",
         "js/search_ldp.js",
-        "js/drag2.js",
+        "js/tool_bar.js",
         "js/html2canvas.js",
         "js/screen_shot.js"
       ],

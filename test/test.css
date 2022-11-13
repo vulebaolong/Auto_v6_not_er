@@ -20,8 +20,9 @@ body {
 
 .toolbar_container_show {
     width: 220px !important;
-    box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 16px 0px, rgba(0, 0, 0, 0.06) 5px 8px 16px 0px;
-
+    box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 16px 0px, rgba(0, 0, 0, 0.06) 5px 8px 16px 0px;  
+    background-color: red;
+    color: #fff;
 }
 
 .toolbar_container_content {

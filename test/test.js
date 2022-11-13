@@ -329,8 +329,8 @@ function click_marp_coppy(params, info) {
 
 
 const body = document.querySelector('body');
-run_drag2(body)
-function run_drag2(body) {
+run_toolBar(body)
+function run_toolBar(body) {
 
 
     let el_toolbar_wraper = document.querySelector('.toolbar_wraper')
@@ -341,10 +341,8 @@ function run_drag2(body) {
     let el_time_time = document.querySelector('.toolbar_wraper > .toolbar_left > .time_time')
     let el_toolbar_mid = document.querySelector('.toolbar_mid')
     let el_toolbar_mid_calendar = document.querySelector('.toolbar_mid_calendar')
-    let el_toolbar_mid_setting = document.querySelector('.toolbar_mid_setting')
     let el_toolbar_mid_camera = document.querySelector('.toolbar_mid_camera')
     let el_toolbar_mid_calendar_content = document.querySelector('.toolbar_mid_calendar_content')
-    let el_toolbar_mid_setting_content = document.querySelector('.toolbar_mid_setting_content')
     let el_toolbar_mid_calendar_input = document.querySelector('.toolbar_mid_calendar_input')
     let el_toolbar_mid_calendar_container = document.querySelector('.toolbar_mid_calendar_container')
     let el_toolbar_mid_change_text_container = document.querySelector('.toolbar_mid_change_text_container')
@@ -354,79 +352,63 @@ function run_drag2(body) {
     let el_toolbar_mid_calendar_result = document.querySelector('.toolbar_mid_calendar_result')
     let el_toolbar_mid_change_text = document.querySelector('.toolbar_mid_change_text')
     let el_toolbar_mid_change_text_content = document.querySelector('.toolbar_mid_change_text_content')
-    let el_toolbar_mid_setting_text = document.querySelectorAll('.toolbar_mid_setting_text')
-    let el_toolbar_mid_setting_btn = document.querySelectorAll('.toolbar_mid_setting_btn')
 
+    let el_toolbar_mid_setting_container = document.querySelector('.toolbar_mid_setting_container')
+    let el_toolbar_mid_setting = document.querySelector('.toolbar_mid_setting')
+    // let el_toolbar_mid_setting_content = document.querySelector('.toolbar_mid_setting_content')
+    // let el_toolbar_mid_setting_text = document.querySelectorAll('.toolbar_mid_setting_text')
+    // let el_toolbar_mid_setting_btn = document.querySelectorAll('.toolbar_mid_setting_btn')
 
-    // collaspe
+    let el_time_hours2 = document.querySelector('.time_hour2');
+    let el_time_minutes2 = document.querySelector('.time_minutes2');
+    let el_time_second2 = document.querySelector('.time_second2');
+
+    array_elements = [
+        el_toolbar_mid_calendar_content,
+        el_toolbar_mid_change_text_content
+    ]
+    handle_click_stopPropagation(array_elements)
+
     el_toolbar_right_collapse.onclick = (e) => {
         e.stopPropagation()
-
         let el_toolbar_container_left = el_toolbar_container_content.offsetLeft
         if (e.altKey) {
             console.log(el_toolbar_container_left);
             if (el_toolbar_container_left === 94) {
-                el_toolbar_container_content.style.cssText = `
-            left: unset;
-            right: -15px;
-            `
-                el_toolbar_container.style.cssText = `
-            
-            justify-content: start;
-            `;
-                el_toolbar_left.style.cssText = `
-            justify-content: end;
-            `;
-                el_toolbar_mid_calendar_container.style.cssText = `
-            right: 0;
-            left: unset;
-            `
-                el_toolbar_mid_change_text_container.style.cssText = `
-            right: 0;
-            left: unset;
-            `
+                el_toolbar_container_content.style.cssText = `left: unset; right: -15px;`
+                el_toolbar_container.style.cssText = `justify-content: start;`;
+                el_toolbar_left.style.cssText = `justify-content: end;`;
+                el_toolbar_mid_calendar_container.style.cssText = `right: 0; left: unset;`
+                el_toolbar_mid_change_text_container.style.cssText = `right: 0; left: unset;`
+                el_toolbar_mid_setting_container.style.cssText = `right: 0; left: unset;`
                 el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
                 el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
                 el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-right"></i>`
             } else {
-                el_toolbar_container_content.style.cssText = `
-            left: 94px;
-            right: unset;
-            `
-                el_toolbar_container.style.cssText = `            
-            justify-content: end;
-            `;
-
-                el_toolbar_left.style.cssText = `
-            justify-content: start;
-            `;
-                el_toolbar_mid_calendar_container.style.cssText = `
-            left: 0;
-            right: unset;
-            `
-                el_toolbar_mid_change_text_container.style.cssText = `
-            right: unset;
-            left: 0;
-            `
+                el_toolbar_container_content.style.cssText = `left: 94px; right: unset;`
+                el_toolbar_container.style.cssText = `justify-content: end; `;
+                el_toolbar_left.style.cssText = `justify-content: start;`;
+                el_toolbar_mid_calendar_container.style.cssText = `left: 0; right: unset;`
+                el_toolbar_mid_change_text_container.style.cssText = `right: unset; left: 0;`
+                el_toolbar_mid_setting_container.style.cssText = `left: 0; right: unset;`
                 el_toolbar_container.appendChild(el_toolbar_container.firstElementChild);
                 el_toolbar_left.appendChild(el_toolbar_left.firstElementChild);
-
                 el_toolbar_right_collapse.innerHTML = `<i class="fa-solid fa-chevron-left"></i>`
             }
         } else {
             console.log(el_toolbar_container_left);
             el_toolbar_right_collapse.classList.toggle('toolbar_right_collapse_toggle')
             el_toolbar_container.classList.toggle('toolbar_container_show')
-
             let el_active_toolbar = el_toolbar_mid.querySelector(`.active_toolbar`)
             el_active_toolbar && el_active_toolbar.classList.remove('active_toolbar')
         }
     }
 
-    // calender
     el_toolbar_mid_calendar.onclick = () => {
         toolBarActive(el_toolbar_mid_calendar, el_toolbar_mid, 'active_toolbar')
     }
+   
+    el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
     el_toolbar_mid_calendar_button.onclick = (e) => {
         let values = el_toolbar_mid_calendar_date.value
         let ar_value = values.split('-')
@@ -438,39 +420,20 @@ function run_drag2(body) {
         el_toolbar_mid_calendar_result.value = result
         console.log(result);
     }
-    el_toolbar_mid_calendar_input.onclick = (e) => { el_toolbar_mid_calendar_input.select() }
 
-    // camera
+    el_toolbar_mid_change_text.onclick = () => {
+        toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
+    }
+
     el_toolbar_mid_camera.onclick = () => {
         toolBarActive(el_toolbar_mid_camera, el_toolbar_mid, 'active_toolbar')
         body.insertAdjacentHTML('afterend', html_screen);
         run_screen_shot(body)
     }
 
-    // change_text
-    el_toolbar_mid_change_text.onclick = () => {
-        toolBarActive(el_toolbar_mid_change_text, el_toolbar_mid, 'active_toolbar')
-    }
-
-    // chat end
     el_toolbar_mid_setting.onclick = (e) => {
         toolBarActive(el_toolbar_mid_setting, el_toolbar_mid, 'active_toolbar')
-        for (let index = 0; index < el_toolbar_mid_setting_text.length; index++) {
-            fetch(`../click_chat_end/chat_end_${index+1}.txt`)
-                .then(response => response.text())
-                .then((texts_data) => {
-                    el_toolbar_mid_setting_text[index].innerHTML = texts_data
-                })
-        }
     }
-    
-
-    array_elements = [
-        el_toolbar_mid_setting_content,
-        el_toolbar_mid_change_text_content,
-        el_toolbar_mid_calendar_content,
-    ]
-    handle_click_stopPropagation(array_elements)
 
     let request = document.querySelector('.toolbar_mid_change_text_request > input')
     let request_text = document.getElementById('request_text')
@@ -481,9 +444,8 @@ function run_drag2(body) {
     toolbar_mid_change_text_content_icon.onclick = () => {
         changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
     }
-    // request_text.onkeyup = (e) => {
-    //     changeText(request.value.trim(), request_text.value, result.value.trim(), result_text)
-    // }
+
+
 
     function handle_changeText(request, request_text, result, result_text) {
         let text = request_text
@@ -556,6 +518,7 @@ function run_drag2(body) {
 
         return result.trim()
     }
+
     function handle_textDownLine(text) {
         let text_trim = text.trim()
         //ghi hoa chữ đầu
@@ -564,6 +527,7 @@ function run_drag2(body) {
         let star_end_dot = upperCase_first.replace(/(^[. ]+)|([. ]+$)/gim, '').trim()
         return star_end_dot + '.\n\n'
     }
+
     function handle_click_stopPropagation(array_elements) {
         array_elements.forEach(element => {
             element.onclick = (e) => {
@@ -571,6 +535,7 @@ function run_drag2(body) {
             }
         });
     }
+
 
     dragElement(el_toolbar_wraper)
 
@@ -635,7 +600,34 @@ function run_drag2(body) {
             document.onmousemove = null;
         }
     }
+    time_toolBar()
+    function time_toolBar(params) {
+        setInterval(() => {
+            let h = new Date().getHours();
+            let m = new Date().getMinutes();
+            let s = new Date().getSeconds();
+            let am = h >= 12 ? "PM" : "AM"
+
+            h = h < 10 ? '0' + h : h;
+            m = m < 10 ? '0' + m : m;
+            s = s < 10 ? '0' + s : s;
 
 
+            el_time_hours2.innerHTML = h;
+            el_time_minutes2.innerHTML = m;
+            el_time_second2.innerHTML = s;
+            // el_ampm.innerHTML = am
+
+            //đúng 6h sáng wrap up
+            if (am === 'AM') {
+                if (h == 06 && m == 00 && s == 00) {
+                    chat_wrap()
+                }
+                // console.log(h+':',m+':',s);
+            }
+
+
+        }, 1000);
+    }
 }
 

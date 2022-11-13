@@ -509,28 +509,20 @@ function click_btn_ldp() {
 
 //đồng hồ bên tay trái
 function time_clock(params) {
-    setInterval(() => {
-        let el_hours = document.querySelector('.clock_hours');
-        let el_minutes = document.querySelector('.clock_minutes');
-        let el_seconds = document.querySelector('.clock_seconds');
-        let el_time_hours = document.querySelector('.time_hour');
-        let el_time_minutes = document.querySelector('.time_minutes');
-        let el_time_second = document.querySelector('.time_second');
+    let el_hours = document.querySelector('.clock_hours');
+    let el_minutes = document.querySelector('.clock_minutes');
+    let el_seconds = document.querySelector('.clock_seconds');
 
-        let el_time_hours2 = document.querySelector('.time_hour2');
-        let el_time_minutes2 = document.querySelector('.time_minutes2');
-        let el_time_second2 = document.querySelector('.time_second2');
+    let hh = document.querySelector('#hh');
+    let mm = document.querySelector('#mm');
+    let ss = document.querySelector('#ss');
+
+    let hr_dot = document.querySelector('.hr_dot');
+    let min_dot = document.querySelector('.min_dot');
+    let sec_dot = document.querySelector('.sec_dot');
+    setInterval(() => {
 
         // let el_ampm = document.querySelector('.ampm')
-
-        let hh = document.querySelector('#hh');
-        let mm = document.querySelector('#mm');
-        let ss = document.querySelector('#ss');
-
-        let hr_dot = document.querySelector('.hr_dot');
-        let min_dot = document.querySelector('.min_dot');
-        let sec_dot = document.querySelector('.sec_dot');
-
         let h = new Date().getHours();
         let m = new Date().getMinutes();
         let s = new Date().getSeconds();
@@ -542,22 +534,7 @@ function time_clock(params) {
 
         el_hours.innerHTML = h + '<br><span>hh</span>';
         el_minutes.innerHTML = m + '<br><span>mm</span>';
-        el_seconds.innerHTML = s + '<br><span>ss</span>';
-        el_time_hours.innerHTML = h;
-        el_time_minutes.innerHTML = m;
-        el_time_second.innerHTML = s;
-        el_time_hours2.innerHTML = h;
-        el_time_minutes2.innerHTML = m;
-        el_time_second2.innerHTML = s;
-        // el_ampm.innerHTML = am
-
-        //đúng 6h sáng wrap up
-        if (am === 'AM') {
-            if (h == 06 && m == 00 && s == 00) {
-                chat_wrap()
-            }
-            // console.log(h+':',m+':',s);
-        }
+        el_seconds.innerHTML = s + '<br><span>ss</span>';       
 
         hh.style.strokeDashoffset = 165 - (165 * h) / 24;
         mm.style.strokeDashoffset = 165 - (165 * m) / 60;
@@ -750,7 +727,7 @@ function chat_wrap(params) {
             })
     }
 }
-function chat_wrap_Reading(item_section, step,item_section_status) {
+function chat_wrap_Reading(item_section, step, item_section_status) {
     return new Promise((resolve, reject) => {
 
         let targetNodes
@@ -761,7 +738,16 @@ function chat_wrap_Reading(item_section, step,item_section_status) {
                 break;
             case 2:
                 //bấm lần 2
-                targetNodes = item_section.parentElement.parentElement.children[1].children[0].children[0]
+                switch (item_section_status) {
+                    case 'Offline':
+                        targetNodes = item_section.parentElement.parentElement.children[1].children[0].children[0]
+                        break;
+
+                    default:
+                        targetNodes = item_section.parentElement.parentElement.children[1]
+                        break;
+                }
+
                 break;
         }
         console.log(targetNodes, 'step: ', step);
@@ -925,7 +911,7 @@ function Get_Word_ID(params) {
     let objValue = {
         flag: 'get_id',
         value: 'Gửi đi tin nhắn để lấy TabID_work'
- };
+    };
 
     chrome.runtime.sendMessage(objValue, (e) => {
         let tabID = e.Work_ID;
@@ -945,9 +931,9 @@ function Get_Word_ID(params) {
 }
 
 function Open_tab(params) {
-    let objValue = { 
+    let objValue = {
         flag: 'open_tab',
-        value: 'Gửi đi tin nhắn để open tab' 
+        value: 'Gửi đi tin nhắn để open tab'
     };
 
     chrome.runtime.sendMessage(objValue, (e) => {
@@ -1017,6 +1003,61 @@ function logSelection(params) {
     console.log(sel);
     console.log(sel.replace(/bạn/gi, "NGƯỜI MUA"));
 }
+
+function auto_pause_chat() {
+    let array_time1 = [
+        'input_pause11',
+        'input_pause12',
+        'input_pause13'
+    ]
+    let array_time2 = [
+        'input_pause21',
+        'input_pause22',
+        'input_pause23'
+    ]
+
+    let result1 = array_time1.map((e) => {
+        return document.querySelector(`.${e}`);
+    })
+    let result2 = array_time2.map((e) => {
+        return document.querySelector(`.${e}`);
+    })
+
+    let el_chat_pause1 = document.querySelector('.chat_pause1')
+    let el_chat_pause2 = document.querySelector('.chat_pause2')
+
+    setInterval(() => {
+        let h = new Date().getHours();
+        let m = new Date().getMinutes();
+        let s = new Date().getSeconds();
+        let am = h >= 12 ? "PM" : "AM"
+
+        h = h < 10 ? '0' + h : h;
+        m = m < 10 ? '0' + m : m;
+        s = s < 10 ? '0' + s : s;
+
+        if (el_chat_pause1.checked) {
+            handle_time(result1, am, h, m, s)
+        }
+        if (el_chat_pause2.checked) {
+            handle_time(result2, am, h, m, s)
+        }
+    }, 1000);
+}
+function handle_time(result, am, h, m, s) {
+    let array_time_res = result.map((e) => {
+        return e.value
+    })
+    // console.log(array_time_res);
+    if (am === 'AM') {
+        if (h == array_time_res[0] && m == array_time_res[1] && s == array_time_res[2]) {
+            chat_wrap()
+        }
+    }
+}
+
+
+
 
 // lưu trữ
 function Get_Pro(col) {

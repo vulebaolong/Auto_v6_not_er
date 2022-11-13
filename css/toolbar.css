@@ -3,7 +3,7 @@
     font-weight: 900;
     height: 50px;
     position: fixed;
-    top: 484px;
+    top: 450px;
     left: 2px;
 
     color: white;
@@ -14,16 +14,14 @@
 }
 
 .toolbar_container_show {
-    width: 180px !important;
+    width: 220px !important;
     box-shadow: rgba(0, 0, 0, 0.1) 5px 0px 16px 0px, rgba(0, 0, 0, 0.06) 5px 8px 16px 0px;
-
 }
 
 .toolbar_container_content{
     position: absolute;    
     z-index: 2;
-    left: 94px;
-    
+    left: 94px;    
     border-radius: 10px;
 }
 
@@ -130,6 +128,9 @@
 .toolbar_container .toolbar_mid_change_text:after {
     content: 'Change Text';
 }
+.toolbar_container .toolbar_mid_setting:after {
+    content: 'Setting';
+}
 .toolbar_mid .toolbar_item:hover::after{
     transform: scale(1);
 }
@@ -197,7 +198,8 @@
 
 /* bảng mở rộng */
 .toolbar_mid .toolbar_mid_calendar_container,
-.toolbar_mid .toolbar_mid_change_text_container {
+.toolbar_mid .toolbar_mid_change_text_container,
+.toolbar_mid .toolbar_mid_setting_container {
     position: absolute;
     top: calc(100% + 5px);
     left: 0;
@@ -228,10 +230,25 @@
     display: flex;
     justify-content: space-between;
 }
+.toolbar_mid .toolbar_mid_setting_content {
+    width: 300px;
+    height: 0px;
+    background-color: #484e59;
+
+    border-radius: 10px;
+    transition: all .3s;
+    overflow: hidden;
+
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
 
 /* Cầu nối */
 .toolbar_mid .toolbar_mid_calendar_content::before,
-.toolbar_mid .toolbar_mid_change_text_content::before {
+.toolbar_mid .toolbar_mid_change_text_content::before,
+.toolbar_mid .toolbar_mid_setting_content::before {
     content: "";
     height: 0;
     width: 100%;
@@ -240,7 +257,8 @@
     position: absolute;
 }
 .toolbar_mid_calendar.active_toolbar .toolbar_mid_calendar_content::before,
-.toolbar_mid_change_text.active_toolbar .toolbar_mid_change_text_content::before {
+.toolbar_mid_change_text.active_toolbar .toolbar_mid_change_text_content::before,
+.toolbar_mid_setting.active_toolbar .toolbar_mid_setting_content::before {
     height: 22px;
 }
 
@@ -250,6 +268,9 @@
 }
 .toolbar_mid_change_text.active_toolbar .toolbar_mid_change_text_content {
     height: 250px;
+}
+.toolbar_mid_setting.active_toolbar .toolbar_mid_setting_content {
+    height: 280px;
 }
 
 /* các thành phần bên trong  toolbar_mid_calendar*/
@@ -375,6 +396,76 @@
 }
 .toolbar_mid_change_text_content .toolbar_mid_change_text_result textarea {
     background-color: #00000075;
+}
+
+
+
+/* btn_toolbar */
+.btn_toolbar {
+    padding: 5px 20px;
+    background-color: #ee7975;
+    border-radius: 8px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    cursor: pointer;
+    border: none;
+    color: #fff;
+    width: max-content;
+}
+.btn_toolbar:active {
+    box-shadow: inset rgb(0 0 0 / 40%) 5px 0px 12px 0px, inset rgb(0 0 0 / 20%) 5px 8px 16px 0px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* các thành phần bên trong  toolbar_mid_setting*/
+.margin_top10 {
+    margin-top: 10px;
+}
+.margin_bottom10 {
+    margin-bottom: 10px;
+}
+.split_c {
+    width: 100%;
+    height: 1px;
+    background: #ffffff33;
+}
+.toolbar_mid_setting_item1 {
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.toolbar_mid_setting_item2 {
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.toolbar_mid_setting_item3 {
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.toolbar_mid_setting_pause1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.input_pause {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+}
+.pause_text2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
+.toolbar_mid_setting_title {
+    margin-bottom: 10px;
 }
 
 @keyframes ro {
