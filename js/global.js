@@ -676,6 +676,7 @@ function fun_handle_click_chat_end(mess_chat, chat_textarea, chat_bottom_menu, e
     })
 }
 
+//pause chat
 function chat_wrap(params) {
 
     let el_right_section = document.querySelector('.right-section___2FA6h').children

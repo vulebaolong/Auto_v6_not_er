@@ -1,0 +1,9 @@
+Shopee kiểm tra thấy website của đơn vị vận chuyển đã cập nhật thông tin giao hàng thành công vào ngày XXXXX
+Nhưng hiện quá 24h hệ thống Shopee chưa đồng bộ nên Shopee sẽ chuyển thông tin đến đơn vị vận chuyển và bộ phận liên quan để kiểm tra lại trạng thái đúng của đơn hàng này, thời gian xử lý 3-5 ngày làm việc.
+
+Dear Team,
+Nhờ hỗ trợ xác minh cập nhật đúng trạng thái:
+- Đã giao hàng nhưng BE/ Portal chưa cập nhật Delivery Done
+- Web 3PL đã cập nhật giao thành công
+- Đã quá 24h kể từ khi nhận hàng
+MVĐ: 

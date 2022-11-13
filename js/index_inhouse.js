@@ -295,10 +295,9 @@ window.onload = function () {
 
         var el_item_test = document.querySelector('.btn_test');
         el_item_test.onclick = (ev) => {
-            // Open_tab()
-            // chrome.tabs.create({url: "https://google.com/", active: true});
-            // var redirectWindow = window.open('https://cs.shopee.vn/portal/inhouse/workstation/items', '_blank');
-            
+            // let el_chattimeout_ar = document.querySelectorAll('.SystemMessage-module_root__2irW-')
+
+            get_macro_coppy()
         };
 
         // lắng nghe phím bấm

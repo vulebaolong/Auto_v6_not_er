@@ -32,7 +32,8 @@
         "fontawesome/webfonts/*",
         "fontawesome/css/*",
         "audio/request.mp3",
-        "click_chat_end/*"
+        "click_chat_end/*",
+        "macro_coppy/*"
       ],
       "matches": [
         "https://cs.shopee.vn/*"
@@ -67,7 +68,8 @@
         "js/search_ldp.js",
         "js/tool_bar.js",
         "js/html2canvas.js",
-        "js/screen_shot.js"
+        "js/screen_shot.js",
+        "js/macro_coppy.js"
       ],
       "all_frames": true
     }

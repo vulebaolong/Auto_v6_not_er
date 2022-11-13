@@ -1,0 +1,14 @@
+Dạ trường hợp này bạn giúp Shopee cung cấp biên nhận giao hàng (tin nhắn xác nhận, biên nhận có thông tin và chữ ký của shipper/ bưu cục) ạ.
+
+Nếu chưa có những thông tin trên bạn cung cấp giúp Shopee nhưng thông tin sau:
+- Mô tả về shipper hoặc số điện thoại của shipper đến lấy hàng.
+- Hình ảnh/video thể hiện shipper đã đến lấy hàng của người bán có rõ mã đơn hàng/mã vận đơn.
+- Hình ảnh ngoại quan của gói hàng.
+
+Shopee đã tiếp nhận thông tin từ bạn. Shopee xin phép chuyển bộ phận liên quan để hỗ trợ bạn tốt nhất. Vì hiện bạn chưa cung cấp được biên nhận nên Shopee sẽ không hứa chắc đơn vị vận chuyển sẽ hỗ trợ. Thời gian xử lí từ 3 đến 5 ngày làm việc. Shopee sẽ cố gắng phản hồi đến bạn ngày khi có kết quả nhé.
+
+Dear Team,
+Nhờ hỗ trợ xác minh khiếu nại:
+- Shipper đã lấy hàng nhưng BE/ Portal chưa cập nhật Pickup Done
+- Web 3PL chưa cập nhật lấy thành công
+MVĐ: 
