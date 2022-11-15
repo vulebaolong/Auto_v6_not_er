@@ -1,5 +1,5 @@
 Shopee kiểm tra thấy đơn đang ở khu vực quận huyện của người mua.
-Sau khi tiếp nhận Shopee sẽ chuyển thông tin đến đơn vị vận chuyển ngay lập tức. Phiền bạn cho đơn vị vận chuyển thêm 24h tiếp theo để giao hàng cho bạn nhé.
+Sau khi tiếp nhận Shopee sẽ chuyển thông tin đến đơn vị vận chuyển ngay lập tức. Phiền bạn cho đơn vị vận chuyển thêm 24h tiếp theo (không tính cuối tuần, ngày lễ) để giao hàng cho bạn nhé.
 Thông thường đơn hàng đã tới quận/huyện của người mua sẽ được đơn vị vận chuyển sắp xếp giao hàng trong các ca giao sắp tới, bạn có thể chủ động theo dõi hành trình trên web đơn vị vận chuyển ạ.
 Trường hợp bạn cần liên hệ với đơn vị vận chuyển, bạn có thể liên hệ theo thông tin XXXXX
 

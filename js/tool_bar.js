@@ -413,12 +413,12 @@ function run_toolBar(body) {
             // el_ampm.innerHTML = am
 
             //đúng 6h sáng wrap up
-            if (am === 'AM') {
-                if (h == 06 && m == 00 && s == 00) {
-                    chat_wrap()
-                }
-                // console.log(h+':',m+':',s);
-            }
+            // if (am === 'AM') {
+            //     if (h == 06 && m == 00 && s == 00) {
+            //         chat_wrap()
+            //     }
+            //     // console.log(h+':',m+':',s);
+            // }
 
 
         }, 1000);
