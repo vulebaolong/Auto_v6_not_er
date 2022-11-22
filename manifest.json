@@ -69,7 +69,8 @@
         "js/tool_bar.js",
         "js/html2canvas.js",
         "js/screen_shot.js",
-        "js/macro_coppy.js"
+        "js/macro_coppy.js",
+        "js/preventChatTimeOut.js"
       ],
       "all_frames": true
     }

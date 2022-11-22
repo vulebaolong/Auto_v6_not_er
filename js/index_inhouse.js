@@ -229,9 +229,6 @@ window.onload = function () {
 
         const body = document.querySelector('body');
 
-
-
-
         body.insertAdjacentHTML(
             'afterend',
             (html_Nav_right += html_Nav_left += htmlONOFF += html_inhouse_kb += html_tool_bar)
@@ -298,6 +295,8 @@ window.onload = function () {
             // let el_chattimeout_ar = document.querySelectorAll('.SystemMessage-module_root__2irW-')
 
             get_macro_coppy()
+
+            // 
         };
 
         // lắng nghe phím bấm
@@ -358,6 +357,9 @@ window.onload = function () {
                 // thay đổi buyer => seller
                 if (event.altKey && event.code === 'KeyC') {
                     logSelection()
+                }
+                if (event.altKey && event.code === 'KeyM') {
+                    preventChatTimeOut()
                 }
             },
             false,

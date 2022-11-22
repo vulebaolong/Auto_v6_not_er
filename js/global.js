@@ -640,7 +640,7 @@ function fun_click_chat_end(path, chat_textarea, chat_bottom_menu, chat_top_menu
     fetch(path)
         .then(response => response.text())
         .then(async (texts_data) => {
-            let texts = texts_data.split("\r\n")
+            let texts = texts_data.split("|")
             console.log(texts)
             let step = texts.length + 1
             let texts_length = texts.length
