@@ -534,7 +534,7 @@ function time_clock(params) {
 
         el_hours.innerHTML = h + '<br><span>hh</span>';
         el_minutes.innerHTML = m + '<br><span>mm</span>';
-        el_seconds.innerHTML = s + '<br><span>ss</span>';       
+        el_seconds.innerHTML = s + '<br><span>ss</span>';
 
         hh.style.strokeDashoffset = 165 - (165 * h) / 24;
         mm.style.strokeDashoffset = 165 - (165 * m) / 60;
@@ -591,22 +591,24 @@ function add_mes_chat_end() {
 
             el_mes_chat_buttons1.onclick = (e) => {
                 e.stopPropagation();
-                if (chat_box.children.length === 4) {
-                    if (el_mes_chat_textarea.value.trim() !== '') {
-                        const path = chrome.runtime.getURL('click_chat_end/chat_end_1.txt');
-                        fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
-                    }
-                }
+                const path = chrome.runtime.getURL('click_chat_end/chat_end_1.txt');
+                fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
+                // if (chat_box.children.length === 4) {
+                //     if (el_mes_chat_textarea.value.trim() !== '') {
+
+                //     }
+                // }
             };
 
             el_mes_chat_buttons2.onclick = (e) => {
                 e.stopPropagation();
-                if (chat_box.children.length === 4) {
-                    if (el_mes_chat_textarea.value.trim() !== '') {
-                        const path = chrome.runtime.getURL('click_chat_end/chat_end_2.txt');
-                        fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
-                    }
-                }
+                const path = chrome.runtime.getURL('click_chat_end/chat_end_2.txt');
+                fun_click_chat_end(path, chat_textarea, chat_bottom_menu.children[1], chat_top_menu.children[1], el_mes_chat_textarea)
+                // if (chat_box.children.length === 4) {
+                //     if (el_mes_chat_textarea.value.trim() !== '') {
+
+                //     }
+                // }
             };
 
             el_mes_chat_buttons3.onclick = (e) => {
@@ -658,7 +660,7 @@ function fun_click_chat_end(path, chat_textarea, chat_bottom_menu, chat_top_menu
 function fun_handle_click_chat_end(mess_chat, chat_textarea, chat_bottom_menu, el_mes_chat_textarea) {
     return new Promise((resolve, reject) => {
         let mess
-        if (mess_chat === '*') {
+        if (mess_chat.includes('*')) {
             mess = el_mes_chat_textarea.value
             // mess = `${el_mes_chat_textarea.value}`
             // console.log(mess);
