@@ -682,9 +682,9 @@ function fun_handle_click_chat_end(mess_chat, chat_textarea, chat_bottom_menu, e
 function chat_wrap(params) {
 
     let el_right_section = document.querySelector('.right-section___2FA6h').children
-    let item_section_status = el_right_section[3].children[0].children[0].children[0].children[1].children[0].innerText
+    let item_section_status = el_right_section[4].children[0].children[0].children[0].children[1].children[0].innerText
 
-    let item_section = el_right_section[3].children[0].children[0].children[0]
+    let item_section = el_right_section[4].children[0].children[0].children[0]
     if (item_section_status === "Busy") {
         console.log(item_section_status);
     }
