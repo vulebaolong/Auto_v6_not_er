@@ -422,18 +422,22 @@ function edit() {
 
     if (id === 'case-detail') {
         console.log('thông tin');
-        var status =
-            e.children[0].children[0].children[0].children[0].children[0].children[0].children[2]
-                .children[0].children[1].children[0].children[0].children[2].children[0];
+        // var status =
+        //     e.children[0].children[0].children[0].children[0].children[0].children[0].children[2]
+        //         .children[0].children[1].children[0].children[0].children[2].children[0];
+        let status = document.querySelector('.right_side___nL3pV').children[0]
+
         console.log(status);
         eventFire(status, 'click');
     }
 
     if (id === 'agentchat?s') {
         console.log('chat');
-        var status =
-            e.children[0].children[0].children[0].children[0].children[2].children[0].children[1]
-                .children[0].children[2];
+        // var status =
+        //     e.children[0].children[0].children[0].children[0].children[2].children[0].children[1]
+        //         .children[0].children[2];
+        let status = document.querySelector('.title___144-3').children[2]
+
         console.log(status);
         eventFire(status, 'click');
     }
