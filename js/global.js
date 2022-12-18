@@ -425,7 +425,7 @@ function edit() {
         // var status =
         //     e.children[0].children[0].children[0].children[0].children[0].children[0].children[2]
         //         .children[0].children[1].children[0].children[0].children[2].children[0];
-        let status = document.querySelector('.right_side___nL3pV').children[0]
+        let status = e.querySelector('.right_side___nL3pV').children[0]
 
         console.log(status);
         eventFire(status, 'click');
@@ -436,7 +436,7 @@ function edit() {
         // var status =
         //     e.children[0].children[0].children[0].children[0].children[2].children[0].children[1]
         //         .children[0].children[2];
-        let status = document.querySelector('.title___144-3').children[2]
+        let status = e.querySelector('.title___144-3').children[2]
 
         console.log(status);
         eventFire(status, 'click');
