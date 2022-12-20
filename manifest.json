@@ -57,6 +57,7 @@
         "css/search_ldp.css",
         "fontawesome/css/all.css",
         "css/toolbar.css",
+        "css/theme.css",
         "css/screen_shot.css"
       ],
       "js": [

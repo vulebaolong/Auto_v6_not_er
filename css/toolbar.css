@@ -270,7 +270,7 @@
     height: 250px;
 }
 .toolbar_mid_setting.active_toolbar .toolbar_mid_setting_content {
-    height: 280px;
+    height: 340px;
 }
 
 /* các thành phần bên trong  toolbar_mid_calendar*/
@@ -443,6 +443,12 @@
     gap: 10px;
 }
 .toolbar_mid_setting_item3 {
+    padding: 0 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.toolbar_mid_setting_item4 {
     padding: 0 10px;
     display: flex;
     justify-content: flex-start;

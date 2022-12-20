@@ -101,6 +101,11 @@ let html_tool_bar = `
                             <div class="toolbar_mid_setting_item3">
                                 <button class="btn_toolbar btn_opentab">Open Tab</button>
                             </div>
+                            <div class="split_c"></div>
+                            <div class="toolbar_mid_setting_item4">
+                                <button class="btn_toolbar btn_opentheme">Theme</button>
+                            </div>
+
                             <div class="split_c margin_bottom10"></div>
                         </div>
                     </div>
@@ -145,6 +150,7 @@ function run_toolBar(body) {
     let el_toolbar_mid_setting = document.querySelector('.toolbar_mid_setting')
     let el_toolbar_mid_setting_content = document.querySelector('.toolbar_mid_setting_content')
     let el_btn_opentab = document.querySelector('.btn_opentab')
+    let el_btn_opentheme = document.querySelector('.btn_opentheme')
 
     let el_time_hours2 = document.querySelector('.time_hour2');
     let el_time_minutes2 = document.querySelector('.time_minutes2');
@@ -225,6 +231,12 @@ function run_toolBar(body) {
 
     el_btn_opentab.onclick = () => {
         Open_tab()
+    }
+
+    el_btn_opentheme.onclick = () => {
+        const el_inhouse_layout = document.querySelector('#inhouse-layout')
+        console.log(el_inhouse_layout);
+        el_inhouse_layout.classList.toggle('theme_1')
     }
 
 
