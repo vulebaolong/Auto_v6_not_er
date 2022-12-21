@@ -1,16 +1,24 @@
 :root {
-    --color-background: rgba(20, 21, 35, 1);
-    --color-icon: #fff;
+    --color-background: rgb(60, 60, 60);
+    --color-white: #fff;
+    --color-black: #000;
+    --color-gray: #e8e8e8;
+    --color-button: rgb(27, 27, 27);
     --color-background2: rgb(41 43 71);
-    --color-border: #495884;
+    --color-background3: #fef5dc;
+    --color-border: #505050;
+
+    --color-heading-2: #ff6868;
+    --color-heading-3: #97a9c7;
+    --color-heading-4: #98bfff;
 }
 
 .theme_1 .navbar___1J6M5 {
     background-color: var(--color-background) !important;
     border-color: var(--color-background) !important;
-}
+} 
 
-.theme_1 .sidebar___209Gb {
+.theme_1 .sidebar___209Gb { 
     background-color: var(--color-background) !important;
 }
 
@@ -43,7 +51,7 @@
 
 .theme_1 .refresh-btn___2Wq0y,
 .theme_1 .close-btn___3Ta_L {
-    fill: var(--color-icon) !important;
+    fill: var(--color-white) !important;
 }
 
 .theme_1 .chat_box_mask___19AhY {
@@ -52,11 +60,95 @@
 
 .theme_1 .flexible-tabs-nav-group-item___3rwJR {
     border: 1px solid var(--color-border) !important;
-    border-bottom: var(--color-background2) !important;
+    border-bottom: var(--color-black) !important;
     background: none !important;
-    background-color: var(--color-background2) !important;
+    background-color: var(--color-black) !important;
+}
+
+.theme_1 .flexible-tabs-nav___1qmpV .flexible-tabs-nav-group___2qIZY .flexible-tabs-nav-group-item___3rwJR {
+    color: var(--color-white) !important;
+}
+
+.theme_1 .title___196eL {
+    color: var(--color-white) !important;
+
 }
 
 .theme_1 .agentChatWrapper___1-eUA {
-    background-color: var(--color-background2) !important;
+    background-color: var(--color-black) !important;
+}
+
+.theme_1 .case_fields___s0fRG {
+    background-color: var(--color-background) !important;
+}
+
+.theme_1 .tab_box___81pQv {
+    background-color: var(--color-background) !important;
+}
+
+.theme_1 .module_tab___31d1v,
+.theme_1 .shopee-react-tabs-tabpane-active,
+.theme_1 .tox-toolbar__primary,
+.theme_1 .bottom_menu___1BSFY {
+    background-color: var(--color-background) !important;
+}
+
+.theme_1 .detail_box___3AU-n {
+    background-color: var(--color-black) !important;
+} 
+
+.theme_1 .btn_default___2f9RT {
+    background-color: var(--color-button) !important;
+    color: var(--color-white) !important;
+    border-color: var(--color-border);
+}
+
+.theme_1 .entryWrapper___3I27h path,
+.theme_1 .announcementWrapper___3k2Cz path,
+.theme_1 .case-add-container___3Z0MG path,
+.theme_1 .case-add-container___3Z0MG path,
+.theme_1 .svg-icon___1zyeb,
+
+.theme_1 .tox .tox-tbtn svg,
+.theme_1 .tox .tox-tbtn svg path{
+    fill: #cccccc !important;
+}
+
+
+/* ======================================== */
+.theme_1 .title___144-3,
+.theme_1 .item_text___RJp9L {
+    color: var(--color-white) !important;
+}
+
+.theme_1 .title___1nuUU {
+    color: var(--color-heading-2) !important;
+}
+
+.theme_1 .field_label___PQPs8 {
+    color: var(--color-heading-3) !important;
+}
+
+.theme_1 .shopee-react-tabs-tab,
+.theme_1 .shopee-react-tabs-tab {
+    color: var(--color-gray) !important;
+}
+
+.theme_1 .user_name___2SAEi {
+    color: var(--color-white) !important;
+}
+
+.theme_1 .title___2ZSP5,
+.theme_1 .subinfo_text___2z99x {
+    color: var(--color-heading-4) !important;
+}
+
+.theme_1 iframe * {
+    color: var(--color-gray) !important;
+}
+
+.theme_1 iframe[title="Email Sandbox"],
+.theme_1 .tox .tox-editor-container,
+.theme_1 .tox .tox-edit-area__iframe {
+    background: #fef5dc !important;
 }
