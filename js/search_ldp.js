@@ -5,44 +5,20 @@ function start_search() {
     var el_search_result_box = document.querySelector('.search_result_box');
     var el_search_container = document.querySelector('.search_container');
 
-    // body.onclick = (e) => {
-    //     var docu_toggle = Array.from(e.target.classList)
-    //     var reslut_docu_toggle = docu_toggle.some(e => {
-    //         console.log(e);
-    //         return  e === 'search_container' ||
-    //                 e === 'search_box' ||
-    //                 e === 'search_button' ||
-    //                 e === 'search_input' ||
-    //                 e === 'search_result_box' ||
-    //                 e === 'fa-magnifying-glass' ||
-    //                 e === 'search_result_item' ||
-    //                 e === 'search_result_L1' ||
-    //                 e === 'search_result_L2' ||
-    //                 e === 'search_result_L3' ||
-    //                 e === 'search_result_Explain' ||
-    //                 e === 'search_label_L1'
-    //     })
-    //     console.log(reslut_docu_toggle);
-    //     if (reslut_docu_toggle === false) {
-    //         el_search_input.classList.remove("search_input_after")
-    //         el_search_result_box.classList.remove("search_result_box_after")
-    //     }
-    // }
 
     el_search_container.onclick = (e1) => {
-        var e1_length = e1.path.length - 3;
-        e1.path.forEach((e2, i) => {
-            if (i < e1_length) {
-                var el_item = Array.from(e2.classList).includes('search_result_item');
-                if (el_item) {
-                    console.log(e2);
-                    var L1 = e2.children[0].children[0].innerText;
-                    var L2 = e2.children[1].children[0].innerText;
-                    var L3 = e2.children[2].children[0].innerText;
-                    selectLDP(L1, L2, L3);
-                }
-            }
-        });
+        
+        let parent = e1.target.parentElement.parentElement
+        // let isParent = Array.from(parent.classList).includes('search_result_item')
+        let isParent = [...parent.classList].includes('search_result_item')
+        if (isParent) {
+            console.dir(parent);
+            console.dir(parent.children);
+            console.dir([...parent.children].map((e) => e.textContent.trim()));
+            const Ln = [...parent.children].map((e) => e.textContent.trim())
+            console.log(Ln[0],Ln[1],Ln[2]);
+            selectLDP(Ln[0],Ln[1],Ln[2]);
+        }
     };
 
     el_search_button.onclick = (e) => {

@@ -42,7 +42,9 @@
 </div>
 `;
 
-let html_Nav_left = `
+let html_Nav_left = 
+/*html*/
+`
 <div class="nav_left">
 <div class="btn_ldp button_long_hover">
     LDP
