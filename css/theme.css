@@ -125,6 +125,10 @@
     color: var(--color-heading-2) !important;
 }
 
+.theme_1 .shopee-react-form .collapse___3TCSg:nth-child(2) .header___1BUGG {
+    background-color: black;
+}
+
 .theme_1 .field_label___PQPs8 {
     color: var(--color-heading-3) !important;
 }
@@ -152,3 +156,48 @@
 .theme_1 .tox .tox-edit-area__iframe {
     background: #fef5dc !important;
 }
+
+.theme_1 .searchListWrap___hVtJw {
+    background-color: #8f8f8f;
+}
+
+.theme_1 .shopee-react-table-tbody {
+    background-color: #8f8f8f;
+    color: white;
+
+}
+
+.theme_1 .shopee-react-table-tbody td {
+    background-color: #8f8f8f;
+
+}
+
+.theme_1 .shopee-react-table-tbody .slaName___9Ga1N,
+.theme_1 .shopee-react-input__inner--large .shopee-react-input__input {
+    color: white;
+}
+
+.theme_1 .workItemsWrap___DQfo4 .listWrap___xlNNG {
+    background-color: #8f8f8f;
+
+}
+
+.theme_1 .content___3Z6BK,
+.theme_1 .formFooter___3u_Sd,
+.theme_1 .attachment_area___SZx9r,
+.theme_1 .cs-materials-shopee-order__order,
+.theme_1 .shopee-react-input .shopee-react-input__inner,
+.theme_1 .routing-config-page-container___3LHaK .routing-config-page-content___HBDEI  {
+    background-color: var(--color-background);
+    color: white;
+}
+
+.theme_1 .shopee-react-input__inner .shopee-react-input__input {
+    background-color: white;
+    color: #000;
+}
+
+.theme_1 .cs-base-number-view-container {
+    color: white;
+}
+

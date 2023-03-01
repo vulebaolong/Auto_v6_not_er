@@ -328,6 +328,9 @@ window.onload = function () {
                     let el_inhouse_kb = document.querySelector('.inhouse_kb');
                     el_inhouse_kb.classList.toggle('none');
                 }
+                if (event.altKey && event.code === 'KeyG') {
+                    gmail()
+                }
 
                 //LDP
                 if (event.altKey && event.code === 'Backquote') {

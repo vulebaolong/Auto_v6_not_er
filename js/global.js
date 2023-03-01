@@ -406,12 +406,7 @@ function selectLDP_find_menu(el_menu_ldps) {
 function fun_workstation_current() {
     let el_workstation_current;
     Array.from(document.querySelector('#workstation').children[0].children).forEach((e) => {
-        console.log(Object.keys(e.attributes).length);
-        if (Object.keys(e.attributes).length === 2) {
-            console.log(e);
-
-            el_workstation_current = e;
-        }
+        if (Object.keys(e.attributes).length === 2) console.log(el_workstation_current = e);
     });
     return el_workstation_current;
 }

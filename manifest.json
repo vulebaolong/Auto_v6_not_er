@@ -71,7 +71,8 @@
         "js/html2canvas.js",
         "js/screen_shot.js",
         "js/macro_coppy.js",
-        "js/preventChatTimeOut.js"
+        "js/preventChatTimeOut.js",
+        "js/gmail.js"
       ],
       "all_frames": true
     }
