@@ -492,10 +492,12 @@
             card_with_headerss.forEach((e) => {
                 if (e.attributes.id.value === 'payment-info') {
                     //console.log('nè: ',e.children[0].children[1].children[0].children[0].children[1].children[13].children[1].children[0].innerHTML.trim());
-                    Get_PM[0] = e.children[0].children[1].children[0].children[0].children[1].children[13].children[0].children[0].innerHTML.trim()
-                    Get_PM[1] = e.children[0].children[1].children[0].children[0].children[1].children[13].children[1].children[0].innerHTML.trim()
-                    Get_PM[2] = e.children[0].children[1].children[0].children[0].children[1].children[11].children[0].innerHTML.trim()
-                    Get_PM[3] = e.children[0].children[1].children[0].children[0].children[1].children[11].children[1].innerText.trim()
+                    console.log(e.children[0].children[1].children[0].children[1].children[0].children[1]);
+
+                    Get_PM[0] = e.children[0].children[1].children[0].children[1].children[0].children[1].children[13].children[0].children[0].innerHTML.trim()
+                    Get_PM[1] = e.children[0].children[1].children[0].children[1].children[0].children[1].children[13].children[1].children[0].innerHTML.trim()
+                    Get_PM[2] = e.children[0].children[1].children[0].children[1].children[0].children[1].children[11].children[0].innerHTML.trim()
+                    Get_PM[3] = e.children[0].children[1].children[0].children[1].children[0].children[1].children[11].children[1].innerText.trim()
 
                 }
             });
