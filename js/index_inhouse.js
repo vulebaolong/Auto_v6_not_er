@@ -42,9 +42,9 @@
 </div>
 `;
 
-let html_Nav_left = 
-/*html*/
-`
+let html_Nav_left =
+    /*html*/
+    `
 <div class="nav_left">
 <div class="btn_ldp button_long_hover">
     LDP
@@ -377,34 +377,27 @@ window.onload = function () {
         //=======================================================================
         chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
             var flag = false;
-            var id_case;
 
-            var workstation;
-            Array.from(document.querySelector('#workstation').children[0].children).forEach((e) => {
-                console.log(Object.keys(e.attributes).length);
-                if (Object.keys(e.attributes).length === 2) {
-                    var id = e.attributes.id.value.substr(44, 11);
-                    id_case = e.attributes.id.value.slice(-19);
-                    console.log('id: ', id);
-                    console.log('id_case: ', id_case);
-                    if (id === 'case-detail') {
-                        console.log('thông tin');
-                        workstation = e.children[0].children[0].children[0];
-                        workstation.parentElement.nextElementSibling.style.width = 'calc(100% - 350px)';
-                    }
+            let workstation = fun_workstation_current();
+            const id = workstation.attributes.id.value.substr(44, 11);
+            const id_case = workstation.attributes.id.value.slice(-19);
+            console.log('id: ', id);
+            console.log('id_case: ', id_case);
+            if (id === 'case-detail') {
+                console.log('thông tin');
+                workstation = workstation.children[0].children[0].children[0];
+                workstation.parentElement.nextElementSibling.style.width = 'calc(100% - 350px)';
+            }
+            if (id === 'agentchat?s') {
+                console.log('chat');
+                workstation = workstation.children[0];
+            }
 
-                    if (id === 'agentchat?s') {
-                        console.log('chat');
-                        workstation = e.children[0];
-                    }
+            if (id === 'case/create') {
+                console.log('create');
+                workstation = workstation.children[0].children[0].children[0];
+            }
 
-                    if (id === 'case/create') {
-                        console.log('create');
-                        workstation = e.children[0].children[0].children[0];
-                    }
-                    console.log('workstation: ', workstation);
-                }
-            });
 
             Array.from(workstation.children).forEach((e) => {
                 if (e.classList[0] === 'Auto_saleforce_Order_Info') {
@@ -708,186 +701,122 @@ window.onload = function () {
             var Item_L4;
             var Item_dvvc;
             var id;
-            Array.from(document.querySelector('#workstation').children[0].children).forEach((e) => {
-                console.log(Object.keys(e.attributes).length);
-                if (Object.keys(e.attributes).length === 2) {
-                    console.log(e);
-                    id = e.attributes.id.value.substr(44, 11);
+            const e = fun_workstation_current()
 
-                    if (id === 'case-detail') {
-                        console.log('thông tin');
-                        var list_item_Order_Details_thongtin =
-                            e.children[0].children[0].children[0].children[0].children[0].children[0].children[2]
-                                .children[0].children[1].children[0].children[1].children[0].children[1].children[1]
-                                .children[0].children;
-                        var list_item_Order_Details_logistics_thongtin =
-                            e.children[0].children[0].children[0].children[0].children[0].children[0].children[2]
-                                .children[0].children[1].children[0].children[1].children[0].children[3].children[1]
-                                .children[0].children;
-                        console.log(list_item_Order_Details_thongtin);
-                        Item_L1 = Find_Item(list_item_Order_Details_thongtin, 'Order SN').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L2 = Find_Item(list_item_Order_Details_thongtin, 'More Order SN').children[1].children[0]
-                            .children[0].children[0];
-                        Item_L3 = Find_Item(list_item_Order_Details_thongtin, 'Shipping ID').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L4 = Find_Item(list_item_Order_Details_thongtin, 'More Shipping ID').children[1]
-                            .children[0].children[0].children[0];
-                        Item_dvvc = Find_Item(list_item_Order_Details_logistics_thongtin, '3PL').children[1].children[0]
-                            .children[0].children[0];
-                        //console.log(Item_L1, Item_L2, Item_L3, Item_L4, list_item_Order_Details_thongtin, list_item_Order_Details_logistics_thongtin,Item_dvvc);
-                    }
 
-                    if (id === 'agentchat?s') {
-                        var list_item_Order_Details_chat =
-                            e.children[0].children[0].children[0].children[0].children[2].children[0].children[1]
-                                .children[1].children[0].children[0].children[0].children[1].children[1].children[0]
-                                .children;
-                        var list_item_Order_Details_logistics_chat =
-                            e.children[0].children[0].children[0].children[0].children[2].children[0].children[1]
-                                .children[1].children[0].children[0].children[0].children[3].children[1].children[0]
-                                .children;
-                        //Find_Item_chat(list_item_Order_Details_chat, 'Order SN')
-                        Item_L1 = Find_Item_chat(list_item_Order_Details_chat, 'Order SN').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L2 = Find_Item_chat(list_item_Order_Details_chat, 'More Order SN').children[1].children[0]
-                            .children[0].children[0];
-                        Item_L3 = Find_Item_chat(list_item_Order_Details_chat, 'Shipping ID').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L4 = Find_Item_chat(list_item_Order_Details_chat, 'More Shipping ID').children[1]
-                            .children[0].children[0].children[0];
-                        Item_dvvc = Find_Item_chat(list_item_Order_Details_logistics_chat, '3PL').children[1]
-                            .children[0].children[0].children[0];
-                        //console.log(Item_dvvc.children[0].children[0].children.length);
-                        //console.log(Item_L1, Item_L2, Item_L3, Item_L4, list_item_Order_Details_chat, list_item_Order_Details_logistics_chat, Item_dvvc);
-                    }
+            let objInput = {}
+            const labelArr = e.querySelectorAll('.shopee-react-form-item__label')
+            Array.from(labelArr).forEach((e) => {
+                if (e.textContent === 'Order SN' || e.textContent === '*Order SN') {
+                    objInput.OrderSN = e.parentElement.querySelector('.shopee-react-input__input')
+                }
+                if (e.textContent === 'More Order SN' || e.textContent === '*More Order SN') {
+                    objInput.MoreOrderSN = e.parentElement.querySelector('.shopee-react-input__inner')
+                }
+                if (e.textContent === 'Shipping ID' || e.textContent === '*Shipping ID') {
+                    objInput.ShippingID = e.parentElement.querySelector('.shopee-react-input__inner')
+                }
+                if (e.textContent === 'More Shipping ID' || e.textContent === '*More Shipping ID') {
+                    objInput.MoreShippingID = e.parentElement.querySelector('.shopee-react-input__inner')
+                }
+            })
+            console.log(objInput);
+            Item_L1 = objInput.OrderSN
+            Item_L2 = objInput.MoreOrderSN
+            Item_L3 = objInput.ShippingID
+            Item_L4 = objInput.MoreShippingID
 
-                    if (id === 'case/create') {
-                        console.log('tạo case');
-                        var list_item_Order_Details_create =
-                            e.children[0].children[0].children[0].children[0].children[0].children[1].children[0]
-                                .children[0].children[0].children[1].children[1].children[0].children;
-                        var list_item_Order_Details_logistics_create =
-                            e.children[0].children[0].children[0].children[0].children[0].children[1].children[0]
-                                .children[0].children[0].children[3].children[1].children[0].children;
-                        Item_L1 = Find_Item(list_item_Order_Details_create, 'Order SN').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L2 = Find_Item(list_item_Order_Details_create, 'More Order SN').children[1].children[0]
-                            .children[0].children[0];
-                        Item_L3 = Find_Item(list_item_Order_Details_create, 'Shipping ID').children[1].children[0]
-                            .children[0].children[0].children[0];
-                        Item_L4 = Find_Item(list_item_Order_Details_create, 'More Shipping ID').children[1].children[0]
-                            .children[0].children[0];
-                        Item_dvvc = Find_Item(list_item_Order_Details_logistics_create, '3PL').children[1].children[0]
-                            .children[0].children[0];
-                        //console.log(Item_L1, Item_L2, Item_L3, Item_L4, list_item_Order_Details_create,Item_dvvc);
-                    }
+            //thêm order_sn
+            let order_sn = Item_L1;
+            let order_sn_value = Item_L1.value;
+            let more_order_sn = Item_L2;
+            let more_order_sn_value = Item_L2.innerHTML;
 
-                    //thêm order_sn
-                    var order_sn = Item_L1;
-                    var order_sn_value = Item_L1.value;
-                    var more_order_sn = Item_L2;
-                    var more_order_sn_value = Item_L2.innerHTML;
-                    console.log(find_value_order_details(order_sn_value, more_order_sn_value, SN));
-                    if (order_sn_value === '' && !find_value_order_details(order_sn_value, more_order_sn_value, SN)) {
-                        order_sn.value = SN;
-                        order_sn.dispatchEvent(new Event('change', { bubbles: true }));
-                        order_sn.dispatchEvent(new Event('blur', { bubbles: true }));
-                    } else {
-                        if (
-                            more_order_sn_value === '' &&
-                            !find_value_order_details(order_sn_value, more_order_sn_value, SN)
-                        ) {
-                            more_order_sn.focus();
-                            document.execCommand('insertText', false, `${SN}`);
-                        } else {
-                            if (!find_value_order_details(order_sn_value, more_order_sn_value, SN)) {
-                                more_order_sn.focus();
-                                document.execCommand('insertText', false, `${'\n' + SN}`);
-                            }
-                        }
-                    }
+            //thêm MVD
+            var more_shipping_id = Item_L4;
 
-                    //thêm MVD
-                    var shipping_id = Item_L3;
-                    var shipping_id_value = Item_L3.value;
-                    var more_shipping_id = Item_L4;
-                    var more_shipping_id_value = Item_L4.value;
-                    if (
-                        shipping_id_value === '' &&
-                        !find_value_order_details(shipping_id_value, more_shipping_id_value, MVD)
-                    ) {
-                        shipping_id.value = MVD;
-                        shipping_id.dispatchEvent(new Event('change', { bubbles: true }));
-                        shipping_id.dispatchEvent(new Event('blur', { bubbles: true }));
-                    } else {
-                        if (
-                            more_shipping_id_value === '' &&
-                            !find_value_order_details(shipping_id_value, more_shipping_id_value, MVD)
-                        ) {
-                            more_shipping_id.focus();
-                            document.execCommand('insertText', false, `${MVD}`);
-                        } else {
-                            if (!find_value_order_details(shipping_id_value, more_shipping_id_value, MVD)) {
-                                more_shipping_id.focus();
-                                document.execCommand('insertText', false, `${'\n' + MVD}`);
-                            }
-                        }
-                    }
 
-                    //click chọn dvvc
-                    if (Item_dvvc.children[0].children[0].children.length === 0) {
-                        var result_DVVC;
-                        switch (DVVC) {
-                            case 'Ninja Van':
-                                result_DVVC = 'Ninjavan';
-                                break;
-
-                            case 'Giao Hàng Nhanh':
-                                result_DVVC = 'GHN';
-                                break;
-
-                            case 'Shopee Xpress':
-                                result_DVVC = 'Shopee Xpress';
-                                break;
-
-                            case 'BEST Express':
-                                result_DVVC = 'Best Express';
-                                break;
-
-                            case 'J&T Express':
-                                result_DVVC = 'J&T';
-                                break;
-
-                            case 'VNPost Tiết Kiệm':
-                                result_DVVC = 'VN Post';
-                                break;
-
-                            case 'VNPost Nhanh':
-                                result_DVVC = 'VN Post';
-                                break;
-
-                            case 'Giao Hàng Tiết Kiệm':
-                                result_DVVC = 'GHTK';
-                                break;
-
-                            case 'Viettel Post':
-                                result_DVVC = 'Viettel';
-                                break;
-
-                            default:
-                                result_DVVC = 'chưa cài: ';
-                                break;
-                        }
-                        console.log(result_DVVC, DVVC);
-                        if (result_DVVC !== 'chưa cài: ') {
-                            elementReading(Item_dvvc, result_DVVC).then((e) => {
-                                e.click();
-                            });
-                        }
+            console.log(find_value_order_details(order_sn_value, more_order_sn_value, SN));
+            if (order_sn_value === '' && !find_value_order_details(order_sn_value, more_order_sn_value, SN)) {
+                order_sn.value = SN;
+                order_sn.dispatchEvent(new Event('change', { bubbles: true }));
+                order_sn.dispatchEvent(new Event('blur', { bubbles: true }));
+            } else {
+                if (
+                    more_order_sn_value === '' &&
+                    !find_value_order_details(order_sn_value, more_order_sn_value, SN)
+                ) {
+                    more_order_sn.focus();
+                    document.execCommand('insertText', false, `${SN}`);
+                    more_shipping_id.focus();
+                    document.execCommand('insertText', false, `${MVD}`);
+                } else {
+                    if (!find_value_order_details(order_sn_value, more_order_sn_value, SN)) {
+                        more_order_sn.focus();
+                        document.execCommand('insertText', false, `${'\n' + SN}`);
+                        more_shipping_id.focus();
+                        document.execCommand('insertText', false, `${'\n' + MVD}`);
                     }
                 }
-            });
+            }
+
+
+
+
+
+            /*
+            //click chọn dvvc
+            if (Item_dvvc.children[0].children[0].children.length === 0) {
+                var result_DVVC;
+                switch (DVVC) {
+                    case 'Ninja Van':
+                        result_DVVC = 'Ninjavan';
+                        break;
+
+                    case 'Giao Hàng Nhanh':
+                        result_DVVC = 'GHN';
+                        break;
+
+                    case 'Shopee Xpress':
+                        result_DVVC = 'Shopee Xpress';
+                        break;
+
+                    case 'BEST Express':
+                        result_DVVC = 'Best Express';
+                        break;
+
+                    case 'J&T Express':
+                        result_DVVC = 'J&T';
+                        break;
+
+                    case 'VNPost Tiết Kiệm':
+                        result_DVVC = 'VN Post';
+                        break;
+
+                    case 'VNPost Nhanh':
+                        result_DVVC = 'VN Post';
+                        break;
+
+                    case 'Giao Hàng Tiết Kiệm':
+                        result_DVVC = 'GHTK';
+                        break;
+
+                    case 'Viettel Post':
+                        result_DVVC = 'Viettel';
+                        break;
+
+                    default:
+                        result_DVVC = 'chưa cài: ';
+                        break;
+                }
+                console.log(result_DVVC, DVVC);
+                if (result_DVVC !== 'chưa cài: ') {
+                    elementReading(Item_dvvc, result_DVVC).then((e) => {
+                        e.click();
+                    });
+                }
+            }
+            */
         }
         function find_value_order_details(value_order_sn, value_more_order_sn, order_sn_current) {
             var value_before = [];

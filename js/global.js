@@ -404,12 +404,16 @@ function selectLDP_find_menu(el_menu_ldps) {
     return el_menu_ldp;
 }
 function fun_workstation_current() {
-    let el_workstation_current;
-    Array.from(document.querySelector('#workstation').children[0].children).forEach((e) => {
-        if (Object.keys(e.attributes).length === 2) console.log(el_workstation_current = e);
+    const workstation = document.querySelector('#workstation').children[0].children
+    const current = Array.from(workstation).find((e) => {
+        if (e.attributes.style.value.search("opacity: 1;") !== -1) {
+            return e
+        }
     });
-    return el_workstation_current;
+    return current;
 }
+
+
 function edit() {
     let e = fun_workstation_current()
     var id = e.attributes.id.value.substr(44, 11);
